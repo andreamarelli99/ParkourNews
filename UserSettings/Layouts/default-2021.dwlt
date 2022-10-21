@@ -15,12 +15,12 @@ MonoBehaviour:
   m_PixelRect:
     serializedVersion: 2
     x: 0
-    y: 34.4
+    y: 43.2
     width: 1536
-    height: 791.2
+    height: 780.8
   m_ShowMode: 4
-  m_Title: Animation
-  m_RootView: {fileID: 8}
+  m_Title: Hierarchy
+  m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
@@ -32,24 +32,23 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ConsoleWindow
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
   m_EditorClassIdentifier: 
-  m_Children: []
+  m_Children:
+  - {fileID: 9}
+  - {fileID: 3}
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 584.8
-    width: 363.19995
-    height: 156.40002
-  m_MinSize: {x: 101, y: 121}
-  m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 22}
-  m_Panes:
-  - {fileID: 22}
-  m_Selected: 0
-  m_LastSelected: 0
+    y: 30
+    width: 1536
+    height: 730.8
+  m_MinSize: {x: 300, y: 200}
+  m_MaxSize: {x: 24288, y: 16192}
+  vertical: 0
+  controlID: 124
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -58,23 +57,25 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: Window
   m_EditorClassIdentifier: 
-  m_Children:
-  - {fileID: 5}
-  - {fileID: 2}
+  m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1172.8
+    x: 1173.6
     y: 0
-    width: 363.19995
-    height: 741.2
-  m_MinSize: {x: 100, y: 200}
-  m_MaxSize: {x: 8096, y: 16192}
-  vertical: 1
-  controlID: 1698
+    width: 362.40002
+    height: 730.8
+  m_MinSize: {x: 101, y: 121}
+  m_MaxSize: {x: 4001, y: 4021}
+  m_ActualView: {fileID: 14}
+  m_Panes:
+  - {fileID: 16}
+  - {fileID: 14}
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -84,22 +85,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 1
-  m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
+  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Children:
-  - {fileID: 11}
-  - {fileID: 3}
+  m_Children: []
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 30
-    width: 1536
-    height: 741.2
-  m_MinSize: {x: 300, y: 200}
-  m_MaxSize: {x: 24288, y: 16192}
-  vertical: 0
-  controlID: 1702
+    y: 0
+    width: 291.2
+    height: 432.8
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
+  m_ActualView: {fileID: 17}
+  m_Panes:
+  - {fileID: 17}
+  m_Selected: 0
+  m_LastSelected: 0
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -110,77 +112,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: InspectorWindow
+  m_Name: ProjectBrowser
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 0
-    width: 363.19995
-    height: 584.8
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 18}
-  m_Panes:
-  - {fileID: 18}
-  - {fileID: 16}
-  m_Selected: 0
-  m_LastSelected: 0
---- !u!114 &6
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 1
-  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Children: []
-  m_Position:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 216.8
-    height: 481.6
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 19}
-  m_Panes:
-  - {fileID: 19}
-  m_Selected: 0
-  m_LastSelected: 0
---- !u!114 &7
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 1
-  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: AnimationWindow
-  m_EditorClassIdentifier: 
-  m_Children: []
-  m_Position:
-    serializedVersion: 2
-    x: 0
-    y: 481.6
-    width: 1172.8
-    height: 259.6
-  m_MinSize: {x: 101, y: 121}
-  m_MaxSize: {x: 4001, y: 4021}
+    y: 432.8
+    width: 1173.6
+    height: 298
+  m_MinSize: {x: 231, y: 271}
+  m_MaxSize: {x: 10001, y: 10021}
   m_ActualView: {fileID: 15}
   m_Panes:
-  - {fileID: 17}
   - {fileID: 15}
-  m_Selected: 1
-  m_LastSelected: 0
---- !u!114 &8
+  - {fileID: 20}
+  - {fileID: 13}
+  m_Selected: 0
+  m_LastSelected: 1
+--- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -193,22 +143,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
-  - {fileID: 9}
-  - {fileID: 4}
-  - {fileID: 10}
+  - {fileID: 7}
+  - {fileID: 2}
+  - {fileID: 8}
   m_Position:
     serializedVersion: 2
     x: 0
     y: 0
     width: 1536
-    height: 791.2
+    height: 780.8
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_UseTopView: 1
   m_TopViewHeight: 30
   m_UseBottomView: 1
   m_BottomViewHeight: 20
---- !u!114 &9
+--- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -229,8 +179,8 @@ MonoBehaviour:
     height: 30
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
-  m_LastLoadedLayoutName: LayoutDefaultGabry
---- !u!114 &10
+  m_LastLoadedLayoutName: 
+--- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -246,12 +196,12 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 771.2
+    y: 760.8
     width: 1536
     height: 20
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
---- !u!114 &11
+--- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -264,19 +214,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
-  - {fileID: 12}
-  - {fileID: 7}
+  - {fileID: 10}
+  - {fileID: 5}
   m_Position:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1172.8
-    height: 741.2
+    width: 1173.6
+    height: 730.8
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 1703
---- !u!114 &12
+  controlID: 43
+--- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -289,19 +239,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
-  - {fileID: 6}
-  - {fileID: 13}
+  - {fileID: 4}
+  - {fileID: 11}
   m_Position:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1172.8
-    height: 481.6
+    width: 1173.6
+    height: 432.8
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 1704
---- !u!114 &13
+  controlID: 44
+--- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -316,20 +266,20 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 216.8
+    x: 291.2
     y: 0
-    width: 956.00006
-    height: 481.6
+    width: 882.39996
+    height: 432.8
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
-  m_ActualView: {fileID: 20}
+  m_ActualView: {fileID: 18}
   m_Panes:
-  - {fileID: 20}
-  - {fileID: 14}
-  - {fileID: 21}
+  - {fileID: 18}
+  - {fileID: 19}
+  - {fileID: 12}
   m_Selected: 0
-  m_LastSelected: 2
---- !u!114 &14
+  m_LastSelected: 1
+--- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -349,10 +299,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 216.8
-    y: 64.8
-    width: 954.00006
-    height: 460.6
+    x: 291.2
+    y: 73.6
+    width: 880.39996
+    height: 411.8
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -361,14 +311,14 @@ MonoBehaviour:
     m_KeySerializationHelper:
     - {fileID: 5672543201218637345, guid: 648c5f666786e7a4c8682260497a54c9, type: 2}
     m_ValueSerializationHelper:
-    - e00: 1
+    - e00: 0.9231712
       e01: 0
       e02: 0
-      e03: 0
+      e03: -216.6289
       e10: 0
-      e11: 1
+      e11: 0.9231712
       e12: 0
-      e13: 0
+      e13: 41.6313
       e20: 0
       e21: 0
       e22: 1
@@ -393,7 +343,7 @@ MonoBehaviour:
   m_CurrentEditor: 0
   m_LayerEditor:
     m_SelectedLayerIndex: 0
---- !u!114 &15
+--- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -414,17 +364,17 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 546.4
-    width: 1171.8
-    height: 238.6
+    y: 506.4
+    width: 1172.6
+    height: 277
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 25042
---- !u!114 &16
+  m_LastSelectedObjectID: 50882
+--- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -444,15 +394,15 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1
-    y: 19
-    width: 362.19995
-    height: 563.8
+    x: 1173.6
+    y: 73.6
+    width: 361.40002
+    height: 709.8
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
-  progressMessageClearTime: -1
+  progressMessageClearTime: 6498.0323597
   notificationClearTime: -1
   timeSinceLastRotation: -1
   currentBranchAndRemoteHasUpdate: 0
@@ -463,10 +413,10 @@ MonoBehaviour:
   changeTab: 5
   activeTab: 5
   initProjectView:
-    hasCompletedInitialCheck: 1
-    isUserDataPresent: 1
+    hasCompletedInitialCheck: 0
+    isUserDataPresent: 0
     lastCheckUserChangedEvent:
-      updatedTimeString: 2022-10-17T13:15:08.504+02:00
+      updatedTimeString: 0001-01-01T00:00:00.000+00:00
       cacheType: 8
   branchesView:
     treeLocals:
@@ -511,28 +461,18 @@ MonoBehaviour:
         isContainer: 0
         isCollapsed: 0
         isHidden: 0
-        isActive: 0
-        treeIsCheckable: 0
-        checkState: 0
-      - path: animations
-        label: animations
-        level: 1
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
         isActive: 1
         treeIsCheckable: 0
         checkState: 0
       selectedNode:
-        path: animations
-        label: animations
-        level: 1
+        path: 
+        label: 
+        level: 0
         isFolder: 0
         isContainer: 0
         isCollapsed: 0
         isHidden: 0
-        isActive: 1
+        isActive: 0
         treeIsCheckable: 0
         checkState: 0
     treeRemotes:
@@ -616,16 +556,16 @@ MonoBehaviour:
     newBranchName: 
     scroll: {x: 0, y: 0}
     disableDelete: 1
-    disableCreate: 0
+    disableCreate: 1
     lastLocalAndRemoteBranchListChangedEvent:
-      updatedTimeString: 2022-10-20T22:33:15.301+02:00
+      updatedTimeString: 2022-10-21T10:13:12.826+02:00
       cacheType: 2
     lastCurrentBranchAndRemoteChange:
-      updatedTimeString: 2022-10-20T22:34:40.041+02:00
+      updatedTimeString: 2022-10-21T10:12:11.371+02:00
       cacheType: 1
     currentBranch:
-      name: animations
-      tracking: origin/animations
+      name: master
+      tracking: origin/master
     currentRemote:
       name: origin
       url: https://github.com/andreamarelli99/ParkourNews.git
@@ -637,8 +577,6 @@ MonoBehaviour:
     localBranches:
     - name: master
       tracking: origin/master
-    - name: animations
-      tracking: origin/animations
     remoteBranches:
     - name: origin/HEAD
       tracking: '[None]'
@@ -648,7 +586,7 @@ MonoBehaviour:
     currentLocksHasUpdate: 0
     commitBody: 
     commitMessage: 
-    currentBranch: '[animations]'
+    currentBranch: '[master]'
     treeScroll: {x: 0, y: 0}
     treeChanges:
       assets:
@@ -656,11 +594,49 @@ MonoBehaviour:
         values: []
       folders:
         keys:
-        - ProjectSettings
+        - .idea
+        - .idea\.idea.ParkourNews.dir
+        - .idea\.idea.ParkourNews.dir\.idea
         values:
-        - path: ProjectSettings
-          label: ProjectSettings
+        - path: .idea
+          label: .idea
           level: 0
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: .idea\.idea.ParkourNews.dir
+          label: .idea.ParkourNews.dir
+          level: 1
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: .idea\.idea.ParkourNews.dir\.idea
+          label: .idea
+          level: 2
           isFolder: 1
           isContainer: 0
           isCollapsed: 0
@@ -704,8 +680,8 @@ MonoBehaviour:
           originalPath: 
           indexStatus: 0
           workTreeStatus: 0
-      - path: ProjectSettings
-        label: ProjectSettings
+      - path: .idea
+        label: .idea
         level: 0
         isFolder: 1
         isContainer: 0
@@ -722,9 +698,45 @@ MonoBehaviour:
           originalPath: 
           indexStatus: 0
           workTreeStatus: 0
-      - path: ProjectSettings\TimelineSettings.asset
-        label: TimelineSettings.asset
+      - path: .idea\.idea.ParkourNews.dir
+        label: .idea.ParkourNews.dir
         level: 1
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: .idea\.idea.ParkourNews.dir\.idea
+        label: .idea
+        level: 2
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: .idea\.idea.ParkourNews.dir\.idea\.gitignore
+        label: .gitignore
+        level: 3
         isFolder: 0
         isContainer: 0
         isCollapsed: 0
@@ -734,9 +746,45 @@ MonoBehaviour:
         checkState: 0
         isLocked: 0
         gitStatusEntry:
-          path: ProjectSettings\TimelineSettings.asset
-          fullPath: D:\Documents\POLIMI\VDP\Projects\ParkourNews\ProjectSettings\TimelineSettings.asset
-          projectPath: ProjectSettings\TimelineSettings.asset
+          path: .idea\.idea.ParkourNews.dir\.idea\.gitignore
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\.idea\.idea.ParkourNews.dir\.idea\.gitignore
+          projectPath: .idea\.idea.ParkourNews.dir\.idea\.gitignore
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: .idea\.idea.ParkourNews.dir\.idea\indexLayout.xml
+        label: indexLayout.xml
+        level: 3
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: .idea\.idea.ParkourNews.dir\.idea\indexLayout.xml
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\.idea\.idea.ParkourNews.dir\.idea\indexLayout.xml
+          projectPath: .idea\.idea.ParkourNews.dir\.idea\indexLayout.xml
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: .idea\.idea.ParkourNews.dir\.idea\vcs.xml
+        label: vcs.xml
+        level: 3
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: .idea\.idea.ParkourNews.dir\.idea\vcs.xml
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\.idea\.idea.ParkourNews.dir\.idea\vcs.xml
+          projectPath: .idea\.idea.ParkourNews.dir\.idea\vcs.xml
           originalPath: 
           indexStatus: 1
           workTreeStatus: 1
@@ -760,93 +808,1077 @@ MonoBehaviour:
           indexStatus: 0
           workTreeStatus: 0
     gitStatusEntries:
-    - path: ProjectSettings\TimelineSettings.asset
-      fullPath: D:\Documents\POLIMI\VDP\Projects\ParkourNews\ProjectSettings\TimelineSettings.asset
-      projectPath: ProjectSettings\TimelineSettings.asset
+    - path: .idea\.idea.ParkourNews.dir\.idea\.gitignore
+      fullPath: D:\Documenti\UnityProjects\ParkourNews\.idea\.idea.ParkourNews.dir\.idea\.gitignore
+      projectPath: .idea\.idea.ParkourNews.dir\.idea\.gitignore
       originalPath: 
       indexStatus: 1
       workTreeStatus: 1
-    changedFilesText: 1 changed file
+    - path: .idea\.idea.ParkourNews.dir\.idea\indexLayout.xml
+      fullPath: D:\Documenti\UnityProjects\ParkourNews\.idea\.idea.ParkourNews.dir\.idea\indexLayout.xml
+      projectPath: .idea\.idea.ParkourNews.dir\.idea\indexLayout.xml
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: .idea\.idea.ParkourNews.dir\.idea\vcs.xml
+      fullPath: D:\Documenti\UnityProjects\ParkourNews\.idea\.idea.ParkourNews.dir\.idea\vcs.xml
+      projectPath: .idea\.idea.ParkourNews.dir\.idea\vcs.xml
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    changedFilesText: 3 changed files
     lastCurrentBranchChangedEvent:
-      updatedTimeString: 2022-10-20T22:34:40.041+02:00
+      updatedTimeString: 2022-10-21T10:12:11.371+02:00
       cacheType: 1
     lastStatusEntriesChangedEvent:
-      updatedTimeString: 2022-10-20T22:35:27.723+02:00
+      updatedTimeString: 0001-01-01T00:00:00.000+00:00
       cacheType: 6
     lastLocksChangedEvent:
-      updatedTimeString: 2022-10-20T22:34:41.094+02:00
+      updatedTimeString: 0001-01-01T00:00:00.000+00:00
       cacheType: 7
   historyView:
     currentLogHasUpdate: 0
     currentTrackingStatusHasUpdate: 0
     logEntries:
-    - commitID: aa0190ece2a32ef20048721eea9ef3afbfef1832
+    - commitID: 4653028b322ed85e0c6ee9a59b3b87da4b26fceb
       mergeA: 
       mergeB: 
       authorName: Francesco Pastore
-      authorEmail: francesco0599@hotmail.it
-      commitEmail: francesco0599@hotmail.it
+      authorEmail: francesco3.pastore@mail.polimi.it
+      commitEmail: francesco3.pastore@mail.polimi.it
       commitName: Francesco Pastore
       summary: Initial commit
       description: 
-      timeString: 2022-10-17T13:15:12.000+02:00
-      commitTimeString: 2022-10-17T13:15:12.000+02:00
+      timeString: 2022-10-17T13:19:46.000+02:00
+      commitTimeString: 2022-10-17T13:19:46.000+02:00
       changes:
       - path: .gitattributes
-        fullPath: D:\Home\Documents\ParkourNews\.gitattributes
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\.gitattributes
         projectPath: .gitattributes
         originalPath: 
         indexStatus: 4
         workTreeStatus: 0
       - path: .gitignore
-        fullPath: D:\Home\Documents\ParkourNews\.gitignore
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\.gitignore
         projectPath: .gitignore
         originalPath: 
         indexStatus: 4
         workTreeStatus: 0
       - path: Assets\.gitignore
-        fullPath: D:\Home\Documents\ParkourNews\Assets\.gitignore
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\.gitignore
         projectPath: Assets\.gitignore
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Plugins.meta
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins.meta
+        projectPath: Assets\Plugins.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Plugins\GitHub.meta
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub.meta
+        projectPath: Assets\Plugins\GitHub.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Plugins\GitHub\Editor.meta
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor.meta
+        projectPath: Assets\Plugins\GitHub\Editor.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Plugins\GitHub\Editor\AsyncBridge.Net35.dll
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\AsyncBridge.Net35.dll
+        projectPath: Assets\Plugins\GitHub\Editor\AsyncBridge.Net35.dll
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Plugins\GitHub\Editor\AsyncBridge.Net35.dll.meta
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\AsyncBridge.Net35.dll.meta
+        projectPath: Assets\Plugins\GitHub\Editor\AsyncBridge.Net35.dll.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Plugins\GitHub\Editor\ExtensionLoader.cs
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\ExtensionLoader.cs
+        projectPath: Assets\Plugins\GitHub\Editor\ExtensionLoader.cs
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Plugins\GitHub\Editor\ExtensionLoader.cs.meta
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\ExtensionLoader.cs.meta
+        projectPath: Assets\Plugins\GitHub\Editor\ExtensionLoader.cs.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Plugins\GitHub\Editor\GitHub.Api.45.dll
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\GitHub.Api.45.dll
+        projectPath: Assets\Plugins\GitHub\Editor\GitHub.Api.45.dll
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Plugins\GitHub\Editor\GitHub.Api.45.dll.meta
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\GitHub.Api.45.dll.meta
+        projectPath: Assets\Plugins\GitHub\Editor\GitHub.Api.45.dll.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Plugins\GitHub\Editor\GitHub.Api.dll
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\GitHub.Api.dll
+        projectPath: Assets\Plugins\GitHub\Editor\GitHub.Api.dll
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Plugins\GitHub\Editor\GitHub.Api.dll.meta
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\GitHub.Api.dll.meta
+        projectPath: Assets\Plugins\GitHub\Editor\GitHub.Api.dll.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Plugins\GitHub\Editor\GitHub.Logging.dll
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\GitHub.Logging.dll
+        projectPath: Assets\Plugins\GitHub\Editor\GitHub.Logging.dll
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Plugins\GitHub\Editor\GitHub.Logging.dll.meta
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\GitHub.Logging.dll.meta
+        projectPath: Assets\Plugins\GitHub\Editor\GitHub.Logging.dll.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Plugins\GitHub\Editor\GitHub.Unity.45.dll
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\GitHub.Unity.45.dll
+        projectPath: Assets\Plugins\GitHub\Editor\GitHub.Unity.45.dll
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Plugins\GitHub\Editor\GitHub.Unity.45.dll.meta
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\GitHub.Unity.45.dll.meta
+        projectPath: Assets\Plugins\GitHub\Editor\GitHub.Unity.45.dll.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Plugins\GitHub\Editor\GitHub.Unity.dll
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\GitHub.Unity.dll
+        projectPath: Assets\Plugins\GitHub\Editor\GitHub.Unity.dll
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Plugins\GitHub\Editor\GitHub.Unity.dll.meta
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\GitHub.Unity.dll.meta
+        projectPath: Assets\Plugins\GitHub\Editor\GitHub.Unity.dll.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Plugins\GitHub\Editor\GitHub.UnityShim.dll
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\GitHub.UnityShim.dll
+        projectPath: Assets\Plugins\GitHub\Editor\GitHub.UnityShim.dll
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Plugins\GitHub\Editor\GitHub.UnityShim.dll.meta
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\GitHub.UnityShim.dll.meta
+        projectPath: Assets\Plugins\GitHub\Editor\GitHub.UnityShim.dll.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Plugins\GitHub\Editor\Mono.Posix.dll
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\Mono.Posix.dll
+        projectPath: Assets\Plugins\GitHub\Editor\Mono.Posix.dll
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Plugins\GitHub\Editor\Mono.Posix.dll.meta
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\Mono.Posix.dll.meta
+        projectPath: Assets\Plugins\GitHub\Editor\Mono.Posix.dll.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Plugins\GitHub\Editor\QuickGuide.pdf
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\QuickGuide.pdf
+        projectPath: Assets\Plugins\GitHub\Editor\QuickGuide.pdf
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Plugins\GitHub\Editor\QuickGuide.pdf.meta
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\QuickGuide.pdf.meta
+        projectPath: Assets\Plugins\GitHub\Editor\QuickGuide.pdf.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Plugins\GitHub\Editor\ReadOnlyCollectionsInterfaces.dll
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\ReadOnlyCollectionsInterfaces.dll
+        projectPath: Assets\Plugins\GitHub\Editor\ReadOnlyCollectionsInterfaces.dll
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Plugins\GitHub\Editor\ReadOnlyCollectionsInterfaces.dll.meta
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\ReadOnlyCollectionsInterfaces.dll.meta
+        projectPath: Assets\Plugins\GitHub\Editor\ReadOnlyCollectionsInterfaces.dll.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Plugins\GitHub\Editor\System.Threading.dll
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\System.Threading.dll
+        projectPath: Assets\Plugins\GitHub\Editor\System.Threading.dll
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Plugins\GitHub\Editor\System.Threading.dll.meta
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\System.Threading.dll.meta
+        projectPath: Assets\Plugins\GitHub\Editor\System.Threading.dll.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Plugins\GitHub\Editor\UnityAPIWrapper.cs
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\UnityAPIWrapper.cs
+        projectPath: Assets\Plugins\GitHub\Editor\UnityAPIWrapper.cs
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Plugins\GitHub\Editor\UnityAPIWrapper.cs.meta
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\UnityAPIWrapper.cs.meta
+        projectPath: Assets\Plugins\GitHub\Editor\UnityAPIWrapper.cs.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Plugins\GitHub\Editor\big-logo@2x.png
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\big-logo@2x.png
+        projectPath: Assets\Plugins\GitHub\Editor\big-logo@2x.png
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Plugins\GitHub\Editor\big-logo@2x.png.meta
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\big-logo@2x.png.meta
+        projectPath: Assets\Plugins\GitHub\Editor\big-logo@2x.png.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Plugins\GitHub\Editor\credits.txt
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\credits.txt
+        projectPath: Assets\Plugins\GitHub\Editor\credits.txt
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Plugins\GitHub\Editor\credits.txt.meta
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\credits.txt.meta
+        projectPath: Assets\Plugins\GitHub\Editor\credits.txt.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Plugins\GitHub\Editor\eula.txt
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\eula.txt
+        projectPath: Assets\Plugins\GitHub\Editor\eula.txt
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Plugins\GitHub\Editor\eula.txt.meta
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\eula.txt.meta
+        projectPath: Assets\Plugins\GitHub\Editor\eula.txt.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Plugins\GitHub\Editor\libsfw.bundle
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\libsfw.bundle
+        projectPath: Assets\Plugins\GitHub\Editor\libsfw.bundle
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Plugins\GitHub\Editor\libsfw.bundle.meta
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\libsfw.bundle.meta
+        projectPath: Assets\Plugins\GitHub\Editor\libsfw.bundle.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Plugins\GitHub\Editor\libsfw.so
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\libsfw.so
+        projectPath: Assets\Plugins\GitHub\Editor\libsfw.so
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Plugins\GitHub\Editor\libsfw.so.meta
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\libsfw.so.meta
+        projectPath: Assets\Plugins\GitHub\Editor\libsfw.so.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Plugins\GitHub\Editor\sfw.net.dll
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\sfw.net.dll
+        projectPath: Assets\Plugins\GitHub\Editor\sfw.net.dll
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Plugins\GitHub\Editor\sfw.net.dll.meta
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\sfw.net.dll.meta
+        projectPath: Assets\Plugins\GitHub\Editor\sfw.net.dll.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Plugins\GitHub\Editor\x64.meta
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\x64.meta
+        projectPath: Assets\Plugins\GitHub\Editor\x64.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Plugins\GitHub\Editor\x64\pthreadVC2.dll
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\x64\pthreadVC2.dll
+        projectPath: Assets\Plugins\GitHub\Editor\x64\pthreadVC2.dll
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Plugins\GitHub\Editor\x64\pthreadVC2.dll.meta
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\x64\pthreadVC2.dll.meta
+        projectPath: Assets\Plugins\GitHub\Editor\x64\pthreadVC2.dll.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Plugins\GitHub\Editor\x64\sfw_x64.dll
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\x64\sfw_x64.dll
+        projectPath: Assets\Plugins\GitHub\Editor\x64\sfw_x64.dll
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Plugins\GitHub\Editor\x64\sfw_x64.dll.meta
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\x64\sfw_x64.dll.meta
+        projectPath: Assets\Plugins\GitHub\Editor\x64\sfw_x64.dll.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Plugins\GitHub\Editor\x86.meta
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\x86.meta
+        projectPath: Assets\Plugins\GitHub\Editor\x86.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Plugins\GitHub\Editor\x86\pthreadVC2.dll
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\x86\pthreadVC2.dll
+        projectPath: Assets\Plugins\GitHub\Editor\x86\pthreadVC2.dll
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Plugins\GitHub\Editor\x86\pthreadVC2.dll.meta
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\x86\pthreadVC2.dll.meta
+        projectPath: Assets\Plugins\GitHub\Editor\x86\pthreadVC2.dll.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Plugins\GitHub\Editor\x86\sfw_x86.dll
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\x86\sfw_x86.dll
+        projectPath: Assets\Plugins\GitHub\Editor\x86\sfw_x86.dll
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Plugins\GitHub\Editor\x86\sfw_x86.dll.meta
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\x86\sfw_x86.dll.meta
+        projectPath: Assets\Plugins\GitHub\Editor\x86\sfw_x86.dll.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scenes.meta
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Scenes.meta
+        projectPath: Assets\Scenes.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scenes\SampleScene.unity
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Scenes\SampleScene.unity
+        projectPath: Assets\Scenes\SampleScene.unity
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Assets\Scenes\SampleScene.unity.meta
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Scenes\SampleScene.unity.meta
+        projectPath: Assets\Scenes\SampleScene.unity.meta
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Packages\manifest.json
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Packages\manifest.json
+        projectPath: Packages\manifest.json
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: Packages\packages-lock.json
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\Packages\packages-lock.json
+        projectPath: Packages\packages-lock.json
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: ProjectSettings\AudioManager.asset
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\ProjectSettings\AudioManager.asset
+        projectPath: ProjectSettings\AudioManager.asset
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: ProjectSettings\ClusterInputManager.asset
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\ProjectSettings\ClusterInputManager.asset
+        projectPath: ProjectSettings\ClusterInputManager.asset
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: ProjectSettings\DynamicsManager.asset
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\ProjectSettings\DynamicsManager.asset
+        projectPath: ProjectSettings\DynamicsManager.asset
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: ProjectSettings\EditorBuildSettings.asset
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\ProjectSettings\EditorBuildSettings.asset
+        projectPath: ProjectSettings\EditorBuildSettings.asset
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: ProjectSettings\EditorSettings.asset
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\ProjectSettings\EditorSettings.asset
+        projectPath: ProjectSettings\EditorSettings.asset
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: ProjectSettings\GraphicsSettings.asset
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\ProjectSettings\GraphicsSettings.asset
+        projectPath: ProjectSettings\GraphicsSettings.asset
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: ProjectSettings\InputManager.asset
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\ProjectSettings\InputManager.asset
+        projectPath: ProjectSettings\InputManager.asset
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: ProjectSettings\MemorySettings.asset
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\ProjectSettings\MemorySettings.asset
+        projectPath: ProjectSettings\MemorySettings.asset
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: ProjectSettings\NavMeshAreas.asset
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\ProjectSettings\NavMeshAreas.asset
+        projectPath: ProjectSettings\NavMeshAreas.asset
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: ProjectSettings\NetworkManager.asset
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\ProjectSettings\NetworkManager.asset
+        projectPath: ProjectSettings\NetworkManager.asset
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: ProjectSettings\PackageManagerSettings.asset
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\ProjectSettings\PackageManagerSettings.asset
+        projectPath: ProjectSettings\PackageManagerSettings.asset
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: ProjectSettings\Physics2DSettings.asset
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\ProjectSettings\Physics2DSettings.asset
+        projectPath: ProjectSettings\Physics2DSettings.asset
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: ProjectSettings\PresetManager.asset
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\ProjectSettings\PresetManager.asset
+        projectPath: ProjectSettings\PresetManager.asset
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: ProjectSettings\ProjectSettings.asset
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\ProjectSettings\ProjectSettings.asset
+        projectPath: ProjectSettings\ProjectSettings.asset
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: ProjectSettings\ProjectVersion.txt
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\ProjectSettings\ProjectVersion.txt
+        projectPath: ProjectSettings\ProjectVersion.txt
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: ProjectSettings\QualitySettings.asset
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\ProjectSettings\QualitySettings.asset
+        projectPath: ProjectSettings\QualitySettings.asset
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: ProjectSettings\TagManager.asset
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\ProjectSettings\TagManager.asset
+        projectPath: ProjectSettings\TagManager.asset
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: ProjectSettings\TimeManager.asset
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\ProjectSettings\TimeManager.asset
+        projectPath: ProjectSettings\TimeManager.asset
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: ProjectSettings\UnityConnectSettings.asset
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\ProjectSettings\UnityConnectSettings.asset
+        projectPath: ProjectSettings\UnityConnectSettings.asset
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: ProjectSettings\VFXManager.asset
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\ProjectSettings\VFXManager.asset
+        projectPath: ProjectSettings\VFXManager.asset
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: ProjectSettings\VersionControlSettings.asset
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\ProjectSettings\VersionControlSettings.asset
+        projectPath: ProjectSettings\VersionControlSettings.asset
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: ProjectSettings\XRSettings.asset
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\ProjectSettings\XRSettings.asset
+        projectPath: ProjectSettings\XRSettings.asset
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: ProjectSettings\boot.config
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\ProjectSettings\boot.config
+        projectPath: ProjectSettings\boot.config
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: UserSettings\EditorUserSettings.asset
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\UserSettings\EditorUserSettings.asset
+        projectPath: UserSettings\EditorUserSettings.asset
+        originalPath: 
+        indexStatus: 4
+        workTreeStatus: 0
+      - path: UserSettings\Layouts\default-2021.dwlt
+        fullPath: D:\Documenti\UnityProjects\ParkourNews\UserSettings\Layouts\default-2021.dwlt
+        projectPath: UserSettings\Layouts\default-2021.dwlt
         originalPath: 
         indexStatus: 4
         workTreeStatus: 0
     statusAhead: 0
     lastLogChangedEvent:
-      updatedTimeString: 2022-10-17T13:15:59.952+02:00
+      updatedTimeString: 2022-10-21T10:12:30.011+02:00
       cacheType: 3
     lastTrackingStatusChangedEvent:
-      updatedTimeString: 2022-10-17T13:15:18.460+02:00
+      updatedTimeString: 0001-01-01T00:00:00.000+00:00
       cacheType: 5
     historyControl:
       scroll: {x: 0, y: 0}
       entries:
-      - commitID: aa0190ece2a32ef20048721eea9ef3afbfef1832
+      - commitID: 4653028b322ed85e0c6ee9a59b3b87da4b26fceb
         mergeA: 
         mergeB: 
         authorName: Francesco Pastore
-        authorEmail: francesco0599@hotmail.it
-        commitEmail: francesco0599@hotmail.it
+        authorEmail: francesco3.pastore@mail.polimi.it
+        commitEmail: francesco3.pastore@mail.polimi.it
         commitName: Francesco Pastore
         summary: Initial commit
         description: 
-        timeString: 2022-10-17T13:15:12.000+02:00
-        commitTimeString: 2022-10-17T13:15:12.000+02:00
+        timeString: 2022-10-17T13:19:46.000+02:00
+        commitTimeString: 2022-10-17T13:19:46.000+02:00
         changes:
         - path: .gitattributes
-          fullPath: D:\Home\Documents\ParkourNews\.gitattributes
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\.gitattributes
           projectPath: .gitattributes
           originalPath: 
           indexStatus: 4
           workTreeStatus: 0
         - path: .gitignore
-          fullPath: D:\Home\Documents\ParkourNews\.gitignore
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\.gitignore
           projectPath: .gitignore
           originalPath: 
           indexStatus: 4
           workTreeStatus: 0
         - path: Assets\.gitignore
-          fullPath: D:\Home\Documents\ParkourNews\Assets\.gitignore
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\.gitignore
           projectPath: Assets\.gitignore
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Plugins.meta
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins.meta
+          projectPath: Assets\Plugins.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Plugins\GitHub.meta
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub.meta
+          projectPath: Assets\Plugins\GitHub.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Plugins\GitHub\Editor.meta
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor.meta
+          projectPath: Assets\Plugins\GitHub\Editor.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Plugins\GitHub\Editor\AsyncBridge.Net35.dll
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\AsyncBridge.Net35.dll
+          projectPath: Assets\Plugins\GitHub\Editor\AsyncBridge.Net35.dll
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Plugins\GitHub\Editor\AsyncBridge.Net35.dll.meta
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\AsyncBridge.Net35.dll.meta
+          projectPath: Assets\Plugins\GitHub\Editor\AsyncBridge.Net35.dll.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Plugins\GitHub\Editor\ExtensionLoader.cs
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\ExtensionLoader.cs
+          projectPath: Assets\Plugins\GitHub\Editor\ExtensionLoader.cs
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Plugins\GitHub\Editor\ExtensionLoader.cs.meta
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\ExtensionLoader.cs.meta
+          projectPath: Assets\Plugins\GitHub\Editor\ExtensionLoader.cs.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Plugins\GitHub\Editor\GitHub.Api.45.dll
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\GitHub.Api.45.dll
+          projectPath: Assets\Plugins\GitHub\Editor\GitHub.Api.45.dll
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Plugins\GitHub\Editor\GitHub.Api.45.dll.meta
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\GitHub.Api.45.dll.meta
+          projectPath: Assets\Plugins\GitHub\Editor\GitHub.Api.45.dll.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Plugins\GitHub\Editor\GitHub.Api.dll
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\GitHub.Api.dll
+          projectPath: Assets\Plugins\GitHub\Editor\GitHub.Api.dll
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Plugins\GitHub\Editor\GitHub.Api.dll.meta
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\GitHub.Api.dll.meta
+          projectPath: Assets\Plugins\GitHub\Editor\GitHub.Api.dll.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Plugins\GitHub\Editor\GitHub.Logging.dll
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\GitHub.Logging.dll
+          projectPath: Assets\Plugins\GitHub\Editor\GitHub.Logging.dll
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Plugins\GitHub\Editor\GitHub.Logging.dll.meta
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\GitHub.Logging.dll.meta
+          projectPath: Assets\Plugins\GitHub\Editor\GitHub.Logging.dll.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Plugins\GitHub\Editor\GitHub.Unity.45.dll
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\GitHub.Unity.45.dll
+          projectPath: Assets\Plugins\GitHub\Editor\GitHub.Unity.45.dll
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Plugins\GitHub\Editor\GitHub.Unity.45.dll.meta
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\GitHub.Unity.45.dll.meta
+          projectPath: Assets\Plugins\GitHub\Editor\GitHub.Unity.45.dll.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Plugins\GitHub\Editor\GitHub.Unity.dll
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\GitHub.Unity.dll
+          projectPath: Assets\Plugins\GitHub\Editor\GitHub.Unity.dll
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Plugins\GitHub\Editor\GitHub.Unity.dll.meta
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\GitHub.Unity.dll.meta
+          projectPath: Assets\Plugins\GitHub\Editor\GitHub.Unity.dll.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Plugins\GitHub\Editor\GitHub.UnityShim.dll
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\GitHub.UnityShim.dll
+          projectPath: Assets\Plugins\GitHub\Editor\GitHub.UnityShim.dll
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Plugins\GitHub\Editor\GitHub.UnityShim.dll.meta
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\GitHub.UnityShim.dll.meta
+          projectPath: Assets\Plugins\GitHub\Editor\GitHub.UnityShim.dll.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Plugins\GitHub\Editor\Mono.Posix.dll
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\Mono.Posix.dll
+          projectPath: Assets\Plugins\GitHub\Editor\Mono.Posix.dll
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Plugins\GitHub\Editor\Mono.Posix.dll.meta
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\Mono.Posix.dll.meta
+          projectPath: Assets\Plugins\GitHub\Editor\Mono.Posix.dll.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Plugins\GitHub\Editor\QuickGuide.pdf
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\QuickGuide.pdf
+          projectPath: Assets\Plugins\GitHub\Editor\QuickGuide.pdf
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Plugins\GitHub\Editor\QuickGuide.pdf.meta
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\QuickGuide.pdf.meta
+          projectPath: Assets\Plugins\GitHub\Editor\QuickGuide.pdf.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Plugins\GitHub\Editor\ReadOnlyCollectionsInterfaces.dll
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\ReadOnlyCollectionsInterfaces.dll
+          projectPath: Assets\Plugins\GitHub\Editor\ReadOnlyCollectionsInterfaces.dll
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Plugins\GitHub\Editor\ReadOnlyCollectionsInterfaces.dll.meta
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\ReadOnlyCollectionsInterfaces.dll.meta
+          projectPath: Assets\Plugins\GitHub\Editor\ReadOnlyCollectionsInterfaces.dll.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Plugins\GitHub\Editor\System.Threading.dll
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\System.Threading.dll
+          projectPath: Assets\Plugins\GitHub\Editor\System.Threading.dll
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Plugins\GitHub\Editor\System.Threading.dll.meta
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\System.Threading.dll.meta
+          projectPath: Assets\Plugins\GitHub\Editor\System.Threading.dll.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Plugins\GitHub\Editor\UnityAPIWrapper.cs
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\UnityAPIWrapper.cs
+          projectPath: Assets\Plugins\GitHub\Editor\UnityAPIWrapper.cs
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Plugins\GitHub\Editor\UnityAPIWrapper.cs.meta
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\UnityAPIWrapper.cs.meta
+          projectPath: Assets\Plugins\GitHub\Editor\UnityAPIWrapper.cs.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Plugins\GitHub\Editor\big-logo@2x.png
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\big-logo@2x.png
+          projectPath: Assets\Plugins\GitHub\Editor\big-logo@2x.png
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Plugins\GitHub\Editor\big-logo@2x.png.meta
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\big-logo@2x.png.meta
+          projectPath: Assets\Plugins\GitHub\Editor\big-logo@2x.png.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Plugins\GitHub\Editor\credits.txt
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\credits.txt
+          projectPath: Assets\Plugins\GitHub\Editor\credits.txt
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Plugins\GitHub\Editor\credits.txt.meta
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\credits.txt.meta
+          projectPath: Assets\Plugins\GitHub\Editor\credits.txt.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Plugins\GitHub\Editor\eula.txt
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\eula.txt
+          projectPath: Assets\Plugins\GitHub\Editor\eula.txt
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Plugins\GitHub\Editor\eula.txt.meta
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\eula.txt.meta
+          projectPath: Assets\Plugins\GitHub\Editor\eula.txt.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Plugins\GitHub\Editor\libsfw.bundle
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\libsfw.bundle
+          projectPath: Assets\Plugins\GitHub\Editor\libsfw.bundle
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Plugins\GitHub\Editor\libsfw.bundle.meta
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\libsfw.bundle.meta
+          projectPath: Assets\Plugins\GitHub\Editor\libsfw.bundle.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Plugins\GitHub\Editor\libsfw.so
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\libsfw.so
+          projectPath: Assets\Plugins\GitHub\Editor\libsfw.so
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Plugins\GitHub\Editor\libsfw.so.meta
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\libsfw.so.meta
+          projectPath: Assets\Plugins\GitHub\Editor\libsfw.so.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Plugins\GitHub\Editor\sfw.net.dll
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\sfw.net.dll
+          projectPath: Assets\Plugins\GitHub\Editor\sfw.net.dll
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Plugins\GitHub\Editor\sfw.net.dll.meta
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\sfw.net.dll.meta
+          projectPath: Assets\Plugins\GitHub\Editor\sfw.net.dll.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Plugins\GitHub\Editor\x64.meta
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\x64.meta
+          projectPath: Assets\Plugins\GitHub\Editor\x64.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Plugins\GitHub\Editor\x64\pthreadVC2.dll
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\x64\pthreadVC2.dll
+          projectPath: Assets\Plugins\GitHub\Editor\x64\pthreadVC2.dll
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Plugins\GitHub\Editor\x64\pthreadVC2.dll.meta
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\x64\pthreadVC2.dll.meta
+          projectPath: Assets\Plugins\GitHub\Editor\x64\pthreadVC2.dll.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Plugins\GitHub\Editor\x64\sfw_x64.dll
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\x64\sfw_x64.dll
+          projectPath: Assets\Plugins\GitHub\Editor\x64\sfw_x64.dll
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Plugins\GitHub\Editor\x64\sfw_x64.dll.meta
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\x64\sfw_x64.dll.meta
+          projectPath: Assets\Plugins\GitHub\Editor\x64\sfw_x64.dll.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Plugins\GitHub\Editor\x86.meta
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\x86.meta
+          projectPath: Assets\Plugins\GitHub\Editor\x86.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Plugins\GitHub\Editor\x86\pthreadVC2.dll
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\x86\pthreadVC2.dll
+          projectPath: Assets\Plugins\GitHub\Editor\x86\pthreadVC2.dll
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Plugins\GitHub\Editor\x86\pthreadVC2.dll.meta
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\x86\pthreadVC2.dll.meta
+          projectPath: Assets\Plugins\GitHub\Editor\x86\pthreadVC2.dll.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Plugins\GitHub\Editor\x86\sfw_x86.dll
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\x86\sfw_x86.dll
+          projectPath: Assets\Plugins\GitHub\Editor\x86\sfw_x86.dll
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Plugins\GitHub\Editor\x86\sfw_x86.dll.meta
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Plugins\GitHub\Editor\x86\sfw_x86.dll.meta
+          projectPath: Assets\Plugins\GitHub\Editor\x86\sfw_x86.dll.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scenes.meta
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Scenes.meta
+          projectPath: Assets\Scenes.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scenes\SampleScene.unity
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Scenes\SampleScene.unity
+          projectPath: Assets\Scenes\SampleScene.unity
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Assets\Scenes\SampleScene.unity.meta
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Scenes\SampleScene.unity.meta
+          projectPath: Assets\Scenes\SampleScene.unity.meta
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Packages\manifest.json
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Packages\manifest.json
+          projectPath: Packages\manifest.json
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: Packages\packages-lock.json
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Packages\packages-lock.json
+          projectPath: Packages\packages-lock.json
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: ProjectSettings\AudioManager.asset
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\ProjectSettings\AudioManager.asset
+          projectPath: ProjectSettings\AudioManager.asset
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: ProjectSettings\ClusterInputManager.asset
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\ProjectSettings\ClusterInputManager.asset
+          projectPath: ProjectSettings\ClusterInputManager.asset
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: ProjectSettings\DynamicsManager.asset
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\ProjectSettings\DynamicsManager.asset
+          projectPath: ProjectSettings\DynamicsManager.asset
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: ProjectSettings\EditorBuildSettings.asset
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\ProjectSettings\EditorBuildSettings.asset
+          projectPath: ProjectSettings\EditorBuildSettings.asset
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: ProjectSettings\EditorSettings.asset
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\ProjectSettings\EditorSettings.asset
+          projectPath: ProjectSettings\EditorSettings.asset
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: ProjectSettings\GraphicsSettings.asset
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\ProjectSettings\GraphicsSettings.asset
+          projectPath: ProjectSettings\GraphicsSettings.asset
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: ProjectSettings\InputManager.asset
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\ProjectSettings\InputManager.asset
+          projectPath: ProjectSettings\InputManager.asset
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: ProjectSettings\MemorySettings.asset
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\ProjectSettings\MemorySettings.asset
+          projectPath: ProjectSettings\MemorySettings.asset
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: ProjectSettings\NavMeshAreas.asset
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\ProjectSettings\NavMeshAreas.asset
+          projectPath: ProjectSettings\NavMeshAreas.asset
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: ProjectSettings\NetworkManager.asset
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\ProjectSettings\NetworkManager.asset
+          projectPath: ProjectSettings\NetworkManager.asset
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: ProjectSettings\PackageManagerSettings.asset
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\ProjectSettings\PackageManagerSettings.asset
+          projectPath: ProjectSettings\PackageManagerSettings.asset
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: ProjectSettings\Physics2DSettings.asset
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\ProjectSettings\Physics2DSettings.asset
+          projectPath: ProjectSettings\Physics2DSettings.asset
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: ProjectSettings\PresetManager.asset
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\ProjectSettings\PresetManager.asset
+          projectPath: ProjectSettings\PresetManager.asset
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: ProjectSettings\ProjectSettings.asset
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\ProjectSettings\ProjectSettings.asset
+          projectPath: ProjectSettings\ProjectSettings.asset
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: ProjectSettings\ProjectVersion.txt
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\ProjectSettings\ProjectVersion.txt
+          projectPath: ProjectSettings\ProjectVersion.txt
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: ProjectSettings\QualitySettings.asset
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\ProjectSettings\QualitySettings.asset
+          projectPath: ProjectSettings\QualitySettings.asset
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: ProjectSettings\TagManager.asset
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\ProjectSettings\TagManager.asset
+          projectPath: ProjectSettings\TagManager.asset
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: ProjectSettings\TimeManager.asset
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\ProjectSettings\TimeManager.asset
+          projectPath: ProjectSettings\TimeManager.asset
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: ProjectSettings\UnityConnectSettings.asset
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\ProjectSettings\UnityConnectSettings.asset
+          projectPath: ProjectSettings\UnityConnectSettings.asset
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: ProjectSettings\VFXManager.asset
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\ProjectSettings\VFXManager.asset
+          projectPath: ProjectSettings\VFXManager.asset
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: ProjectSettings\VersionControlSettings.asset
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\ProjectSettings\VersionControlSettings.asset
+          projectPath: ProjectSettings\VersionControlSettings.asset
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: ProjectSettings\XRSettings.asset
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\ProjectSettings\XRSettings.asset
+          projectPath: ProjectSettings\XRSettings.asset
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: ProjectSettings\boot.config
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\ProjectSettings\boot.config
+          projectPath: ProjectSettings\boot.config
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: UserSettings\EditorUserSettings.asset
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\UserSettings\EditorUserSettings.asset
+          projectPath: UserSettings\EditorUserSettings.asset
+          originalPath: 
+          indexStatus: 4
+          workTreeStatus: 0
+        - path: UserSettings\Layouts\default-2021.dwlt
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\UserSettings\Layouts\default-2021.dwlt
+          projectPath: UserSettings\Layouts\default-2021.dwlt
           originalPath: 
           indexStatus: 4
           workTreeStatus: 0
@@ -905,14 +1937,14 @@ MonoBehaviour:
   settingsView:
     gitPathView:
       gitPath: C:\Program Files\Git\cmd\git.exe
-      gitLfsPath: C:\Users\Gabriele\AppData\Local\GitHubUnity\git-lfs\git-lfs.exe
+      gitLfsPath: C:\Users\franc\AppData\Local\GitHubUnity\git-lfs\git-lfs.exe
       errorMessage: 
       resetToBundled: 0
-      resetToSystem: 0
+      resetToSystem: 1
       changingManually: 0
     hasRemote: 1
     lastCurrentRemoteChangedEvent:
-      updatedTimeString: 2022-10-20T23:44:27.738+02:00
+      updatedTimeString: 2022-10-21T12:23:20.770+02:00
       cacheType: 1
     metricsEnabled: 1
     newRepositoryRemoteUrl: https://github.com/andreamarelli99/ParkourNews.git
@@ -920,13 +1952,13 @@ MonoBehaviour:
     repositoryRemoteUrl: https://github.com/andreamarelli99/ParkourNews.git
     scroll: {x: 0, y: 0}
     userSettingsView:
-      gitName: diddy48uni
-      gitEmail: gabriele2.romano@mail.polimi.it
-      newGitName: diddy48uni
-      newGitEmail: gabriele2.romano@mail.polimi.it
+      gitName: Francesco-Grilli
+      gitEmail: 66123653+Francesco-Grilli@users.noreply.github.com
+      newGitName: Francesco-Grilli
+      newGitEmail: 66123653+Francesco-Grilli@users.noreply.github.com
       needsSaving: 0
       lastCheckUserChangedEvent:
-        updatedTimeString: 0001-01-01T00:00:00.000+00:00
+        updatedTimeString: 2022-10-21T12:28:25.475+02:00
         cacheType: 8
     webTimeout: 3000
     gitTimeout: 5000
@@ -953,21 +1985,33 @@ MonoBehaviour:
             email: 
           lockedAtString: 
         gitFileStatus: 0
-        lockedAt: 1 gen 0001, 01:00
+        lockedAt: 1 Jan 0001, 01:00
     lastCurrentRemoteChangedEvent:
-      updatedTimeString: 2022-10-20T22:34:40.041+02:00
+      updatedTimeString: 2022-10-21T10:12:11.371+02:00
       cacheType: 1
     lastLocksChangedEvent:
-      updatedTimeString: 2022-10-20T22:34:41.094+02:00
+      updatedTimeString: 0001-01-01T00:00:00.000+00:00
       cacheType: 7
     lastStatusEntriesChangedEvent:
-      updatedTimeString: 2022-10-20T22:35:24.714+02:00
+      updatedTimeString: 0001-01-01T00:00:00.000+00:00
       cacheType: 6
     lockedFiles: []
     gitStatusEntries:
-    - path: ProjectSettings\TimelineSettings.asset
-      fullPath: D:\Documents\POLIMI\VDP\Projects\ParkourNews\ProjectSettings\TimelineSettings.asset
-      projectPath: ProjectSettings\TimelineSettings.asset
+    - path: .idea\.idea.ParkourNews.dir\.idea\.gitignore
+      fullPath: D:\Documenti\UnityProjects\ParkourNews\.idea\.idea.ParkourNews.dir\.idea\.gitignore
+      projectPath: .idea\.idea.ParkourNews.dir\.idea\.gitignore
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: .idea\.idea.ParkourNews.dir\.idea\indexLayout.xml
+      fullPath: D:\Documenti\UnityProjects\ParkourNews\.idea\.idea.ParkourNews.dir\.idea\indexLayout.xml
+      projectPath: .idea\.idea.ParkourNews.dir\.idea\indexLayout.xml
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: .idea\.idea.ParkourNews.dir\.idea\vcs.xml
+      fullPath: D:\Documenti\UnityProjects\ParkourNews\.idea\.idea.ParkourNews.dir\.idea\vcs.xml
+      projectPath: .idea\.idea.ParkourNews.dir\.idea\vcs.xml
       originalPath: 
       indexStatus: 1
       workTreeStatus: 1
@@ -997,13 +2041,13 @@ MonoBehaviour:
     m_Image: {fileID: 0}
     m_Tooltip: Url of the origin remote
   lastCurrentBranchAndRemoteChangedEvent:
-    updatedTimeString: 2022-10-20T22:41:13.049+02:00
+    updatedTimeString: 2022-10-21T11:47:10.903+02:00
     cacheType: 1
   lastTrackingStatusChangedEvent:
-    updatedTimeString: 2022-10-20T23:09:45.170+02:00
+    updatedTimeString: 2022-10-21T11:45:14.722+02:00
     cacheType: 5
   lastStatusEntriesChangedEvent:
-    updatedTimeString: 2022-10-20T23:09:45.169+02:00
+    updatedTimeString: 2022-10-21T12:34:36.478+02:00
     cacheType: 6
   pullButtonContent:
     m_Text: Pull
@@ -1021,13 +2065,13 @@ MonoBehaviour:
     m_Text: Fetch
     m_Image: {fileID: 0}
     m_Tooltip: 
-  repositoryProgressValue: 0
-  repositoryProgressMessage: 
+  repositoryProgressValue: 0.33333334
+  repositoryProgressMessage: Listing changed files...
   appManagerProgressValue: 1
   appManagerProgressMessage: Initialized
   connections: []
-  primaryConnectionUsername: 
---- !u!114 &17
+  primaryConnectionUsername: Francesco-Grilli
+--- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1048,9 +2092,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 546.4
-    width: 1171.8
-    height: 238.6
+    y: 506.4
+    width: 1172.6
+    height: 277
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -1068,22 +2112,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/Scripts
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Scripts
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: D:\Documents\POLIMI\VDP\Projects\ParkourNews
+  m_LastProjectPath: D:\Documenti\UnityProjects\ParkourNews
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 48600000
-    m_LastClickedID: 24648
-    m_ExpandedIDs: 000000003c60000000ca9a3bffffff7f
+    m_SelectedIDs: 7c5a0000
+    m_LastClickedID: 23164
+    m_ExpandedIDs: 000000006e5a0000765a0000bc5b000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1099,7 +2143,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 7}
+      m_ClientGUIView: {fileID: 0}
     m_SearchString: 
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
@@ -1111,7 +2155,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000003c60000000ca9a3bffffff7f
+    m_ExpandedIDs: 000000006e5a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1136,10 +2180,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: d2610000
-    m_LastClickedInstanceID: 25042
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c6230000
+    m_ExpandedInstanceIDs: c6230000c0150000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1155,7 +2199,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 6}
+      m_ClientGUIView: {fileID: 5}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -1167,7 +2211,7 @@ MonoBehaviour:
     m_GridSize: 64
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 207
---- !u!114 &18
+--- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1187,10 +2231,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1172.8
-    y: 64.8
-    width: 362.19995
-    height: 563.8
+    x: 1173.6
+    y: 73.6
+    width: 361.40002
+    height: 709.8
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -1208,7 +2252,7 @@ MonoBehaviour:
   m_LockTracker:
     m_IsLocked: 0
   m_PreviewWindow: {fileID: 0}
---- !u!114 &19
+--- !u!114 &17
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1229,19 +2273,19 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 64.8
-    width: 215.8
-    height: 460.6
+    y: 73.6
+    width: 290.2
+    height: 411.8
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 32}
+      scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 1af8ffff1cf8ffff20f8ffff22f8ffff26f8ffff28f8ffff2cf8ffff2ef8ffff36f8ffff3af8ffffacf8ffff28fbffff92610000a6610000ac610000b8610000d2610000
+      m_ExpandedIDs: cca7ffff08b0ffffcce7ffffcee7ffffd4e7ffffd8e7ffffdae7ffffdee7ffffe0e7ffffe8e7ffffece7ffff38fbffff94590000a8590000ae590000ba590000d4590000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1257,7 +2301,7 @@ MonoBehaviour:
         m_IsRenaming: 0
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 0}
+        m_ClientGUIView: {fileID: 4}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -1265,7 +2309,7 @@ MonoBehaviour:
       m_IsLocked: 0
     m_CurrentSortingName: TransformSorting
   m_WindowGUID: 4c969a2b90040154d917609493e03593
---- !u!114 &20
+--- !u!114 &18
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1285,10 +2329,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 216.8
-    y: 64.8
-    width: 954.00006
-    height: 460.6
+    x: 291.2
+    y: 73.6
+    width: 880.39996
+    height: 411.8
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -1512,9 +2556,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 3.1988912, y: 1.8948406, z: -0.025637517}
+    m_Target: {x: 1.2912912, y: 1.1959419, z: 0.025026929}
     speed: 2
-    m_Value: {x: 3.0207365, y: 1.8328824, z: -0.023483828}
+    m_Value: {x: 1.2912912, y: 1.1959419, z: 0.025026929}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1565,9 +2609,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 5.001349
+    m_Target: 1.367504
     speed: 2
-    m_Value: 4.7859797
+    m_Value: 1.367504
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1592,7 +2636,7 @@ MonoBehaviour:
   m_SceneVisActive: 1
   m_LastLockedObject: {fileID: 0}
   m_ViewIsLockedToObject: 0
---- !u!114 &21
+--- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1612,10 +2656,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 216.8
-    y: 64.8
-    width: 954.00006
-    height: 460.6
+    x: 291.2
+    y: 73.6
+    width: 880.39996
+    height: 411.8
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -1626,7 +2670,7 @@ MonoBehaviour:
   m_ShowGizmos: 0
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
-  m_TargetSize: {x: 954.00006, y: 439.6}
+  m_TargetSize: {x: 880.39996, y: 390.8}
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
@@ -1641,10 +2685,10 @@ MonoBehaviour:
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -381.60004
-    m_HBaseRangeMax: 381.60004
-    m_VBaseRangeMin: -175.84001
-    m_VBaseRangeMax: 175.84001
+    m_HBaseRangeMin: -352.16
+    m_HBaseRangeMax: 352.16
+    m_VBaseRangeMin: -156.31999
+    m_VBaseRangeMax: 156.31999
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -1653,7 +2697,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 1
+    m_EnableMouseInput: 0
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -1662,29 +2706,29 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-      width: 954.00006
-      height: 439.6
-    m_Scale: {x: 1, y: 1}
-    m_Translation: {x: 477.00003, y: 219.8}
+      width: 880.39996
+      height: 390.8
+    m_Scale: {x: 2.6878324, y: 2.6878324}
+    m_Translation: {x: 415.2486, y: 226.323}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -477.00003
-      y: -219.8
-      width: 954.00006
-      height: 439.6
+      x: -154.492
+      y: -84.2028
+      width: 327.55017
+      height: 145.39597
     m_MinimalGUI: 1
   m_defaultScale: 1
-  m_LastWindowPixelSize: {x: 1192.5001, y: 575.75}
+  m_LastWindowPixelSize: {x: 1100.5, y: 514.75}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
   m_XRRenderMode: 0
   m_RenderTexture: {fileID: 0}
---- !u!114 &22
+--- !u!114 &20
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1704,10 +2748,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1172.8
-    y: 649.60004
-    width: 362.19995
-    height: 135.40002
+    x: 0
+    y: 506.4
+    width: 1172.6
+    height: 277
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
