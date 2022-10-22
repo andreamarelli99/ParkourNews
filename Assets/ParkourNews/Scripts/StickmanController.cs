@@ -57,10 +57,10 @@ public class StickmanController : MonoBehaviour
     {
         // allows horizontal movement by pressing wasd/arrows
         _movement.x = Input.GetAxis("Horizontal");
-        if (Input.GetKey(KeyCode.Q))
-            transform.Rotate(_somersaultForce*  Time.deltaTime *-Vector3.forward );
-        else if (Input.GetKey(KeyCode.E))
-            transform.Rotate(_somersaultForce*  Time.deltaTime *Vector3.forward );
+       // if (Input.GetKey(KeyCode.Q))
+       //     transform.Rotate(_somersaultForce*  Time.deltaTime *-Vector3.forward );
+      //  else if (Input.GetKey(KeyCode.E))
+        //    transform.Rotate(_somersaultForce*  Time.deltaTime *Vector3.forward );
         
     }
 
