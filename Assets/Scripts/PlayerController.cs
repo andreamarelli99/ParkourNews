@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour
 {
@@ -29,8 +30,8 @@ public class PlayerController : MonoBehaviour
 	[System.Serializable]
 	public class BoolEvent : UnityEvent<bool> { }
 
-	public BoolEvent OnCrouchEvent;
-	private bool m_wasCrouching = false;
+	[FormerlySerializedAs("OnCrouchEvent")] public BoolEvent OnSlideEvent;
+	private bool m_wasSliding = false;
 
 	private void Awake()
 	{
@@ -39,8 +40,8 @@ public class PlayerController : MonoBehaviour
 		if (OnLandEvent == null)
 			OnLandEvent = new UnityEvent();
 
-		if (OnCrouchEvent == null)
-			OnCrouchEvent = new BoolEvent();
+		if (OnSlideEvent == null)
+			OnSlideEvent = new BoolEvent();
 	}
 
 	private void FixedUpdate()
@@ -82,10 +83,10 @@ public class PlayerController : MonoBehaviour
 			// If crouching
 			if (crouch)
 			{
-				if (!m_wasCrouching)
+				if (!m_wasSliding)
 				{
-					m_wasCrouching = true;
-					OnCrouchEvent.Invoke(true);
+					m_wasSliding = true;
+					OnSlideEvent.Invoke(true);
 				}
 
 				// Reduce the speed by the crouchSpeed multiplier
@@ -100,10 +101,10 @@ public class PlayerController : MonoBehaviour
 				if (m_CrouchDisableCollider != null)
 					m_CrouchDisableCollider.enabled = true;
 
-				if (m_wasCrouching)
+				if (m_wasSliding)
 				{
-					m_wasCrouching = false;
-					OnCrouchEvent.Invoke(false);
+					m_wasSliding = false;
+					OnSlideEvent.Invoke(false);
 				}
 			}
 
