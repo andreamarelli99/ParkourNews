@@ -36,9 +36,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Slide"))
         {
+            animator.SetBool("Slide", true);
             _slide = true;
         } else if (Input.GetButtonUp("Slide"))
         {
+            animator.SetBool("Slide", false);
             _slide = false;
         }
         

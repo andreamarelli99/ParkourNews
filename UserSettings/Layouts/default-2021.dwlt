@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 124
+  controlID: 71
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -59,23 +59,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Window
+  m_Name: InspectorWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1173.6
+    x: 1168.8
     y: 0
-    width: 362.40002
+    width: 367.19995
     height: 730.8
-  m_MinSize: {x: 101, y: 121}
-  m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 14}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
   - {fileID: 14}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -93,7 +93,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 291.2
+    width: 289.6
     height: 432.8
   m_MinSize: {x: 201, y: 221}
   m_MaxSize: {x: 4001, y: 4021}
@@ -112,23 +112,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ProjectBrowser
+  m_Name: AnimatorControllerTool
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
     x: 0
     y: 432.8
-    width: 1173.6
+    width: 1168.8
     height: 298
-  m_MinSize: {x: 231, y: 271}
-  m_MaxSize: {x: 10001, y: 10021}
-  m_ActualView: {fileID: 15}
+  m_MinSize: {x: 101, y: 121}
+  m_MaxSize: {x: 4001, y: 4021}
+  m_ActualView: {fileID: 12}
   m_Panes:
   - {fileID: 15}
   - {fileID: 20}
   - {fileID: 13}
-  m_Selected: 0
+  - {fileID: 12}
+  m_Selected: 3
   m_LastSelected: 1
 --- !u!114 &6
 MonoBehaviour:
@@ -220,12 +221,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1173.6
+    width: 1168.8
     height: 730.8
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 43
+  controlID: 19
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -245,12 +246,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1173.6
+    width: 1168.8
     height: 432.8
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 44
+  controlID: 101
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -261,24 +262,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: SceneView
+  m_Name: GameView
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 291.2
+    x: 289.6
     y: 0
-    width: 882.39996
+    width: 879.2001
     height: 432.8
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
-  m_ActualView: {fileID: 18}
+  m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 18}
   - {fileID: 19}
-  - {fileID: 12}
-  m_Selected: 0
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -299,10 +299,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 291.2
-    y: 73.6
-    width: 880.39996
-    height: 411.8
+    x: 0
+    y: 506.4
+    width: 1167.8
+    height: 277
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -311,14 +311,14 @@ MonoBehaviour:
     m_KeySerializationHelper:
     - {fileID: 5672543201218637345, guid: 648c5f666786e7a4c8682260497a54c9, type: 2}
     m_ValueSerializationHelper:
-    - e00: 0.9231712
+    - e00: 0.5824378
       e01: 0
       e02: 0
-      e03: -216.6289
+      e03: 147.4415
       e10: 0
-      e11: 0.9231712
+      e11: 0.5824378
       e12: 0
-      e13: 41.6313
+      e13: 13.0460205
       e20: 0
       e21: 0
       e22: 1
@@ -340,7 +340,7 @@ MonoBehaviour:
   m_MiniTool: 0
   m_LockTracker:
     m_IsLocked: 0
-  m_CurrentEditor: 0
+  m_CurrentEditor: 1
   m_LayerEditor:
     m_SelectedLayerIndex: 0
 --- !u!114 &13
@@ -365,7 +365,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 506.4
-    width: 1172.6
+    width: 1167.8
     height: 277
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -373,7 +373,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 50882
+  m_LastSelectedObjectID: 24616
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -394,22 +394,22 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1173.6
+    x: 1168.8
     y: 73.6
-    width: 361.40002
+    width: 366.19995
     height: 709.8
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
-  progressMessageClearTime: 6498.0323597
+  progressMessageClearTime: -1
   notificationClearTime: -1
   timeSinceLastRotation: -1
   currentBranchAndRemoteHasUpdate: 0
   currentTrackingStatusHasUpdate: 0
-  currentStatusEntriesHasUpdate: 0
+  currentStatusEntriesHasUpdate: 1
   repositoryProgressHasUpdate: 1
-  appManagerProgressHasUpdate: 0
+  appManagerProgressHasUpdate: 1
   changeTab: 5
   activeTab: 5
   initProjectView:
@@ -456,6 +456,16 @@ MonoBehaviour:
         checkState: 0
       - path: master
         label: master
+        level: 1
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 0
+        checkState: 0
+      - path: animations
+        label: animations
         level: 1
         isFolder: 0
         isContainer: 0
@@ -531,8 +541,28 @@ MonoBehaviour:
         isActive: 0
         treeIsCheckable: 0
         checkState: 0
+      - path: origin/animations
+        label: animations
+        level: 2
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 0
+        checkState: 0
       - path: origin/HEAD
         label: HEAD
+        level: 2
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 0
+        checkState: 0
+      - path: origin/master
+        label: master
         level: 2
         isFolder: 0
         isContainer: 0
@@ -558,14 +588,14 @@ MonoBehaviour:
     disableDelete: 1
     disableCreate: 1
     lastLocalAndRemoteBranchListChangedEvent:
-      updatedTimeString: 2022-10-21T10:13:12.826+02:00
+      updatedTimeString: 2022-10-21T14:44:35.455+02:00
       cacheType: 2
     lastCurrentBranchAndRemoteChange:
-      updatedTimeString: 2022-10-21T10:12:11.371+02:00
+      updatedTimeString: 2022-10-21T14:41:43.132+02:00
       cacheType: 1
     currentBranch:
-      name: master
-      tracking: origin/master
+      name: animations
+      tracking: origin/animations
     currentRemote:
       name: origin
       url: https://github.com/andreamarelli99/ParkourNews.git
@@ -577,8 +607,14 @@ MonoBehaviour:
     localBranches:
     - name: master
       tracking: origin/master
+    - name: animations
+      tracking: origin/animations
     remoteBranches:
+    - name: origin/animations
+      tracking: '[None]'
     - name: origin/HEAD
+      tracking: '[None]'
+    - name: origin/master
       tracking: '[None]'
   changesView:
     currentBranchHasUpdate: 0
@@ -586,20 +622,24 @@ MonoBehaviour:
     currentLocksHasUpdate: 0
     commitBody: 
     commitMessage: 
-    currentBranch: '[master]'
+    currentBranch: '[animations]'
     treeScroll: {x: 0, y: 0}
     treeChanges:
       assets:
-        keys: []
-        values: []
-      folders:
         keys:
-        - .idea
-        - .idea\.idea.ParkourNews.dir
-        - .idea\.idea.ParkourNews.dir\.idea
+        - 00000000000000001000000000000000
+        - 93c02adfed1658e4e812aee84ea6514f
+        - 556b1adb74c187547961bf2bf3cbdca0
+        - 34dbb6c0f0cd80140a72646aae4ab30c
+        - 592b636b9241e5b4f9b1686f72a0a809
+        - b010e6a5490031444880f07bee068695
+        - 1fe19d1ffdfd067429203f244026c89d
+        - 648c5f666786e7a4c8682260497a54c9
+        - 131a6b21c8605f84396be9f6751fb6e3
+        - 2cda990e2423bbf4892e6590ba056729
         values:
-        - path: .idea
-          label: .idea
+        - path: Assets
+          label: Assets
           level: 0
           isFolder: 1
           isContainer: 0
@@ -616,8 +656,8 @@ MonoBehaviour:
             originalPath: 
             indexStatus: 0
             workTreeStatus: 0
-        - path: .idea\.idea.ParkourNews.dir
-          label: .idea.ParkourNews.dir
+        - path: Assets\Animations
+          label: Animations
           level: 1
           isFolder: 1
           isContainer: 0
@@ -634,9 +674,252 @@ MonoBehaviour:
             originalPath: 
             indexStatus: 0
             workTreeStatus: 0
-        - path: .idea\.idea.ParkourNews.dir\.idea
-          label: .idea
+        - path: Assets\Animations\Player
+          label: Player
           level: 2
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Animations\Player\PlayerJumpWall.anim
+          label: PlayerJumpWall.anim
+          level: 3
+          isFolder: 0
+          isContainer: 1
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Animations\Player\PlayerJumpWall.anim
+            fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Animations\Player\PlayerJumpWall.anim
+            projectPath: Assets\Animations\Player\PlayerJumpWall.anim
+            originalPath: 
+            indexStatus: 1
+            workTreeStatus: 1
+        - path: Assets\Animations\Player\PlayerSlideObliqueIn.anim
+          label: PlayerSlideObliqueIn.anim
+          level: 3
+          isFolder: 0
+          isContainer: 1
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Animations\Player\PlayerSlideObliqueIn.anim
+            fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Animations\Player\PlayerSlideObliqueIn.anim
+            projectPath: Assets\Animations\Player\PlayerSlideObliqueIn.anim
+            originalPath: 
+            indexStatus: 1
+            workTreeStatus: 1
+        - path: Assets\Animations\Player\PlayerSlideObliqueOut.anim
+          label: PlayerSlideObliqueOut.anim
+          level: 3
+          isFolder: 0
+          isContainer: 1
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Animations\Player\PlayerSlideObliqueOut.anim
+            fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Animations\Player\PlayerSlideObliqueOut.anim
+            projectPath: Assets\Animations\Player\PlayerSlideObliqueOut.anim
+            originalPath: 
+            indexStatus: 1
+            workTreeStatus: 1
+        - path: Assets\Animations\Player\PlayerSlideWall.anim
+          label: PlayerSlideWall.anim
+          level: 3
+          isFolder: 0
+          isContainer: 1
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Animations\Player\PlayerSlideWall.anim
+            fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Animations\Player\PlayerSlideWall.anim
+            projectPath: Assets\Animations\Player\PlayerSlideWall.anim
+            originalPath: 
+            indexStatus: 1
+            workTreeStatus: 1
+        - path: Assets\Animations\Player\StickmanWalking.controller
+          label: StickmanWalking.controller
+          level: 3
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Animations\Player\StickmanWalking.controller
+            fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Animations\Player\StickmanWalking.controller
+            projectPath: Assets\Animations\Player\StickmanWalking.controller
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\Scenes
+          label: Scenes
+          level: 1
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scenes\SampleScene.unity
+          label: SampleScene.unity
+          level: 2
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Scenes\SampleScene.unity
+            fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Scenes\SampleScene.unity
+            projectPath: Assets\Scenes\SampleScene.unity
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+      folders:
+        keys:
+        - Assets
+        - Assets\Animations
+        - Assets\Animations\Player
+        - Assets\Scenes
+        - UserSettings
+        - UserSettings\Layouts
+        values:
+        - path: Assets
+          label: Assets
+          level: 0
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Animations
+          label: Animations
+          level: 1
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Animations\Player
+          label: Player
+          level: 2
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scenes
+          label: Scenes
+          level: 1
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: UserSettings
+          label: UserSettings
+          level: 0
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: UserSettings\Layouts
+          label: Layouts
+          level: 1
           isFolder: 1
           isContainer: 0
           isCollapsed: 0
@@ -680,8 +963,8 @@ MonoBehaviour:
           originalPath: 
           indexStatus: 0
           workTreeStatus: 0
-      - path: .idea
-        label: .idea
+      - path: Assets
+        label: Assets
         level: 0
         isFolder: 1
         isContainer: 0
@@ -698,8 +981,8 @@ MonoBehaviour:
           originalPath: 
           indexStatus: 0
           workTreeStatus: 0
-      - path: .idea\.idea.ParkourNews.dir
-        label: .idea.ParkourNews.dir
+      - path: Assets\Animations
+        label: Animations
         level: 1
         isFolder: 1
         isContainer: 0
@@ -716,8 +999,8 @@ MonoBehaviour:
           originalPath: 
           indexStatus: 0
           workTreeStatus: 0
-      - path: .idea\.idea.ParkourNews.dir\.idea
-        label: .idea
+      - path: Assets\Animations\Player
+        label: Player
         level: 2
         isFolder: 1
         isContainer: 0
@@ -734,8 +1017,152 @@ MonoBehaviour:
           originalPath: 
           indexStatus: 0
           workTreeStatus: 0
-      - path: .idea\.idea.ParkourNews.dir\.idea\.gitignore
-        label: .gitignore
+      - path: Assets\Animations\Player\PlayerJumpWall.anim
+        label: PlayerJumpWall.anim
+        level: 3
+        isFolder: 0
+        isContainer: 1
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Animations\Player\PlayerJumpWall.anim
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Animations\Player\PlayerJumpWall.anim
+          projectPath: Assets\Animations\Player\PlayerJumpWall.anim
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Animations\Player\PlayerJumpWall.anim.meta
+        label: PlayerJumpWall.anim.meta
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Animations\Player\PlayerJumpWall.anim.meta
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Animations\Player\PlayerJumpWall.anim.meta
+          projectPath: Assets\Animations\Player\PlayerJumpWall.anim.meta
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Animations\Player\PlayerSlideObliqueIn.anim
+        label: PlayerSlideObliqueIn.anim
+        level: 3
+        isFolder: 0
+        isContainer: 1
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Animations\Player\PlayerSlideObliqueIn.anim
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Animations\Player\PlayerSlideObliqueIn.anim
+          projectPath: Assets\Animations\Player\PlayerSlideObliqueIn.anim
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Animations\Player\PlayerSlideObliqueIn.anim.meta
+        label: PlayerSlideObliqueIn.anim.meta
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Animations\Player\PlayerSlideObliqueIn.anim.meta
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Animations\Player\PlayerSlideObliqueIn.anim.meta
+          projectPath: Assets\Animations\Player\PlayerSlideObliqueIn.anim.meta
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Animations\Player\PlayerSlideObliqueOut.anim
+        label: PlayerSlideObliqueOut.anim
+        level: 3
+        isFolder: 0
+        isContainer: 1
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Animations\Player\PlayerSlideObliqueOut.anim
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Animations\Player\PlayerSlideObliqueOut.anim
+          projectPath: Assets\Animations\Player\PlayerSlideObliqueOut.anim
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Animations\Player\PlayerSlideObliqueOut.anim.meta
+        label: PlayerSlideObliqueOut.anim.meta
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Animations\Player\PlayerSlideObliqueOut.anim.meta
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Animations\Player\PlayerSlideObliqueOut.anim.meta
+          projectPath: Assets\Animations\Player\PlayerSlideObliqueOut.anim.meta
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Animations\Player\PlayerSlideWall.anim
+        label: PlayerSlideWall.anim
+        level: 3
+        isFolder: 0
+        isContainer: 1
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Animations\Player\PlayerSlideWall.anim
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Animations\Player\PlayerSlideWall.anim
+          projectPath: Assets\Animations\Player\PlayerSlideWall.anim
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Animations\Player\PlayerSlideWall.anim.meta
+        label: PlayerSlideWall.anim.meta
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Animations\Player\PlayerSlideWall.anim.meta
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Animations\Player\PlayerSlideWall.anim.meta
+          projectPath: Assets\Animations\Player\PlayerSlideWall.anim.meta
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Animations\Player\StickmanWalking.controller
+        label: StickmanWalking.controller
         level: 3
         isFolder: 0
         isContainer: 0
@@ -746,15 +1173,33 @@ MonoBehaviour:
         checkState: 0
         isLocked: 0
         gitStatusEntry:
-          path: .idea\.idea.ParkourNews.dir\.idea\.gitignore
-          fullPath: D:\Documenti\UnityProjects\ParkourNews\.idea\.idea.ParkourNews.dir\.idea\.gitignore
-          projectPath: .idea\.idea.ParkourNews.dir\.idea\.gitignore
+          path: Assets\Animations\Player\StickmanWalking.controller
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Animations\Player\StickmanWalking.controller
+          projectPath: Assets\Animations\Player\StickmanWalking.controller
           originalPath: 
-          indexStatus: 1
-          workTreeStatus: 1
-      - path: .idea\.idea.ParkourNews.dir\.idea\indexLayout.xml
-        label: indexLayout.xml
-        level: 3
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\Scenes
+        label: Scenes
+        level: 1
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: Assets\Scenes\SampleScene.unity
+        label: SampleScene.unity
+        level: 2
         isFolder: 0
         isContainer: 0
         isCollapsed: 0
@@ -764,15 +1209,51 @@ MonoBehaviour:
         checkState: 0
         isLocked: 0
         gitStatusEntry:
-          path: .idea\.idea.ParkourNews.dir\.idea\indexLayout.xml
-          fullPath: D:\Documenti\UnityProjects\ParkourNews\.idea\.idea.ParkourNews.dir\.idea\indexLayout.xml
-          projectPath: .idea\.idea.ParkourNews.dir\.idea\indexLayout.xml
+          path: Assets\Scenes\SampleScene.unity
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Scenes\SampleScene.unity
+          projectPath: Assets\Scenes\SampleScene.unity
           originalPath: 
-          indexStatus: 1
-          workTreeStatus: 1
-      - path: .idea\.idea.ParkourNews.dir\.idea\vcs.xml
-        label: vcs.xml
-        level: 3
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: UserSettings
+        label: UserSettings
+        level: 0
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: UserSettings\Layouts
+        label: Layouts
+        level: 1
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: UserSettings\Layouts\default-2021.dwlt
+        label: default-2021.dwlt
+        level: 2
         isFolder: 0
         isContainer: 0
         isCollapsed: 0
@@ -782,12 +1263,12 @@ MonoBehaviour:
         checkState: 0
         isLocked: 0
         gitStatusEntry:
-          path: .idea\.idea.ParkourNews.dir\.idea\vcs.xml
-          fullPath: D:\Documenti\UnityProjects\ParkourNews\.idea\.idea.ParkourNews.dir\.idea\vcs.xml
-          projectPath: .idea\.idea.ParkourNews.dir\.idea\vcs.xml
+          path: UserSettings\Layouts\default-2021.dwlt
+          fullPath: D:\Documenti\UnityProjects\ParkourNews\UserSettings\Layouts\default-2021.dwlt
+          projectPath: UserSettings\Layouts\default-2021.dwlt
           originalPath: 
-          indexStatus: 1
-          workTreeStatus: 1
+          indexStatus: 0
+          workTreeStatus: 3
       selectedNode:
         path: 
         label: 
@@ -808,33 +1289,81 @@ MonoBehaviour:
           indexStatus: 0
           workTreeStatus: 0
     gitStatusEntries:
-    - path: .idea\.idea.ParkourNews.dir\.idea\.gitignore
-      fullPath: D:\Documenti\UnityProjects\ParkourNews\.idea\.idea.ParkourNews.dir\.idea\.gitignore
-      projectPath: .idea\.idea.ParkourNews.dir\.idea\.gitignore
+    - path: Assets\Animations\Player\PlayerJumpWall.anim
+      fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Animations\Player\PlayerJumpWall.anim
+      projectPath: Assets\Animations\Player\PlayerJumpWall.anim
       originalPath: 
       indexStatus: 1
       workTreeStatus: 1
-    - path: .idea\.idea.ParkourNews.dir\.idea\indexLayout.xml
-      fullPath: D:\Documenti\UnityProjects\ParkourNews\.idea\.idea.ParkourNews.dir\.idea\indexLayout.xml
-      projectPath: .idea\.idea.ParkourNews.dir\.idea\indexLayout.xml
+    - path: Assets\Animations\Player\PlayerJumpWall.anim.meta
+      fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Animations\Player\PlayerJumpWall.anim.meta
+      projectPath: Assets\Animations\Player\PlayerJumpWall.anim.meta
       originalPath: 
       indexStatus: 1
       workTreeStatus: 1
-    - path: .idea\.idea.ParkourNews.dir\.idea\vcs.xml
-      fullPath: D:\Documenti\UnityProjects\ParkourNews\.idea\.idea.ParkourNews.dir\.idea\vcs.xml
-      projectPath: .idea\.idea.ParkourNews.dir\.idea\vcs.xml
+    - path: Assets\Animations\Player\PlayerSlideObliqueIn.anim
+      fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Animations\Player\PlayerSlideObliqueIn.anim
+      projectPath: Assets\Animations\Player\PlayerSlideObliqueIn.anim
       originalPath: 
       indexStatus: 1
       workTreeStatus: 1
-    changedFilesText: 3 changed files
+    - path: Assets\Animations\Player\PlayerSlideObliqueIn.anim.meta
+      fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Animations\Player\PlayerSlideObliqueIn.anim.meta
+      projectPath: Assets\Animations\Player\PlayerSlideObliqueIn.anim.meta
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Animations\Player\PlayerSlideObliqueOut.anim
+      fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Animations\Player\PlayerSlideObliqueOut.anim
+      projectPath: Assets\Animations\Player\PlayerSlideObliqueOut.anim
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Animations\Player\PlayerSlideObliqueOut.anim.meta
+      fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Animations\Player\PlayerSlideObliqueOut.anim.meta
+      projectPath: Assets\Animations\Player\PlayerSlideObliqueOut.anim.meta
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Animations\Player\PlayerSlideWall.anim
+      fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Animations\Player\PlayerSlideWall.anim
+      projectPath: Assets\Animations\Player\PlayerSlideWall.anim
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Animations\Player\PlayerSlideWall.anim.meta
+      fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Animations\Player\PlayerSlideWall.anim.meta
+      projectPath: Assets\Animations\Player\PlayerSlideWall.anim.meta
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Animations\Player\StickmanWalking.controller
+      fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Animations\Player\StickmanWalking.controller
+      projectPath: Assets\Animations\Player\StickmanWalking.controller
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\Scenes\SampleScene.unity
+      fullPath: D:\Documenti\UnityProjects\ParkourNews\Assets\Scenes\SampleScene.unity
+      projectPath: Assets\Scenes\SampleScene.unity
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: UserSettings\Layouts\default-2021.dwlt
+      fullPath: D:\Documenti\UnityProjects\ParkourNews\UserSettings\Layouts\default-2021.dwlt
+      projectPath: UserSettings\Layouts\default-2021.dwlt
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    changedFilesText: 11 changed files
     lastCurrentBranchChangedEvent:
-      updatedTimeString: 2022-10-21T10:12:11.371+02:00
+      updatedTimeString: 2022-10-21T14:41:43.132+02:00
       cacheType: 1
     lastStatusEntriesChangedEvent:
-      updatedTimeString: 0001-01-01T00:00:00.000+00:00
+      updatedTimeString: 2022-10-21T14:50:51.036+02:00
       cacheType: 6
     lastLocksChangedEvent:
-      updatedTimeString: 0001-01-01T00:00:00.000+00:00
+      updatedTimeString: 2022-10-21T14:50:12.479+02:00
       cacheType: 7
   historyView:
     currentLogHasUpdate: 0
@@ -1944,7 +2473,7 @@ MonoBehaviour:
       changingManually: 0
     hasRemote: 1
     lastCurrentRemoteChangedEvent:
-      updatedTimeString: 2022-10-21T12:23:20.770+02:00
+      updatedTimeString: 2022-10-21T20:03:33.103+02:00
       cacheType: 1
     metricsEnabled: 1
     newRepositoryRemoteUrl: https://github.com/andreamarelli99/ParkourNews.git
@@ -1958,7 +2487,7 @@ MonoBehaviour:
       newGitEmail: 66123653+Francesco-Grilli@users.noreply.github.com
       needsSaving: 0
       lastCheckUserChangedEvent:
-        updatedTimeString: 2022-10-21T12:28:25.475+02:00
+        updatedTimeString: 2022-10-21T20:27:35.438+02:00
         cacheType: 8
     webTimeout: 3000
     gitTimeout: 5000
@@ -2030,7 +2559,7 @@ MonoBehaviour:
   currentRemoteUrl: https://github.com/andreamarelli99/ParkourNews.git
   statusAhead: 0
   statusBehind: 0
-  hasItemsToCommit: 0
+  hasItemsToCommit: 1
   isTrackingRemoteBranch: 1
   currentBranchContent:
     m_Text: animations
@@ -2041,13 +2570,13 @@ MonoBehaviour:
     m_Image: {fileID: 0}
     m_Tooltip: Url of the origin remote
   lastCurrentBranchAndRemoteChangedEvent:
-    updatedTimeString: 2022-10-21T11:47:10.903+02:00
+    updatedTimeString: 2022-10-21T14:41:43.132+02:00
     cacheType: 1
   lastTrackingStatusChangedEvent:
-    updatedTimeString: 2022-10-21T11:45:14.722+02:00
+    updatedTimeString: 2022-10-21T14:49:24.311+02:00
     cacheType: 5
   lastStatusEntriesChangedEvent:
-    updatedTimeString: 2022-10-21T12:34:36.478+02:00
+    updatedTimeString: 2022-10-21T14:50:54.058+02:00
     cacheType: 6
   pullButtonContent:
     m_Text: Pull
@@ -2065,7 +2594,7 @@ MonoBehaviour:
     m_Text: Fetch
     m_Image: {fileID: 0}
     m_Tooltip: 
-  repositoryProgressValue: 0.33333334
+  repositoryProgressValue: 0
   repositoryProgressMessage: Listing changed files...
   appManagerProgressValue: 1
   appManagerProgressMessage: Initialized
@@ -2093,7 +2622,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 506.4
-    width: 1172.6
+    width: 1167.8
     height: 277
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -2116,18 +2645,18 @@ MonoBehaviour:
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
-  m_StartGridSize: 64
+  m_StartGridSize: 16
   m_LastFolders:
   - Assets/Scripts
-  m_LastFoldersGridSize: -1
+  m_LastFoldersGridSize: 16
   m_LastProjectPath: D:\Documenti\UnityProjects\ParkourNews
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 7c5a0000
-    m_LastClickedID: 23164
-    m_ExpandedIDs: 000000006e5a0000765a0000bc5b000000ca9a3b
+    m_SelectedIDs: e0610000
+    m_LastClickedID: 25056
+    m_ExpandedIDs: 00000000886100008a61000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2155,7 +2684,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000006e5a0000
+    m_ExpandedIDs: 00000000886100008a610000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2180,9 +2709,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_SelectedInstanceIDs: dceeffff
+    m_LastClickedInstanceID: -4388
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000c0150000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -2208,7 +2737,7 @@ MonoBehaviour:
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
     m_ScrollPosition: {x: 0, y: 0}
-    m_GridSize: 64
+    m_GridSize: 16
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 207
 --- !u!114 &16
@@ -2231,9 +2760,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1173.6
+    x: 1168.8
     y: 73.6
-    width: 361.40002
+    width: 366.19995
     height: 709.8
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -2274,7 +2803,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 73.6
-    width: 290.2
+    width: 288.6
     height: 411.8
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -2285,7 +2814,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: cca7ffff08b0ffffcce7ffffcee7ffffd4e7ffffd8e7ffffdae7ffffdee7ffffe0e7ffffe8e7ffffece7ffff38fbffff94590000a8590000ae590000ba590000d4590000
+      m_ExpandedIDs: 2cfbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -2329,9 +2858,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 291.2
+    x: 289.6
     y: 73.6
-    width: 880.39996
+    width: 877.2001
     height: 411.8
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -2556,9 +3085,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 1.2912912, y: 1.1959419, z: 0.025026929}
+    m_Target: {x: 1.0717134, y: 1.2621909, z: 0.09546216}
     speed: 2
-    m_Value: {x: 1.2912912, y: 1.1959419, z: 0.025026929}
+    m_Value: {x: 1.0717134, y: 1.2621909, z: 0.09546216}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -2609,9 +3138,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 1.367504
+    m_Target: 1.9721159
     speed: 2
-    m_Value: 1.367504
+    m_Value: 1.9721159
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -2656,9 +3185,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 291.2
+    x: 289.6
     y: 73.6
-    width: 880.39996
+    width: 877.2001
     height: 411.8
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -2670,7 +3199,7 @@ MonoBehaviour:
   m_ShowGizmos: 0
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
-  m_TargetSize: {x: 880.39996, y: 390.8}
+  m_TargetSize: {x: 877.2001, y: 390.8}
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
@@ -2685,8 +3214,8 @@ MonoBehaviour:
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -352.16
-    m_HBaseRangeMax: 352.16
+    m_HBaseRangeMin: -350.88004
+    m_HBaseRangeMax: 350.88004
     m_VBaseRangeMin: -156.31999
     m_VBaseRangeMax: 156.31999
     m_HAllowExceedBaseRangeMin: 1
@@ -2697,7 +3226,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 0
+    m_EnableMouseInput: 1
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -2706,23 +3235,23 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-      width: 880.39996
+      width: 877.2001
       height: 390.8
-    m_Scale: {x: 2.6878324, y: 2.6878324}
-    m_Translation: {x: 415.2486, y: 226.323}
+    m_Scale: {x: 1, y: 1}
+    m_Translation: {x: 438.60004, y: 195.4}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -154.492
-      y: -84.2028
-      width: 327.55017
-      height: 145.39597
+      x: -438.60004
+      y: -195.4
+      width: 877.2001
+      height: 390.8
     m_MinimalGUI: 1
   m_defaultScale: 1
-  m_LastWindowPixelSize: {x: 1100.5, y: 514.75}
+  m_LastWindowPixelSize: {x: 1096.5001, y: 514.75}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
@@ -2750,7 +3279,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 506.4
-    width: 1172.6
+    width: 1167.8
     height: 277
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
