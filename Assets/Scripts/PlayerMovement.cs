@@ -11,11 +11,13 @@ public class PlayerMovement : MonoBehaviour
     public float runSpeed = 40;
 
     private bool _jump;
+    private bool _fly;
     private bool _slide;
     private bool _run;
     void Start()
     {
         _jump = false;
+        _fly = false;
         _slide = false;
         _run = false;
     }
@@ -28,7 +30,13 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             _jump = true;
+            _fly = true;
             animator.SetBool("IsJumping",true);
+            animator.SetBool("IsFlying",true);
+        }else if (Input.GetButtonUp("Jump"))
+        {
+            _jump = false;
+            animator.SetBool("IsJumping",false);
         }
         
         if (Input.GetButtonDown("Fire3"))
@@ -44,11 +52,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Slide"))
         {
-            animator.SetBool("Slide", true);
+            animator.SetBool("IsSliding", true);
             _slide = true;
         } else if (Input.GetButtonUp("Slide"))
         {
-            animator.SetBool("Slide", false);
+            animator.SetBool("IsSliding", false);
             _slide = false;
         }
         
@@ -57,8 +65,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void onLanding()
     {
-        _jump = false;
-        animator.SetBool("IsJumping",false);
+        _fly = false;
+        animator.SetBool("IsFlying",false);
     }
 
     private void FixedUpdate()
