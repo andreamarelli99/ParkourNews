@@ -7,6 +7,8 @@ using UnityEngine.InputSystem;
 public class StickmanController : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D _rigidbody2D;
+    public Animator _animator;
+    private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 
     //----------------------------SPEED-------------------------------//
     //put _Xspeed and _maxXspeed to regulate the stickman acceleration
@@ -33,6 +35,9 @@ public class StickmanController : MonoBehaviour
     private Boolean _isJumping;
     //to check if the player is doubleJumping
     private Boolean _isDoubleJumping;
+    
+    //check if it is sliding
+    private Boolean _isSliding;
 
     //--Dash
     [SerializeField] private float _dashForce = 9f;
@@ -58,6 +63,7 @@ public class StickmanController : MonoBehaviour
         _doSommersault = false;
         _isJumping = false;
         _isDoubleJumping = false;
+        _isSliding = false;
 
 
     }
@@ -70,8 +76,25 @@ public class StickmanController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // ----- MOVEMENT LEFT/RIGHT ------
         // allows horizontal movement by pressing wasd/arrows
         _movement.x = Input.GetAxis("Horizontal");
+        _animator.SetFloat("Speed",Mathf.Abs(_movement.x));
+        
+        // If the input is moving the player right and the player is facing left...
+        if (_movement.x > 0 && !m_FacingRight)
+        {
+            // ... flip the player.
+            Flip();
+        }
+        // Otherwise if the input is moving the player left and the player is facing right...
+        else if (_movement.x < 0 && m_FacingRight)
+        {
+            // ... flip the player.
+            Flip();
+        }
+        
+        
         // if (Input.GetKey(KeyCode.Q))
         //     transform.Rotate(_somersaultForce*  Time.deltaTime *-Vector3.forward );
         //  else if (Input.GetKey(KeyCode.E))
@@ -95,13 +118,17 @@ public class StickmanController : MonoBehaviour
         {
             _isJumping = true;
             Debug.Log("Jump!");
+            _animator.SetBool("IsJumping",true);
+            _animator.SetBool("IsFlying",true);
             _rigidbody2D.AddForce(new Vector2(0f, _jumpForce), ForceMode2D.Impulse);
             EventManager.StartListening("OnGround",OnGround);
+            
         }
         else if (!_isDoubleJumping)
         {
             _isDoubleJumping = true;
             Debug.Log("Double Jump!");
+            _animator.SetBool("IsJumping",false);
             _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, 0f);
             _rigidbody2D.AddForce(new Vector2(0f, _jumpForce), ForceMode2D.Impulse);
             EventManager.StartListening("OnGround",OnGround);
@@ -117,13 +144,23 @@ public class StickmanController : MonoBehaviour
     {
         Debug.Log("Somersault!");
         //todo direction as general
+        if (_isSliding)
+        {
+            _isSliding = !_isSliding;
+            _animator.SetBool("IsSliding", false);
+        }
+        else
+        {
+            _isSliding = !_isSliding;
+            _animator.SetBool("IsSliding", true);
+        }
         _rigidbody2D.AddForce(gameObject.transform.forward * _somersaultForce, ForceMode2D.Impulse);
     }
 
     private void OnDash(InputAction.CallbackContext context)
     {
         Debug.Log("Dash!");
-        _rigidbody2D.AddForce(Vector2.right * _dashForce, ForceMode2D.Impulse);
+        _rigidbody2D.AddForce((m_FacingRight?1:-1) * Vector2.right * _dashForce, ForceMode2D.Impulse);
     }
 
     //todo real crouch
@@ -150,7 +187,19 @@ public class StickmanController : MonoBehaviour
         EventManager.StopListening("OnGround",OnGround);
         _isJumping = false;
         _isDoubleJumping = false;
+        _animator.SetBool("IsFlying",false);
         Debug.Log("Ended Jump!");
+    }
+    
+    private void Flip()
+    {
+        // Switch the way the player is labelled as facing.
+        m_FacingRight = !m_FacingRight;
+
+        // Multiply the player's x local scale by -1.
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
     }
 }
 
