@@ -35,7 +35,7 @@ public class StickmanController : MonoBehaviour
     private Boolean _isDoubleJumping;
 
     //--Dash
-    [SerializeField] private float _dashForce = 8f;
+    [SerializeField] private float _dashForce = 9f;
 
     private void Awake()
     {
