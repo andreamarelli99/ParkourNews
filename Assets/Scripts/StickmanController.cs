@@ -81,7 +81,7 @@ public class StickmanController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _rigidbody2D.drag = _walkSpeed / _maxWalkSpeed;
+        //_rigidbody2D.drag = _maxWalkSpeed / _walkSpeed;
         _rigidbody2D.AddForce(_walkSpeed * Time.fixedDeltaTime * _movement);
     }
 
@@ -102,6 +102,7 @@ public class StickmanController : MonoBehaviour
         {
             _isDoubleJumping = true;
             Debug.Log("Double Jump!");
+            _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, 0f);
             _rigidbody2D.AddForce(new Vector2(0f, _jumpForce), ForceMode2D.Impulse);
             EventManager.StartListening("OnGround",OnGround);
         }
