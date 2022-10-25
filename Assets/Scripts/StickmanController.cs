@@ -1,15 +1,18 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using ParkourNews.Scripts;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class StickmanController : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D _rigidbody2D;
     public Animator _animator;
     private bool m_FacingRight = true;  // For determining which way the player is currently facing.
-
+   
+    
     //----------------------------SPEED-------------------------------//
     //put _Xspeed and _maxXspeed to regulate the stickman acceleration
     [SerializeField] private float _walkSpeed = 1000f;
@@ -47,7 +50,6 @@ public class StickmanController : MonoBehaviour
         //find the rigid body
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _stickmanActions = new StickmanActions();
-
     }
 
     private void OnEnable()
@@ -66,8 +68,11 @@ public class StickmanController : MonoBehaviour
         _isSliding = false;
 
         EventManager.StartListening("OnBouncey",OnBouncey);
+        EventManager.StartListening("OnDeath",OnDeath);
 
     }
+
+    
 
     private void OnDisable()
     {
@@ -211,6 +216,14 @@ public class StickmanController : MonoBehaviour
         // to allow player to jump after a bouncy collision
         _isJumping = false; 
         EventManager.StartListening("OnBouncey",OnBouncey);
+    }
+
+    private void OnDeath()
+    {
+        EventManager.StopListening("OnDeath",OnDeath);
+        Debug.Log("You Died!");
+        EventManager.TriggerEvent("OnPlayerDeath");
+        EventManager.StartListening("OnDeath",OnDeath);
     }
 }
 
