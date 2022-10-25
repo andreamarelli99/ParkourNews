@@ -10,7 +10,7 @@ namespace ParkourNews.Scripts
         {
             //check if ground is touched by the stickman
             if (col.gameObject.CompareTag("Stickman")){
-                //col.GetContact(0).collider = contect collider
+                //col.GetContact(0).collider = contact collider
                 if(col.GetContact(0).collider.CompareTag("StickmanFoot"))
                     EventManager.TriggerEvent("OnGround"); 
             }

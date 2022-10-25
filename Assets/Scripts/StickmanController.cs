@@ -17,7 +17,8 @@ public class StickmanController : MonoBehaviour
     //----------------------------SPEED-------------------------------//
     //put _Xspeed and _maxXspeed to regulate the stickman acceleration
     [SerializeField] private float _walkSpeed = 1000f;
-    [SerializeField] private float _maxWalkSpeed = 1000f;
+    [SerializeField] private float _minSpeed = 500f;
+    private float _realSpeed;
 
     //--------------------------MOVEMENTS-----------------------------//
     //to manage input - actions w/o specifying controllers/keyboard
@@ -67,7 +68,7 @@ public class StickmanController : MonoBehaviour
         _isJumping = false;
         _isDoubleJumping = false;
         _isSliding = false;
-
+        
         EventManager.StartListening("OnBouncey",OnBouncey);
         EventManager.StartListening("OnDeath",OnDeath);
 
@@ -112,6 +113,7 @@ public class StickmanController : MonoBehaviour
     private void FixedUpdate()
     {
         //_rigidbody2D.drag = _maxWalkSpeed / _walkSpeed;
+        _realSpeed = Mathf.Max(_minSpeed, _rigidbody2D.velocity.y);
         _rigidbody2D.AddForce(_walkSpeed * Time.fixedDeltaTime * _movement);
     }
 
