@@ -8,7 +8,7 @@ namespace ParkourNews.Scripts
     {
         private void OnCollisionEnter2D(Collision2D col)
         {
-            //check if ground is touched by the stickma
+            //check if ground is touched by the stickman
             if (col.gameObject.CompareTag("Stickman")){
                 EventManager.TriggerEvent("OnGround"); 
             }

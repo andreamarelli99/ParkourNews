@@ -1399,7 +1399,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!60 &1639005501
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1831,9 +1831,10 @@ GameObject:
   - component: {fileID: 2019930762}
   - component: {fileID: 2019930764}
   - component: {fileID: 2019930765}
+  - component: {fileID: 2019930766}
   m_Layer: 0
   m_Name: Ball
-  m_TagString: Ground
+  m_TagString: Bouncey
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1933,6 +1934,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 142f6467c17447b2996672a501aae77b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2019930766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2019930761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8a2be40cff84257a9b32cc9316c8767, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2125781275
 GameObject:
   m_ObjectHideFlags: 0
@@ -1953,7 +1966,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &2125781276
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3430,7 +3443,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigidbody2D: {fileID: 2134717079}
   _animator: {fileID: 2134717078}
-  _walkSpeed: 100
+  _walkSpeed: 200
   _maxWalkSpeed: 300
   _somersaultForce: 5
   _jumpForce: 1

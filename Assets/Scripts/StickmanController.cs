@@ -65,6 +65,7 @@ public class StickmanController : MonoBehaviour
         _isDoubleJumping = false;
         _isSliding = false;
 
+        EventManager.StartListening("OnBouncey",OnBouncey);
 
     }
 
@@ -181,15 +182,6 @@ public class StickmanController : MonoBehaviour
         }
 
     }
-
-    private void OnGround()
-    {
-        EventManager.StopListening("OnGround",OnGround);
-        _isJumping = false;
-        _isDoubleJumping = false;
-        _animator.SetBool("IsFlying",false);
-        Debug.Log("Ended Jump!");
-    }
     
     private void Flip()
     {
@@ -200,6 +192,25 @@ public class StickmanController : MonoBehaviour
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+    }
+
+    //---- called upon events----//
+    private void OnGround()
+    {
+        EventManager.StopListening("OnGround",OnGround);
+        _isJumping = false;
+        _isDoubleJumping = false;
+        _animator.SetBool("IsFlying",false);
+        Debug.Log("Ended Jump!");
+    }
+
+    private void OnBouncey()
+    {
+        EventManager.StopListening("OnBouncey",OnBouncey);
+        _isDoubleJumping = true;
+        // to allow player to jump after a bouncy collision
+        _isJumping = false; 
+        EventManager.StartListening("OnBouncey",OnBouncey);
     }
 }
 
