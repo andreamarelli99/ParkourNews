@@ -17,7 +17,7 @@ public class StickmanController : MonoBehaviour
     //----------------------------SPEED-------------------------------//
     //put _Xspeed and _maxXspeed to regulate the stickman acceleration
     [SerializeField] private float _walkSpeed = 1000f;
-    [SerializeField] private float _minSpeed = 500f;
+    [SerializeField] private float _minSpeed = 0f;
     [SerializeField] private float _minRunSpeed = 750;
     private float _realSpeed;
 
@@ -93,7 +93,7 @@ public class StickmanController : MonoBehaviour
         // ----- MOVEMENT LEFT/RIGHT ------
         // allows horizontal movement by pressing wasd/arrows
         _movement.x = Input.GetAxis("Horizontal");
-        _animator.SetFloat("Speed",Mathf.Abs(_movement.x));
+        
         
         // If the input is moving the player right and the player is facing left...
         if (_movement.x > 0 && !m_FacingRight)
@@ -109,17 +109,19 @@ public class StickmanController : MonoBehaviour
         }
         
         
-        // if (Input.GetKey(KeyCode.Q))
-        //     transform.Rotate(_somersaultForce*  Time.deltaTime *-Vector3.forward );
-        //  else if (Input.GetKey(KeyCode.E))
-        //    transform.Rotate(_somersaultForce*  Time.deltaTime *Vector3.forward );
+       //  if (Input.GetKey(KeyCode.Q))
+       //     transform.Rotate(_somersaultForce*  Time.deltaTime *-Vector3.forward );
+      //   else if (Input.GetKey(KeyCode.E))
+       //    transform.Rotate(_somersaultForce*  Time.deltaTime *Vector3.forward );
 
     }
 
     private void FixedUpdate()
     {
-        _realSpeed = Mathf.Max(_minSpeed, _rigidbody2D.velocity.y);
+        _realSpeed = Mathf.Max(_minSpeed, Mathf.Abs(_rigidbody2D.velocity.x));
         _isRunning=_realSpeed >= _minRunSpeed;
+        _animator.SetFloat("Speed",Mathf.Abs(_realSpeed));
+        _animator.SetBool("IsRunning",_isRunning);
         _rigidbody2D.AddForce(_walkSpeed * Time.fixedDeltaTime * _movement);
     }
 
@@ -134,7 +136,7 @@ public class StickmanController : MonoBehaviour
             _isJumping = true;
             Debug.Log("Jump!");
             _animator.SetBool("IsJumping",true);
-            _animator.SetBool("IsFlying",true);
+            //_animator.SetBool("IsFlying",true);
             _rigidbody2D.AddForce(new Vector2(0f, _jumpForce), ForceMode2D.Impulse);
             EventManager.StartListening("OnGround",OnGround);
             
@@ -144,6 +146,7 @@ public class StickmanController : MonoBehaviour
             _isDoubleJumping = true;
             Debug.Log("Double Jump!");
             _animator.SetBool("IsJumping",false);
+            _animator.SetBool("IsFlying",true);
             _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, 0f);
             _rigidbody2D.AddForce(new Vector2(0f, _jumpForce), ForceMode2D.Impulse);
             EventManager.StartListening("OnGround",OnGround);
@@ -162,12 +165,12 @@ public class StickmanController : MonoBehaviour
         if (_isSliding)
         {
             _isSliding = !_isSliding;
-            _animator.SetBool("IsSliding", false);
+            _animator.SetBool("IsRolling", false);
         }
         else
         {
             _isSliding = !_isSliding;
-            _animator.SetBool("IsSliding", true);
+            _animator.SetBool("IsRolling", true);
         }
         _rigidbody2D.AddForce(gameObject.transform.forward * _somersaultForce, ForceMode2D.Impulse);
     }
@@ -214,6 +217,7 @@ public class StickmanController : MonoBehaviour
         EventManager.StopListening("OnGround",OnGround);
         _isJumping = false;
         _isDoubleJumping = false;
+        _animator.SetBool("IsJumping",false);
         _animator.SetBool("IsFlying",false);
         Debug.Log("Ended Jump!");
     }
