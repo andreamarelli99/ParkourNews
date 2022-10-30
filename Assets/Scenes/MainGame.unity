@@ -4770,7 +4770,7 @@ MonoBehaviour:
   _walkSpeed: 200
   _minSpeed: 0
   _minRunSpeed: 2
-  _somersaultForce: 5
+  _somersaultForce: 200
   _jumpForce: 5
   _dashForce: 1.5
 --- !u!212 &2134717086
@@ -4819,7 +4819,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 3.1249998, y: 3.1257627}
+  m_Size: {x: 7.7777777, y: 6.1666665}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0

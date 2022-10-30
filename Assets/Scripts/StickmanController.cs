@@ -110,10 +110,20 @@ public class StickmanController : MonoBehaviour
         }
         
         
-       //  if (Input.GetKey(KeyCode.Q))
-       //     transform.Rotate(_somersaultForce*  Time.deltaTime *-Vector3.forward );
-      //   else if (Input.GetKey(KeyCode.E))
-       //    transform.Rotate(_somersaultForce*  Time.deltaTime *Vector3.forward );
+         if (Input.GetKey(KeyCode.Q))
+            transform.Rotate(_somersaultForce*  Time.deltaTime *-Vector3.forward );
+         if(Input.GetKeyDown(KeyCode.Q)) 
+             _animator.SetBool("IsRolling", true);
+         else if(Input.GetKeyUp(KeyCode.Q))
+             _animator.SetBool("IsRolling", false);
+             
+         
+         if (Input.GetKey(KeyCode.E))
+           transform.Rotate(_somersaultForce*  Time.deltaTime *Vector3.forward );
+         if(Input.GetKeyDown(KeyCode.E)) 
+             _animator.SetBool("IsRolling", true);
+         else if(Input.GetKeyUp(KeyCode.E))
+             _animator.SetBool("IsRolling", false);
 
     }
 
@@ -164,12 +174,12 @@ public class StickmanController : MonoBehaviour
         if (_isSliding)
         {
             _isSliding = !_isSliding;
-            _animator.SetBool("IsRolling", false);
+            //_animator.SetBool("IsRolling", false);
         }
         else
         {
             _isSliding = !_isSliding;
-            _animator.SetBool("IsRolling", true);
+            //_animator.SetBool("IsRolling", true);
         }
         _rigidbody2D.AddForce(gameObject.transform.forward * _somersaultForce, ForceMode2D.Impulse);
     }
