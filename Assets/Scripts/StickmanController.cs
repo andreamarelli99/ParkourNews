@@ -18,7 +18,7 @@ public class StickmanController : MonoBehaviour
     //put _Xspeed and _maxXspeed to regulate the stickman acceleration
     [SerializeField] private float _walkSpeed = 1000f;
     [SerializeField] private float _minSpeed = 0f;
-    [SerializeField] private float _minRunSpeed = 750;
+    [SerializeField] private float _minRunSpeed = 2f;
     private float _realSpeed;
 
     //--------------------------MOVEMENTS-----------------------------//
@@ -76,6 +76,7 @@ public class StickmanController : MonoBehaviour
         _isRunning = false;
         
         EventManager.StartListening("OnBouncey",OnBouncey);
+        //_animator.SetBool("IsDead",false);
         EventManager.StartListening("OnDeath",OnDeath);
 
     }
@@ -121,8 +122,8 @@ public class StickmanController : MonoBehaviour
         _realSpeed = Mathf.Max(_minSpeed, Mathf.Abs(_rigidbody2D.velocity.x));
         _isRunning=_realSpeed >= _minRunSpeed;
         _animator.SetFloat("Speed",Mathf.Abs(_realSpeed));
-        _animator.SetBool("IsRunning",_isRunning);
         _rigidbody2D.AddForce(_walkSpeed * Time.fixedDeltaTime * _movement);
+        if(_isCrouched && !_isRunning){  _animator.SetBool("IsSliding", false);  _isCrouched = false;}
     }
 
 
@@ -145,8 +146,6 @@ public class StickmanController : MonoBehaviour
         {
             _isDoubleJumping = true;
             Debug.Log("Double Jump!");
-            _animator.SetBool("IsJumping",false);
-            _animator.SetBool("IsFlying",true);
             _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, 0f);
             _rigidbody2D.AddForce(new Vector2(0f, _jumpForce), ForceMode2D.Impulse);
             EventManager.StartListening("OnGround",OnGround);
@@ -188,15 +187,16 @@ public class StickmanController : MonoBehaviour
         {
             Debug.Log("Crouch!");
             _isCrouched = true;
-            transform.Rotate(Vector3.forward * 90);
+            //transform.Rotate(Vector3.forward * 90);
         }
         else //if the stickman is in a crouch position -> getUp
         {
             //todo check for collisions
             Debug.Log("Get Up!");
             _isCrouched = false;
-            transform.Rotate(Vector3.forward * (-90));
+            //transform.Rotate(Vector3.forward * (-90));
         }
+        _animator.SetBool("IsSliding", _isCrouched);
 
     }
     
@@ -218,7 +218,6 @@ public class StickmanController : MonoBehaviour
         _isJumping = false;
         _isDoubleJumping = false;
         _animator.SetBool("IsJumping",false);
-        _animator.SetBool("IsFlying",false);
         Debug.Log("Ended Jump!");
     }
 
@@ -234,6 +233,7 @@ public class StickmanController : MonoBehaviour
     private void OnDeath()
     {
         EventManager.StopListening("OnDeath",OnDeath);
+        //_animator.SetBool("IsDead",true);
         Debug.Log("You Died!");
         EventManager.TriggerEvent("OnPlayerDeath");
         EventManager.StartListening("OnDeath",OnDeath);
