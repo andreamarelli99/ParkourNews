@@ -51,6 +51,7 @@ public class StickmanController : MonoBehaviour
 
     //--Dash
     [SerializeField] private float _dashForce = 9f;
+    private Boolean _canDash;
 
     private void Awake()
     {
@@ -66,14 +67,14 @@ public class StickmanController : MonoBehaviour
         _stickmanActions.Player.Jump.performed += OnJump;
         _stickmanActions.Player.Dash.performed += OnDash;
         _stickmanActions.Player.Crouch.performed += OnCrouch;
-        _stickmanActions.Player.Somersault.performed += OnSomersault;
-
+        
         _isCrouched = false;
         _doSommersault = false;
         _isJumping = false;
         _isDoubleJumping = false;
         _isSliding = false;
         _isRunning = false;
+        _canDash = true;
         
         EventManager.StartListening("OnBouncey",OnBouncey);
         //_animator.SetBool("IsDead",false);
@@ -139,7 +140,7 @@ public class StickmanController : MonoBehaviour
 
 
 
-    // Stickman movements
+    //----------------------------------Stickman movements------------------------------------------------------------//
     private void OnJump(InputAction.CallbackContext context)
     {
         if (!_isJumping)
@@ -147,7 +148,6 @@ public class StickmanController : MonoBehaviour
             _isJumping = true;
             Debug.Log("Jump!");
             _animator.SetBool("IsJumping",true);
-            //_animator.SetBool("IsFlying",true);
             _rigidbody2D.AddForce(new Vector2(0f, _jumpForce), ForceMode2D.Impulse);
             EventManager.StartListening("OnGround",OnGround);
             
@@ -156,38 +156,24 @@ public class StickmanController : MonoBehaviour
         {
             _isDoubleJumping = true;
             Debug.Log("Double Jump!");
+            _animator.SetBool("IsFlying",true);
             _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, 0f);
             _rigidbody2D.AddForce(new Vector2(0f, _jumpForce), ForceMode2D.Impulse);
             EventManager.StartListening("OnGround",OnGround);
         }
         else 
             Debug.Log("No more than Double Jump!");
-
-
     }
 
-    //todo add collisions to block the action?
-    private void OnSomersault(InputAction.CallbackContext context)
-    {
-        Debug.Log("Somersault!");
-        //todo direction as general
-        if (_isSliding)
-        {
-            _isSliding = !_isSliding;
-            //_animator.SetBool("IsRolling", false);
-        }
-        else
-        {
-            _isSliding = !_isSliding;
-            //_animator.SetBool("IsRolling", true);
-        }
-        _rigidbody2D.AddForce(gameObject.transform.forward * _somersaultForce, ForceMode2D.Impulse);
-    }
-
+    
     private void OnDash(InputAction.CallbackContext context)
     {
-        Debug.Log("Dash!");
-        _rigidbody2D.AddForce((m_FacingRight?1:-1) * Vector2.right * _dashForce, ForceMode2D.Impulse);
+        if (_canDash)
+        {
+            _rigidbody2D.AddForce((m_FacingRight ? 1 : -1) * Vector2.right * _dashForce, ForceMode2D.Impulse);
+            _canDash = false;
+            EventManager.TriggerEvent("OnDash");
+        }
     }
 
     //todo real crouch
@@ -228,6 +214,7 @@ public class StickmanController : MonoBehaviour
         _isJumping = false;
         _isDoubleJumping = false;
         _animator.SetBool("IsJumping",false);
+        _animator.SetBool("IsFlying",false);
         Debug.Log("Ended Jump!");
     }
 
@@ -247,6 +234,12 @@ public class StickmanController : MonoBehaviour
         Debug.Log("You Died!");
         EventManager.TriggerEvent("OnPlayerDeath");
         EventManager.StartListening("OnDeath",OnDeath);
+    }
+
+    public void CanDash()
+    {
+        Debug.Log("Now you can dash!");
+        _canDash = true;
     }
 }
 

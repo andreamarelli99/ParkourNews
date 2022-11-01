@@ -31,9 +31,8 @@ namespace ParkourNews.Scripts
         {
             EventManager.StopListening("OnCoin",OnCoin);
             _playerPoints+= _coinValue;
-            Debug.Log("Collected Coin!");
+            Debug.Log("Collected Coin! points:"+ _playerPoints);
             EventManager.StartListening("OnCoin",OnCoin);
-            //todo delete coin
         }
     }
 }
