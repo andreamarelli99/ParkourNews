@@ -261,6 +261,18 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!114 &-3648534532896900993
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fc794852ae130149a7544bed31bdb1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1102 &-3363938308755808491
 AnimatorState:
   serializedVersion: 6
@@ -447,7 +459,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PlayerPreDeath
-  m_Speed: 0.35
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 5501448830777385267}
@@ -616,8 +628,7 @@ AnimatorState:
   m_Name: PlayerCrunch
   m_Speed: 2
   m_CycleOffset: 0
-  m_Transitions:
-  - {fileID: -3034320188975349370}
+  m_Transitions: [{fileID: -3034320188975349370}]
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
@@ -877,7 +888,7 @@ AnimatorStateTransition:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_Conditions: []
+  m_Conditions: [{m_ConditionMode: 3, m_ConditionEvent: Speed, m_EventTreshold: 0.01}]
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 7389177127063116724}
   m_Solo: 0
@@ -948,10 +959,10 @@ AnimatorStateMachine:
     m_Position: {x: 1020, y: 260, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -696064682915536867}
-    m_Position: {x: -340, y: 320, z: 0}
+    m_Position: {x: -430, y: 350, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7389177127063116724}
-    m_Position: {x: -325, y: 515, z: 0}
+    m_Position: {x: -180, y: 490, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7124167070951032719}
     m_Position: {x: -290, y: 580, z: 0}
@@ -1007,9 +1018,7 @@ AnimatorState:
   m_Name: PlayerCrunchOut
   m_Speed: 1
   m_CycleOffset: 0
-  m_Transitions:
-  - {fileID: 2103894366843371044}
-  - {fileID: -713261707091558197}
+  m_Transitions: [{fileID: 2103894366843371044}, {fileID: -713261707091558197}]
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
@@ -1162,9 +1171,8 @@ AnimatorState:
   m_Name: PlayerDeath
   m_Speed: 1
   m_CycleOffset: 0
-  m_Transitions:
-  - {fileID: -1278949119042207313}
-  m_StateMachineBehaviours: []
+  m_Transitions: [{fileID: -1278949119042207313}]
+  m_StateMachineBehaviours: [{fileID: -3648534532896900993}]
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
