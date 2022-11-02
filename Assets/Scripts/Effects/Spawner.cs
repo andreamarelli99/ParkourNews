@@ -46,13 +46,13 @@ public class Spawner : MonoBehaviour
     {
         var dropTransform = transform;
         var targetPosition = _cameraTransform.position;
-        dropTransform.position = new Vector3(targetPosition.x, targetPosition.y+13, dropTransform.position.z);
+        dropTransform.position = new Vector3(targetPosition.x, targetPosition.y+13*3, dropTransform.position.z);
         Instantiate(_drop, dropTransform.position, dropTransform.rotation);
     }
 
     public void ExecuteSpawnEffect(Transform explosion)
     {
-        _position = new Vector3(explosion.position.x, (float)(0.3 + explosion.position.y), explosion.position.z);
+        _position = new Vector3(explosion.position.x, (float)(0.1 + explosion.position.y), explosion.position.z);
         Instantiate(_spawnEffect, _position , explosion.rotation);
         _timerOn = true;
         //  AudioSource.PlayClipAtPoint(soundEffect, transform.position);
@@ -60,7 +60,7 @@ public class Spawner : MonoBehaviour
     
     public void SpawnStickMan()
     {
-        Instantiate(_stickman, new Vector3((float)(-0.17 + _position.x), _position.y, _position.z), Quaternion.identity);
+        Instantiate(_stickman, new Vector3((float)(-0.17 + _position.x), (float)( -0.65+ _position.y), _position.z), Quaternion.identity);
         Destroy(_spawnEffect);
         _timerOn = false;
      //   Destroy(gameObject);
