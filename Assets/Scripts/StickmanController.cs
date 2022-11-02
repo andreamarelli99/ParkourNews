@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using ParkourNews.Scripts;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -52,6 +53,13 @@ public class StickmanController : MonoBehaviour
     //--Dash
     [SerializeField] private float _dashForce = 9f;
     private Boolean _canDash;
+    
+
+    private void Start()
+    {
+        var cam = GameObject.FindObjectOfType<CameraSet>();
+        cam.SetStickman(gameObject);
+    }
 
     private void Awake()
     {
