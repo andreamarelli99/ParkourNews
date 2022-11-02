@@ -10,7 +10,7 @@ using UnityEngine;
     {
         private LevelManager _levelManagers;
         private StickmanController _stickman;
-        [SerializeField] private int _secondsBetweenDash=20;
+        [SerializeField] private int _secondsBetweenDash=5;
 
         private void Start()
         {

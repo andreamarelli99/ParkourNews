@@ -67,6 +67,7 @@ public class StickmanController : MonoBehaviour
         _stickmanActions.Player.Jump.performed += OnJump;
         _stickmanActions.Player.Dash.performed += OnDash;
         _stickmanActions.Player.Crouch.performed += OnCrouch;
+        _stickmanActions.Player.Somersault.performed += OnSomersault;
         
         _isCrouched = false;
         _doSommersault = false;
@@ -109,23 +110,6 @@ public class StickmanController : MonoBehaviour
             // ... flip the player.
             Flip();
         }
-        
-        
-         if (Input.GetKey(KeyCode.Q))
-            transform.Rotate(_somersaultForce*  Time.deltaTime *-Vector3.forward );
-         if(Input.GetKeyDown(KeyCode.Q)) 
-             _animator.SetBool("IsRolling", true);
-         else if(Input.GetKeyUp(KeyCode.Q))
-             _animator.SetBool("IsRolling", false);
-             
-         
-         if (Input.GetKey(KeyCode.E))
-           transform.Rotate(_somersaultForce*  Time.deltaTime *Vector3.forward );
-         if(Input.GetKeyDown(KeyCode.E)) 
-             _animator.SetBool("IsRolling", true);
-         else if(Input.GetKeyUp(KeyCode.E))
-             _animator.SetBool("IsRolling", false);
-
     }
 
     private void FixedUpdate()
@@ -135,6 +119,7 @@ public class StickmanController : MonoBehaviour
         _animator.SetFloat("Speed",Mathf.Abs(_realSpeed));
         _rigidbody2D.AddForce(_walkSpeed * Time.fixedDeltaTime * _movement);
         if(_isCrouched && !_isRunning){  _animator.SetBool("IsSliding", false);  _isCrouched = false;}
+        
     }
 
 
@@ -143,7 +128,7 @@ public class StickmanController : MonoBehaviour
     //----------------------------------Stickman movements------------------------------------------------------------//
     private void OnJump(InputAction.CallbackContext context)
     {
-        if (!_isJumping)
+        if (!_isJumping&&!_isCrouched)
         {
             _isJumping = true;
             Debug.Log("Jump!");
@@ -152,7 +137,7 @@ public class StickmanController : MonoBehaviour
             EventManager.StartListening("OnGround",OnGround);
             
         }
-        else if (!_isDoubleJumping)
+        else if (!_isDoubleJumping&&!_isCrouched)
         {
             _isDoubleJumping = true;
             Debug.Log("Double Jump!");
@@ -168,7 +153,7 @@ public class StickmanController : MonoBehaviour
     
     private void OnDash(InputAction.CallbackContext context)
     {
-        if (_canDash)
+        if (_canDash&&!_isCrouched)
         {
             _rigidbody2D.AddForce((m_FacingRight ? 1 : -1) * Vector2.right * _dashForce, ForceMode2D.Impulse);
             _canDash = false;
@@ -176,6 +161,12 @@ public class StickmanController : MonoBehaviour
         }
     }
 
+    private void OnSomersault(InputAction.CallbackContext context)
+    {
+        //when you enter here do the roll animation
+        _rigidbody2D.velocity = new Vector2(0, _rigidbody2D.velocity.y);
+    }
+    
     //todo real crouch
     private void OnCrouch(InputAction.CallbackContext context)
     {
@@ -235,7 +226,7 @@ public class StickmanController : MonoBehaviour
         EventManager.TriggerEvent("OnPlayerDeath");
         EventManager.StartListening("OnDeath",OnDeath);
     }
-
+    
     public void CanDash()
     {
         Debug.Log("Now you can dash!");
