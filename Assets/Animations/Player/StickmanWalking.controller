@@ -628,7 +628,8 @@ AnimatorState:
   m_Name: PlayerCrunch
   m_Speed: 2
   m_CycleOffset: 0
-  m_Transitions: [{fileID: -3034320188975349370}]
+  m_Transitions:
+  - {fileID: -3034320188975349370}
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
@@ -888,7 +889,10 @@ AnimatorStateTransition:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_Conditions: [{m_ConditionMode: 3, m_ConditionEvent: Speed, m_EventTreshold: 0.01}]
+  m_Conditions:
+  - m_ConditionMode: 3
+    m_ConditionEvent: Speed
+    m_EventTreshold: 0.01
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 7389177127063116724}
   m_Solo: 0
@@ -914,7 +918,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 7448407677494430105}
-    m_Position: {x: 320, y: 20, z: 0}
+    m_Position: {x: 330, y: 10, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6817582276376532569}
     m_Position: {x: 320, y: 270, z: 0}
@@ -993,7 +997,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 3
     m_ConditionEvent: Speed
-    m_EventTreshold: 1e-20
+    m_EventTreshold: 0.1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 6817582276376532569}
   m_Solo: 0
@@ -1018,7 +1022,9 @@ AnimatorState:
   m_Name: PlayerCrunchOut
   m_Speed: 1
   m_CycleOffset: 0
-  m_Transitions: [{fileID: 2103894366843371044}, {fileID: -713261707091558197}]
+  m_Transitions:
+  - {fileID: 2103894366843371044}
+  - {fileID: -713261707091558197}
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
@@ -1146,7 +1152,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 4
     m_ConditionEvent: Speed
-    m_EventTreshold: 1e-20
+    m_EventTreshold: 0.1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 7448407677494430105}
   m_Solo: 0
@@ -1171,8 +1177,10 @@ AnimatorState:
   m_Name: PlayerDeath
   m_Speed: 1
   m_CycleOffset: 0
-  m_Transitions: [{fileID: -1278949119042207313}]
-  m_StateMachineBehaviours: [{fileID: -3648534532896900993}]
+  m_Transitions:
+  - {fileID: -1278949119042207313}
+  m_StateMachineBehaviours:
+  - {fileID: -3648534532896900993}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
