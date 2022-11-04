@@ -515,7 +515,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8653719598885068355, guid: b303275011dc1744ba4d2a7bcdfa75c8, type: 3}
       propertyPath: m_Name
-      value: StickmanWalking
+      value: StickmanWalking Variant
       objectReference: {fileID: 0}
     - target: {fileID: -8653719598885068355, guid: b303275011dc1744ba4d2a7bcdfa75c8, type: 3}
       propertyPath: m_Layer
@@ -568,6 +568,10 @@ PrefabInstance:
     - target: {fileID: -7977441908856773145, guid: b303275011dc1744ba4d2a7bcdfa75c8, type: 3}
       propertyPath: m_Layer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7977441908856773145, guid: b303275011dc1744ba4d2a7bcdfa75c8, type: 3}
+      propertyPath: m_TagString
+      value: StickmanHand
       objectReference: {fileID: 0}
     - target: {fileID: -7821459096100570648, guid: b303275011dc1744ba4d2a7bcdfa75c8, type: 3}
       propertyPath: m_Layer
@@ -1365,6 +1369,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7003034126660246375, guid: b303275011dc1744ba4d2a7bcdfa75c8, type: 3}
+      propertyPath: m_TagString
+      value: StickmanHand
+      objectReference: {fileID: 0}
     - target: {fileID: 7005737238281255916, guid: b303275011dc1744ba4d2a7bcdfa75c8, type: 3}
       propertyPath: m_Layer
       value: 3
@@ -1904,7 +1912,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4851653737861826069}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c0e8c007c7a60ba43a199787698c64fb, type: 3}
   m_Name: 
@@ -1917,6 +1925,26 @@ MonoBehaviour:
   _somersaultForce: 200
   _jumpForce: 5
   _dashForce: 1.5
+--- !u!114 &1285044014956266221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4851653737861826069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d346204c76c5eed47bf2f6e19f779226, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rigidbody2D: {fileID: 2134717079}
+  _animator: {fileID: 2134717078}
+  _walkSpeed: 500
+  _minSpeed: 0
+  _minRunSpeed: 2
+  _somersaultForce: 200
+  _jumpForce: 5
+  _dashForce: 2
 --- !u!1 &4987240651631468167 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 109628402982222127, guid: b303275011dc1744ba4d2a7bcdfa75c8, type: 3}
