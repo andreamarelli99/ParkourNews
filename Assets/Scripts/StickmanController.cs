@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 
 public class StickmanController : MonoBehaviour
 {
+    
     [SerializeField] private Rigidbody2D _rigidbody2D;
     public Animator _animator;
     private bool m_FacingRight = true;  // For determining which way the player is currently facing.
@@ -33,6 +34,7 @@ public class StickmanController : MonoBehaviour
     
     //--Crouch
     private Boolean _isCrouched; //check if the stickman is crouching
+    [SerializeField] private float _slideForce = 9f;
 
     //--Somersault
     [SerializeField] private float _somersaultForce = 5f;
@@ -118,8 +120,6 @@ public class StickmanController : MonoBehaviour
         _isRunning=_realSpeed >= _minRunSpeed;
         _animator.SetFloat("Speed",Mathf.Abs(_realSpeed));
         _rigidbody2D.AddForce(_walkSpeed * Time.fixedDeltaTime * _movement);
-        if(_isCrouched && !_isRunning){  _animator.SetBool("IsSliding", false);  _isCrouched = false;}
-        
     }
 
 
@@ -172,18 +172,24 @@ public class StickmanController : MonoBehaviour
     {
         if (!_isCrouched) //if the stickman is not in a crouch position -> crouch
         {
+            if (Math.Abs(_rigidbody2D.velocity.x) >= _minRunSpeed)
+            { // if the player is running when the crouch is called slide and then crouch
+               
+                StartCoroutine(WaitUntilWalkingSpeed());
+               
+            }
+
             Debug.Log("Crouch!");
             _isCrouched = true;
-            //transform.Rotate(Vector3.forward * 90);
         }
         else //if the stickman is in a crouch position -> getUp
         {
             //todo check for collisions
             Debug.Log("Get Up!");
             _isCrouched = false;
-            //transform.Rotate(Vector3.forward * (-90));
+           
         }
-        _animator.SetBool("IsSliding", _isCrouched);
+        //_animator.SetBool("IsSliding", _isCrouched);
 
     }
     
@@ -231,6 +237,17 @@ public class StickmanController : MonoBehaviour
     {
         Debug.Log("Now you can dash!");
         _canDash = true;
+    }
+
+    IEnumerator WaitUntilWalkingSpeed()
+    {
+        _animator.SetBool("IsSliding", true);
+        _rigidbody2D.AddForce((m_FacingRight ? 1 : -1) * _slideForce* Vector2.right, ForceMode2D.Impulse);
+        Debug.Log("SLIDEEEEE");
+        while (Math.Abs(_rigidbody2D.velocity.x)>= _minRunSpeed)
+            yield return null;
+        
+        _animator.SetBool("IsSliding", false);
     }
 }
 
