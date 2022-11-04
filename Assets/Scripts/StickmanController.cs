@@ -172,13 +172,10 @@ public class StickmanController : MonoBehaviour
     {
         if (!_isCrouched) //if the stickman is not in a crouch position -> crouch
         {
+            // if the player is running when the crouch is called slide and then crouch
             if (Math.Abs(_rigidbody2D.velocity.x) >= _minRunSpeed)
-            { // if the player is running when the crouch is called slide and then crouch
-               
                 StartCoroutine(WaitUntilWalkingSpeed());
-               
-            }
-
+            
             Debug.Log("Crouch!");
             _isCrouched = true;
         }
@@ -189,8 +186,6 @@ public class StickmanController : MonoBehaviour
             _isCrouched = false;
            
         }
-        //_animator.SetBool("IsSliding", _isCrouched);
-
     }
     
     private void Flip()
@@ -243,7 +238,8 @@ public class StickmanController : MonoBehaviour
     {
         _animator.SetBool("IsSliding", true);
         _rigidbody2D.AddForce((m_FacingRight ? 1 : -1) * _slideForce* Vector2.right, ForceMode2D.Impulse);
-        Debug.Log("SLIDEEEEE");
+        
+        //wait until the stickman speed has decreased enough to "crouch walking"
         while (Math.Abs(_rigidbody2D.velocity.x)>= _minRunSpeed)
             yield return null;
         
