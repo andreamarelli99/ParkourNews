@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Timers;
+using Cinemachine;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
@@ -15,7 +16,7 @@ public class Spawner : MonoBehaviour
     private bool _timerOn = false;
 
     private Vector3 _position;
-    
+
     // public AudioClip soundEffect;
 
     // Start is called before the first frame update
