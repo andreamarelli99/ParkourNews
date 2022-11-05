@@ -116,10 +116,12 @@ public class StickmanController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _realSpeed = Mathf.Max(_minSpeed, Mathf.Abs(_rigidbody2D.velocity.x));
-        _isRunning=_realSpeed >= _minRunSpeed;
-        _animator.SetFloat("Speed",Mathf.Abs(_realSpeed));
-        _rigidbody2D.AddForce(_walkSpeed * Time.fixedDeltaTime * _movement);
+        if(!_isSliding){
+            _realSpeed = Mathf.Max(_minSpeed, Mathf.Abs(_rigidbody2D.velocity.x));
+            _isRunning=_realSpeed >= _minRunSpeed;
+            _animator.SetFloat("Speed",Mathf.Abs(_realSpeed));
+            _rigidbody2D.AddForce(_walkSpeed * Time.fixedDeltaTime * _movement);
+        }
     }
 
 
@@ -237,13 +239,17 @@ public class StickmanController : MonoBehaviour
     IEnumerator WaitUntilWalkingSpeed()
     {
         _animator.SetBool("IsSliding", true);
+        _isSliding = true;
         _rigidbody2D.AddForce((m_FacingRight ? 1 : -1) * _slideForce* Vector2.right, ForceMode2D.Impulse);
         
         //wait until the stickman speed has decreased enough to "crouch walking"
-        while (Math.Abs(_rigidbody2D.velocity.x)>= _minRunSpeed)
+        while (Math.Abs(_rigidbody2D.velocity.x) >= _minRunSpeed)
+        {
             yield return null;
+        }
         
         _animator.SetBool("IsSliding", false);
+        _isSliding = false;
     }
 }
 
