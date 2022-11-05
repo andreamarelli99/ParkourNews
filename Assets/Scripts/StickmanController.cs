@@ -60,7 +60,7 @@ public class StickmanController : MonoBehaviour
     private void Start()
     {
         var cam = GameObject.FindObjectOfType<CameraSet>();
-        cam.SetStickman(gameObject);
+        //cam.SetStickman(gameObject);
     }
 
     private void Awake()
@@ -200,6 +200,7 @@ public class StickmanController : MonoBehaviour
     
     private void Flip()
     {
+        if(!_isSliding){
         // Switch the way the player is labelled as facing.
         m_FacingRight = !m_FacingRight;
 
@@ -207,6 +208,7 @@ public class StickmanController : MonoBehaviour
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+        }
     }
 
     //---- called upon events----//
