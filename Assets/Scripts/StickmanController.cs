@@ -188,12 +188,14 @@ public class StickmanController : MonoBehaviour
             
             Debug.Log("Crouch!");
             _isCrouched = true;
+            _animator.SetBool("IsCrouched", true);
         }
         else //if the stickman is in a crouch position -> getUp
         {
             //todo check for collisions
             Debug.Log("Get Up!");
             _isCrouched = false;
+            _animator.SetBool("IsCrouched", false);
            
         }
     }
