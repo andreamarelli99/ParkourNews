@@ -33,6 +33,8 @@ public class StickmanController : MonoBehaviour
 
     private Boolean _isRunning;
     
+    private Boolean _isDead;
+    
     //--Crouch
     private Boolean _isCrouched; //check if the stickman is crouching
     [SerializeField] private float _slideForce = 9f;
@@ -49,6 +51,12 @@ public class StickmanController : MonoBehaviour
     //to check if the player is doubleJumping
     private Boolean _isDoubleJumping;
     
+    //--Jump Wall
+    [SerializeField] private float _jumpWallForcex = 5f;
+    [SerializeField] private float _jumpWallForcey = 5f;
+
+    private Boolean _isJumpWall;
+    
     //check if it is sliding
     private Boolean _isSliding;
 
@@ -56,11 +64,17 @@ public class StickmanController : MonoBehaviour
     [SerializeField] private float _dashForce = 9f;
     private Boolean _canDash;
     
+    //Death
+    private Transform _transform;
+    private bool _death = false;
+    private bool _timerOn = false;
+    [SerializeField] private float _timeLeft;
+    [SerializeField] private GameObject _spawnEffect;
 
     private void Start()
     {
         var cam = GameObject.FindObjectOfType<CameraSet>();
-        //cam.SetStickman(gameObject);
+        cam.SetStickman(gameObject);
     }
 
     private void Awake()
@@ -68,6 +82,7 @@ public class StickmanController : MonoBehaviour
         //find the rigid body
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _stickmanActions = new StickmanActions();
+        _transform = GetComponent<Transform>();
     }
 
     private void OnEnable()
@@ -130,6 +145,44 @@ public class StickmanController : MonoBehaviour
             _animator.SetFloat("Speed",Mathf.Abs(_realSpeed));
             _rigidbody2D.AddForce(_walkSpeed * Time.fixedDeltaTime * _movement);
         }
+        if (_timerOn)
+        {
+            if (_timeLeft > 0)
+            {
+                _timeLeft -= Time.deltaTime;
+                _spawnEffect.transform.position = _transform.position;
+            }
+            else
+            {
+                ExecuteSpawnEffect();
+                Destroy(gameObject);
+                _timerOn = false;
+            }
+        }
+    }
+    
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.CompareTag("Trap")&& !_death)
+        {
+            _rigidbody2D.velocity = new Vector2(0,_rigidbody2D.velocity.y);
+            _death = true;
+            Die();
+        }
+    }
+    
+    
+
+    private void Die()
+    {
+        _animator.SetTrigger("death");
+        _timerOn = true;
+    }
+    
+    private void ExecuteSpawnEffect()
+    {
+        Instantiate(_spawnEffect, _transform.position, _transform.rotation);
+        //  AudioSource.PlayClipAtPoint(soundEffect, transform.position);
     }
 
 
@@ -155,6 +208,24 @@ public class StickmanController : MonoBehaviour
             _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, 0f);
             _rigidbody2D.AddForce(new Vector2(0f, _jumpForce), ForceMode2D.Impulse);
             EventManager.StartListening("OnGround",OnGround);
+        }
+        else if (_isJumpWall)
+        {
+            _isJumpWall = false;
+            Debug.Log("Jumping from wall");
+            _animator.SetBool("IsFlying",true);
+            if (_movement.x < 0)
+            {
+                _rigidbody2D.AddForce(new Vector2(_jumpWallForcex, _jumpWallForcey), ForceMode2D.Impulse);
+            }
+            else
+            {
+                _rigidbody2D.AddForce(new Vector2(-_jumpWallForcex, _jumpWallForcey), ForceMode2D.Impulse);
+            }
+            Flip();
+
+            EventManager.StartListening("OnWall", OnWall);
+            EventManager.StartListening("OnGround", OnGround);
         }
         else 
             Debug.Log("No more than Double Jump!");
@@ -198,6 +269,17 @@ public class StickmanController : MonoBehaviour
             _animator.SetBool("IsCrouched", false);
            
         }
+    }
+    
+    private void OnWall()
+    {
+        EventManager.StopListening("OnWall",OnWall);
+        _isDoubleJumping = true;
+        _isJumping = true;
+        _isJumpWall = true;
+        _animator.SetBool("IsJumping",false);
+        _animator.SetBool("IsFlying",true);
+        Debug.Log("Attached to wall");
     }
     
     private void Flip()
