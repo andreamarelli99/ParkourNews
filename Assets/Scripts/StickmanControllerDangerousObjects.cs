@@ -8,7 +8,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class StickmanControllerWallJump : MonoBehaviour
+public class StickmanControllerDangerousObjects : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D _rigidbody2D;
     public Animator _animator;
@@ -32,6 +32,8 @@ public class StickmanControllerWallJump : MonoBehaviour
 
     private Boolean _isRunning;
     
+    private Boolean _isDead;
+    
     //--Crouch
     private Boolean _isCrouched; //check if the stickman is crouching
 
@@ -41,8 +43,9 @@ public class StickmanControllerWallJump : MonoBehaviour
     private Boolean _doSommersault;
     
     //--Jump Wall
-    [SerializeField] private float _jumpWallForcex = 5f;
-    [SerializeField] private float _jumpWallForcey = 5f;
+    [SerializeField] private float _jumpWallForce = 5f;
+    [SerializeField]
+    [Range(0f, 2f)] private float _jumpWallSideRatio = .5f;
 
     private Boolean _isJumpWall;
 
@@ -60,6 +63,13 @@ public class StickmanControllerWallJump : MonoBehaviour
     [SerializeField] private float _dashForce = 9f;
     private Boolean _canDash;
     
+    //Death
+    private Transform _transform;
+    private bool _death = false;
+    private bool _timerOn = false;
+    [SerializeField] private float _timeLeft;
+    [SerializeField] private GameObject _spawnEffect;
+    
 
     private void Start()
     {
@@ -72,6 +82,7 @@ public class StickmanControllerWallJump : MonoBehaviour
         //find the rigid body
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _stickmanActions = new StickmanActions();
+        _transform = GetComponent<Transform>();
     }
 
     private void OnEnable()
@@ -151,6 +162,20 @@ public class StickmanControllerWallJump : MonoBehaviour
         _animator.SetFloat("Speed",Mathf.Abs(_realSpeed));
         _rigidbody2D.AddForce(_walkSpeed * Time.fixedDeltaTime * _movement);
         if(_isCrouched && !_isRunning){  _animator.SetBool("IsSliding", false);  _isCrouched = false;}
+        if (_timerOn)
+        {
+            if (_timeLeft > 0)
+            {
+                _timeLeft -= Time.deltaTime;
+                _spawnEffect.transform.position = _transform.position;
+            }
+            else
+            {
+                ExecuteSpawnEffect();
+                Destroy(gameObject);
+                _timerOn = false;
+            }
+        }
     }
 
 
@@ -184,11 +209,11 @@ public class StickmanControllerWallJump : MonoBehaviour
             _animator.SetBool("IsFlying",true);
             if (_movement.x < 0)
             {
-                _rigidbody2D.AddForce(new Vector2(_jumpWallForcex, _jumpWallForcey), ForceMode2D.Impulse);
+                _rigidbody2D.AddForce(new Vector2(_jumpWallSideRatio * _jumpWallForce, _jumpWallForce), ForceMode2D.Impulse);
             }
             else
             {
-                _rigidbody2D.AddForce(new Vector2(-_jumpWallForcex, _jumpWallForcey), ForceMode2D.Impulse);
+                _rigidbody2D.AddForce(new Vector2(-_jumpWallSideRatio * _jumpWallForce, _jumpWallForce), ForceMode2D.Impulse);
             }
 
             EventManager.StartListening("OnWall", OnWall);
@@ -284,6 +309,30 @@ public class StickmanControllerWallJump : MonoBehaviour
     {
         Debug.Log("Now you can dash!");
         _canDash = true;
+    }
+    
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.CompareTag("Trap")&& !_death)
+        {
+            _rigidbody2D.velocity = new Vector2(0,_rigidbody2D.velocity.y);
+            _death = true;
+            Die();
+        }
+    }
+    
+    
+
+    private void Die()
+    {
+        _animator.SetTrigger("death");
+        _timerOn = true;
+    }
+    
+    private void ExecuteSpawnEffect()
+    {
+        Instantiate(_spawnEffect, _transform.position, _transform.rotation);
+        //  AudioSource.PlayClipAtPoint(soundEffect, transform.position);
     }
 }
 
