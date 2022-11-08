@@ -77,7 +77,8 @@ public class StickmanController : MonoBehaviour
         _stickmanActions.Player.Jump.performed += OnJump;
         _stickmanActions.Player.Dash.performed += OnDash;
         _stickmanActions.Player.Crouch.performed += OnCrouch;
-        _stickmanActions.Player.Somersault.performed += OnSomersault;
+        _stickmanActions.Player.Roll.performed += OnSomersault;
+        
         
         _isCrouched = false;
         _doSommersault = false;
