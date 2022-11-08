@@ -311,14 +311,17 @@ public class StickmanControllerDangerousObjects : MonoBehaviour
         _canDash = true;
     }
     
-    private void OnCollisionEnter2D(Collision2D col)
+    private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.CompareTag("Trap")&& !_death)
         {
+            _rigidbody2D.velocity = new Vector2(0,_rigidbody2D.velocity.y);
             _death = true;
             Die();
         }
     }
+    
+    
 
     private void Die()
     {
