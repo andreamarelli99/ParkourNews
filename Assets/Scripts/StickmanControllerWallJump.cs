@@ -41,9 +41,8 @@ public class StickmanControllerWallJump : MonoBehaviour
     private Boolean _doSommersault;
     
     //--Jump Wall
-    [SerializeField] private float _jumpWallForce = 5f;
-    [SerializeField]
-    [Range(0f, 2f)] private float _jumpWallSideRatio = .5f;
+    [SerializeField] private float _jumpWallForcex = 5f;
+    [SerializeField] private float _jumpWallForcey = 5f;
 
     private Boolean _isJumpWall;
 
@@ -185,11 +184,11 @@ public class StickmanControllerWallJump : MonoBehaviour
             _animator.SetBool("IsFlying",true);
             if (_movement.x < 0)
             {
-                _rigidbody2D.AddForce(new Vector2(_jumpWallSideRatio * _jumpWallForce, _jumpWallForce), ForceMode2D.Impulse);
+                _rigidbody2D.AddForce(new Vector2(_jumpWallForcex, _jumpWallForcey), ForceMode2D.Impulse);
             }
             else
             {
-                _rigidbody2D.AddForce(new Vector2(-_jumpWallSideRatio * _jumpWallForce, _jumpWallForce), ForceMode2D.Impulse);
+                _rigidbody2D.AddForce(new Vector2(-_jumpWallForcex, _jumpWallForcey), ForceMode2D.Impulse);
             }
 
             EventManager.StartListening("OnWall", OnWall);
