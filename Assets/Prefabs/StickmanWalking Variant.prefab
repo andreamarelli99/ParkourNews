@@ -1809,7 +1809,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 1
   m_UseAutoMass: 1
-  m_Mass: 0.18818854
+  m_Mass: 5
   m_LinearDrag: 2
   m_AngularDrag: 0.07
   m_GravityScale: 7
@@ -1904,12 +1904,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigidbody2D: {fileID: 2134717079}
   _animator: {fileID: 2134717078}
-  _walkSpeed: 1000
+  _walkSpeed: 700
   _minSpeed: 0
-  _minRunSpeed: 2
+  _minRunSpeed: 8
   _slideForce: 9
   _somersaultForce: 5
-  _jumpForce: 7
+  _jumpForce: 6
   _jumpWallForcex: 5
   _jumpWallForcey: 5
   _dashForce: 9
