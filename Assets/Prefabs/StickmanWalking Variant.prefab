@@ -1925,8 +1925,10 @@ MonoBehaviour:
   _slideForce: 9
   _somersaultForce: 200
   _jumpForce: 6
-  _jumpWallForcex: 5
-  _jumpWallForcey: 5
+  _wallHopForce: 8
+  _wallJumpForce: 4
+  _wallHopDirection: {x: 1, y: 0.5}
+  _wallJumpDirection: {x: 1, y: 2}
   _dashForce: 1.5
   _timeLeft: 0
   _spawnEffect: {fileID: 6997444155794476504, guid: 112f4fb0dd90100428b4c2ef78f1977d, type: 3}
