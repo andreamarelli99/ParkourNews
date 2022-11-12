@@ -14,8 +14,8 @@ public class StickmanController : MonoBehaviour
     [SerializeField] private Rigidbody2D _rigidbody2D;
     public Animator _animator;
     private bool m_FacingRight = true;  // For determining which way the player is currently facing.
-   
-    
+    private int _facingDirection = 1;
+
     //----------------------------SPEED-------------------------------//
     //put _Xspeed and _maxXspeed to regulate the stickman acceleration
     [SerializeField] private float _walkSpeed = 1000f;
@@ -33,6 +33,8 @@ public class StickmanController : MonoBehaviour
 
     private Boolean _isRunning;
     
+    private Boolean _isDead;
+    
     //--Crouch
     private Boolean _isCrouched; //check if the stickman is crouching
     [SerializeField] private float _slideForce = 9f;
@@ -49,6 +51,15 @@ public class StickmanController : MonoBehaviour
     //to check if the player is doubleJumping
     private Boolean _isDoubleJumping;
     
+    //--Jump Wall
+    [SerializeField] private float _wallHopForce = 8f;
+    [SerializeField] private float _wallJumpForce = 5f;
+    [SerializeField]private Vector2 _wallHopDirection;
+    [SerializeField]private Vector2 _wallJumpDirection;
+    
+
+    private Boolean _isJumpWall;
+    
     //check if it is sliding
     private Boolean _isSliding;
 
@@ -56,11 +67,19 @@ public class StickmanController : MonoBehaviour
     [SerializeField] private float _dashForce = 9f;
     private Boolean _canDash;
     
+    //Death
+    private Transform _transform;
+    private bool _death = false;
+    private bool _timerOn = false;
+    [SerializeField] private float _timeLeft;
+    [SerializeField] private GameObject _spawnEffect;
 
     private void Start()
     {
         var cam = GameObject.FindObjectOfType<CameraSet>();
-        //cam.SetStickman(gameObject);
+        cam.SetStickman(gameObject);
+        _wallHopDirection.Normalize();
+        _wallJumpDirection.Normalize();
     }
 
     private void Awake()
@@ -68,6 +87,7 @@ public class StickmanController : MonoBehaviour
         //find the rigid body
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _stickmanActions = new StickmanActions();
+        _transform = GetComponent<Transform>();
     }
 
     private void OnEnable()
@@ -91,6 +111,7 @@ public class StickmanController : MonoBehaviour
         EventManager.StartListening("OnBouncey",OnBouncey);
         //_animator.SetBool("IsDead",false);
         EventManager.StartListening("OnDeath",OnDeath);
+        EventManager.StartListening("OnWall", OnWall);
 
     }
 
@@ -107,8 +128,8 @@ public class StickmanController : MonoBehaviour
         // ----- MOVEMENT LEFT/RIGHT ------
         // allows horizontal movement by pressing wasd/arrows
         _movement.x = Input.GetAxis("Horizontal");
-        
-        
+
+
         // If the input is moving the player right and the player is facing left...
         if (_movement.x > 0 && !m_FacingRight)
         {
@@ -131,6 +152,44 @@ public class StickmanController : MonoBehaviour
             _animator.SetFloat("Speed",Mathf.Abs(_realSpeed));
             _rigidbody2D.AddForce(_walkSpeed * Time.fixedDeltaTime * _movement);
         }
+        if (_timerOn)
+        {
+            if (_timeLeft > 0)
+            {
+                _timeLeft -= Time.deltaTime;
+                _spawnEffect.transform.position = _transform.position;
+            }
+            else
+            {
+                ExecuteSpawnEffect();
+                Destroy(gameObject);
+                _timerOn = false;
+            }
+        }
+    }
+    
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.CompareTag("Trap")&& !_death)
+        {
+            _rigidbody2D.velocity = new Vector2(0,_rigidbody2D.velocity.y);
+            _death = true;
+            Die();
+        }
+    }
+    
+    
+
+    private void Die()
+    {
+        _animator.SetTrigger("death");
+        _timerOn = true;
+    }
+    
+    private void ExecuteSpawnEffect()
+    {
+        Instantiate(_spawnEffect, _transform.position, _transform.rotation);
+        //  AudioSource.PlayClipAtPoint(soundEffect, transform.position);
     }
 
 
@@ -141,21 +200,43 @@ public class StickmanController : MonoBehaviour
     {
         if (!_isJumping&&!_isCrouched)
         {
+            _isJumpWall = false;
             _isJumping = true;
             Debug.Log("Jump!");
             _animator.SetBool("IsJumping",true);
             _rigidbody2D.AddForce(new Vector2(0f, _jumpForce), ForceMode2D.Impulse);
             EventManager.StartListening("OnGround",OnGround);
+            EventManager.StartListening("OnWall", OnWall);
             
         }
         else if (!_isDoubleJumping&&!_isCrouched)
         {
+            _isJumpWall = false;
             _isDoubleJumping = true;
             Debug.Log("Double Jump!");
             _animator.SetBool("IsFlying",true);
             _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, 0f);
             _rigidbody2D.AddForce(new Vector2(0f, _jumpForce), ForceMode2D.Impulse);
             EventManager.StartListening("OnGround",OnGround);
+            EventManager.StartListening("OnWall", OnWall);
+        }
+        else if (_isJumpWall)
+        {
+            _isJumpWall = false;
+            Debug.Log("Jumping from wall");
+            _animator.SetBool("IsFlying",true);
+
+            Vector2 forceToAddHop = new Vector2(_wallHopForce * _wallHopDirection.x * -_facingDirection, 
+                _wallHopForce * _wallHopDirection.y);
+            _rigidbody2D.AddForce(forceToAddHop, ForceMode2D.Impulse);
+
+            int direction = _movement.x > 0 ? 1 : -1;
+            Vector2 forceToAddJump =
+                new Vector2(_wallJumpDirection.x * _wallJumpForce * direction, _wallJumpDirection.y * _wallJumpForce);
+            _rigidbody2D.AddForce(forceToAddJump, ForceMode2D.Impulse);
+            
+            EventManager.StartListening("OnWall", OnWall);
+            EventManager.StartListening("OnGround", OnGround);
         }
         else 
             Debug.Log("No more than Double Jump!");
@@ -201,11 +282,23 @@ public class StickmanController : MonoBehaviour
         }
     }
     
+    private void OnWall()
+    {
+        EventManager.StopListening("OnWall",OnWall);
+        _isDoubleJumping = true;
+        _isJumping = true;
+        _isJumpWall = true;
+        _animator.SetBool("IsJumping",false);
+        _animator.SetBool("IsFlying",true);
+        Debug.Log("Attached to wall");
+    }
+    
     private void Flip()
     {
         if(!_isSliding){
         // Switch the way the player is labelled as facing.
         m_FacingRight = !m_FacingRight;
+        _facingDirection *= -1;
 
         // Multiply the player's x local scale by -1.
         Vector3 theScale = transform.localScale;
