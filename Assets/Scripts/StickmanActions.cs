@@ -64,7 +64,7 @@ public partial class @StickmanActions : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": "" Somersault"",
+                    ""name"": ""Roll"",
                     ""type"": ""Button"",
                     ""id"": ""68c3f758-424f-4d28-9596-c8c81516a2c1"",
                     ""expectedControlType"": ""Button"",
@@ -257,7 +257,7 @@ public partial class @StickmanActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": "" Somersault"",
+                    ""action"": ""Roll"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -268,7 +268,7 @@ public partial class @StickmanActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": "" Somersault"",
+                    ""action"": ""Roll"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -279,7 +279,7 @@ public partial class @StickmanActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": "" Somersault"",
+                    ""action"": ""Roll"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -871,7 +871,7 @@ public partial class @StickmanActions : IInputActionCollection2, IDisposable
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
         m_Player_Crouch = m_Player.FindAction("Crouch", throwIfNotFound: true);
-        m_Player_Somersault = m_Player.FindAction(" Somersault", throwIfNotFound: true);
+        m_Player_Roll = m_Player.FindAction("Roll", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -947,7 +947,7 @@ public partial class @StickmanActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Dash;
     private readonly InputAction m_Player_Crouch;
-    private readonly InputAction m_Player_Somersault;
+    private readonly InputAction m_Player_Roll;
     public struct PlayerActions
     {
         private @StickmanActions m_Wrapper;
@@ -956,7 +956,7 @@ public partial class @StickmanActions : IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Dash => m_Wrapper.m_Player_Dash;
         public InputAction @Crouch => m_Wrapper.m_Player_Crouch;
-        public InputAction @Somersault => m_Wrapper.m_Player_Somersault;
+        public InputAction @Roll => m_Wrapper.m_Player_Roll;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -978,9 +978,9 @@ public partial class @StickmanActions : IInputActionCollection2, IDisposable
                 @Crouch.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCrouch;
                 @Crouch.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCrouch;
                 @Crouch.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCrouch;
-                @Somersault.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSomersault;
-                @Somersault.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSomersault;
-                @Somersault.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSomersault;
+                @Roll.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRoll;
+                @Roll.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRoll;
+                @Roll.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRoll;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -997,9 +997,9 @@ public partial class @StickmanActions : IInputActionCollection2, IDisposable
                 @Crouch.started += instance.OnCrouch;
                 @Crouch.performed += instance.OnCrouch;
                 @Crouch.canceled += instance.OnCrouch;
-                @Somersault.started += instance.OnSomersault;
-                @Somersault.performed += instance.OnSomersault;
-                @Somersault.canceled += instance.OnSomersault;
+                @Roll.started += instance.OnRoll;
+                @Roll.performed += instance.OnRoll;
+                @Roll.canceled += instance.OnRoll;
             }
         }
     }
@@ -1160,7 +1160,7 @@ public partial class @StickmanActions : IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
         void OnCrouch(InputAction.CallbackContext context);
-        void OnSomersault(InputAction.CallbackContext context);
+        void OnRoll(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

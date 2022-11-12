@@ -76,8 +76,8 @@ public class StickmanController : MonoBehaviour
 
     private void Start()
     {
-        var cam = GameObject.FindObjectOfType<CameraSet>();
-        cam.SetStickman(gameObject);
+        //var cam = GameObject.FindObjectOfType<CameraSet>();
+        //cam.SetStickman(gameObject);
         _wallHopDirection.Normalize();
         _wallJumpDirection.Normalize();
     }
