@@ -15,7 +15,12 @@ namespace ParkourNews.Scripts
 
         public void Reset()
         {
-            _currentLevel = 0;
+            _currentLevel = 1;
+        }
+
+        public void Start()
+        {
+            _currentLevel = 1;
         }
 
         public int GetLevel()
