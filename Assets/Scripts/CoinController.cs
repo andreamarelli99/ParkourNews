@@ -11,7 +11,7 @@ public class CoinController : MonoBehaviour
         //check if a bouncey element is touched by the stickman
         if (col.gameObject.CompareTag("Stickman")){
             EventManager.TriggerEvent("OnCoin"); 
-            Destroy(this);       
+            Destroy(this.gameObject);       
         }
     }
    
