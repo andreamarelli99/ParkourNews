@@ -67,6 +67,9 @@ public class StickmanController : MonoBehaviour
     [SerializeField] private float _dashForce = 9f;
     private Boolean _canDash;
     
+    //--Grappling
+    private bool _isGrappling;
+    
     //Death
     private Transform _transform;
     private bool _death = false;
@@ -76,8 +79,8 @@ public class StickmanController : MonoBehaviour
 
     private void Start()
     {
-        //var cam = GameObject.FindObjectOfType<CameraSet>();
-        //cam.SetStickman(gameObject);
+        var cam = GameObject.FindObjectOfType<CameraSet>();
+        cam.SetStickman(gameObject);
         _wallHopDirection.Normalize();
         _wallJumpDirection.Normalize();
     }
@@ -107,6 +110,7 @@ public class StickmanController : MonoBehaviour
         _isSliding = false;
         _isRunning = false;
         _canDash = true;
+        _isGrappling = false;
         
         EventManager.StartListening("OnBouncey",OnBouncey);
         //_animator.SetBool("IsDead",false);
@@ -162,7 +166,7 @@ public class StickmanController : MonoBehaviour
             else
             {
                 ExecuteSpawnEffect();
-                Destroy(gameObject);
+                DestroyImmediate(gameObject,true);//Destroy(gameObject);
                 _timerOn = false;
             }
         }
@@ -176,13 +180,28 @@ public class StickmanController : MonoBehaviour
             _death = true;
             Die();
         }
+
+        if (col.gameObject.CompareTag("Hook") && _isJumping)
+        {
+            
+            _isJumping = false;
+            _isGrappling = true;
+            _animator.SetBool("IsJumping",true);
+            _animator.SetBool("IsGrappling",true);
+            _rigidbody2D.isKinematic = true;
+            gameObject.transform.position = 
+                new Vector3(col.gameObject.GetComponent<Collider2D>().transform.position.x,
+                    (col.gameObject.GetComponent<Collider2D>().transform.position.y-col.gameObject.GetComponent<SpriteRenderer>().bounds.size.y),
+                    0);
+            _rigidbody2D.velocity = Vector2.zero;
+        }
     }
     
     
 
     private void Die()
     {
-        _animator.SetTrigger("death");
+        _animator.SetTrigger("IsDeath");
         _timerOn = true;
     }
     
@@ -198,12 +217,24 @@ public class StickmanController : MonoBehaviour
     //----------------------------------Stickman movements------------------------------------------------------------//
     private void OnJump(InputAction.CallbackContext context)
     {
-        if (!_isJumping&&!_isCrouched)
+        if (_isGrappling)
+        {
+            Debug.Log("Jump from hook!");
+            _rigidbody2D.isKinematic = false;
+            _animator.SetBool("IsGrappling",false);
+            _isGrappling = false;
+            _isJumping = true;
+            _rigidbody2D.AddForce(new Vector2((m_FacingRight?1:-1)* _jumpForce/4,  _jumpForce/2 ), ForceMode2D.Impulse);
+            //EventManager.StartListening("OnHook",OnHook);
+        }
+
+        else if (!_isJumping&&!_isCrouched)
         {
             _isJumpWall = false;
             _isJumping = true;
             Debug.Log("Jump!");
             _animator.SetBool("IsJumping",true);
+            //_animator.SetBool("IsSlidingWall",false);
             _rigidbody2D.AddForce(new Vector2(0f, _jumpForce), ForceMode2D.Impulse);
             EventManager.StartListening("OnGround",OnGround);
             EventManager.StartListening("OnWall", OnWall);
@@ -214,8 +245,8 @@ public class StickmanController : MonoBehaviour
             _isJumpWall = false;
             _isDoubleJumping = true;
             Debug.Log("Double Jump!");
-            _animator.SetBool("IsFlying",true);
             _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, 0f);
+            //_animator.SetBool("IsSlidingWall",false);
             _rigidbody2D.AddForce(new Vector2(0f, _jumpForce), ForceMode2D.Impulse);
             EventManager.StartListening("OnGround",OnGround);
             EventManager.StartListening("OnWall", OnWall);
@@ -224,7 +255,7 @@ public class StickmanController : MonoBehaviour
         {
             _isJumpWall = false;
             Debug.Log("Jumping from wall");
-            _animator.SetBool("IsFlying",true);
+            _animator.SetBool("IsJumping",true);
 
             Vector2 forceToAddHop = new Vector2(_wallHopForce * _wallHopDirection.x * -_facingDirection, 
                 _wallHopForce * _wallHopDirection.y);
@@ -281,6 +312,16 @@ public class StickmanController : MonoBehaviour
            
         }
     }
+
+    /*private void OnHook()
+    {
+        EventManager.StopListening("OnHook",OnHook);
+        _isJumping = false;
+        _animator.SetBool("IsJumping",false);
+        _animator.SetBool("IsGrappling",true);
+        
+        Debug.Log("Grappling Hook");
+    }*/
     
     private void OnWall()
     {
@@ -289,7 +330,7 @@ public class StickmanController : MonoBehaviour
         _isJumping = true;
         _isJumpWall = true;
         _animator.SetBool("IsJumping",false);
-        _animator.SetBool("IsFlying",true);
+        _animator.SetBool("IsSlidingWall",true);
         Debug.Log("Attached to wall");
     }
     
@@ -314,7 +355,6 @@ public class StickmanController : MonoBehaviour
         _isJumping = false;
         _isDoubleJumping = false;
         _animator.SetBool("IsJumping",false);
-        _animator.SetBool("IsFlying",false);
         Debug.Log("Ended Jump!");
     }
 

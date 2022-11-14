@@ -63,6 +63,7 @@ public class Spawner : MonoBehaviour
     {
         Instantiate(_stickman, new Vector3((float)(_position.x), (float)( _position.y), _position.z), Quaternion.identity);
         Destroy(_spawnEffect);
+        //DestroyImmediate(_spawnEffect,true);
         _timerOn = false;
      //   Destroy(gameObject);
 
