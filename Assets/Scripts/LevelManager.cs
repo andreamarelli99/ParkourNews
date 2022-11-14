@@ -1,14 +1,34 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace ParkourNews.Scripts
 {
     public class LevelManager: MonoBehaviour
-    {
-        //to reset stickman initial position upon death
-        private Vector2 _initialPosition;
+    { //todo move coin after finishing levels impl
+        
         private double _playerPoints;
         [SerializeField] private double _coinValue = 1;
+        
+        private int _currentLevel;
+        [SerializeField] private int _maxLevel =2;
+
+        public void Reset()
+        {
+            _currentLevel = 0;
+        }
+
+        public int GetLevel()
+        {
+            return _currentLevel;
+        }
+
+        public int GetNextLevel() 
+        {
+            _currentLevel = Math.Min(_currentLevel + 1,_maxLevel); // replay the last level
+            return _currentLevel;
+            
+        }
         
         private void Awake()
         {
@@ -17,22 +37,18 @@ namespace ParkourNews.Scripts
 
         public void OnEnable()
         {
-           EventManager.StartListening("OnPlayerDeath",OnPlayerDeath);
-           EventManager.StartListening("OnCoin",OnCoin);
-           _initialPosition = FindObjectOfType<StickmanController>().transform.position;
+            EventManager.StartListening("OnCoin",OnCoin);
         }
 
-        private void OnPlayerDeath()
-        {
-            FindObjectOfType<StickmanController>().transform.position = _initialPosition;
-        }
-
+        
         private void OnCoin()
         {
+            // move this
             EventManager.StopListening("OnCoin",OnCoin);
             _playerPoints+= _coinValue;
             Debug.Log("Collected Coin! points:"+ _playerPoints);
             EventManager.StartListening("OnCoin",OnCoin);
+            //
         }
     }
 }
