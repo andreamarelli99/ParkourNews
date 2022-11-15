@@ -44,8 +44,17 @@ namespace ParkourNews.Scripts
         {
             EventManager.StartListening("OnCoin",OnCoin);
         }
-
         
+        public double getPlayerPoints()
+        {
+            return _playerPoints;
+        }
+
+        public void resetPlayerPoints()
+        {
+            _playerPoints = 0;
+        }
+
         private void OnCoin()
         {
             // move this

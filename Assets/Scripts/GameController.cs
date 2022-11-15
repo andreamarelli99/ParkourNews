@@ -32,7 +32,7 @@ public class GameController: MonoBehaviour
                 _stickmanData.lastLevelCompleted = 0;
                 _stickmanData.playerResults = new Vector2(0, 0); //todo
             }
-            
+          //  PlayMenu();
         }
         
         private void Start()
@@ -55,6 +55,11 @@ public class GameController: MonoBehaviour
             _initialPosition = FindObjectOfType<StickmanController>().transform.position;
         }
 
+        public void PlayMenu()
+        {
+            SceneManager.LoadScene("0");
+        }
+        
         public void PlayNextLevel()
         {
             int gameLevel = _levelManager.GetNextLevel();
