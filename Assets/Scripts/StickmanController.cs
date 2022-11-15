@@ -10,7 +10,7 @@ using UnityEngine.SceneManagement;
 
 public class StickmanController : MonoBehaviour
 {
-    
+    private Spawner _follower;
     [SerializeField] private Rigidbody2D _rigidbody2D;
     public Animator _animator;
     private bool m_FacingRight = true;  // For determining which way the player is currently facing.
@@ -79,8 +79,8 @@ public class StickmanController : MonoBehaviour
 
     private void Start()
     {
-        var cam = GameObject.FindObjectOfType<CameraSet>();
-        cam.SetStickman(gameObject);
+        //var cam = GameObject.FindObjectOfType<CameraSet>();
+        //cam.SetStickman(gameObject);
         _wallHopDirection.Normalize();
         _wallJumpDirection.Normalize();
     }
@@ -91,6 +91,7 @@ public class StickmanController : MonoBehaviour
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _stickmanActions = new StickmanActions();
         _transform = GetComponent<Transform>();
+        _follower = GameObject.FindObjectOfType<Spawner>();
     }
 
     private void OnEnable()
@@ -170,6 +171,8 @@ public class StickmanController : MonoBehaviour
                 _timerOn = false;
             }
         }
+
+        _follower.SetPosition(_transform);
     }
     
     private void OnTriggerEnter2D(Collider2D col)

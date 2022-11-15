@@ -1915,6 +1915,18 @@ MonoBehaviour:
   _dashForce: 9
   _timeLeft: 0
   _spawnEffect: {fileID: 6997444155794476504, guid: 112f4fb0dd90100428b4c2ef78f1977d, type: 3}
+--- !u!114 &-15636927887814559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4851653737861826069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a773cf5311b83614386aa240f8f0825b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2134717077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2012,10 +2024,13 @@ MonoBehaviour:
   _walkSpeed: 500
   _minSpeed: 0
   _minRunSpeed: 2
+  _slideForce: 9
   _somersaultForce: 200
-  _jumpWallForce: 5
-  _jumpWallSideRatio: 0.5
   _jumpForce: 5
+  _wallHopForce: 8
+  _wallJumpForce: 5
+  _wallHopDirection: {x: 0, y: 0}
+  _wallJumpDirection: {x: 0, y: 0}
   _dashForce: 2
   _timeLeft: 0.45
   _spawnEffect: {fileID: 6997444155794476504, guid: 112f4fb0dd90100428b4c2ef78f1977d, type: 3}
