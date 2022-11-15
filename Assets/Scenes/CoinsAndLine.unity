@@ -1365,11 +1365,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2844989628324125228, guid: 876df64abd66f7b4cabeaf246c44b9a6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.362162
+      value: -85.8
       objectReference: {fileID: 0}
     - target: {fileID: 2844989628324125228, guid: 876df64abd66f7b4cabeaf246c44b9a6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.9103053
+      value: 25.73
       objectReference: {fileID: 0}
     - target: {fileID: 2844989628324125228, guid: 876df64abd66f7b4cabeaf246c44b9a6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1500,6 +1500,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6661290218525217085, guid: b4e1545c8da902a498c961f0cb6800a9, type: 3}
+      propertyPath: m_TagString
+      value: CoinIndex
+      objectReference: {fileID: 0}
     - target: {fileID: 6661290218525217475, guid: b4e1545c8da902a498c961f0cb6800a9, type: 3}
       propertyPath: m_text
       value: 'Inkers: 0'
@@ -1832,7 +1836,7 @@ MonoBehaviour:
   m_Follow: {fileID: 256580998}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 11.360457
+    OrthographicSize: 10
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -1998,7 +2002,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 11.360457
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2027,11 +2031,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2942246122326038981, guid: 9ae5167375bcea643af0acedf1498e8d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -182.7
+      value: -264
       objectReference: {fileID: 0}
     - target: {fileID: 2942246122326038981, guid: 9ae5167375bcea643af0acedf1498e8d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.2
+      value: 26.1
       objectReference: {fileID: 0}
     - target: {fileID: 2942246122326038981, guid: 9ae5167375bcea643af0acedf1498e8d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2241,6 +2245,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spawner
       objectReference: {fileID: 0}
+    - target: {fileID: 272804719358764181, guid: fcf0466e2ec50c642b2c0198212c9929, type: 3}
+      propertyPath: _drop
+      value: 
+      objectReference: {fileID: 374287736051873349, guid: d19047eb598a84e43a2b01ce45b9e909, type: 3}
     - target: {fileID: 272804719358764182, guid: fcf0466e2ec50c642b2c0198212c9929, type: 3}
       propertyPath: m_RootOrder
       value: 10
