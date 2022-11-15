@@ -4,13 +4,15 @@ using System.Collections.Generic;
 using System.Timers;
 using Cinemachine;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Spawner : MonoBehaviour
 {
     [SerializeField] private GameObject _drop;
     [SerializeField] private GameObject _spawnEffect;
     [SerializeField] private GameObject _stickman;
-    [SerializeField] private Transform _cameraTransform;
+    private Transform _transform;
+    private bool _stickmanCreated = false;
 
     [SerializeField] float _timeLeft;
     private bool _timerOn = false;
@@ -19,8 +21,13 @@ public class Spawner : MonoBehaviour
 
     // public AudioClip soundEffect;
 
+    
+    private void Awake()
+    {
+        _transform = GetComponent<Transform>();
+    }
+    
     // Start is called before the first frame update
-
     void Start()
     {
     //    ExecuteSpawnEffect();
@@ -43,17 +50,22 @@ public class Spawner : MonoBehaviour
         }
     }
 
+    public void SetPosition(Transform stickmanTransform)
+    {
+        var spawnerTransform = transform;
+        spawnerTransform.position = new Vector3(stickmanTransform.position.x, stickmanTransform.position.y, spawnerTransform.position.z);
+        
+    }
+
     public void SpawnDrop()
     {
-        var dropTransform = transform;
-        var targetPosition = _cameraTransform.position;
-        dropTransform.position = new Vector3(targetPosition.x, targetPosition.y+13*3, dropTransform.position.z);
-        Instantiate(_drop, dropTransform.position, dropTransform.rotation);
+    //    var dropTransform = transform;
+    Instantiate(_drop, new Vector3(_transform.position.x, _transform.position.y+13*3, _transform.position.y), Quaternion.identity);
     }
 
     public void ExecuteSpawnEffect(Transform explosion)
     {
-        _position = new Vector3(explosion.position.x, (float)(0.1 + explosion.position.y), explosion.position.z);
+        _position = new Vector3((float)(0.13878 +_transform.position.x), (float)(0.62967 + _transform.position.y), _transform.position.z);
         Instantiate(_spawnEffect, _position , explosion.rotation);
         _timerOn = true;
         //  AudioSource.PlayClipAtPoint(soundEffect, transform.position);
@@ -61,11 +73,10 @@ public class Spawner : MonoBehaviour
     
     public void SpawnStickMan()
     {
-        Instantiate(_stickman, new Vector3((float)(_position.x), (float)( _position.y), _position.z), Quaternion.identity);
-        Destroy(_spawnEffect);
-        //DestroyImmediate(_spawnEffect,true);
+        Instantiate(_stickman, new Vector3(_transform.position.x, _transform.position.y, _transform.position.y), Quaternion.identity);
+      //  _spawnEffect.SetActive(true);
         _timerOn = false;
-     //   Destroy(gameObject);
+        _stickmanCreated = true;
 
     }
 
