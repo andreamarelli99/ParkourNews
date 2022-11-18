@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.Events;
 
 public class AudioManager : MonoBehaviour
 {
@@ -26,6 +27,42 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         PlayMusic("Theme");
+        
+    }
+
+    private void OnEnable()
+    {
+        MusicVolume(0.2f);
+        EventManager.StartListening("JumpSound", PlayJumpSound);
+        EventManager.StartListening("DoubleJumpSound", PlayDoubleJumpSound);
+        EventManager.StartListening("OnCoin", PlayCollectSound);
+    }
+
+    private void PlayCollectSound()
+    {
+        EventManager.StopListening("OnCoin", PlayCollectSound);
+        
+        PlaySound("CollectSound");
+
+        EventManager.StartListening("OnCoin", PlayCollectSound);
+    }
+
+    private void PlayDoubleJumpSound()
+    {
+        EventManager.StopListening("DoubleJumpSound", PlayDoubleJumpSound);
+        
+        PlaySound("DoubleJumpSound");
+
+        EventManager.StartListening("DoubleJumpSound", PlayDoubleJumpSound);
+    }
+
+    private void PlayJumpSound()
+    {
+        EventManager.StopListening("JumpSound", PlayJumpSound);
+        
+        PlaySound("JumpSound");
+
+        EventManager.StartListening("JumpSound", PlayJumpSound);
     }
 
     public void PlayMusic(string sound)
