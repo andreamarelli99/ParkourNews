@@ -651,12 +651,36 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -4753207106635661255, guid: 23ec1657be30b0441afdb48fe99a5459, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4753207106635661255, guid: 23ec1657be30b0441afdb48fe99a5459, type: 3}
       propertyPath: _spawnEffect
       value: 
       objectReference: {fileID: 6997444155794476504, guid: 112f4fb0dd90100428b4c2ef78f1977d, type: 3}
+    - target: {fileID: -4753207106635661255, guid: 23ec1657be30b0441afdb48fe99a5459, type: 3}
+      propertyPath: _wallHopDirection.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4753207106635661255, guid: 23ec1657be30b0441afdb48fe99a5459, type: 3}
+      propertyPath: _wallHopDirection.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -4753207106635661255, guid: 23ec1657be30b0441afdb48fe99a5459, type: 3}
+      propertyPath: _wallJumpDirection.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4753207106635661255, guid: 23ec1657be30b0441afdb48fe99a5459, type: 3}
+      propertyPath: _wallJumpDirection.y
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2134717079, guid: 23ec1657be30b0441afdb48fe99a5459, type: 3}
       propertyPath: m_Mass
       value: 0.18818848
+      objectReference: {fileID: 0}
+    - target: {fileID: 2134717085, guid: 23ec1657be30b0441afdb48fe99a5459, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1986863301400022700, guid: 23ec1657be30b0441afdb48fe99a5459, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1109,7 +1133,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1600978177}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.6, y: 43.6, z: -0.05707787}
+  m_LocalPosition: {x: 12.7, y: 55.5, z: -0.05707787}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1362,6 +1386,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7763606713349092589, guid: ed5a233962506b34cbfac21acc58e252, type: 3}
+      propertyPath: sfxSounds.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7763606713349092589, guid: ed5a233962506b34cbfac21acc58e252, type: 3}
+      propertyPath: sfxSounds.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: f95bb25a8ee389742b472af76e29b606, type: 3}
+    - target: {fileID: 7763606713349092589, guid: ed5a233962506b34cbfac21acc58e252, type: 3}
+      propertyPath: sfxSounds.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: 1f35806357600ac4886935f72f0f824e, type: 3}
+    - target: {fileID: 7763606713349092589, guid: ed5a233962506b34cbfac21acc58e252, type: 3}
+      propertyPath: sfxSounds.Array.data[7]
+      value: 
+      objectReference: {fileID: 8300000, guid: 30a8406f797071b4ca03db0b474144ff, type: 3}
+    - target: {fileID: 7763606713349092589, guid: ed5a233962506b34cbfac21acc58e252, type: 3}
+      propertyPath: sfxSounds.Array.data[8]
+      value: 
+      objectReference: {fileID: 8300000, guid: 145e82bad14bc384fb7e7e478598ad7c, type: 3}
     - target: {fileID: 7763606713349092590, guid: ed5a233962506b34cbfac21acc58e252, type: 3}
       propertyPath: m_RootOrder
       value: 11
