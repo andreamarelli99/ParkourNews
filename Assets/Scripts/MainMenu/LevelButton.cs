@@ -1,6 +1,7 @@
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -16,6 +17,8 @@ using UnityEngine.UI;
         {
             _button=GetComponent<Button>();
             _image=GetComponent<Image>();
+            
+            _button.onClick.AddListener(OnLevelButtonClick);
         }
 
         public void SetUp(int level, bool isUnlock)
@@ -40,8 +43,8 @@ using UnityEngine.UI;
             }
         }
 
-        public void OnClick()
+        public void OnLevelButtonClick()
         {
-            
+            SceneManager.LoadScene(levelText.text);
         }
     }
