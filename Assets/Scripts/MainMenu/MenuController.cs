@@ -86,7 +86,6 @@ public class MenuController : MonoBehaviour
     {
         backMenu.SetActive(false);
         optionsMenu.SetActive(false);
-        playMenu.SetActive(false);
         mainMenu.SetActive(true);
     }
     
