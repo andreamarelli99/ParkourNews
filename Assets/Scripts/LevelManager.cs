@@ -55,6 +55,11 @@ namespace ParkourNews.Scripts
             _playerPoints = 0;
         }
 
+        public int numberOfLevels()
+        {
+            return _maxLevel;
+        }
+        
         private void OnCoin()
         {
             // move this

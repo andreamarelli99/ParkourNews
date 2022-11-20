@@ -2,6 +2,12 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
+using Cinemachine.Editor;
+using ParkourNews.Scripts;
+
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
@@ -11,13 +17,32 @@ public class MenuController : MonoBehaviour
     [SerializeField] private GameObject backMenu;
     
 
+    private float _imageSegmentDim;
+    
     private Button _playButton;
     private Button _optionButton;
     private Button _quitButton;
     private Button _backButton;
+    private LevelManager _levelManager;
+    
 
+    private int _numberOfLevels;
+    
     public void Start()
+    
     {
+        _levelManager = GameObject.FindObjectOfType<LevelManager>();
+        _numberOfLevels = _levelManager.numberOfLevels();
+        
+        float width = Screen.width;
+        float height = Screen.height;
+
+        width = (width * 0.8).ConvertTo<float>();
+        height = (height * 0.8).ConvertTo<float>();
+
+        _imageSegmentDim = Mathf.Min(width, height);
+        _imageSegmentDim = _imageSegmentDim / _numberOfLevels;
+        
         mainMenu.SetActive(true);
         
         _playButton = GameObject.FindWithTag("PlayButton").GetComponent<Button>();
@@ -38,8 +63,8 @@ public class MenuController : MonoBehaviour
     public void OnClickPlayButton()
     {
         mainMenu.SetActive(false);
-        playMenu.SetActive(true);
-        backMenu.SetActive(true);
+        SceneManager.LoadScene("MenuSelector");
+        
     }
     
     public void OnClickOptionButton()
@@ -63,6 +88,6 @@ public class MenuController : MonoBehaviour
         optionsMenu.SetActive(false);
         playMenu.SetActive(false);
         mainMenu.SetActive(true);
-        
     }
+    
 }

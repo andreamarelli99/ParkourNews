@@ -5,16 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2a21cc26-fe96-4869-9603-03d818d6f1ed" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/0.unity" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/0.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/MenuSelector.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/MenuSelector.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu/LevelButton.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu/LevelButton.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu/LevelStar.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu/LevelStar.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu/PlayMenu.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu/PlayMenu.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ParkourNews/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ParkourNews/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/StickmanWalking Variant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/StickmanWalking Variant.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/0.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/0.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MainMenu/LevelController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MainMenu/LevelController.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/MainMenu/MenuController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu/MenuController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StickmanController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StickmanController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
@@ -31,16 +36,14 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CameraSet.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Scripts/PlayerEffects/Spawner.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MainMenu/MenuController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/StickmanActions.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Scripts/StickmanController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/StickmanControllerWallJump.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/mapEffects/Rotating.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.common@6.0.4/Editor/InternalBridge/TexturePlatformSettings/TexturePlatformSettings.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventInterfaces.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/InputModules/StandaloneInputModule.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/ProjectSettings/TagManager.asset" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -152,6 +155,7 @@
       <workItem from="1668025928424" duration="4011000" />
       <workItem from="1668451180960" duration="696000" />
       <workItem from="1668534993952" duration="6956000" />
+      <workItem from="1668932607485" duration="13210000" />
     </task>
     <task id="LOCAL-00001" summary="Commented WIP">
       <created>1666469419938</created>

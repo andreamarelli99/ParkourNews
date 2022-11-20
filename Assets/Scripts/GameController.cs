@@ -55,6 +55,7 @@ public class GameController: MonoBehaviour
             _initialPosition = FindObjectOfType<StickmanController>().transform.position;
         }
 
+        //------ levels management ---------//
         public void PlayMenu()
         {
             SceneManager.LoadScene("0");
@@ -67,6 +68,12 @@ public class GameController: MonoBehaviour
             Debug.Log(gameLevel);
         }
 
+        public int getNumberOfLevels()
+        {
+            return _levelManager.numberOfLevels();
+        }
+        
+        // ------ actions management ----- //
         private void OnDash()
         {
             EventManager.StopListening("OnDash",OnDash);
