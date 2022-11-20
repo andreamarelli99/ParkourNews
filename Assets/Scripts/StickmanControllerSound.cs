@@ -5,10 +5,11 @@ using Cinemachine;
 using ParkourNews.Scripts;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class StickmanController : MonoBehaviour
+public class StickmanControllerSound : MonoBehaviour
 {
     private Spawner _follower;
     [SerializeField] private Rigidbody2D _rigidbody2D;
@@ -117,6 +118,10 @@ public class StickmanController : MonoBehaviour
         //_animator.SetBool("IsDead",false);
         EventManager.StartListening("OnDeath",OnDeath);
         EventManager.StartListening("OnWall", OnWall);
+        
+        
+        //Triggering SpawnSound
+        EventManager.TriggerEvent("SpawnSound");
 
     }
 
@@ -206,11 +211,13 @@ public class StickmanController : MonoBehaviour
     {
         _animator.SetTrigger("IsDeath");
         _timerOn = true;
+        EventManager.TriggerEvent("DeathSound");
     }
     
     private void ExecuteSpawnEffect()
     {
         Instantiate(_spawnEffect, _transform.position, _transform.rotation);
+        //EventManager.TriggerEvent("SpawnSound");
         //  AudioSource.PlayClipAtPoint(soundEffect, transform.position);
     }
 
@@ -242,6 +249,9 @@ public class StickmanController : MonoBehaviour
             EventManager.StartListening("OnGround",OnGround);
             EventManager.StartListening("OnWall", OnWall);
             
+            //Triggering sound for jump
+            EventManager.TriggerEvent("JumpSound");
+            
         }
         else if (!_isDoubleJumping&&!_isCrouched)
         {
@@ -253,6 +263,9 @@ public class StickmanController : MonoBehaviour
             _rigidbody2D.AddForce(new Vector2(0f, _jumpForce), ForceMode2D.Impulse);
             EventManager.StartListening("OnGround",OnGround);
             EventManager.StartListening("OnWall", OnWall);
+            
+            //Triggering sound for DoubleJump
+            EventManager.TriggerEvent("DoubleJumpSound");
         }
         else if (_isJumpWall)
         {
@@ -269,6 +282,9 @@ public class StickmanController : MonoBehaviour
                 new Vector2(_wallJumpDirection.x * _wallJumpForce * direction, _wallJumpDirection.y * _wallJumpForce);
             _rigidbody2D.AddForce(forceToAddJump, ForceMode2D.Impulse);
             
+            //Triggering sound for JumpWall
+            EventManager.TriggerEvent("JumpWallSound");
+            
             EventManager.StartListening("OnWall", OnWall);
             EventManager.StartListening("OnGround", OnGround);
         }
@@ -281,6 +297,7 @@ public class StickmanController : MonoBehaviour
     {
         if (_canDash&&!_isCrouched)
         {
+            EventManager.TriggerEvent("DashSound");
             _rigidbody2D.AddForce((m_FacingRight ? 1 : -1) * Vector2.right * _dashForce, ForceMode2D.Impulse);
             _canDash = false;
             EventManager.TriggerEvent("OnDash");
