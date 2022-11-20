@@ -61,7 +61,7 @@ public class PlayMenu: MonoBehaviour
                 if (level <= totalLevel)
                 {
                     _levelButtons[i].gameObject.SetActive(true);
-                    _levelButtons[i].SetUp(level,level<=unlockedValue);
+                    _levelButtons[i].SetUp(level,2,level<=unlockedValue); //todo manage stars
                 }
                 else
                 {

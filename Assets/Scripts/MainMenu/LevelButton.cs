@@ -13,22 +13,25 @@ using UnityEngine.UI;
         private int _level = 0;
         private Button _button;
         private ColorBlock _colors;
+        public GameObject levelStarPrefab;
         private Image _image;
-        private Color buttonColor = Color.white;
+        private Color buttonColor =  new Color32(179,179,179,70);
         private Color buttonTextColor = Color.black;
         private Color buttonSelectedColor = Color.green;
         private Color buttonHoverColor = Color.black;
         private Color buttonHoverTextColor=Color.white;
+        private LevelStar _levelStar;
         
         private void OnEnable()
         {
             _button=GetComponent<Button>();
             _image=GetComponent<Image>();
+            _levelStar = Instantiate(levelStarPrefab, gameObject.transform).GetComponent<LevelStar>();
             
             _button.onClick.AddListener(OnLevelButtonClick);
         }
 
-        public void SetUp(int level, bool isUnlock)
+        public void SetUp(int level,int stars, bool isUnlock)
         {
             levelText.alignment=TextAnchor.MiddleCenter;
             _colors = _button.colors;
@@ -36,6 +39,8 @@ using UnityEngine.UI;
             _colors.pressedColor = buttonSelectedColor;
             _colors.highlightedColor = buttonHoverColor;
             _button.colors = _colors;
+            
+            
             this._level = level;
             levelText.text = level.ToString();
 
@@ -46,6 +51,8 @@ using UnityEngine.UI;
                 _button.enabled = true;
                 //show the level text
                 levelText.gameObject.SetActive(true);
+                _levelStar.SetStarsSprite(stars);
+                _levelStar.gameObject.SetActive(true);
             }
             else
             {
@@ -53,6 +60,7 @@ using UnityEngine.UI;
                 _button.enabled = false;
                 //hide the level text
                 levelText.gameObject.SetActive(false);
+                _levelStar.gameObject.SetActive(false);
             }
         }
 
