@@ -10,7 +10,12 @@ namespace ParkourNews.Scripts
     {
         [SerializeField] private GameData gameData;
         private String _filePath;
-        
+
+        private void Awake()
+        {
+            DontDestroyOnLoad(this.gameObject);
+        }
+
         private void  Start()
         {
             

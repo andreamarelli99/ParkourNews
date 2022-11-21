@@ -8,7 +8,10 @@ public class EventManager : MonoBehaviour {
     private Dictionary <string, UnityEvent> eventDictionary;
 
     private static EventManager eventManager;
-
+    private void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
     public static EventManager instance
     {
         get

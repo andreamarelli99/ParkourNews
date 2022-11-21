@@ -11,10 +11,16 @@ namespace ParkourNews.Scripts
         [SerializeField] private double _coinValue = 1;
         
         private int _currentLevel;
-        [SerializeField] private int _maxLevel =2;
+        [SerializeField] private int _maxLevel =3;
+        
+        private void Awake()
+        {
+            DontDestroyOnLoad(this.gameObject);
+        }
 
         public void Reset()
         {
+            _playerPoints = 0;
             _currentLevel = 1;
         }
 
@@ -23,22 +29,19 @@ namespace ParkourNews.Scripts
             _currentLevel = 1;
         }
 
-        public int GetLevel()
+        public int GetCurrentLevel()
         {
             return _currentLevel;
         }
 
         public int GetNextLevel() 
         {
-            _currentLevel = Math.Min(_currentLevel + 1,_maxLevel); // replay the last level
-            return _currentLevel;
-            
+            _currentLevel = _currentLevel+1; // replay the last level
+            if(_currentLevel<=_maxLevel)
+                return _currentLevel;
+            return _maxLevel;
         }
         
-        private void Awake()
-        {
-            _playerPoints = 0;
-        }
 
         public void OnEnable()
         {
