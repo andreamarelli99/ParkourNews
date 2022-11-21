@@ -719,6 +719,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4753207106635661255, guid: 23ec1657be30b0441afdb48fe99a5459, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2134717079, guid: 23ec1657be30b0441afdb48fe99a5459, type: 3}
       propertyPath: m_Mass
       value: 0.18818846
@@ -988,6 +992,43 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1442608307 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4851653737861826069, guid: 23ec1657be30b0441afdb48fe99a5459, type: 3}
+  m_PrefabInstance: {fileID: 740378233}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1442608313 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2134717078, guid: 23ec1657be30b0441afdb48fe99a5459, type: 3}
+  m_PrefabInstance: {fileID: 740378233}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1442608319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1442608307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbead4e186df48af81752237b7f28bdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rigidbody2D: {fileID: 0}
+  _animator: {fileID: 1442608313}
+  _walkSpeed: 1000
+  _minSpeed: 0
+  _minRunSpeed: 2
+  _slideForce: 9
+  _somersaultForce: 5
+  _jumpForce: 12
+  _wallHopForce: 8
+  _wallJumpForce: 5
+  _wallHopDirection: {x: 0, y: 0}
+  _wallJumpDirection: {x: 0, y: 0}
+  _dashForce: 9
+  _timeLeft: 0
+  _spawnEffect: {fileID: 0}
 --- !u!1 &1787501730
 GameObject:
   m_ObjectHideFlags: 0

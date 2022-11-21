@@ -1,4 +1,5 @@
 using System;
+using ParkourNews.Scripts;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -6,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayMenu: MonoBehaviour
     {
-        public int totalLevel = 0;
+        private int _totalLevel;
         public int unlockedValue = 0; //last level unlocked
         private int _totalPages=0;
         private int _page=0;
@@ -15,10 +16,15 @@ public class PlayMenu: MonoBehaviour
         public GameObject nextButton;
         public GameObject prevButton;
 
+        private LevelManager _levelManager;
         private LevelButton[] _levelButtons;
 
         private void Start()
         {
+            _levelManager = FindObjectOfType<LevelManager>();
+            _totalLevel = _levelManager.numberOfLevels();
+            
+            
             Refresh();
         }
 
@@ -53,12 +59,12 @@ public class PlayMenu: MonoBehaviour
 
         public void Refresh()
         {
-            _totalPages = totalLevel / _pageLevels;
+            _totalPages = _totalLevel / _pageLevels;
             int index = _page * _pageLevels;
             for (int i = 0; i < _levelButtons.Length; i++)
             {
                 int level = index + i + 1;
-                if (level <= totalLevel)
+                if (level <= _totalLevel)
                 {
                     _levelButtons[i].gameObject.SetActive(true);
                     _levelButtons[i].SetUp(level,2,level<=unlockedValue); //todo manage stars
