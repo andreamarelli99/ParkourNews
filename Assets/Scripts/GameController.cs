@@ -2,45 +2,49 @@
 using ParkourNews.Scripts;
 using UnityEngine;
 using System.IO;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class GameController: MonoBehaviour
-    {
+{
+    private DataManager _dataManager;
+    private GameData _stickmanData;
+        
+        
         private LevelManager _levelManager;
         
         private StickmanController _stickman;
         private Vector2 _initialPosition;
         
-        private GameData _stickmanData;
-        private String _filePath;
+        
+        
         
         [SerializeField] private int secondsBetweenDash=5;
        
 
         void Awake()
         {
+           // SceneManager.LoadScene("0");
             _levelManager = GameObject.FindObjectOfType<LevelManager>();
-            _stickmanData = new GameData(); 
+            _dataManager = FindObjectOfType<DataManager>();
             
-            // load the save file or build a new one
-            _filePath = Path.Combine(Application.persistentDataPath, "savegame.json");
-            if (File.Exists(_filePath)) 
-                _stickmanData = JsonUtility.FromJson<GameData>(File.ReadAllText(_filePath));
-            else
-            {
-                File.Create(_filePath);
-                _stickmanData.lastLevelCompleted = 0;
-                _stickmanData.playerResults = new Vector2(0, 0); //todo
-            }
-          //  PlayMenu();
         }
         
         private void Start()
         {
-            _stickman =  GameObject.FindWithTag("Stickman").GetComponent<StickmanController>();
-            EventManager.StartListening("OnDash",OnDash);
+            
+            _stickmanData = _dataManager.GetData();
+            
+            
+            
+            
             EventManager.StartListening("OnLevelCompletion",OnLevelCompletion);
-            EventManager.StartListening("OnPlayerDeath",OnPlayerDeath);
+            
+            
+          //  _stickman =  GameObject.FindWithTag("Stickman").GetComponent<StickmanController>();
+          //  EventManager.StartListening("OnDash",OnDash);
+            
+          //  EventManager.StartListening("OnPlayerDeath",OnPlayerDeath);
             
             
             
@@ -52,12 +56,7 @@ public class GameController: MonoBehaviour
 
         public void OnEnable()
         {
-            _initialPosition = FindObjectOfType<StickmanController>().transform.position;
-        }
-
-        public void PlayMenu()
-        {
-            SceneManager.LoadScene("0");
+           // _initialPosition = FindObjectOfType<StickmanController>().transform.position;
         }
         
         public void PlayNextLevel()
@@ -83,18 +82,15 @@ public class GameController: MonoBehaviour
         private void OnLevelCompletion() //todo 
         {
             EventManager.StopListening("OnLevelCompletion",OnLevelCompletion);
-            //-------------------------------saving-------------------------------------//
+            
             _stickmanData.playerResults = new Vector2(_levelManager.GetLevel(),2); //placeholder for now
-            _stickmanData.lastLevelCompleted = _levelManager.GetLevel();
+            _stickmanData.lastLevelUnlocked = _levelManager.GetLevel();
+            _dataManager.SetData(_stickmanData);
+            EventManager.TriggerEvent("Save");
             
-            File.WriteAllText(_filePath,JsonUtility.ToJson(_stickmanData)); 
-            
-            Debug.Log(_stickmanData.playerResults.y);
+            EventManager.StartListening("OnLevelCompletion",OnLevelCompletion);
             
             PlayNextLevel();
-            
-            //-------------------------------------------------------------------------//
-            EventManager.StartListening("OnLevelCompletion",OnLevelCompletion);
         }
 
 
