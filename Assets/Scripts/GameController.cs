@@ -83,7 +83,7 @@ public class GameController: MonoBehaviour
         {
             EventManager.StopListening("OnLevelCompletion",OnLevelCompletion);
             
-            _stickmanData.playerResults = new Vector2(_levelManager.GetLevel(),2); //placeholder for now
+            _stickmanData.playerResults.Add( new Vector2(_levelManager.GetLevel(),2)); //placeholder for now
             _stickmanData.lastLevelUnlocked = _levelManager.GetLevel();
             _dataManager.SetData(_stickmanData);
             EventManager.TriggerEvent("Save");

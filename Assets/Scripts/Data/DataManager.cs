@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
@@ -9,7 +10,7 @@ namespace ParkourNews.Scripts
     {
         [SerializeField] private GameData gameData;
         private String _filePath;
-
+        
         private void  Start()
         {
             
@@ -53,7 +54,7 @@ namespace ParkourNews.Scripts
             return gameData.lastLevelUnlocked;
         }
 
-        public Vector2 getResults()
+        public List<Vector2> getResults()
         {
             return gameData.playerResults;
         }

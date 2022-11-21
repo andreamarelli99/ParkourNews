@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace ParkourNews.Scripts
@@ -7,7 +8,7 @@ namespace ParkourNews.Scripts
     public class GameData
     {
         public int lastLevelUnlocked; // to save the last level that the player has complete
-        public Vector2 playerResults; // to save for each existing level (level,points) of the level
+        public List<Vector2> playerResults; // to save for each existing level (level,points) of the level
     }
     
     
