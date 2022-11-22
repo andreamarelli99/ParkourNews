@@ -26,7 +26,6 @@ namespace ParkourNews.Scripts
             
             EventManager.StartListening("StartNextLevel",OnStartNextLevel);
             EventManager.StartListening("Reset",OnReset);
-            EventManager.StartListening("OnLevelCompletion",OnLevelCompletion);
             EventManager.StartListening("OnCoin",OnCoin);
         }
         
@@ -46,19 +45,11 @@ namespace ParkourNews.Scripts
         public void OnStartNextLevel() 
         {
             EventManager.StopListening("StartNextLevel",OnStartNextLevel);
+            _currentLevel = Math.Min(_currentLevel+1,_maxLevel); 
             SceneManager.LoadScene(_currentLevel.ToString());
             Debug.Log(_currentLevel);
             EventManager.StartListening("StartNextLevel",OnStartNextLevel);
         }
-
-        public void OnLevelCompletion()
-        {
-            EventManager.StopListening("OnLevelCompletion",OnLevelCompletion);
-            _currentLevel = Math.Min(_currentLevel+1,_maxLevel); // replay the last level
-            EventManager.StartListening("OnLevelCompletion",OnLevelCompletion);
-        }
-
-        
         
         public float getPlayerPoints()
         {

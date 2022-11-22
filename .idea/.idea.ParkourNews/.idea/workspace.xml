@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a21cc26-fe96-4869-9603-03d818d6f1ed" name="Changes" comment="check on save done">
+    <list default="true" id="2a21cc26-fe96-4869-9603-03d818d6f1ed" name="Changes" comment="no multiple saves of the same level">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ParkourNews/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ParkourNews/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/DataManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Data/DataManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelManager.cs" afterDir="false" />
     </list>
@@ -18,6 +20,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CameraSet.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Scripts/Data/DataManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MainMenu/MenuController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/StickmanActions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/StickmanControllerWallJump.cs" root0="FORCE_HIGHLIGHTING" />
@@ -138,7 +141,7 @@
       <workItem from="1668800443273" duration="3051000" />
       <workItem from="1668887766956" duration="2153000" />
       <workItem from="1669016410972" duration="10612000" />
-      <workItem from="1669103411981" duration="3714000" />
+      <workItem from="1669103411981" duration="4636000" />
     </task>
     <task id="LOCAL-00001" summary="Commented WIP">
       <created>1666469419938</created>
@@ -343,7 +346,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669106719564</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="no multiple saves of the same level">
+      <created>1669107573203</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1669107573203</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -419,7 +429,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Death implemented" />
     <MESSAGE value="Start to work on coin collection (still in discussion)" />
     <MESSAGE value="Start Fake Collider" />
     <MESSAGE value="Fix collider w/ ground" />
@@ -444,6 +453,7 @@
     <MESSAGE value="next level as message" />
     <MESSAGE value="fix on points type" />
     <MESSAGE value="check on save done" />
-    <option name="LAST_COMMIT_MESSAGE" value="check on save done" />
+    <MESSAGE value="no multiple saves of the same level" />
+    <option name="LAST_COMMIT_MESSAGE" value="no multiple saves of the same level" />
   </component>
 </project>

@@ -58,8 +58,6 @@ public class GameController: MonoBehaviour
             
             _dataManager.SetData(_levelManager.GetCurrentLevel(),_levelManager.getPlayerPoints());
             
-            Debug.Log(_levelManager.GetCurrentLevel());
-            
             EventManager.TriggerEvent("Save");
             
             EventManager.TriggerEvent("StartNextLevel");

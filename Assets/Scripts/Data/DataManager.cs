@@ -53,7 +53,7 @@ namespace ParkourNews.Scripts
         public void SetData(int cLevel,float plPoints)
         {
             Debug.Log("clevel= "+cLevel);
-            int level = Math.Max(cLevel + 1, gameData.lastLevelUnlocked);
+            gameData.lastLevelUnlocked = Math.Max(cLevel + 1, gameData.lastLevelUnlocked);
             if(gameData.playerResults.Count<cLevel)
                 gameData.playerResults.Add(new Vector2(cLevel,plPoints));
             else if (plPoints > gameData.playerResults[cLevel-1].y)
