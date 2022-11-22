@@ -7,8 +7,8 @@ namespace ParkourNews.Scripts
     public class LevelManager: MonoBehaviour
     { //todo move coin after finishing levels impl
         
-        private double _playerPoints;
-        [SerializeField] private double _coinValue = 1;
+        private float _playerPoints;
+        [SerializeField] private float _coinValue = 1;
         
         private int _currentLevel;
         [SerializeField] private int _maxLevel =3;
@@ -48,7 +48,7 @@ namespace ParkourNews.Scripts
             EventManager.StartListening("OnCoin",OnCoin);
         }
         
-        public double getPlayerPoints()
+        public float getPlayerPoints()
         {
             return _playerPoints;
         }

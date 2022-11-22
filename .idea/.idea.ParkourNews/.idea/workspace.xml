@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a21cc26-fe96-4869-9603-03d818d6f1ed" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/EventsScripts.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/EventsScripts/LevelChangeUnityEventManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/EventsScripts/LevelChangeUnityEventManager.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ParkourNews/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ParkourNews/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="2a21cc26-fe96-4869-9603-03d818d6f1ed" name="Changes" comment="next level as message">
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/DataManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Data/DataManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/GameData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Data/GameData.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +140,7 @@
       <workItem from="1668800443273" duration="3051000" />
       <workItem from="1668887766956" duration="2153000" />
       <workItem from="1669016410972" duration="10612000" />
-      <workItem from="1669103411981" duration="1727000" />
+      <workItem from="1669103411981" duration="2137000" />
     </task>
     <task id="LOCAL-00001" summary="Commented WIP">
       <created>1666469419938</created>
@@ -328,7 +324,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669026314513</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="next level as message">
+      <created>1669105286007</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1669105286007</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -404,7 +407,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="merge + double jump" />
     <MESSAGE value="Fix immagini" />
     <MESSAGE value="Added Bouncey controller: no more double jumping after bouncey collisions" />
     <MESSAGE value="Death implemented" />
@@ -429,6 +431,7 @@
     <MESSAGE value="fix on player result game data" />
     <MESSAGE value="fix on level completion + added dont destroy to some elements" />
     <MESSAGE value="updating scenes" />
-    <option name="LAST_COMMIT_MESSAGE" value="updating scenes" />
+    <MESSAGE value="next level as message" />
+    <option name="LAST_COMMIT_MESSAGE" value="next level as message" />
   </component>
 </project>

@@ -59,7 +59,7 @@ public class GameController: MonoBehaviour
         {
             EventManager.StopListening("OnLevelCompletion",OnLevelCompletion);
             
-            _stickmanData.playerResults.Add( new Vector2(_levelManager.GetCurrentLevel(),2)); //placeholder for now
+            _stickmanData.playerResults.Add( new Vector2(_levelManager.GetCurrentLevel(),_levelManager.getPlayerPoints())); //placeholder for now
             
             _dataManager.SetData(_stickmanData);
             
