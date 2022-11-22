@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
 public class AudioManager : MonoBehaviour
 {
@@ -32,7 +33,8 @@ public class AudioManager : MonoBehaviour
 
     private void OnEnable()
     {
-        MusicVolume(0.05f);
+        MusicVolume(0.02f);
+        SfxVolume(0.5f);
         EventManager.StartListening("JumpSound", PlayJumpSound);
         EventManager.StartListening("DoubleJumpSound", PlayDoubleJumpSound);
         EventManager.StartListening("OnCoin", PlayCollectSound);
@@ -41,7 +43,24 @@ public class AudioManager : MonoBehaviour
         EventManager.StartListening("SpawnSound", PlaySpawnSound);
         EventManager.StartListening("FinishSound", PlayFinishSound);
         EventManager.StartListening("DashSound", PlayDashSound);
+        EventManager.StartListening("OnGround", PlayWalkingSound);
         
+    }
+
+    private void PlayWalkingSound()
+    {
+        EventManager.StopListening("OnGround", PlayWalkingSound);
+        
+        PlaySound("WalkingSound");
+
+        StartCoroutine(CanWalkSoundCoroutine());
+    }
+
+    IEnumerator CanWalkSoundCoroutine()
+    {
+        yield return new WaitForSeconds(0.1f);
+        
+        EventManager.StartListening("OnGround", PlayWalkingSound);
     }
 
     private void PlayDashSound()
