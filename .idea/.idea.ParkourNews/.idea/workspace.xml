@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a21cc26-fe96-4869-9603-03d818d6f1ed" name="Changes" comment="fix stars">
+    <list default="true" id="2a21cc26-fe96-4869-9603-03d818d6f1ed" name="Changes" comment="still to do: manage no previous save file">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ParkourNews/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ParkourNews/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/0.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/0.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/DataManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Data/DataManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/MainMenu/PlayMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu/PlayMenu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +19,7 @@
     <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Scenes/0.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Scenes/0.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Scenes/0.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Scenes/0.unity" root0="SKIP_HIGHLIGHTING" />
@@ -407,7 +408,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669148193421</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="still to do: manage no previous save file">
+      <created>1669150881660</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1669150881660</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -483,7 +491,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="fix start walking" />
     <MESSAGE value="commit before pull" />
     <MESSAGE value="run animation" />
     <MESSAGE value="Fix on animator-jump&#10;Cooldown on Dash" />
@@ -508,6 +515,7 @@
     <MESSAGE value="reset works in game but not from menu" />
     <MESSAGE value="fix when 0 coins in a level" />
     <MESSAGE value="not best practice trick to avoid multiple don't destroyed game objects" />
-    <option name="LAST_COMMIT_MESSAGE" value="not best practice trick to avoid multiple don't destroyed game objects" />
+    <MESSAGE value="still to do: manage no previous save file" />
+    <option name="LAST_COMMIT_MESSAGE" value="still to do: manage no previous save file" />
   </component>
 </project>

@@ -10,6 +10,7 @@ namespace ParkourNews.Scripts
     {
         [SerializeField] private GameData gameData;
         private String _filePath;
+        private bool _newGame = true;
 
         private void Awake()
         {
@@ -20,21 +21,27 @@ namespace ParkourNews.Scripts
         {
             
             _filePath = Path.Combine(Application.persistentDataPath, "savegame.json");
-            if (File.Exists(_filePath)) 
+            if (File.Exists(_filePath))
+            {
                 Load();
+                _newGame = false;
+            }
             else
             {
+               
                 System.IO.FileStream oFileStream = null;
                 oFileStream = new System.IO.FileStream(_filePath, System.IO.FileMode.Create);
                 oFileStream.Close ();
-                gameData.lastLevelUnlocked = 1;
-                gameData.playerResults = new List<Vector2>();
             }
             EventManager.StartListening("Save",Save);
             EventManager.StartListening("Load",Load);
         }
 
-        
+        public bool IsNewGame()
+        {
+            return _newGame;
+        }
+
         private void Save()
         {
             File.WriteAllText(_filePath,JsonUtility.ToJson(gameData)); 

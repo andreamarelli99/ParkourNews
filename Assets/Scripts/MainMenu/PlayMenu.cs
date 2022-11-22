@@ -63,17 +63,31 @@ public class PlayMenu: MonoBehaviour
 
         public void Refresh()
         {
-            unlockedValue = Convert.ToInt32(_dataManager.getLastUnlockedLevel());
-            List<Vector2> playerResults = _dataManager.getResults();
+            List<Vector2> playerResults;
+            if (!_dataManager.IsNewGame())
+            {
+                unlockedValue = Convert.ToInt32(_dataManager.getLastUnlockedLevel());
+                playerResults = _dataManager.getResults();
+            }
+            else
+            {
+                unlockedValue = 1;
+                playerResults = new List<Vector2>();
+                playerResults.Add(new Vector2(1,0));
+            }
+
             _totalPages = _totalLevel / _pageLevels;
             int index = _page * _pageLevels;
             for (int i = 0; i < _levelButtons.Length; i++)
             {
                 int level = index + i + 1;
-                if (level <= _totalLevel && level<=playerResults.Count)
+                if (level <= _totalLevel )
                 {
                     _levelButtons[i].gameObject.SetActive(true);
-                    _levelButtons[i].SetUp(level,Convert.ToInt32(playerResults[level-1].y),level<=unlockedValue); //todo manage stars
+                    if(level<=playerResults.Count)
+                        _levelButtons[i].SetUp(level,Convert.ToInt32(playerResults[level-1].y),level<=unlockedValue); 
+                    else 
+                        _levelButtons[i].SetUp(level,0,level<=unlockedValue);
                 }
                 else
                 {
