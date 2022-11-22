@@ -1,4 +1,5 @@
 ﻿using System;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -27,13 +28,14 @@ namespace ParkourNews.Scripts
             EventManager.StartListening("StartNextLevel",OnStartNextLevel);
             EventManager.StartListening("Reset",OnReset);
             EventManager.StartListening("OnCoin",OnCoin);
+            
         }
         
+
         public void OnReset()
         {
             EventManager.StopListening("Reset",OnReset);
             _playerPoints = 0;
-            SceneManager.LoadScene(_currentLevel.ToString());
             EventManager.StartListening("Reset",OnReset);
         }
         
@@ -47,7 +49,7 @@ namespace ParkourNews.Scripts
             EventManager.StopListening("StartNextLevel",OnStartNextLevel);
             _currentLevel = Math.Min(_currentLevel+1,_maxLevel); 
             SceneManager.LoadScene(_currentLevel.ToString());
-            Debug.Log(_currentLevel);
+            EventManager.TriggerEvent("OnPlayLevel");
             EventManager.StartListening("StartNextLevel",OnStartNextLevel);
         }
         

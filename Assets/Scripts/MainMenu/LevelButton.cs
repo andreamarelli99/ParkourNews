@@ -67,6 +67,7 @@ using UnityEngine.UI;
         public void OnLevelButtonClick()
         {
             SceneManager.LoadScene(levelText.text);
+            
         }
 
         public void OnPointerEnter(PointerEventData eventData)

@@ -11,6 +11,8 @@ public class GameController: MonoBehaviour
     private LevelManager _levelManager;
     private StickmanController _stickman;
 
+    private Vector3 _initialPos;
+    
     // dash cooldown value
     [SerializeField] private int secondsBetweenDash=5;
        
@@ -37,6 +39,7 @@ public class GameController: MonoBehaviour
         private void OnPlayLevel()
         {
             _stickman =  GameObject.FindWithTag("Stickman").GetComponent<StickmanController>();
+            _initialPos = _stickman.transform.position;
         }
         
         // When the stickman has done the dash action waits a cooldown in order to be able repeat the action

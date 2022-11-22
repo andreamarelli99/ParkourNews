@@ -16,6 +16,8 @@ public class StickmController : MonoBehaviour
     private bool m_FacingRight = true;  // For determining which way the player is currently facing.
     private int _facingDirection = 1;
 
+    private Vector2 _initialPosition;
+
     //----------------------------SPEED-------------------------------//
     //put _Xspeed and _maxXspeed to regulate the stickman acceleration
     [SerializeField] private float _walkSpeed = 1000f;
@@ -83,6 +85,7 @@ public class StickmController : MonoBehaviour
        // cam.SetStickman(gameObject);
         _wallHopDirection.Normalize();
         _wallJumpDirection.Normalize();
+        _initialPosition = _transform.position;
     }
 
     private void Awake()
@@ -371,6 +374,7 @@ public class StickmController : MonoBehaviour
     {
         EventManager.StopListening("OnDeath",OnDeath);
         //_animator.SetBool("IsDead",true);
+        _rigidbody2D.position = _initialPosition;
         Debug.Log("You Died!");
         EventManager.TriggerEvent("OnPlayerDeath");
         EventManager.StartListening("OnDeath",OnDeath);

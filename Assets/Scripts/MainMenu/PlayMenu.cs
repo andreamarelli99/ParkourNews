@@ -55,6 +55,7 @@ public class PlayMenu: MonoBehaviour
         public void ClickBackMenu()
         {
             SceneManager.LoadScene("0");
+            EventManager.TriggerEvent("OnPlayLevel");
         }
 
         public void Refresh()
