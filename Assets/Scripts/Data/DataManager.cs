@@ -21,7 +21,7 @@ namespace ParkourNews.Scripts
             
             _filePath = Path.Combine(Application.persistentDataPath, "savegame.json");
             if (File.Exists(_filePath)) 
-                gameData = JsonUtility.FromJson<GameData>(File.ReadAllText(_filePath));
+                Load();
             else
             {
                 System.IO.FileStream oFileStream = null;
@@ -59,13 +59,13 @@ namespace ParkourNews.Scripts
             
                 switch (plPoints) { //to assign stars
                 
-                case var expression when plPoints >=1:
+                case >=1:
                     stars = 3;
                     break;
-                case var expression when plPoints >= ((float)2) / 3:
+                case >= ((float)2) / 3:
                     stars = 2;
                     break;
-                case var expression when plPoints >= ((float)1) / 3:
+                case >= ((float)1) / 3:
                     stars = 1;
                     break;
                 default:
@@ -77,7 +77,7 @@ namespace ParkourNews.Scripts
             Debug.Log("stars= "+stars);
             
             if(gameData.playerResults.Count<cLevel)
-                gameData.playerResults.Add(new Vector2(cLevel,plPoints));
+                gameData.playerResults.Add(new Vector2(cLevel,stars));
             else if (stars > gameData.playerResults[cLevel-1].y)
                 gameData.playerResults[cLevel-1]= new Vector2(cLevel,stars);
         }

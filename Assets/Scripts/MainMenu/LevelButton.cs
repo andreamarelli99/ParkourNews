@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using ParkourNews.Scripts;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -21,7 +23,8 @@ using UnityEngine.UI;
         private Color buttonHoverColor = Color.black;
         private Color buttonHoverTextColor=Color.white;
         private LevelStar _levelStar;
-        
+        private LevelManager _levelManager;
+
         private void OnEnable()
         {
             _button=GetComponent<Button>();
@@ -29,6 +32,11 @@ using UnityEngine.UI;
             _levelStar = Instantiate(levelStarPrefab, gameObject.transform).GetComponent<LevelStar>();
             
             _button.onClick.AddListener(OnLevelButtonClick);
+        }
+
+        private void Start()
+        {
+            _levelManager = FindObjectOfType<LevelManager>();
         }
 
         public void SetUp(int level,int stars, bool isUnlock)
@@ -66,6 +74,7 @@ using UnityEngine.UI;
 
         public void OnLevelButtonClick()
         {
+            _levelManager.setCurrentLevel(Convert.ToInt32(levelText.text));
             SceneManager.LoadScene(levelText.text);
             
         }
