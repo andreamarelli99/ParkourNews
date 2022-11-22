@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -13,7 +14,9 @@ namespace ParkourNews.Scripts
         
         private int _currentLevel;
         [SerializeField] private int _maxLevel =3;
-        
+
+        [SerializeField] private List<int> coinsPerLevel;
+
         private void Awake()
         {
             DontDestroyOnLoad(this.gameObject);
@@ -53,9 +56,12 @@ namespace ParkourNews.Scripts
             EventManager.StartListening("StartNextLevel",OnStartNextLevel);
         }
         
-        public float getPlayerPoints()
+        public float getPlayerPointsRatio()
         {
-            return _playerPoints;
+            float coins=coinsPerLevel[_currentLevel - 1];
+            if(coins>0)
+                return _playerPoints/_currentLevel;
+            return 1;
         }
 
         public void resetPlayerPoints()

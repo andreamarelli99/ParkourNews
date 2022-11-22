@@ -52,12 +52,12 @@ namespace ParkourNews.Scripts
         
         public void SetData(int cLevel,float plPoints)
         {
-            Debug.Log("clevel= "+cLevel);
+            Debug.Log("clevel= "+cLevel+"points= "+plPoints);
             gameData.lastLevelUnlocked = Math.Max(cLevel + 1, gameData.lastLevelUnlocked);
             if(gameData.playerResults.Count<cLevel)
                 gameData.playerResults.Add(new Vector2(cLevel,plPoints));
             else if (plPoints > gameData.playerResults[cLevel-1].y)
-                gameData.playerResults[cLevel-1].Set(cLevel,plPoints);
+                gameData.playerResults[cLevel-1]= new Vector2(cLevel,plPoints);
         }
 
         public double getLastUnlockedLevel()

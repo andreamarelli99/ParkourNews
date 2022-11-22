@@ -59,7 +59,7 @@ public class GameController: MonoBehaviour
         {
             EventManager.StopListening("OnLevelCompletion",OnLevelCompletion);
             
-            _dataManager.SetData(_levelManager.GetCurrentLevel(),_levelManager.getPlayerPoints());
+            _dataManager.SetData(_levelManager.GetCurrentLevel(),_levelManager.getPlayerPointsRatio());
             
             EventManager.TriggerEvent("Save");
             
