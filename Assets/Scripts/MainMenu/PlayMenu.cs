@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using ParkourNews.Scripts;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -20,11 +21,13 @@ public class PlayMenu: MonoBehaviour
 
         private LevelManager _levelManager;
         private LevelButton[] _levelButtons;
+        private DataManager _dataManager;
 
         private void Start()
         {
             _levelManager = FindObjectOfType<LevelManager>();
             _totalLevel = _levelManager.numberOfLevels();
+            _dataManager = FindObjectOfType<DataManager>();
             
             Refresh();
         }
@@ -60,15 +63,16 @@ public class PlayMenu: MonoBehaviour
 
         public void Refresh()
         {
+            List<Vector2> playerResults = _dataManager.getResults();
             _totalPages = _totalLevel / _pageLevels;
             int index = _page * _pageLevels;
             for (int i = 0; i < _levelButtons.Length; i++)
             {
                 int level = index + i + 1;
-                if (level <= _totalLevel)
+                if (level <= _totalLevel && level<=playerResults.Count)
                 {
                     _levelButtons[i].gameObject.SetActive(true);
-                    _levelButtons[i].SetUp(level,2,level<=unlockedValue); //todo manage stars
+                    _levelButtons[i].SetUp(level,Convert.ToInt32(playerResults[level-1].y),level<=unlockedValue); //todo manage stars
                 }
                 else
                 {
