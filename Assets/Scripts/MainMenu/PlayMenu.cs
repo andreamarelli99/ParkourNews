@@ -3,6 +3,7 @@ using ParkourNews.Scripts;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 
 public class PlayMenu: MonoBehaviour
@@ -15,6 +16,7 @@ public class PlayMenu: MonoBehaviour
 
         public GameObject nextButton;
         public GameObject prevButton;
+        public GameObject backButton;
 
         private LevelManager _levelManager;
         private LevelButton[] _levelButtons;
@@ -23,7 +25,6 @@ public class PlayMenu: MonoBehaviour
         {
             _levelManager = FindObjectOfType<LevelManager>();
             _totalLevel = _levelManager.numberOfLevels();
-            
             
             Refresh();
         }
@@ -55,7 +56,6 @@ public class PlayMenu: MonoBehaviour
         public void ClickBackMenu()
         {
             SceneManager.LoadScene("0");
-            EventManager.TriggerEvent("OnPlayLevel");
         }
 
         public void Refresh()
