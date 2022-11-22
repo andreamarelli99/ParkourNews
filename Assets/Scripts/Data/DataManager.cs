@@ -30,7 +30,6 @@ namespace ParkourNews.Scripts
                 gameData.lastLevelUnlocked = 1;
                 gameData.playerResults = new List<Vector2>();
             }
-            
             EventManager.StartListening("Save",Save);
             EventManager.StartListening("Load",Load);
         }
@@ -51,9 +50,13 @@ namespace ParkourNews.Scripts
             return gameData;
         }
         
-        public void SetData(GameData gd)
+        public void SetData(int cLevel,float plPoints)
         {
-            gameData = gd;
+            int level = Math.Max(cLevel + 1, gameData.lastLevelUnlocked);
+            if(gameData.playerResults.Count<cLevel)
+                gameData.playerResults.Add(new Vector2(cLevel,plPoints));
+            else if (plPoints > gameData.playerResults[cLevel].y)
+                gameData.playerResults[cLevel].Set(cLevel,plPoints);
         }
 
         public double getLastUnlockedLevel()

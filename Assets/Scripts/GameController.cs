@@ -8,7 +8,6 @@ using UnityEngine.SceneManagement;
 public class GameController: MonoBehaviour
 {
     private DataManager _dataManager;
-    private GameData _stickmanData;
     private LevelManager _levelManager;
     private StickmanController _stickman;
 
@@ -26,8 +25,6 @@ public class GameController: MonoBehaviour
         
         private void Start()
         {
-            
-            _stickmanData = _dataManager.GetData();
             
             EventManager.StartListening("OnLevelCompletion",OnLevelCompletion);
             EventManager.StartListening("OnPlayerDeath",OnPlayerDeath);
@@ -59,9 +56,7 @@ public class GameController: MonoBehaviour
         {
             EventManager.StopListening("OnLevelCompletion",OnLevelCompletion);
             
-            _stickmanData.playerResults.Add( new Vector2(_levelManager.GetCurrentLevel(),_levelManager.getPlayerPoints())); //placeholder for now
-            
-            _dataManager.SetData(_stickmanData);
+            _dataManager.SetData(_levelManager.GetCurrentLevel(),_levelManager.getPlayerPoints());
             
             EventManager.TriggerEvent("Save");
             

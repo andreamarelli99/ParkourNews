@@ -7,7 +7,7 @@ namespace ParkourNews.Scripts
     [System.Serializable]
     public class GameData
     {
-        public double lastLevelUnlocked; // to save the last level that the player has complete
+        public int lastLevelUnlocked; // to save the last level that the player has complete
         public List<Vector2> playerResults; // to save for each existing level (level,points) of the level
     }
     

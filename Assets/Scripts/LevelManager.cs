@@ -30,7 +30,6 @@ namespace ParkourNews.Scripts
             
             EventManager.StartListening("StartNextLevel",OnStartNextLevel);
         }
-
         public int GetCurrentLevel()
         {
             return _currentLevel;
