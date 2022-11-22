@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a21cc26-fe96-4869-9603-03d818d6f1ed" name="Changes" comment="fix on points type">
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/DataManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Data/DataManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/GameData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Data/GameData.cs" afterDir="false" />
+    <list default="true" id="2a21cc26-fe96-4869-9603-03d818d6f1ed" name="Changes" comment="check on save done">
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelManager.cs" afterDir="false" />
     </list>
@@ -140,7 +138,7 @@
       <workItem from="1668800443273" duration="3051000" />
       <workItem from="1668887766956" duration="2153000" />
       <workItem from="1669016410972" duration="10612000" />
-      <workItem from="1669103411981" duration="3236000" />
+      <workItem from="1669103411981" duration="3714000" />
     </task>
     <task id="LOCAL-00001" summary="Commented WIP">
       <created>1666469419938</created>
@@ -338,7 +336,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669105604561</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="check on save done">
+      <created>1669106719564</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1669106719564</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -414,7 +419,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Added Bouncey controller: no more double jumping after bouncey collisions" />
     <MESSAGE value="Death implemented" />
     <MESSAGE value="Start to work on coin collection (still in discussion)" />
     <MESSAGE value="Start Fake Collider" />
@@ -439,6 +443,7 @@
     <MESSAGE value="updating scenes" />
     <MESSAGE value="next level as message" />
     <MESSAGE value="fix on points type" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix on points type" />
+    <MESSAGE value="check on save done" />
+    <option name="LAST_COMMIT_MESSAGE" value="check on save done" />
   </component>
 </project>

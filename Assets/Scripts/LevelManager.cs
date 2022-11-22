@@ -18,18 +18,26 @@ namespace ParkourNews.Scripts
             DontDestroyOnLoad(this.gameObject);
         }
 
-        public void Reset()
-        {
-            _playerPoints = 0;
-            _currentLevel = 1;
-        }
+        
 
         public void Start()
         {
             _currentLevel = 1;
             
             EventManager.StartListening("StartNextLevel",OnStartNextLevel);
+            EventManager.StartListening("Reset",OnReset);
+            EventManager.StartListening("OnLevelCompletion",OnLevelCompletion);
+            EventManager.StartListening("OnCoin",OnCoin);
         }
+        
+        public void OnReset()
+        {
+            EventManager.StopListening("Reset",OnReset);
+            _playerPoints = 0;
+            SceneManager.LoadScene(_currentLevel.ToString());
+            EventManager.StartListening("Reset",OnReset);
+        }
+        
         public int GetCurrentLevel()
         {
             return _currentLevel;
@@ -37,15 +45,20 @@ namespace ParkourNews.Scripts
 
         public void OnStartNextLevel() 
         {
-            _currentLevel = Math.Min(_currentLevel+1,_maxLevel); // replay the last level
+            EventManager.StopListening("StartNextLevel",OnStartNextLevel);
             SceneManager.LoadScene(_currentLevel.ToString());
+            Debug.Log(_currentLevel);
+            EventManager.StartListening("StartNextLevel",OnStartNextLevel);
         }
-        
 
-        public void OnEnable()
+        public void OnLevelCompletion()
         {
-            EventManager.StartListening("OnCoin",OnCoin);
+            EventManager.StopListening("OnLevelCompletion",OnLevelCompletion);
+            _currentLevel = Math.Min(_currentLevel+1,_maxLevel); // replay the last level
+            EventManager.StartListening("OnLevelCompletion",OnLevelCompletion);
         }
+
+        
         
         public float getPlayerPoints()
         {
@@ -64,12 +77,10 @@ namespace ParkourNews.Scripts
         
         private void OnCoin()
         {
-            // move this
             EventManager.StopListening("OnCoin",OnCoin);
             _playerPoints+= _coinValue;
-            Debug.Log("Collected Coin! points:"+ _playerPoints);
             EventManager.StartListening("OnCoin",OnCoin);
-            //
+            
         }
     }
 }
