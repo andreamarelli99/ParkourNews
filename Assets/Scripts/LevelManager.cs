@@ -20,6 +20,10 @@ namespace ParkourNews.Scripts
         private void Awake()
         {
             DontDestroyOnLoad(this.gameObject);
+            coinsPerLevel=new List<int>();
+            coinsPerLevel.Add(0);
+            coinsPerLevel.Add(1);
+            coinsPerLevel.Add(0);
         }
 
         

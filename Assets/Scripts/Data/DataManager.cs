@@ -54,10 +54,32 @@ namespace ParkourNews.Scripts
         {
             Debug.Log("clevel= "+cLevel+"points= "+plPoints);
             gameData.lastLevelUnlocked = Math.Max(cLevel + 1, gameData.lastLevelUnlocked);
+
+            int stars;
+            
+                switch (plPoints) { //to assign stars
+                
+                case var expression when plPoints >=1:
+                    stars = 3;
+                    break;
+                case var expression when plPoints >= ((float)2) / 3:
+                    stars = 2;
+                    break;
+                case var expression when plPoints >= ((float)1) / 3:
+                    stars = 1;
+                    break;
+                default:
+                    stars = 0;
+                    break;
+                
+            }
+            
+            Debug.Log("stars= "+stars);
+            
             if(gameData.playerResults.Count<cLevel)
                 gameData.playerResults.Add(new Vector2(cLevel,plPoints));
-            else if (plPoints > gameData.playerResults[cLevel-1].y)
-                gameData.playerResults[cLevel-1]= new Vector2(cLevel,plPoints);
+            else if (stars > gameData.playerResults[cLevel-1].y)
+                gameData.playerResults[cLevel-1]= new Vector2(cLevel,stars);
         }
 
         public double getLastUnlockedLevel()
