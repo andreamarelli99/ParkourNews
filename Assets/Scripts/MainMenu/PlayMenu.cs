@@ -63,6 +63,7 @@ public class PlayMenu: MonoBehaviour
 
         public void Refresh()
         {
+            unlockedValue = Convert.ToInt32(_dataManager.getLastUnlockedLevel());
             List<Vector2> playerResults = _dataManager.getResults();
             _totalPages = _totalLevel / _pageLevels;
             int index = _page * _pageLevels;
