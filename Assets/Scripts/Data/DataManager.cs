@@ -27,6 +27,8 @@ namespace ParkourNews.Scripts
                 System.IO.FileStream oFileStream = null;
                 oFileStream = new System.IO.FileStream(_filePath, System.IO.FileMode.Create);
                 oFileStream.Close ();
+                gameData.lastLevelUnlocked = 1;
+                gameData.playerResults = new List<Vector2>();
             }
             
             EventManager.StartListening("Save",Save);

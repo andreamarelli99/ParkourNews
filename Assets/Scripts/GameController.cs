@@ -11,17 +11,14 @@ public class GameController: MonoBehaviour
     private GameData _stickmanData;
     private LevelManager _levelManager;
     private StickmanController _stickman;
-    
-    
-    
-        private Vector2 _initialPosition;
-        [SerializeField] private int secondsBetweenDash=5;
+
+    // dash cooldown value
+    [SerializeField] private int secondsBetweenDash=5;
        
 
         void Awake()
         {
             DontDestroyOnLoad(this.gameObject);
-           // SceneManager.LoadScene("0");
             _levelManager = GameObject.FindObjectOfType<LevelManager>();
             _dataManager = FindObjectOfType<DataManager>();
             
@@ -33,60 +30,48 @@ public class GameController: MonoBehaviour
             _stickmanData = _dataManager.GetData();
             
             EventManager.StartListening("OnLevelCompletion",OnLevelCompletion);
+            EventManager.StartListening("OnPlayerDeath",OnPlayerDeath);
+            EventManager.StartListening("OnPlayLevel",OnPlayLevel);
+            EventManager.StartListening("OnDash",OnDash);
             
-            
-          //  _stickman =  GameObject.FindWithTag("Stickman").GetComponent<StickmanController>();
-          //  EventManager.StartListening("OnDash",OnDash);
-            
-          //  EventManager.StartListening("OnPlayerDeath",OnPlayerDeath);
-            
-            
-            
-
-          //  int gameLevel = _levelManager.GetLevel();
-           // SceneManager.LoadScene(gameLevel);
-          
         }
 
-        public void OnEnable()
+        // When a level starts "picks" the stickman 
+        private void OnPlayLevel()
         {
-           // _initialPosition = FindObjectOfType<StickmanController>().transform.position;
+            _stickman =  GameObject.FindWithTag("Stickman").GetComponent<StickmanController>();
         }
         
-        
-
+        // When the stickman has done the dash action waits a cooldown in order to be able repeat the action
         private void OnDash()
         {
             EventManager.StopListening("OnDash",OnDash);
             Invoke("CanDash", secondsBetweenDash);
         }
         
+        // When the stickman dies the level will restart
         private void OnPlayerDeath()
         {
-            // move this
-            FindObjectOfType<StickmanController>().transform.position = _initialPosition;
-            //
+            _levelManager.Reset();
         }
 
         private void OnLevelCompletion() //todo 
         {
             EventManager.StopListening("OnLevelCompletion",OnLevelCompletion);
             
-            
-            
             _stickmanData.playerResults.Add( new Vector2(_levelManager.GetCurrentLevel(),2)); //placeholder for now
             
             _dataManager.SetData(_stickmanData);
+            
             EventManager.TriggerEvent("Save");
             
             EventManager.StartListening("OnLevelCompletion",OnLevelCompletion);
             
-            int gameLevel = _levelManager.GetNextLevel();
-            SceneManager.LoadScene(gameLevel.ToString()); //to avoid unity _bug :(
-            Debug.Log(gameLevel);
+            EventManager.TriggerEvent("StartNextLevel");
+            
         }
 
-
+//todo: cambia in modo che il messaggio lo riceve lo stickman controller
         private void CanDash()
         {
             _stickman.CanDash();

@@ -27,6 +27,8 @@ namespace ParkourNews.Scripts
         public void Start()
         {
             _currentLevel = 1;
+            
+            EventManager.StartListening("StartNextLevel",OnStartNextLevel);
         }
 
         public int GetCurrentLevel()
@@ -34,12 +36,10 @@ namespace ParkourNews.Scripts
             return _currentLevel;
         }
 
-        public int GetNextLevel() 
+        public void OnStartNextLevel() 
         {
-            _currentLevel = _currentLevel+1; // replay the last level
-            if(_currentLevel<=_maxLevel)
-                return _currentLevel;
-            return _maxLevel;
+            _currentLevel = Math.Min(_currentLevel+1,_maxLevel); // replay the last level
+            SceneManager.LoadScene(_currentLevel.ToString());
         }
         
 
