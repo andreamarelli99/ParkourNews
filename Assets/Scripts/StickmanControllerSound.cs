@@ -227,6 +227,7 @@ public class StickmanControllerSound : MonoBehaviour
     //----------------------------------Stickman movements------------------------------------------------------------//
     private void OnJump(InputAction.CallbackContext context)
     {
+        
         if (_isGrappling)
         {
             Debug.Log("Jump from hook!");
