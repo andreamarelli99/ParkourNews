@@ -5,12 +5,13 @@ using Cinemachine;
 using ParkourNews.Scripts;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class StickmanControllerDangerousObjects : MonoBehaviour
 {
-    private Spawner _parent;
+    private Spawner _follower;
     [SerializeField] private Rigidbody2D _rigidbody2D;
     public Animator _animator;
     private bool m_FacingRight = true;  // For determining which way the player is currently facing.
@@ -91,7 +92,7 @@ public class StickmanControllerDangerousObjects : MonoBehaviour
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _stickmanActions = new StickmanActions();
         _transform = GetComponent<Transform>();
-        _parent = GameObject.FindObjectOfType<Spawner>();
+        _follower = GameObject.FindObjectOfType<Spawner>();
     }
 
     private void OnEnable()
@@ -117,6 +118,8 @@ public class StickmanControllerDangerousObjects : MonoBehaviour
         //_animator.SetBool("IsDead",false);
         EventManager.StartListening("OnDeath",OnDeath);
         EventManager.StartListening("OnWall", OnWall);
+        EventManager.StartListening("OnGround", OnGround);
+        EventManager.StartListening("InAir", InAir);
 
     }
 
@@ -127,6 +130,10 @@ public class StickmanControllerDangerousObjects : MonoBehaviour
         _stickmanActions.Disable();
     }
 
+    [SerializeField] private float _xDecreasingWhenFalling =  1.015f;
+    [SerializeField] private float _yIncreasingWhenFalling = 1.02f;
+    [SerializeField] private float _xArtificialDragOnFloor = 1.015f;
+    
     // Update is called once per frame
     void Update()
     {
@@ -147,8 +154,24 @@ public class StickmanControllerDangerousObjects : MonoBehaviour
             // ... flip the player.
             Flip();
         }
+
+        if (_isJumping && _rigidbody2D.velocity.y < 0)
+        {
+           _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x / _xDecreasingWhenFalling, _rigidbody2D.velocity.y); 
+           
+        }
+
+        //Augmenting drag, just when is changig direction
+        if (_movement.x * _rigidbody2D.velocity.x < 0 && !_isJumping)
+        {
+            _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x / _xArtificialDragOnFloor, _rigidbody2D.velocity.y);
+        }
+        
+        Debug.Log(_movement.x);
     }
 
+    [SerializeField] private float _airDrag = 1f;
+    [SerializeField] private float _addGravity = 1f;
     private void FixedUpdate()
     {
         if(!_isSliding){
@@ -171,16 +194,38 @@ public class StickmanControllerDangerousObjects : MonoBehaviour
                 _timerOn = false;
             }
         }
+        else
+        {
+            
+            _follower.SetPosition(_transform);
+            
+        }
 
-        _parent.SetPosition(_transform);
+        if (_isJumping)
+        {
+            var velocity = transform.InverseTransformDirection(_rigidbody2D.velocity);
+            float force_x = -_airDrag * velocity.x;
+            _rigidbody2D.AddRelativeForce(new Vector2(force_x, 0));
+            _rigidbody2D.AddForce(new Vector2(0f, -_addGravity), ForceMode2D.Force);
+            
+        }
+
     }
     
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.CompareTag("Trap")&& !_death)
+        if ((col.gameObject.CompareTag("Trap") && !_death))
         {
             _rigidbody2D.velocity = new Vector2(0,_rigidbody2D.velocity.y);
             _death = true;
+            Die();
+        }
+        
+        if ((col.gameObject.CompareTag("RedLine")) && !_death)
+        {
+            _rigidbody2D.velocity = new Vector2(0,_rigidbody2D.velocity.y);
+            _death = true;
+            col.gameObject.SetActive(false);
             Die();
         }
 
@@ -199,8 +244,6 @@ public class StickmanControllerDangerousObjects : MonoBehaviour
             _rigidbody2D.velocity = Vector2.zero;
         }
     }
-    
-    
 
     private void Die()
     {
@@ -211,6 +254,7 @@ public class StickmanControllerDangerousObjects : MonoBehaviour
     private void ExecuteSpawnEffect()
     {
         Instantiate(_spawnEffect, _transform.position, _transform.rotation);
+        EventManager.TriggerEvent("OnDeath");
         //  AudioSource.PlayClipAtPoint(soundEffect, transform.position);
     }
 
@@ -235,8 +279,9 @@ public class StickmanControllerDangerousObjects : MonoBehaviour
         {
             _isJumpWall = false;
             _isJumping = true;
-            Debug.Log("Jump!");
+     //       Debug.Log("Jump!");
             _animator.SetBool("IsJumping",true);
+            _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, 0f);
             //_animator.SetBool("IsSlidingWall",false);
             _rigidbody2D.AddForce(new Vector2(0f, _jumpForce), ForceMode2D.Impulse);
             EventManager.StartListening("OnGround",OnGround);
@@ -247,7 +292,7 @@ public class StickmanControllerDangerousObjects : MonoBehaviour
         {
             _isJumpWall = false;
             _isDoubleJumping = true;
-            Debug.Log("Double Jump!");
+//            Debug.Log("Double Jump!");
             _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, 0f);
             //_animator.SetBool("IsSlidingWall",false);
             _rigidbody2D.AddForce(new Vector2(0f, _jumpForce), ForceMode2D.Impulse);
@@ -355,10 +400,22 @@ public class StickmanControllerDangerousObjects : MonoBehaviour
     private void OnGround()
     {
         EventManager.StopListening("OnGround",OnGround);
+        EventManager.StartListening("InAir",InAir);
         _isJumping = false;
         _isDoubleJumping = false;
         _animator.SetBool("IsJumping",false);
-        Debug.Log("Ended Jump!");
+ //       Debug.Log("Ended Jump!");
+    }
+
+    private void InAir()
+    {
+        EventManager.StopListening("InAir",InAir);
+        EventManager.StartListening("OnGround",OnGround);
+        EventManager.StartListening("OnWall", OnWall);
+        _isJumpWall = false;
+        _isJumping = true; 
+        _animator.SetBool("IsJumping",true);
+        //_animator.SetBool("IsSlidingWall",false);
     }
 
     private void OnBouncey()

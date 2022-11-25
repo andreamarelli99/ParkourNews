@@ -16,8 +16,8 @@ public class CoinController : MonoBehaviour
 
     private void Awake()
     {
-      //  _inkersTextObject = GameObject.FindGameObjectWithTag("CoinIndex");
-      //  _inkersText = _inkersTextObject.GetComponent<TextMeshProUGUI>();
+        _inkersTextObject = GameObject.FindGameObjectWithTag("CoinIndex");
+        _inkersText = _inkersTextObject.GetComponent<TextMeshProUGUI>();
     }
 
 

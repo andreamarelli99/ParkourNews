@@ -56,6 +56,11 @@ public class Spawner : MonoBehaviour
         spawnerTransform.position = new Vector3(stickmanTransform.position.x, stickmanTransform.position.y, spawnerTransform.position.z);
         
     }
+    
+    public Transform GetPosition()
+    {
+        return _transform;
+    }
 
     public void SpawnDrop()
     {
