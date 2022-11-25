@@ -174,33 +174,32 @@ public class StickmanController : MonoBehaviour
 
         _follower.SetPosition(_transform);
     }
-    
+
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.CompareTag("Trap")&& !_death)
+        if (col.gameObject.CompareTag("Trap") && !_death)
         {
-            _rigidbody2D.velocity = new Vector2(0,_rigidbody2D.velocity.y);
+            _rigidbody2D.velocity = new Vector2(0, _rigidbody2D.velocity.y);
             _death = true;
             Die();
         }
 
         if (col.gameObject.CompareTag("Hook") && _isJumping)
         {
-            
+
             _isJumping = false;
             _isGrappling = true;
-            _animator.SetBool("IsJumping",true);
-            _animator.SetBool("IsGrappling",true);
+            _animator.SetBool("IsJumping", true);
+            _animator.SetBool("IsGrappling", true);
             _rigidbody2D.isKinematic = true;
-            gameObject.transform.position = 
+            gameObject.transform.position =
                 new Vector3(col.gameObject.GetComponent<Collider2D>().transform.position.x,
-                    (col.gameObject.GetComponent<Collider2D>().transform.position.y-col.gameObject.GetComponent<SpriteRenderer>().bounds.size.y),
+                    (col.gameObject.GetComponent<Collider2D>().transform.position.y -
+                     col.gameObject.GetComponent<SpriteRenderer>().bounds.size.y),
                     0);
             _rigidbody2D.velocity = Vector2.zero;
         }
     }
-    
-    
 
     private void Die()
     {
