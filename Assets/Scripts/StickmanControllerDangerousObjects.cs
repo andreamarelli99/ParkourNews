@@ -254,7 +254,7 @@ public class StickmanControllerDangerousObjects : MonoBehaviour
     private void ExecuteSpawnEffect()
     {
         Instantiate(_spawnEffect, _transform.position, _transform.rotation);
-        EventManager.TriggerEvent("OnDeath");
+   //     EventManager.TriggerEvent("OnDeath");
         //  AudioSource.PlayClipAtPoint(soundEffect, transform.position);
     }
 
