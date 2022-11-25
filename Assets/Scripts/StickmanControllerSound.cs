@@ -376,6 +376,7 @@ public class StickmanControllerSound : MonoBehaviour
         _isJumping = false;
         _isDoubleJumping = false;
         _animator.SetBool("IsJumping",false);
+        _animator.SetBool("IsSlidingWall", false);
         Debug.Log("Ended Jump!");
     }
 
