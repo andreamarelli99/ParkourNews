@@ -17,16 +17,16 @@ public class MusicEnablerButton : MonoBehaviour
         _button = GetComponent<Button>();
         _button.onClick.AddListener(OnClick);
         _image = GetComponent<Image>();
-        ChangeImage();
         _dataManager = FindObjectOfType<DataManager>();
         _enabled = _dataManager.GetSfxEnabled();
+        ChangeImage();
     }
 
     private void OnClick()
     {
-        ChangeImage();
         _enabled = !_enabled;
         _dataManager.SetSfxEnabled(_enabled);
+        ChangeImage();
     }
 
     private void ChangeImage()
