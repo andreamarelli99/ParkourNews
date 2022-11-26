@@ -13,9 +13,9 @@ public class SfxVolumeSlider : MonoBehaviour
     {
         _slider = GetComponent<Slider>();
         _slider.onValueChanged.AddListener(OnSelect);
-        _slider.value = _volume;
         _dataManager = FindObjectOfType<DataManager>();
         _volume = _dataManager.GetSfxVolume();
+        _slider.value = _volume;
     }
 
     private void OnSelect(float value)
