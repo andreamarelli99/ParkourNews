@@ -1,25 +1,23 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
 namespace ParkourNews.Scripts
 {
-    public class DataManager: MonoBehaviour
+    public class DataManager : MonoBehaviour
     {
         [SerializeField] private GameData gameData;
-        private String _filePath;
+        private string _filePath;
         private bool _newGame = true;
 
         private void Awake()
         {
-            DontDestroyOnLoad(this.gameObject);
+            DontDestroyOnLoad(gameObject);
         }
 
-        private void  Start()
+        private void Start()
         {
-            
             _filePath = Path.Combine(Application.persistentDataPath, "savegame.json");
             if (File.Exists(_filePath))
             {
@@ -28,13 +26,13 @@ namespace ParkourNews.Scripts
             }
             else
             {
-               
-                System.IO.FileStream oFileStream = null;
-                oFileStream = new System.IO.FileStream(_filePath, System.IO.FileMode.Create);
-                oFileStream.Close ();
+                FileStream oFileStream = null;
+                oFileStream = new FileStream(_filePath, FileMode.Create);
+                oFileStream.Close();
             }
-            EventManager.StartListening("Save",Save);
-            EventManager.StartListening("Load",Load);
+
+            EventManager.StartListening("Save", Save);
+            EventManager.StartListening("Load", Load);
         }
 
         public bool IsNewGame()
@@ -44,7 +42,7 @@ namespace ParkourNews.Scripts
 
         private void Save()
         {
-            File.WriteAllText(_filePath,JsonUtility.ToJson(gameData)); 
+            File.WriteAllText(_filePath, JsonUtility.ToJson(gameData));
         }
 
         private void Load()
@@ -56,37 +54,38 @@ namespace ParkourNews.Scripts
         {
             return gameData;
         }
-        
-        public void SetData(int cLevel,float plPoints)
+
+        public void SetData(int cLevel, float plPoints)
         {
-            Debug.Log("clevel= "+cLevel+"points= "+plPoints);
+            Debug.Log("clevel= " + cLevel + "points= " + plPoints);
             gameData.lastLevelUnlocked = Math.Max(cLevel + 1, gameData.lastLevelUnlocked);
 
             int stars;
-            
-                switch (plPoints) { //to assign stars
-                
-                case >=1:
+
+            switch (plPoints)
+            {
+                //to assign stars
+
+                case >= 1:
                     stars = 3;
                     break;
-                case >= ((float)2) / 3:
+                case >= (float)2 / 3:
                     stars = 2;
                     break;
-                case >= ((float)1) / 3:
+                case >= (float)1 / 3:
                     stars = 1;
                     break;
                 default:
                     stars = 0;
                     break;
-                
             }
-            
-            Debug.Log("stars= "+stars);
-            
-            if(gameData.playerResults.Count<cLevel)
-                gameData.playerResults.Add(new Vector2(cLevel,stars));
-            else if (stars > gameData.playerResults[cLevel-1].y)
-                gameData.playerResults[cLevel-1]= new Vector2(cLevel,stars);
+
+            Debug.Log("stars= " + stars);
+
+            if (gameData.playerResults.Count < cLevel)
+                gameData.playerResults.Add(new Vector2(cLevel, stars));
+            else if (stars > gameData.playerResults[cLevel - 1].y)
+                gameData.playerResults[cLevel - 1] = new Vector2(cLevel, stars);
         }
 
         public double getLastUnlockedLevel()
@@ -97,6 +96,46 @@ namespace ParkourNews.Scripts
         public List<Vector2> getResults()
         {
             return gameData.playerResults;
+        }
+
+        public float GetMusicVolume()
+        {
+            return gameData.musicVolume;
+        }
+
+        public void SetMusicVolume(float volume)
+        {
+            gameData.musicVolume = volume;
+        }
+
+        public float GetSfxVolume()
+        {
+            return gameData.sfxVolume;
+        }
+
+        public void SetSfxVolume(float volume)
+        {
+            gameData.sfxVolume = volume;
+        }
+
+        public bool GetMusicEnabled()
+        {
+            return gameData.musicEnabled;
+        }
+
+        public void SetMusicEnabled(bool musicEnabled)
+        {
+            gameData.musicEnabled = musicEnabled;
+        }
+
+        public bool GetSfxEnabled()
+        {
+            return gameData.sfxEnabled;
+        }
+
+        public void SetSfxEnabled(bool sfxEnabled)
+        {
+            gameData.sfxEnabled = sfxEnabled;
         }
     }
 }

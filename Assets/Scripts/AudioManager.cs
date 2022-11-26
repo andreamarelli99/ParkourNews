@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using System;
-using UnityEngine.Events;
-using UnityEngine.EventSystems;
+using System.Collections;
+using ParkourNews.Scripts;
+using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
@@ -11,6 +9,8 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] public AudioClip[] musicSounds, sfxSounds;
     [SerializeField] public AudioSource musicSource, sfxSource;
+
+    private DataManager _dataManager;
 
     private void Awake()
     {
@@ -28,7 +28,11 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         PlayMusic("Theme");
-        
+        _dataManager = FindObjectOfType<DataManager>();
+        musicSource.mute = !_dataManager.GetMusicEnabled();
+        musicSource.volume = _dataManager.GetMusicVolume();
+        sfxSource.mute = !_dataManager.GetSfxEnabled();
+        sfxSource.volume = _dataManager.GetSfxVolume();
     }
 
     private void OnEnable()
@@ -44,29 +48,28 @@ public class AudioManager : MonoBehaviour
         EventManager.StartListening("FinishSound", PlayFinishSound);
         EventManager.StartListening("DashSound", PlayDashSound);
         EventManager.StartListening("OnGround", PlayWalkingSound);
-        
     }
 
     private void PlayWalkingSound()
     {
         EventManager.StopListening("OnGround", PlayWalkingSound);
-        
+
         PlaySound("WalkingSound");
 
         StartCoroutine(CanWalkSoundCoroutine());
     }
 
-    IEnumerator CanWalkSoundCoroutine()
+    private IEnumerator CanWalkSoundCoroutine()
     {
         yield return new WaitForSeconds(0.1f);
-        
+
         EventManager.StartListening("OnGround", PlayWalkingSound);
     }
 
     private void PlayDashSound()
     {
         EventManager.StopListening("DashSound", PlayDashSound);
-        
+
         PlaySound("DashSound");
 
         EventManager.StartListening("DashSound", PlayDashSound);
@@ -75,7 +78,7 @@ public class AudioManager : MonoBehaviour
     private void PlayFinishSound()
     {
         EventManager.StopListening("FinishSound", PlayFinishSound);
-        
+
         PlaySound("FinishSound");
 
         EventManager.StartListening("FinishSound", PlayFinishSound);
@@ -84,7 +87,7 @@ public class AudioManager : MonoBehaviour
     private void PlaySpawnSound()
     {
         EventManager.StopListening("SpawnSound", PlaySpawnSound);
-        
+
         PlaySound("DM-CGS-33");
         Debug.Log("Spawning sound");
 
@@ -94,7 +97,7 @@ public class AudioManager : MonoBehaviour
     private void PlayDeathSound()
     {
         EventManager.StopListening("DeathSound", PlayDeathSound);
-        
+
         PlaySound("DeathSound");
 
         EventManager.StartListening("DeathSound", PlayDeathSound);
@@ -103,7 +106,7 @@ public class AudioManager : MonoBehaviour
     private void PlayJumpWallSound()
     {
         EventManager.StopListening("JumpWallSound", PlayJumpWallSound);
-        
+
         PlaySound("JumpWallSound");
 
         EventManager.StartListening("JumpWallSound", PlayJumpWallSound);
@@ -112,7 +115,7 @@ public class AudioManager : MonoBehaviour
     private void PlayCollectSound()
     {
         EventManager.StopListening("OnCoin", PlayCollectSound);
-        
+
         PlaySound("CollectSound");
 
         EventManager.StartListening("OnCoin", PlayCollectSound);
@@ -121,7 +124,7 @@ public class AudioManager : MonoBehaviour
     private void PlayDoubleJumpSound()
     {
         EventManager.StopListening("DoubleJumpSound", PlayDoubleJumpSound);
-        
+
         PlaySound("DoubleJumpSound");
 
         EventManager.StartListening("DoubleJumpSound", PlayDoubleJumpSound);
@@ -130,7 +133,7 @@ public class AudioManager : MonoBehaviour
     private void PlayJumpSound()
     {
         EventManager.StopListening("JumpSound", PlayJumpSound);
-        
+
         PlaySound("JumpSound");
 
         EventManager.StartListening("JumpSound", PlayJumpSound);
@@ -138,7 +141,7 @@ public class AudioManager : MonoBehaviour
 
     public void PlayMusic(string sound)
     {
-        AudioClip s = Array.Find(musicSounds, x => x.name == sound);
+        var s = Array.Find(musicSounds, x => x.name == sound);
 
         if (s == null)
         {
@@ -150,38 +153,38 @@ public class AudioManager : MonoBehaviour
             musicSource.Play();
         }
     }
-    
+
     public void PlaySound(string sound)
     {
-        AudioClip s = Array.Find(sfxSounds, x => x.name == sound);
+        var s = Array.Find(sfxSounds, x => x.name == sound);
 
         if (s == null)
-        {
             Debug.Log("Sound not found");
-        }
         else
-        {
             sfxSource.PlayOneShot(s);
-        }
     }
 
-    public void ToogleMusic()
+    public void EnableMusic(bool enable)
     {
-        musicSource.mute = !musicSource.mute;
+        musicSource.mute = enable;
+        _dataManager.SetMusicEnabled(enable);
     }
-    
-    public void ToogleSfx()
+
+    public void EnableSfx(bool enable)
     {
-        sfxSource.mute = !sfxSource.mute;
+        sfxSource.mute = enable;
+        _dataManager.SetSfxEnabled(enable);
     }
 
     public void MusicVolume(float volume)
     {
         musicSource.volume = volume;
+        _dataManager.SetMusicVolume(volume);
     }
-    
+
     public void SfxVolume(float volume)
     {
         sfxSource.volume = volume;
+        _dataManager.SetSfxVolume(volume);
     }
 }
