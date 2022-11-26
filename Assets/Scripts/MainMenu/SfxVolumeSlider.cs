@@ -1,3 +1,4 @@
+using System;
 using ParkourNews.Scripts;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,7 +21,7 @@ public class SfxVolumeSlider : MonoBehaviour
 
     private void OnSelect(float value)
     {
-        _volume = value;
+        _volume = (float)Math.Round(value, 2);
         _dataManager.SetSfxVolume(value);
     }
 }
