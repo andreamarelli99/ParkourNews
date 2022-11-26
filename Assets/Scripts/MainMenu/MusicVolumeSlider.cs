@@ -13,10 +13,9 @@ public class MusicVolumeSlider : MonoBehaviour
     {
         _slider = GetComponent<Slider>();
         _slider.onValueChanged.AddListener(OnSelect);
-        _volume =
-            _slider.value = _volume;
         _dataManager = FindObjectOfType<DataManager>();
         _volume = _dataManager.GetMusicVolume();
+        _slider.value = _volume;
     }
 
     private void OnSelect(float value)

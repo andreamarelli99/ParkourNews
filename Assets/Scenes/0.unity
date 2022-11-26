@@ -418,6 +418,10 @@ MonoBehaviour:
   gameData:
     lastLevelUnlocked: 1
     playerResults: []
+    musicVolume: 0
+    musicEnabled: 0
+    sfxVolume: 0
+    sfxEnabled: 0
 --- !u!1 &199513185
 GameObject:
   m_ObjectHideFlags: 0
@@ -1594,6 +1598,7 @@ GameObject:
   m_Component:
   - component: {fileID: 881730002}
   - component: {fileID: 881730003}
+  - component: {fileID: 881730004}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -1675,6 +1680,18 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &881730004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881730001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e393c4c791b0a374394c90b9ce749a5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &921155421
 GameObject:
   m_ObjectHideFlags: 0
@@ -1685,6 +1702,7 @@ GameObject:
   m_Component:
   - component: {fileID: 921155422}
   - component: {fileID: 921155423}
+  - component: {fileID: 921155424}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -1766,6 +1784,18 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &921155424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 921155421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbd8554250727b74ea0972e81ae5814c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &924268791
 GameObject:
   m_ObjectHideFlags: 0

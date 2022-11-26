@@ -106,16 +106,20 @@ namespace ParkourNews.Scripts
         public void SetMusicVolume(float volume)
         {
             gameData.musicVolume = volume;
+            Save();
         }
 
         public float GetSfxVolume()
         {
+            
             return gameData.sfxVolume;
+            
         }
 
         public void SetSfxVolume(float volume)
         {
             gameData.sfxVolume = volume;
+            Save();
         }
 
         public bool GetMusicEnabled()
