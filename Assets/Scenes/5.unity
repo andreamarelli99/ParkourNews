@@ -783,6 +783,11 @@ MonoBehaviour:
   _dashForce: 9
   _timeLeft: 0
   _spawnEffect: {fileID: 0}
+--- !u!4 &1281978226 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6024849325085433462, guid: 23ec1657be30b0441afdb48fe99a5459, type: 3}
+  m_PrefabInstance: {fileID: 1281978222}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1442380364
 GameObject:
   m_ObjectHideFlags: 0
@@ -963,7 +968,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 568f5e09f900ec648abcc711244bb4b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 1281978226}
 --- !u!81 &1787501733
 AudioListener:
   m_ObjectHideFlags: 0
