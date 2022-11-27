@@ -106,7 +106,7 @@ public class StickmanController : MonoBehaviour
         _stickmanActions.Player.Dash.performed += OnDash;
         _stickmanActions.Player.Crouch.performed += OnCrouch;
         _stickmanActions.Player.Roll.performed += OnSomersault;
-        
+        _stickmanActions.Player.Menu.performed += OnMenu;
         
         _isCrouched = false;
         _doSommersault = false;
@@ -262,7 +262,10 @@ public class StickmanController : MonoBehaviour
         //  AudioSource.PlayClipAtPoint(soundEffect, transform.position);
     }
 
-
+    private void OnMenu(InputAction.CallbackContext context)
+    {
+        SceneManager.LoadScene("MenuSelector");
+    }
 
 
     //----------------------------------Stickman movements------------------------------------------------------------//
