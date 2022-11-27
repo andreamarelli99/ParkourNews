@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a21cc26-fe96-4869-9603-03d818d6f1ed" name="Changes" comment="">
+    <list default="true" id="2a21cc26-fe96-4869-9603-03d818d6f1ed" name="Changes" comment="in game menu  (press m)">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ParkourNews/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ParkourNews/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ParkourNews.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ParkourNews.inputactions" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StickmController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StickmController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StickmanActions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StickmanActions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StickmanActions.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StickmanActions.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StickmanController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StickmanController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +17,7 @@
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Scenes/MenuSelector.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CameraSet.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MainMenu/MenuController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/StickmanController.cs" root0="FORCE_HIGHLIGHTING" />
@@ -31,6 +27,7 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventInterfaces.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/InputModules/StandaloneInputModule.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/UserSettings/EditorUserSettings.asset" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -156,7 +153,7 @@
       <workItem from="1669199660000" duration="1355000" />
       <workItem from="1669366718713" duration="1521000" />
       <workItem from="1669393765065" duration="368000" />
-      <workItem from="1669569770253" duration="341000" />
+      <workItem from="1669569770253" duration="635000" />
     </task>
     <task id="LOCAL-00001" summary="Commented WIP">
       <created>1666469419938</created>
@@ -382,7 +379,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669481928769</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="in game menu  (press m)">
+      <created>1669570254628</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1669570254628</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -458,7 +462,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Fix collider w/ ground" />
     <MESSAGE value="fix start walking" />
     <MESSAGE value="commit before pull" />
     <MESSAGE value="run animation" />
@@ -483,6 +486,7 @@
     <MESSAGE value="fix save when first playing" />
     <MESSAGE value="scene fix" />
     <MESSAGE value="scene" />
-    <option name="LAST_COMMIT_MESSAGE" value="scene" />
+    <MESSAGE value="in game menu  (press m)" />
+    <option name="LAST_COMMIT_MESSAGE" value="in game menu  (press m)" />
   </component>
 </project>
