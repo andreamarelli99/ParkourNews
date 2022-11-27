@@ -1,9 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
-using System.Collections.Generic;
-using Cinemachine.Editor;
+
 using ParkourNews.Scripts;
 
 using TMPro;
