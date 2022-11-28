@@ -27,7 +27,7 @@ namespace ParkourNews.Scripts
                     EventManager.TriggerEvent("OnJump"); 
             }
         }*/
-        private bool _onWall = false;
+        /*private bool _onWall = false;
         
         
         private void OnTriggerEnter2D(Collider2D col)
@@ -53,6 +53,6 @@ namespace ParkourNews.Scripts
                 }
             }
             
-        }
+        }*/
     }
 }

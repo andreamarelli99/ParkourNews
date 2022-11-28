@@ -28,33 +28,64 @@ namespace ParkourNews.Scripts
        }*/
         private bool _onGround = false;
         
+        private bool _onWall = false;
+        
         private void OnTriggerEnter2D(Collider2D col)
         {
-            if (!_onGround)
+            if (col.gameObject.CompareTag("GroundCheck"))
             {
-                if (col.gameObject.CompareTag("GroundCheck")){
-                    //col.GetContact(0).collider = contact collider
-                    //      if(col.CompareTag("StickmanFoot"))
+                if (!_onGround)
+                {
                     EventManager.TriggerEvent("OnGround");
                     _onGround = true;
+                    _onWall = false;
                 }
             }
-            
+            else if (col.gameObject.CompareTag("Wall"))
+            {
+                if (!_onGround && !_onWall)
+                {
+                    EventManager.TriggerEvent("OnWall"); 
+                    _onWall = true;
+                }
+            }
         }
-
 
         private void OnTriggerExit2D(Collider2D col)
         {
-            if (_onGround)
+            if (col.gameObject.CompareTag("GroundCheck"))
             {
-                if (col.gameObject.CompareTag("GroundCheck")){
-                    //col.GetContact(0).collider = contact collider
+                if (_onGround) 
+                {
                     EventManager.TriggerEvent("InAir");
                     _onGround = false;
+                    _onWall = false;
+                }
+            }
+            else if (col.gameObject.CompareTag("Wall"))
+            {
+                Debug.Log("OnGround= " + _onGround);
+                if (!_onGround)
+                {
+                    Debug.Log("In air from wall");
+                    EventManager.TriggerEvent("InAir");
+                    _onWall = false;
                 }
             }
             
         }
-    
+
+        private void OnTriggerStay2D(Collider2D col)
+        {
+            if (col.gameObject.CompareTag("Wall"))
+            {
+                if (!_onGround && !_onWall)
+                {
+                    EventManager.TriggerEvent("OnWall");
+                    _onWall = true;
+                }
+            }
+            
+        }
     }
 }
