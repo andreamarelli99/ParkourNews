@@ -494,6 +494,7 @@ public class StickmanController : MonoBehaviour
         _isJumping = false;
         _isDoubleJumping = false;
         _isCrouched = false;
+        _isJumpWall = false;
         _animator.SetBool("IsJumping",false);
         _animator.SetBool("IsSlidingWall", false);
         _animator.SetBool("IsCrouched", false);
