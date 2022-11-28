@@ -12,7 +12,7 @@ namespace ParkourNews.Scripts
             if (col.gameObject.CompareTag("Stickman")){
                 //col.GetContact(0).collider = contact collider
                 if(col.GetContact(0).collider.CompareTag("StickmanFoot")){
-          //          EventManager.TriggerEvent("OnGround");
+                    EventManager.TriggerEvent("WalkingSound");
                 }
             }
         }
@@ -26,9 +26,9 @@ namespace ParkourNews.Scripts
                    Debug.Log("HEY!");
            }
        }*/
-        private bool _onGround = false;
+        [SerializeField]private bool _onGround = false;
         
-        private bool _onWall = false;
+        [SerializeField]private bool _onWall = false;
         
         private void OnTriggerEnter2D(Collider2D col)
         {
@@ -77,13 +77,11 @@ namespace ParkourNews.Scripts
 
         private void OnTriggerStay2D(Collider2D col)
         {
-            if (col.gameObject.CompareTag("Wall"))
+            if (col.gameObject.CompareTag("GroundCheck"))
             {
-                if (!_onGround && !_onWall)
-                {
-                    EventManager.TriggerEvent("OnWall");
-                    _onWall = true;
-                }
+                EventManager.TriggerEvent("OnGround");
+                _onGround = true;
+                _onWall = false;
             }
             
         }
