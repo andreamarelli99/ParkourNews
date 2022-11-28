@@ -28,11 +28,11 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         PlayMusic("Theme");
-        _dataManager = FindObjectOfType<DataManager>();
+        /*_dataManager = FindObjectOfType<DataManager>();
         musicSource.mute = !_dataManager.GetMusicEnabled();
         musicSource.volume = _dataManager.GetMusicVolume();
         sfxSource.mute = !_dataManager.GetSfxEnabled();
-        sfxSource.volume = _dataManager.GetSfxVolume();
+        sfxSource.volume = _dataManager.GetSfxVolume();*/
     }
 
     private void OnEnable()
@@ -47,12 +47,12 @@ public class AudioManager : MonoBehaviour
         EventManager.StartListening("SpawnSound", PlaySpawnSound);
         EventManager.StartListening("FinishSound", PlayFinishSound);
         EventManager.StartListening("DashSound", PlayDashSound);
-        EventManager.StartListening("OnGround", PlayWalkingSound);
+        EventManager.StartListening("WalkingSound", PlayWalkingSound);
     }
 
     private void PlayWalkingSound()
     {
-        EventManager.StopListening("OnGround", PlayWalkingSound);
+        EventManager.StopListening("WalkingSound", PlayWalkingSound);
 
         PlaySound("WalkingSound");
 
@@ -61,9 +61,9 @@ public class AudioManager : MonoBehaviour
 
     private IEnumerator CanWalkSoundCoroutine()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.2f);
 
-        EventManager.StartListening("OnGround", PlayWalkingSound);
+        EventManager.StartListening("WalkingSound", PlayWalkingSound);
     }
 
     private void PlayDashSound()
@@ -167,24 +167,24 @@ public class AudioManager : MonoBehaviour
     public void EnableMusic(bool enable)
     {
         musicSource.mute = enable;
-        _dataManager.SetMusicEnabled(enable);
+        //_dataManager.SetMusicEnabled(enable);
     }
 
     public void EnableSfx(bool enable)
     {
         sfxSource.mute = enable;
-        _dataManager.SetSfxEnabled(enable);
+        //_dataManager.SetSfxEnabled(enable);
     }
 
     public void MusicVolume(float volume)
     {
         musicSource.volume = volume;
-        _dataManager.SetMusicVolume(volume);
+        //_dataManager.SetMusicVolume(volume);
     }
 
     public void SfxVolume(float volume)
     {
         sfxSource.volume = volume;
-        _dataManager.SetSfxVolume(volume);
+        //_dataManager.SetSfxVolume(volume);
     }
 }
