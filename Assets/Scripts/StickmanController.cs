@@ -274,6 +274,7 @@ public class StickmanController : MonoBehaviour
     //----------------------------------Stickman movements------------------------------------------------------------//
     private void OnJump(InputAction.CallbackContext context)
     {
+        EventManager.StopListening("InAir",InAir);
         _canRoll = true;
         if (_isGrappling)
         {
@@ -296,7 +297,7 @@ public class StickmanController : MonoBehaviour
             _rigidbody2D.AddForce(new Vector2(0f, _jumpForce), ForceMode2D.Impulse);
             EventManager.StartListening("OnGround",OnGround);
             EventManager.StartListening("OnWall", OnWall);
-            
+
             //Triggering sound for jump
             EventManager.TriggerEvent("JumpSound");
             
@@ -331,7 +332,7 @@ public class StickmanController : MonoBehaviour
             _rigidbody2D.AddForce(forceToAddJump, ForceMode2D.Impulse);
             
             //Triggering sound for JumpWall
-            EventManager.TriggerEvent("JumpWallSound");
+ //           EventManager.TriggerEvent("JumpWallSound");
             
             EventManager.StartListening("OnWall", OnWall);
             EventManager.StartListening("OnGround", OnGround);
@@ -405,8 +406,9 @@ public class StickmanController : MonoBehaviour
     private void OnWall()
     {
         EventManager.StopListening("OnWall",OnWall);
-        _isDoubleJumping = true;
-        _isJumping = true;
+    //    EventManager.StartListening("OffWall",OffWall);
+     //   _isDoubleJumping = true;
+        _isJumping = false;
         _isJumpWall = true;
         _animator.SetBool("IsJumping",false);
         _animator.SetBool("IsSlidingWall",true);
@@ -431,6 +433,7 @@ public class StickmanController : MonoBehaviour
     private void OnGround()
     {
         EventManager.StopListening("OnGround",OnGround);
+        EventManager.StopListening("OnWall",OnWall);
         EventManager.StartListening("InAir",InAir);
         _isJumping = false;
         _isDoubleJumping = false;
@@ -442,14 +445,16 @@ public class StickmanController : MonoBehaviour
         Debug.Log("Ended Jump!");
     }
     
+    
     private void InAir()
     {
+        _isJumpWall = false;
+        _isJumping = true; 
         EventManager.StopListening("InAir",InAir);
         EventManager.StartListening("OnGround",OnGround);
         EventManager.StartListening("OnWall", OnWall);
-        _isJumpWall = false;
-        _isJumping = true; 
         _animator.SetBool("IsJumping",true);
+        Debug.Log("inair");
         //_animator.SetBool("IsSlidingWall",false);
     }
 

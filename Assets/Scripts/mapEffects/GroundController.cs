@@ -12,7 +12,7 @@ namespace ParkourNews.Scripts
             if (col.gameObject.CompareTag("Stickman")){
                 //col.GetContact(0).collider = contact collider
                 if(col.GetContact(0).collider.CompareTag("StickmanFoot")){
-                    EventManager.TriggerEvent("OnGround");
+          //          EventManager.TriggerEvent("OnGround");
                 }
             }
         }
@@ -26,22 +26,34 @@ namespace ParkourNews.Scripts
                    Debug.Log("HEY!");
            }
        }*/
-    /*    private void OnTriggerEnter2D(Collider2D col)
+        private bool _onGround = false;
+        
+        private void OnTriggerEnter2D(Collider2D col)
         {
-            if (col.gameObject.CompareTag("GroundCheck")){
-                //col.GetContact(0).collider = contact collider
-                //      if(col.CompareTag("StickmanFoot"))
-                EventManager.TriggerEvent("OnGround");
+            if (!_onGround)
+            {
+                if (col.gameObject.CompareTag("GroundCheck")){
+                    //col.GetContact(0).collider = contact collider
+                    //      if(col.CompareTag("StickmanFoot"))
+                    EventManager.TriggerEvent("OnGround");
+                    _onGround = true;
+                }
             }
-        }*/
+            
+        }
 
 
         private void OnTriggerExit2D(Collider2D col)
         {
-            if (col.gameObject.CompareTag("GroundCheck")){
-                //col.GetContact(0).collider = contact collider
-                EventManager.TriggerEvent("InAir");
+            if (_onGround)
+            {
+                if (col.gameObject.CompareTag("GroundCheck")){
+                    //col.GetContact(0).collider = contact collider
+                    EventManager.TriggerEvent("InAir");
+                    _onGround = false;
+                }
             }
+            
         }
     
     }
