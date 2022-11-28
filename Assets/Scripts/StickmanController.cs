@@ -42,10 +42,8 @@ public class StickmanController : MonoBehaviour
     private Boolean _isCrouched; //check if the stickman is crouching
     [SerializeField] private float _slideForce = 9f;
 
-    //--Somersault
-    [SerializeField] private float _somersaultForce = 5f;
-
-    private Boolean _doSommersault;
+    //--Roll
+    private bool _canRoll;
 
     //--Jump
     [SerializeField] private float _jumpForce = 12f;
@@ -109,13 +107,13 @@ public class StickmanController : MonoBehaviour
         _stickmanActions.Player.Menu.performed += OnMenu;
         
         _isCrouched = false;
-        _doSommersault = false;
         _isJumping = false;
         _isDoubleJumping = false;
         _isSliding = false;
         _isRunning = false;
         _canDash = true;
         _isGrappling = false;
+        _canRoll = false;
         
         EventManager.StartListening("OnBouncey",OnBouncey);
         //_animator.SetBool("IsDead",false);
@@ -123,6 +121,9 @@ public class StickmanController : MonoBehaviour
         EventManager.StartListening("OnWall", OnWall);
         EventManager.StartListening("OnGround", OnGround);
         EventManager.StartListening("InAir", InAir);
+        
+        //Triggering SpawnSound
+        EventManager.TriggerEvent("SpawnSound");
 
     }
 
@@ -174,6 +175,7 @@ public class StickmanController : MonoBehaviour
 
     [SerializeField] private float _airDrag = 1f;
     [SerializeField] private float _addGravity = 1f;
+
     private void FixedUpdate()
     {
         if(!_isSliding){
@@ -259,6 +261,7 @@ public class StickmanController : MonoBehaviour
     {
         Instantiate(_spawnEffect, _transform.position, _transform.rotation);
    //     EventManager.TriggerEvent("OnDeath");
+   //EventManager.TriggerEvent("SpawnSound");
         //  AudioSource.PlayClipAtPoint(soundEffect, transform.position);
     }
 
@@ -271,6 +274,7 @@ public class StickmanController : MonoBehaviour
     //----------------------------------Stickman movements------------------------------------------------------------//
     private void OnJump(InputAction.CallbackContext context)
     {
+        _canRoll = true;
         if (_isGrappling)
         {
             Debug.Log("Jump from hook!");
@@ -344,6 +348,8 @@ public class StickmanController : MonoBehaviour
             EventManager.TriggerEvent("DashSound");
             _rigidbody2D.AddForce((m_FacingRight ? 1 : -1) * Vector2.right * _dashForce, ForceMode2D.Impulse);
             _canDash = false;
+            _animator.SetBool("IsSliding", false);
+            _animator.SetBool("IsCrouched", false);
             EventManager.TriggerEvent("OnDash");
         }
     }
@@ -351,7 +357,13 @@ public class StickmanController : MonoBehaviour
     private void OnSomersault(InputAction.CallbackContext context)
     {
         //when you enter here do the roll animation
-        _rigidbody2D.velocity = new Vector2(0, _rigidbody2D.velocity.y);
+        if (_canRoll)
+        {
+            Debug.Log("Somersault");
+            _rigidbody2D.velocity = new Vector2(0, _rigidbody2D.velocity.y);
+            _animator.SetTrigger("IsRolling");
+            _canRoll = false;
+        }
     }
     
     //todo real crouch
@@ -365,7 +377,10 @@ public class StickmanController : MonoBehaviour
             
             Debug.Log("Crouch!");
             _isCrouched = true;
-            _animator.SetBool("IsCrouched", true);
+            if(!_isJumping)
+            {
+                _animator.SetBool("IsCrouched", true);
+            }
         }
         else //if the stickman is in a crouch position -> getUp
         {
@@ -400,7 +415,7 @@ public class StickmanController : MonoBehaviour
     
     private void Flip()
     {
-        if(!_isSliding){
+        if(!_isSliding || !_isJumpWall){
         // Switch the way the player is labelled as facing.
         m_FacingRight = !m_FacingRight;
         _facingDirection *= -1;
@@ -419,8 +434,11 @@ public class StickmanController : MonoBehaviour
         EventManager.StartListening("InAir",InAir);
         _isJumping = false;
         _isDoubleJumping = false;
+        _isCrouched = false;
         _animator.SetBool("IsJumping",false);
         _animator.SetBool("IsSlidingWall", false);
+        _animator.SetBool("IsCrouched", false);
+        
         Debug.Log("Ended Jump!");
     }
     
