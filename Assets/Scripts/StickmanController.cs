@@ -126,6 +126,7 @@ public class StickmanController : MonoBehaviour
         EventManager.StartListening("OnDeath",OnDeath);
         EventManager.StartListening("OnWall", OnWall);
         _onWallEvent = true;
+        EventManager.StartListening("OnWallButCantJump", OnWallButCantJump);
         EventManager.StartListening("OnGround", OnGround);
         _onGroundEvent = true;
         EventManager.StartListening("InAir", InAir);
@@ -458,6 +459,28 @@ public class StickmanController : MonoBehaviour
         Debug.Log("Attached to wall");
     }
     
+    private void OnWallButCantJump()
+    {
+        if (_onWallEvent)
+        {
+            EventManager.StopListening("OnWall",OnWall);
+            _onWallEvent = false;
+        }
+
+        if (!_inAirEvent)
+        {
+            EventManager.StartListening("InAir", InAir);
+            _inAirEvent = true;
+        }
+       
+        _isDoubleJumping = true; // if flase after reaching the same wall the player can perform another NORMAL jump (like double jumping)
+        _isJumping = true;
+        _isJumpWall = false;
+        _animator.SetBool("IsJumping",false);
+        _animator.SetBool("IsSlidingWall",true);
+        Debug.Log("Attached to wall");
+    }
+    
     private void Flip()
     {
         if(!_isSliding || !_isJumpWall){
@@ -525,6 +548,7 @@ public class StickmanController : MonoBehaviour
         if (!_onWallEvent)
         {
             EventManager.StartListening("OnWall", OnWall);
+            EventManager.StartListening("OnWallButCantJump",OnWallButCantJump);
             _onWallEvent = true;
         }
         

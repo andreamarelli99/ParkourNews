@@ -46,17 +46,32 @@ namespace ParkourNews.Scripts
                 }
                 
             }
-            else if (col.gameObject.CompareTag("Wall")&&_canJump)
+            else if (col.gameObject.CompareTag("Wall"))
             {
-                if (!_onWall)
+                if (_canJump)
                 {
-                    if (!_onGround)
+                    if (!_onWall)
                     {
-                        EventManager.TriggerEvent("OnWall");
+                        if (!_onGround)
+                        {
+                            EventManager.TriggerEvent("OnWall");
+                        }
+                        _onWall = true;
+                        EventManager.TriggerEvent("WallJumpMessage");
                     }
-                    _onWall = true;
-                    EventManager.TriggerEvent("WallJumpMessage");
                 }
+                else
+                {
+                    if (!_onWall)
+                    {
+                        if (!_onGround)
+                        {
+                            EventManager.TriggerEvent("OnWallButCantJump");
+                        }
+                        _onWall = true;
+                    }
+                }
+                
             }
         }
 
