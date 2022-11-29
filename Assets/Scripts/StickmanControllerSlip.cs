@@ -29,6 +29,6 @@ public class StickmanControllerSlip : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D col)
     {
-        _animator.SetBool("IsSlipping", false);
+        //_animator.SetBool("IsSlipping", false);
     }
 }

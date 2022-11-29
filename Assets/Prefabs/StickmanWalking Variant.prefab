@@ -2067,6 +2067,19 @@ MonoBehaviour:
   _jumpWallForcey: 5
   _jumpForce: 5
   _dashForce: 2
+--- !u!114 &4845185149285446577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4851653737861826069}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20cb95a5dc05e6041a153254a94b44a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slipForce: 10
 --- !u!114 &8837497720796077215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2099,19 +2112,6 @@ MonoBehaviour:
   _xArtificialDragOnFloor: 1.02
   _airDrag: 0.2
   _addGravity: 8
---- !u!114 &4845185149285446577
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4851653737861826069}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20cb95a5dc05e6041a153254a94b44a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slipForce: 10
 --- !u!1 &4987240651631468167 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 109628402982222127, guid: b303275011dc1744ba4d2a7bcdfa75c8, type: 3}

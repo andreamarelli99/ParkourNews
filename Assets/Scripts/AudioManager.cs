@@ -88,7 +88,7 @@ public class AudioManager : MonoBehaviour
     {
         EventManager.StopListening("SpawnSound", PlaySpawnSound);
 
-        PlaySound("DM-CGS-33");
+        PlaySound("SpawnSound");
         Debug.Log("Spawning sound");
 
         EventManager.StartListening("SpawnSound", PlaySpawnSound);
