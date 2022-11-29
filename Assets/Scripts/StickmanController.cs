@@ -201,13 +201,13 @@ public class StickmanController : MonoBehaviour
             _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x / _xArtificialDragOnFloor, _rigidbody2D.velocity.y);
         }
         
-        if ((_isSlidingObliqueRight && _facingDirection == -1) || (!_isSlidingObliqueRight && _facingDirection == 1))
-        {
-            Flip();
-        }
-        
         if (_isSlidingOblique &&  _rigidbody2D.velocity.magnitude < slidingObliqueForce)
         {
+            if ((_isSlidingObliqueRight && _facingDirection == -1) || (!_isSlidingObliqueRight && _facingDirection == 1))
+            {
+                Flip();
+            }
+            
             _rigidbody2D.velocity = _slideObliqueDir * slidingObliqueForce;
             // Here we should find a way to apply a force for a natural acceleration
             // _rigidbody2D.AddForce(_slideObliqueDir * slidingObliqueForce);
