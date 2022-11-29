@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,26 +11,29 @@ namespace ParkourNews.Scripts
         {
             //check if ground is touched by the stickman
             if (col.gameObject.CompareTag("Stickman")){
-                //col.GetContact(0).collider = contact collider
                 if(col.GetContact(0).collider.CompareTag("StickmanFoot")){
                     EventManager.TriggerEvent("WalkingSound");
                 }
             }
         }
         
-        /*    private void OnCollisionExit2D(Collision2D col)
-       {
-           //check if ground is touched by the stickman
-           if (col.gameObject.CompareTag("Stickman")){
-               //col.GetContact(0).collider = contact collider
-                   EventManager.TriggerEvent("InAir");
-                   Debug.Log("HEY!");
-           }
-       }*/
         [SerializeField] private bool _onGround = false;
         
         [SerializeField] private bool _onWall = false;
-        
+
+        [SerializeField] private bool _canJump = true;
+
+        private void OnEnable()
+        {
+            EventManager.StartListening("WallJumpMessage", WallJumpMessage);
+        }
+
+        private void WallJumpMessage()
+        {
+      //      EventManager.StopListening("WallJumpMessage", WallJumpMessage);
+            _canJump = true;
+        }
+
         private void OnTriggerEnter2D(Collider2D col)
         {
             if (col.gameObject.CompareTag("GroundCheck"))
@@ -37,19 +41,21 @@ namespace ParkourNews.Scripts
                 if (!_onGround)
                 {
                     EventManager.TriggerEvent("OnGround");
+                    EventManager.TriggerEvent("WallJumpMessage");
                     _onGround = true;
                 }
+                
             }
-            else if (col.gameObject.CompareTag("Wall"))
+            else if (col.gameObject.CompareTag("Wall")&&_canJump)
             {
-                if (!_onGround && !_onWall)
-                {
-                    EventManager.TriggerEvent("OnWall"); 
-                    _onWall = true;
-                }
                 if (!_onWall)
                 {
+                    if (!_onGround)
+                    {
+                        EventManager.TriggerEvent("OnWall");
+                    }
                     _onWall = true;
+                    EventManager.TriggerEvent("WallJumpMessage");
                 }
             }
         }
@@ -72,13 +78,14 @@ namespace ParkourNews.Scripts
             }
             else if (col.gameObject.CompareTag("Wall"))
             {
-           //     Debug.Log("OnGround= " + _onGround);
                 if (!_onGround)
                 {
                     Debug.Log("In air from wall");
                     EventManager.TriggerEvent("InAir");
+                    EventManager.TriggerEvent("WallJumpMessage");
                 }
                 _onWall = false;
+                _canJump = false;
             }
             
         }
@@ -88,17 +95,18 @@ namespace ParkourNews.Scripts
             if (col.gameObject.CompareTag("GroundCheck"))
             {
                 EventManager.TriggerEvent("OnGround");
+                EventManager.TriggerEvent("WallJumpMessage");
                 _onGround = true;
-      //          _onWall = false;
             }
-            if (col.gameObject.CompareTag("Wall"))
+            if (col.gameObject.CompareTag("Wall")&&_canJump)
             {
                 if (!_onGround)
                 {
-                    EventManager.TriggerEvent("OnWall"); 
+                    EventManager.TriggerEvent("OnWall");
                 }
             }
             
         }
+
     }
 }
