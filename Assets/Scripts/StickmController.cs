@@ -7,6 +7,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class StickmController : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class StickmController : MonoBehaviour
     private bool m_FacingRight = true;  // For determining which way the player is currently facing.
     private int _facingDirection = 1;
 
+    [SerializeField] private GameObject pauseMenu;
+    
     private Vector2 _initialPosition;
 
     //----------------------------SPEED-------------------------------//
@@ -86,6 +89,8 @@ public class StickmController : MonoBehaviour
         _wallHopDirection.Normalize();
         _wallJumpDirection.Normalize();
         _initialPosition = _transform.position;
+        pauseMenu.SetActive(false);
+        
     }
 
     private void Awake()
@@ -217,7 +222,14 @@ public class StickmController : MonoBehaviour
 
     private void OnMenu(InputAction.CallbackContext context)
     {
-        SceneManager.LoadScene("MenuSelector");
+        pauseMenu.SetActive(true);
+        Time.timeScale = 0f; 
+    }
+
+    public void Resume()
+    {
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1f; 
     }
 
 

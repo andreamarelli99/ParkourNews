@@ -264,7 +264,7 @@ public class StickmanController : MonoBehaviour
 
     private void OnMenu(InputAction.CallbackContext context)
     {
-        SceneManager.LoadScene("MenuSelector");
+        EventManager.TriggerEvent("OnMenu");
     }
 
 
