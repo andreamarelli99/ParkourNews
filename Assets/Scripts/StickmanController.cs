@@ -86,6 +86,8 @@ public class StickmanController : MonoBehaviour
     {
         //var cam = GameObject.FindObjectOfType<CameraSet>();
         //cam.SetStickman(gameObject);
+        Application.targetFrameRate = 30;
+        QualitySettings.vSyncCount = 1;
         _wallHopDirection.Normalize();
         _wallJumpDirection.Normalize();
         _initialPosition = _transform.position;
