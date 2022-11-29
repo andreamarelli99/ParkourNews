@@ -32,6 +32,7 @@ public class GameController: MonoBehaviour
             EventManager.StartListening("OnPlayerDeath",OnPlayerDeath);
             EventManager.StartListening("OnPlayLevel",OnPlayLevel);
             EventManager.StartListening("OnDash",OnDash);
+      
             
         }
 
@@ -75,5 +76,6 @@ public class GameController: MonoBehaviour
             _stickman.CanDash();
             EventManager.StartListening("OnDash",OnDash);
         }
-        
+
+       
     }
