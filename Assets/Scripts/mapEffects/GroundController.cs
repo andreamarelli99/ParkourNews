@@ -102,11 +102,6 @@ namespace ParkourNews.Scripts
                 _onWall = false;
                 _canJump = false;
             }
-            else if (col.gameObject.CompareTag("ObliqueCheck"))
-            {
-                Debug.Log("oblique check");
-                EventManager.TriggerEvent("OnSlidingObliqueExit");
-            }
         }
 
         private void OnTriggerStay2D(Collider2D col)
