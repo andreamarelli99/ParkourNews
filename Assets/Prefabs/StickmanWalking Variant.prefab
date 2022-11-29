@@ -1742,18 +1742,18 @@ MonoBehaviour:
   _minSpeed: 0
   _minRunSpeed: 2
   _slideForce: 9
-  _jumpForce: 8.5
-  _wallHopForce: 9
+  _jumpForce: 7.5
+  _wallHopForce: 5
   _wallJumpForce: 8
   _wallHopDirection: {x: 1, y: 0.5}
-  _wallJumpDirection: {x: 1, y: 2}
-  _dashForce: 1.5
+  _wallJumpDirection: {x: 0.5, y: 2}
+  _dashForce: 5
   _timeLeft: 0
   _spawnEffect: {fileID: 6997444155794476504, guid: 112f4fb0dd90100428b4c2ef78f1977d, type: 3}
-  _xDecreasingWhenFalling: 1.015
+  _xDecreasingWhenFalling: 1.03
   _yIncreasingWhenFalling: 1.02
   _xArtificialDragOnFloor: 1.02
-  _airDrag: 0.2
+  _airDrag: 0.3
   _addGravity: 8
 --- !u!4 &5265668442436819661 stripped
 Transform:

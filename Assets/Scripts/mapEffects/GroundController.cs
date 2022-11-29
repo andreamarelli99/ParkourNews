@@ -91,6 +91,13 @@ namespace ParkourNews.Scripts
                 _onGround = true;
       //          _onWall = false;
             }
+            if (col.gameObject.CompareTag("Wall"))
+            {
+                if (!_onGround)
+                {
+                    EventManager.TriggerEvent("OnWall"); 
+                }
+            }
             
         }
     }
