@@ -1,14 +1,17 @@
 using UnityEngine;
 
-public class SlipController : MonoBehaviour
+public class StickmanControllerSlip : MonoBehaviour
 {
     [SerializeField] private float slipForce = 10f;
-    private bool _isSlipping;
+    private Animator _animator;
     private Rigidbody2D _rigidbody2D;
+    private Transform _transform;
 
     private void Start()
     {
+        _transform = GetComponent<Transform>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
     }
 
     private void OnCollisionEnter2D(Collision2D col)
@@ -16,15 +19,16 @@ public class SlipController : MonoBehaviour
         // check if a slippery ground is touched by the stickman
         if (col.gameObject.CompareTag("Slip"))
         {
-            _isSlipping = true;
+            Debug.Log("Slipping");
             var dir = Quaternion.Euler(0, 0, col.transform.rotation.z) * Vector3.down;
-            dir = dir.normalized;
-            _rigidbody2D.AddForce(slipForce * dir);
+            _rigidbody2D.AddForce(slipForce * dir.normalized);
+            _animator.SetBool("IsSlipping", true);
+            _transform.Rotate(0, 180, 0);
         }
     }
 
     private void OnCollisionExit2D(Collision2D col)
     {
-        _isSlipping = false;
+        //_animator.SetBool("IsSlipping", false);
     }
 }

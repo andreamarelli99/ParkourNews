@@ -38,14 +38,15 @@ public class StickmanController : MonoBehaviour
     
     private Boolean _isDead;
     
+    //--Flip
+    private Boolean _justFlipped = false;
+    
     //--Crouch
     private Boolean _isCrouched; //check if the stickman is crouching
     [SerializeField] private float _slideForce = 9f;
 
-    //--Somersault
-    [SerializeField] private float _somersaultForce = 5f;
-
-    private Boolean _doSommersault;
+    //--Roll
+    private bool _canRoll;
 
     //--Jump
     [SerializeField] private float _jumpForce = 12f;
@@ -59,7 +60,12 @@ public class StickmanController : MonoBehaviour
     [SerializeField] private float _wallJumpForce = 5f;
     [SerializeField]private Vector2 _wallHopDirection;
     [SerializeField]private Vector2 _wallJumpDirection;
+    [SerializeField] private float _incrementForceY = 1.1f;
     
+    //-- Booleans for listening events
+    private Boolean _onGroundEvent = false;
+    private Boolean _onWallEvent = false;
+    private Boolean _inAirEvent = false;
 
     private Boolean _isJumpWall;
     
@@ -84,6 +90,8 @@ public class StickmanController : MonoBehaviour
     {
         //var cam = GameObject.FindObjectOfType<CameraSet>();
         //cam.SetStickman(gameObject);
+        Application.targetFrameRate = 30;
+        QualitySettings.vSyncCount = 1;
         _wallHopDirection.Normalize();
         _wallJumpDirection.Normalize();
         _initialPosition = _transform.position;
@@ -109,20 +117,27 @@ public class StickmanController : MonoBehaviour
         _stickmanActions.Player.Menu.performed += OnMenu;
         
         _isCrouched = false;
-        _doSommersault = false;
         _isJumping = false;
         _isDoubleJumping = false;
         _isSliding = false;
         _isRunning = false;
         _canDash = true;
         _isGrappling = false;
+        _canRoll = false;
         
         EventManager.StartListening("OnBouncey",OnBouncey);
         //_animator.SetBool("IsDead",false);
         EventManager.StartListening("OnDeath",OnDeath);
         EventManager.StartListening("OnWall", OnWall);
+        _onWallEvent = true;
+        EventManager.StartListening("OnWallButCantJump", OnWallButCantJump);
         EventManager.StartListening("OnGround", OnGround);
+        _onGroundEvent = true;
         EventManager.StartListening("InAir", InAir);
+        _inAirEvent = true;
+        
+        //Triggering SpawnSound
+        EventManager.TriggerEvent("SpawnSound");
 
     }
 
@@ -174,6 +189,7 @@ public class StickmanController : MonoBehaviour
 
     [SerializeField] private float _airDrag = 1f;
     [SerializeField] private float _addGravity = 1f;
+
     private void FixedUpdate()
     {
         if(!_isSliding){
@@ -259,6 +275,7 @@ public class StickmanController : MonoBehaviour
     {
         Instantiate(_spawnEffect, _transform.position, _transform.rotation);
    //     EventManager.TriggerEvent("OnDeath");
+   //EventManager.TriggerEvent("SpawnSound");
         //  AudioSource.PlayClipAtPoint(soundEffect, transform.position);
     }
 
@@ -271,6 +288,8 @@ public class StickmanController : MonoBehaviour
     //----------------------------------Stickman movements------------------------------------------------------------//
     private void OnJump(InputAction.CallbackContext context)
     {
+        //EventManager.StopListening("InAir",InAir);
+        _canRoll = true;
         if (_isGrappling)
         {
             Debug.Log("Jump from hook!");
@@ -281,7 +300,45 @@ public class StickmanController : MonoBehaviour
             _rigidbody2D.AddForce(new Vector2((m_FacingRight?1:-1)* _jumpForce/4,  _jumpForce/2 ), ForceMode2D.Impulse);
             //EventManager.StartListening("OnHook",OnHook);
         }
+        else if (_isJumpWall || _justFlipped)
+        {
+            _isJumpWall = false;
+            Debug.Log("Jumping from wall");
+            _animator.SetBool("IsJumping",true);
+            
+            int oppositeDirection = 1;
+            float incForce = 1;
+            Debug.Log("Jumping with justFlipped: " + _justFlipped);
+            if (_justFlipped)
+            {
+                oppositeDirection = -1;
+                incForce = _incrementForceY;
+            }
 
+            Vector2 forceToAddHop = new Vector2(_wallHopForce * _wallHopDirection.x * -_facingDirection * oppositeDirection, 
+                _wallHopForce * _wallHopDirection.y * incForce);
+            _rigidbody2D.AddForce(forceToAddHop, ForceMode2D.Impulse);
+
+            
+
+            Vector2 forceToAddJump =
+                new Vector2(_wallJumpDirection.x * _wallJumpForce * _facingDirection * oppositeDirection, _wallJumpDirection.y * _wallJumpForce * incForce);
+            _rigidbody2D.AddForce(forceToAddJump, ForceMode2D.Impulse);
+            
+            //Triggering sound for JumpWall
+            //           EventManager.TriggerEvent("JumpWallSound");
+
+            if (!_onWallEvent)
+            {
+                EventManager.StartListening("OnWall", OnWall);
+                _onWallEvent = true;
+            }
+            if (!_onGroundEvent)
+            {
+                EventManager.StartListening("OnGround", OnGround);
+                _onGroundEvent = true;
+            }
+        }
         else if (!_isJumping&&!_isCrouched)
         {
             _isJumpWall = false;
@@ -290,9 +347,17 @@ public class StickmanController : MonoBehaviour
             _animator.SetBool("IsJumping",true);
             //_animator.SetBool("IsSlidingWall",false);
             _rigidbody2D.AddForce(new Vector2(0f, _jumpForce), ForceMode2D.Impulse);
-            EventManager.StartListening("OnGround",OnGround);
-            EventManager.StartListening("OnWall", OnWall);
-            
+            if (!_onWallEvent)
+            {
+                EventManager.StartListening("OnWall", OnWall);
+                _onWallEvent = true;
+            }
+            if (!_onGroundEvent)
+            {
+                EventManager.StartListening("OnGround", OnGround);
+                _onGroundEvent = true;
+            }
+
             //Triggering sound for jump
             EventManager.TriggerEvent("JumpSound");
             
@@ -305,32 +370,19 @@ public class StickmanController : MonoBehaviour
             _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, 0f);
             //_animator.SetBool("IsSlidingWall",false);
             _rigidbody2D.AddForce(new Vector2(0f, _jumpForce), ForceMode2D.Impulse);
-            EventManager.StartListening("OnGround",OnGround);
-            EventManager.StartListening("OnWall", OnWall);
+            if (!_onWallEvent)
+            {
+                EventManager.StartListening("OnWall", OnWall);
+                _onWallEvent = true;
+            }
+            if (!_onGroundEvent)
+            {
+                EventManager.StartListening("OnGround", OnGround);
+                _onGroundEvent = true;
+            }
             
             //Triggering sound for DoubleJump
             EventManager.TriggerEvent("DoubleJumpSound");
-        }
-        else if (_isJumpWall)
-        {
-            _isJumpWall = false;
-            Debug.Log("Jumping from wall");
-            _animator.SetBool("IsJumping",true);
-
-            Vector2 forceToAddHop = new Vector2(_wallHopForce * _wallHopDirection.x * -_facingDirection, 
-                _wallHopForce * _wallHopDirection.y);
-            _rigidbody2D.AddForce(forceToAddHop, ForceMode2D.Impulse);
-
-            int direction = _movement.x > 0 ? 1 : -1;
-            Vector2 forceToAddJump =
-                new Vector2(_wallJumpDirection.x * _wallJumpForce * direction, _wallJumpDirection.y * _wallJumpForce);
-            _rigidbody2D.AddForce(forceToAddJump, ForceMode2D.Impulse);
-            
-            //Triggering sound for JumpWall
-            EventManager.TriggerEvent("JumpWallSound");
-            
-            EventManager.StartListening("OnWall", OnWall);
-            EventManager.StartListening("OnGround", OnGround);
         }
         else 
             Debug.Log("No more than Double Jump!");
@@ -344,6 +396,8 @@ public class StickmanController : MonoBehaviour
             EventManager.TriggerEvent("DashSound");
             _rigidbody2D.AddForce((m_FacingRight ? 1 : -1) * Vector2.right * _dashForce, ForceMode2D.Impulse);
             _canDash = false;
+            _animator.SetBool("IsSliding", false);
+            _animator.SetBool("IsCrouched", false);
             EventManager.TriggerEvent("OnDash");
         }
     }
@@ -351,7 +405,13 @@ public class StickmanController : MonoBehaviour
     private void OnSomersault(InputAction.CallbackContext context)
     {
         //when you enter here do the roll animation
-        _rigidbody2D.velocity = new Vector2(0, _rigidbody2D.velocity.y);
+        if (_canRoll)
+        {
+            Debug.Log("Somersault");
+            _rigidbody2D.velocity = new Vector2(0, _rigidbody2D.velocity.y);
+            _animator.SetTrigger("IsRolling");
+            _canRoll = false;
+        }
     }
     
     //todo real crouch
@@ -365,7 +425,10 @@ public class StickmanController : MonoBehaviour
             
             Debug.Log("Crouch!");
             _isCrouched = true;
-            _animator.SetBool("IsCrouched", true);
+            if(!_isJumping)
+            {
+                _animator.SetBool("IsCrouched", true);
+            }
         }
         else //if the stickman is in a crouch position -> getUp
         {
@@ -389,10 +452,44 @@ public class StickmanController : MonoBehaviour
     
     private void OnWall()
     {
-        EventManager.StopListening("OnWall",OnWall);
+        if (_onWallEvent)
+        {
+            EventManager.StopListening("OnWall",OnWall);
+            _onWallEvent = false;
+        }
+
+        if (!_inAirEvent)
+        {
+            EventManager.StartListening("InAir", InAir);
+            _inAirEvent = true;
+        }
+       
+    //    EventManager.StartListening("OffWall",OffWall);
         _isDoubleJumping = true;
-        _isJumping = true;
+        _isJumping = false;
         _isJumpWall = true;
+        _animator.SetBool("IsJumping",false);
+        _animator.SetBool("IsSlidingWall",true);
+        Debug.Log("Attached to wall");
+    }
+    
+    private void OnWallButCantJump()
+    {
+        if (_onWallEvent)
+        {
+            EventManager.StopListening("OnWall",OnWall);
+            _onWallEvent = false;
+        }
+
+        if (!_inAirEvent)
+        {
+            EventManager.StartListening("InAir", InAir);
+            _inAirEvent = true;
+        }
+       
+        _isDoubleJumping = true; // if flase after reaching the same wall the player can perform another NORMAL jump (like double jumping)
+        _isJumping = true;
+        _isJumpWall = false;
         _animator.SetBool("IsJumping",false);
         _animator.SetBool("IsSlidingWall",true);
         Debug.Log("Attached to wall");
@@ -400,8 +497,16 @@ public class StickmanController : MonoBehaviour
     
     private void Flip()
     {
-        if(!_isSliding){
-        // Switch the way the player is labelled as facing.
+        if(!_isSliding || !_isJumpWall)
+        {
+            if (_isJumpWall)
+            {
+                Debug.Log("Setting justFlipped true");
+                _justFlipped = true;
+                StartCoroutine(DisableJustFlippedCoroutine());
+            }
+
+            // Switch the way the player is labelled as facing.
         m_FacingRight = !m_FacingRight;
         _facingDirection *= -1;
 
@@ -412,31 +517,78 @@ public class StickmanController : MonoBehaviour
         }
     }
 
+    IEnumerator DisableJustFlippedCoroutine()
+    {
+        yield return new WaitForSeconds(0.3f);
+        _justFlipped = false;
+        Debug.Log("Setting justFlipped false");
+    }
+
     //---- called upon events----//
     private void OnGround()
     {
-        EventManager.StopListening("OnGround",OnGround);
-        EventManager.StartListening("InAir",InAir);
+        if (_onGroundEvent)
+        {
+            EventManager.StopListening("OnGround",OnGround);
+            _onGroundEvent = false;
+        }
+
+        if (_onWallEvent)
+        {
+            EventManager.StopListening("OnWall",OnWall);
+            _onWallEvent = false;
+        }
+
+        if (!_inAirEvent)
+        {
+            EventManager.StartListening("InAir",InAir);
+            _inAirEvent = true;
+        }
+        
         _isJumping = false;
         _isDoubleJumping = false;
+        _isCrouched = false;
+        _isJumpWall = false;
         _animator.SetBool("IsJumping",false);
         _animator.SetBool("IsSlidingWall", false);
+        _animator.SetBool("IsCrouched", false);
+
         Debug.Log("Ended Jump!");
     }
     
+    
     private void InAir()
     {
-        EventManager.StopListening("InAir",InAir);
-        EventManager.StartListening("OnGround",OnGround);
-        EventManager.StartListening("OnWall", OnWall);
         _isJumpWall = false;
-        _isJumping = true; 
+        _isJumping = true;
+
+        if (_inAirEvent)
+        {
+            EventManager.StopListening("InAir",InAir);
+            _inAirEvent = false;
+        }
+
+        if (!_onGroundEvent)
+        {
+            EventManager.StartListening("OnGround",OnGround);
+            _onGroundEvent = true;
+        }
+
+        if (!_onWallEvent)
+        {
+            EventManager.StartListening("OnWall", OnWall);
+            EventManager.StartListening("OnWallButCantJump",OnWallButCantJump);
+            _onWallEvent = true;
+        }
+        
         _animator.SetBool("IsJumping",true);
-        //_animator.SetBool("IsSlidingWall",false);
+        Debug.Log("inair");
+        _animator.SetBool("IsSlidingWall",false);
     }
 
     private void OnBouncey()
     {
+        
         EventManager.StopListening("OnBouncey",OnBouncey);
         _isDoubleJumping = true;
         // to allow player to jump after a bouncy collision
