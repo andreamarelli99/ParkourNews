@@ -25,7 +25,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 42702
+  controlID: 44699
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 42693
+  controlID: 44700
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -202,8 +202,8 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 0, y: 0}
-      snapOffsetDelta: {x: -100, y: -25.600006}
+      snapOffset: {x: -101, y: -26}
+      snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 3
       id: Tool Settings
       index: 0
@@ -213,9 +213,9 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: -141, y: 149}
+      snapOffset: {x: -141, y: -203}
       snapOffsetDelta: {x: 0, y: 0}
-      snapCorner: 1
+      snapCorner: 3
       id: unity-grid-and-snap-toolbar
       index: 1
       layout: 1
@@ -418,7 +418,7 @@ MonoBehaviour:
   m_Position:
     m_Target: {x: -28.678905, y: -0.2649231, z: 0}
     speed: 2
-    m_Value: {x: -28.678947, y: -0.2648599, z: -0.0000015497208}
+    m_Value: {x: -28.678905, y: -0.2649231, z: 0}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -471,7 +471,7 @@ MonoBehaviour:
   m_Size:
     m_Target: 13.686032
     speed: 2
-    m_Value: 13.68625
+    m_Value: 13.686032
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -546,7 +546,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 42547
+  controlID: 44678
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -606,7 +606,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 826d0000
       m_LastClickedID: 0
-      m_ExpandedIDs: f429ffff142dffff7e31ffffd649ffffdc4dffffbe56fffff859ffffc25cffff3061ffff8a61ffff4264fffffe6cffff6472ffff1c75ffff4676ffffa87effffac7effffd67effffda7effffe67effffea7effff827fffff4282ffff5886fffffc88ffff6c8bffff268effffd28fffff2c90fffff692ffff3097ffffd899ffff029cffff5c9cffff089fffff82a1ffff8ca4ffff78a6ffff2ca9ffffb6abffffbeaeffff0ab2ffffdab4ffff8eb9ffff4cbbfffff8bdffffaabfffff74c2ffff76c5ffff2ec8ffffa4cdffff7ad0ffff9cd6ffff0ed7ffffd8d8ffff7cdbffff34ddffffdadfffffb0e1ffff52e4ffffb0e6ffff78e9ffffccebffff7aeeffff22f1fffffcf3ffff1af6ffff12f8ffff70f8ffff08fbffffae730000b4730000ca730000d6730000de73000028980000449800005a98000062980000289f00002e9f0000449f0000509f00005a9f0000629f0000aca60000b2a60000c8a60000e6a60000ecac0000f2ac000008ad000014ad000026ad0000fead00009cae00002cb3000032b3000048b3000054b3000066b300006cb9000072b9000088b90000a6b900001cbc000022bc000038bc00004ebc000056bc00009cc70000b8c70000cec7000094ce0000b4ce0000c0ce0000d2ce000098d50000b8d50000c4d50000d6d50000bad6000058d70000f4db0000fedb00000cdc00002adc000030e400003ae4000048e4000066e400007ce600001ae70000c6eb000014ec00001eec00002cec000038ec00004aec000038ed0000d6ed000072f200007cf200008af2000096f20000a0f20000a8f200000efb000018fb000026fb000032fb00003cfb000044fb00004efb0000900101009a010100a8010100d0010100440a01004e0a0100580a0100660a0100720a0100840a0100720b0100100c0100c6100100da100100e8100100061101004a1701005e1701006c1701008a170100de1e0100201f01002a1f0100381f0100561f01006c2b0100762b0100842b0100a22b01007e35010096350100b4350100263c0100724a01007c4a01008a4a0100a84a0100ca4a0100ec54010004550100105501002255010044550100
+      m_ExpandedIDs: 4a1effffa01fffffdc20ffff2e21fffff429ffff142dffff7e31ffffd649ffffdc4dffffbe56fffff859ffffc25cffff3061ffff8a61ffff4264fffffe6cffff6472ffff1c75ffff4676ffffa87effffac7effffd67effffda7effffe67effffea7effff827fffff4282ffff5886fffffc88ffff6c8bffff268effffd28fffff2c90fffff692ffff3097ffffd899ffff029cffff5c9cffff089fffff82a1ffff8ca4ffff78a6ffff2ca9ffffb6abffffbeaeffff0ab2ffffdab4ffff8eb9ffff4cbbfffff8bdffffaabfffff74c2ffff76c5ffff2ec8ffffa4cdffff7ad0ffff9cd6ffff0ed7ffffd8d8ffff7cdbffff34ddffffdadfffffb0e1ffff52e4ffffb0e6ffff78e9ffffccebffff7aeeffff22f1fffffcf3ffff1af6ffff12f8ffff70f8ffff08fbffffae730000b4730000ca730000d6730000de73000028980000449800005a98000062980000289f00002e9f0000449f0000509f00005a9f0000629f0000aca60000b2a60000c8a60000e6a60000ecac0000f2ac000008ad000014ad000026ad0000fead00009cae00002cb3000032b3000048b3000054b3000066b300006cb9000072b9000088b90000a6b900001cbc000022bc000038bc00004ebc000056bc00009cc70000b8c70000cec7000094ce0000b4ce0000c0ce0000d2ce000098d50000b8d50000c4d50000d6d50000bad6000058d70000f4db0000fedb00000cdc00002adc000030e400003ae4000048e4000066e400007ce600001ae70000c6eb000014ec00001eec00002cec000038ec00004aec000038ed0000d6ed000072f200007cf200008af2000096f20000a0f20000a8f200000efb000018fb000026fb000032fb00003cfb000044fb00004efb0000900101009a010100a8010100d0010100440a01004e0a0100580a0100660a0100720a0100840a0100720b0100100c0100c6100100da100100e8100100061101004a1701005e1701006c1701008a170100de1e0100201f01002a1f0100381f0100561f01006c2b0100762b0100842b0100a22b01007e35010096350100b4350100263c0100724a01007c4a01008a4a0100a84a0100ca4a0100ec54010004550100105501002255010044550100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -819,7 +819,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 42703
+  controlID: 44620
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
