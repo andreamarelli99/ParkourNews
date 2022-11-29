@@ -892,7 +892,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 21.7, y: -6.79, z: -10}
+  m_LocalPosition: {x: 11, y: -7.4, z: -20.057077}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1604,7 +1604,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2134717079, guid: 23ec1657be30b0441afdb48fe99a5459, type: 3}
       propertyPath: m_Mass
-      value: 0.18125519
+      value: 0.18125522
       objectReference: {fileID: 0}
     - target: {fileID: 2134717085, guid: 23ec1657be30b0441afdb48fe99a5459, type: 3}
       propertyPath: slipForce
@@ -1612,11 +1612,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2134717085, guid: 23ec1657be30b0441afdb48fe99a5459, type: 3}
       propertyPath: _jumpForce
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2134717085, guid: 23ec1657be30b0441afdb48fe99a5459, type: 3}
-      propertyPath: slidingObliqueForce
-      value: 30
+      value: 8.5
       objectReference: {fileID: 0}
     - target: {fileID: 1986863301400022700, guid: 23ec1657be30b0441afdb48fe99a5459, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1684,11 +1680,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6024849325085433462, guid: 23ec1657be30b0441afdb48fe99a5459, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15.24
+      value: 14.02
       objectReference: {fileID: 0}
     - target: {fileID: 6024849325085433462, guid: 23ec1657be30b0441afdb48fe99a5459, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.91
+      value: -5.84
       objectReference: {fileID: 0}
     - target: {fileID: 6024849325085433462, guid: 23ec1657be30b0441afdb48fe99a5459, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1745,6 +1741,10 @@ PrefabInstance:
     - target: {fileID: 7116265448966210119, guid: 23ec1657be30b0441afdb48fe99a5459, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0.42180857
+      objectReference: {fileID: 0}
+    - target: {fileID: 7689327921719819573, guid: 23ec1657be30b0441afdb48fe99a5459, type: 3}
+      propertyPath: m_RootOrder
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 8182917943258355944, guid: 23ec1657be30b0441afdb48fe99a5459, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2014,7 +2014,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1483868713}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.093, y: 0.337, z: 0}
+  m_LocalPosition: {x: 0.084, y: 0.158, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2045,7 +2045,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.9585841, y: 0.42205077}
   m_EdgeRadius: 0
 --- !u!58 &1483868716
 CircleCollider2D:
@@ -2060,9 +2060,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.3371435}
+  m_Offset: {x: 0, y: -0.1351457}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.3648543
 --- !u!1 &1489705802
 GameObject:
   m_ObjectHideFlags: 0
@@ -2538,7 +2538,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 2046661485}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 38ccc13e11af94743b713c973a2cd68c, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
