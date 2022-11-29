@@ -15,8 +15,8 @@ public class StickmanController : MonoBehaviour
     [SerializeField] private Rigidbody2D _rigidbody2D;
     private SpriteRenderer _spriteRenderer;
     public Animator _animator;
-    private bool m_FacingRight = true;  // For determining which way the player is currently facing.
-    private int _facingDirection = 1;
+    // private bool m_FacingRight = true;
+    private int _facingDirection = 1; // For determining which way the player is currently facing.
 
     private Vector2 _initialPosition;
 
@@ -210,7 +210,7 @@ public class StickmanController : MonoBehaviour
         {
             _rigidbody2D.velocity = _slideObliqueDir * slidingObliqueForce;
             // Here we should find a way to apply a force for a natural acceleration
-            //_rigidbody2D.AddForce(_slideObliqueDir * slidingObliqueForce);
+            // _rigidbody2D.AddForce(_slideObliqueDir * slidingObliqueForce);
         }
     }
     
@@ -389,6 +389,7 @@ public class StickmanController : MonoBehaviour
     {
         //EventManager.StopListening("InAir",InAir);
         _canRoll = true;
+        _canMove = true;
         if (_isGrappling)
         {
             Debug.Log("Jump from hook!");
@@ -396,7 +397,7 @@ public class StickmanController : MonoBehaviour
             _animator.SetBool("IsGrappling",false);
             _isGrappling = false;
             _isJumping = true;
-            _rigidbody2D.AddForce(new Vector2((m_FacingRight?1:-1)* _jumpForce/4,  _jumpForce/2 ), ForceMode2D.Impulse);
+            _rigidbody2D.AddForce(new Vector2(_facingDirection * _jumpForce/4,  _jumpForce/2 ), ForceMode2D.Impulse);
             //EventManager.StartListening("OnHook",OnHook);
         }
         else if (_isJumpWall || _justFlipped)
@@ -492,7 +493,7 @@ public class StickmanController : MonoBehaviour
         if (_canDash&&!_isCrouched)
         {
             EventManager.TriggerEvent("DashSound");
-            _rigidbody2D.AddForce((m_FacingRight ? 1 : -1) * Vector2.right * _dashForce, ForceMode2D.Impulse);
+            _rigidbody2D.AddForce(_facingDirection * Vector2.right * _dashForce, ForceMode2D.Impulse);
             _canDash = false;
             _animator.SetBool("IsSliding", false);
             _animator.SetBool("IsCrouched", false);
@@ -606,7 +607,7 @@ public class StickmanController : MonoBehaviour
             }
 
             // Switch the way the player is labelled as facing.
-            m_FacingRight = !m_FacingRight;
+            // m_FacingRight = !m_FacingRight;
             _facingDirection *= -1;
 
             // Multiply the player's x local scale by -1.
@@ -715,7 +716,7 @@ public class StickmanController : MonoBehaviour
     {
         _animator.SetBool("IsSliding", true);
         _isSliding = true;
-        _rigidbody2D.AddForce((m_FacingRight ? 1 : -1) * _slideForce* Vector2.right, ForceMode2D.Impulse);
+        _rigidbody2D.AddForce(_facingDirection * _slideForce* Vector2.right, ForceMode2D.Impulse);
         
         //wait until the stickman speed has decreased enough to "crouch walking"
         while (Math.Abs(_rigidbody2D.velocity.x) >= _minRunSpeed)
