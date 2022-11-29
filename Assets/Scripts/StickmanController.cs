@@ -41,6 +41,9 @@ public class StickmanController : MonoBehaviour
     
     private Boolean _isDead;
     
+    //--Flip
+    private Boolean _justFlipped = false;
+    
     //--Crouch
     private Boolean _isCrouched; //check if the stickman is crouching
     [SerializeField] private float _slideForce = 9f;
@@ -60,6 +63,7 @@ public class StickmanController : MonoBehaviour
     [SerializeField] private float _wallJumpForce = 5f;
     [SerializeField]private Vector2 _wallHopDirection;
     [SerializeField]private Vector2 _wallJumpDirection;
+    [SerializeField] private float _incrementForceY = 1.07f;
     
     //-- Booleans for listening events
     private Boolean _onGroundEvent = false;
@@ -314,7 +318,7 @@ public class StickmanController : MonoBehaviour
             // _follower.SetPosition(_transform);
         }
 
-        if (_isJumping)
+        if (_isJumping &&!_death)
         {
             var velocity = transform.InverseTransformDirection(_rigidbody2D.velocity);
             float force_x = -_airDrag * velocity.x;
@@ -376,7 +380,7 @@ public class StickmanController : MonoBehaviour
 
     private void OnMenu(InputAction.CallbackContext context)
     {
-        SceneManager.LoadScene("MenuSelector");
+        EventManager.TriggerEvent("OnMenu");
     }
 
 
@@ -395,19 +399,29 @@ public class StickmanController : MonoBehaviour
             _rigidbody2D.AddForce(new Vector2((m_FacingRight?1:-1)* _jumpForce/4,  _jumpForce/2 ), ForceMode2D.Impulse);
             //EventManager.StartListening("OnHook",OnHook);
         }
-        else if (_isJumpWall)
+        else if (_isJumpWall || _justFlipped)
         {
             _isJumpWall = false;
             Debug.Log("Jumping from wall");
             _animator.SetBool("IsJumping",true);
+            
+            int oppositeDirection = 1;
+            float incForce = 1;
+            Debug.Log("Jumping with justFlipped: " + _justFlipped);
+            if (_justFlipped)
+            {
+                oppositeDirection = -1;
+                incForce = _incrementForceY;
+            }
 
-            Vector2 forceToAddHop = new Vector2(_wallHopForce * _wallHopDirection.x * -_facingDirection, 
-                _wallHopForce * _wallHopDirection.y);
+            Vector2 forceToAddHop = new Vector2(_wallHopForce * _wallHopDirection.x * -_facingDirection * oppositeDirection, 
+                _wallHopForce * _wallHopDirection.y * incForce);
             _rigidbody2D.AddForce(forceToAddHop, ForceMode2D.Impulse);
 
-            int direction = _movement.x > 0 ? 1 : -1;
+            
+
             Vector2 forceToAddJump =
-                new Vector2(_wallJumpDirection.x * _wallJumpForce * direction, _wallJumpDirection.y * _wallJumpForce);
+                new Vector2(_wallJumpDirection.x * _wallJumpForce * _facingDirection * oppositeDirection, _wallJumpDirection.y * _wallJumpForce * incForce);
             _rigidbody2D.AddForce(forceToAddJump, ForceMode2D.Impulse);
             
             //Triggering sound for JumpWall
@@ -583,6 +597,14 @@ public class StickmanController : MonoBehaviour
     {
         if(!_isSliding || !_isJumpWall || !_isSlidingOblique) {
             Debug.Log("flip!");
+            
+            if (_isJumpWall)
+            {
+                Debug.Log("Setting justFlipped true");
+                _justFlipped = true;
+                StartCoroutine(DisableJustFlippedCoroutine());
+            }
+
             // Switch the way the player is labelled as facing.
             m_FacingRight = !m_FacingRight;
             _facingDirection *= -1;
@@ -592,6 +614,13 @@ public class StickmanController : MonoBehaviour
             theScale.x *= -1;
             transform.localScale = theScale;
         }
+    }
+
+    IEnumerator DisableJustFlippedCoroutine()
+    {
+        yield return new WaitForSeconds(0.3f);
+        _justFlipped = false;
+        Debug.Log("Setting justFlipped false");
     }
 
     //---- called upon events----//

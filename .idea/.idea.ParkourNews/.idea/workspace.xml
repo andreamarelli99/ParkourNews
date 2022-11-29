@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a21cc26-fe96-4869-9603-03d818d6f1ed" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/WallJump1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/WallJump1.unity" afterDir="false" />
+    <list default="true" id="2a21cc26-fe96-4869-9603-03d818d6f1ed" name="Changes" comment="pause implemented (press m)">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ParkourNews/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ParkourNews/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/StickmanWalking Variant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/StickmanWalking Variant.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/inkwell_coin.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/inkwell_coin.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Collectible/CoinController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Collectible/CoinController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StickmanController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StickmanController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +22,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CameraSet.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Collectible/PlayerCoinsCounter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MainMenu/MenuController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/StickmanController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/StickmanControllerWallJump.cs" root0="FORCE_HIGHLIGHTING" />
@@ -50,7 +55,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;RiderNuGetOptionsPageId&quot;,
-    &quot;two.files.diff.last.used.file&quot;: &quot;D:/Documenti/UnityProjects/MasterBranch/ParkourNews/Assets/Scripts/StickmanControllerSound.cs&quot;,
+    &quot;two.files.diff.last.used.file&quot;: &quot;D:/Documenti/UnityProjects/MasterBranch/ParkourNews/Assets/Scripts/StickmanControllerGabry.cs&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -64,7 +69,7 @@
       <method v="2" />
     </configuration>
     <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="D:\Programmi\Unity\Editor\Unity 2021.3.10f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.10f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Users\Akaviri\Desktop\PARKOURNEWS_project\ParkourNews -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\Akaviri\Desktop\PARKOURNEWS_project\ParkourNews" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -152,11 +157,8 @@
       <workItem from="1669199660000" duration="1355000" />
       <workItem from="1669366718713" duration="1521000" />
       <workItem from="1669393765065" duration="368000" />
-      <workItem from="1669569770253" duration="635000" />
-      <workItem from="1669586867042" duration="671000" />
-      <workItem from="1669590438446" duration="4723000" />
-      <workItem from="1669666413361" duration="2022000" />
-      <workItem from="1669711886272" duration="1527000" />
+      <workItem from="1669569770253" duration="842000" />
+      <workItem from="1669729900068" duration="9658000" />
     </task>
     <task id="LOCAL-00001" summary="Commented WIP">
       <created>1666469419938</created>
@@ -389,7 +391,21 @@
       <option name="project" value="LOCAL" />
       <updated>1669570254628</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="fix camera">
+      <created>1669572823702</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1669572823702</updated>
+    </task>
+    <task id="LOCAL-00035" summary="pause implemented (press m)">
+      <created>1669739022767</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1669739022767</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -465,8 +481,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="fix start walking" />
-    <MESSAGE value="commit before pull" />
     <MESSAGE value="run animation" />
     <MESSAGE value="Fix on animator-jump&#10;Cooldown on Dash" />
     <MESSAGE value="slide" />
@@ -490,6 +504,8 @@
     <MESSAGE value="scene fix" />
     <MESSAGE value="scene" />
     <MESSAGE value="in game menu  (press m)" />
-    <option name="LAST_COMMIT_MESSAGE" value="in game menu  (press m)" />
+    <MESSAGE value="fix camera" />
+    <MESSAGE value="pause implemented (press m)" />
+    <option name="LAST_COMMIT_MESSAGE" value="pause implemented (press m)" />
   </component>
 </project>
