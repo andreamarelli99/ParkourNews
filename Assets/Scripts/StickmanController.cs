@@ -219,7 +219,7 @@ public class StickmanController : MonoBehaviour
             
         }
 
-        if (_isJumping)
+        if (_isJumping &&!_death)
         {
             var velocity = transform.InverseTransformDirection(_rigidbody2D.velocity);
             float force_x = -_airDrag * velocity.x;
