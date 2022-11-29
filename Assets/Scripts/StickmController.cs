@@ -18,6 +18,7 @@ public class StickmController : MonoBehaviour
     private int _facingDirection = 1;
 
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject levelMenu;
     
     private Vector2 _initialPosition;
 
@@ -224,14 +225,26 @@ public class StickmController : MonoBehaviour
     {
         pauseMenu.SetActive(true);
         Time.timeScale = 0f; 
+        levelMenu.SetActive(false);
     }
 
     public void Resume()
     {
         pauseMenu.SetActive(false);
         Time.timeScale = 1f; 
+        levelMenu.SetActive(true);
     }
 
+    public void LevelSelector()
+    {
+        Time.timeScale = 1f; 
+        SceneManager.LoadScene("MenuSelector");
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
 
     //----------------------------------Stickman movements------------------------------------------------------------//
     private void OnJump(InputAction.CallbackContext context)
