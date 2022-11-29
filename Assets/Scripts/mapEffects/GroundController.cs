@@ -26,9 +26,9 @@ namespace ParkourNews.Scripts
                    Debug.Log("HEY!");
            }
        }*/
-        [SerializeField]private bool _onGround = false;
+        [SerializeField] private bool _onGround = false;
         
-        [SerializeField]private bool _onWall = false;
+        [SerializeField] private bool _onWall = false;
         
         private void OnTriggerEnter2D(Collider2D col)
         {
@@ -38,7 +38,6 @@ namespace ParkourNews.Scripts
                 {
                     EventManager.TriggerEvent("OnGround");
                     _onGround = true;
-                    _onWall = false;
                 }
             }
             else if (col.gameObject.CompareTag("Wall"))
@@ -48,6 +47,10 @@ namespace ParkourNews.Scripts
                     EventManager.TriggerEvent("OnWall"); 
                     _onWall = true;
                 }
+                if (!_onWall)
+                {
+                    _onWall = true;
+                }
             }
         }
 
@@ -55,22 +58,27 @@ namespace ParkourNews.Scripts
         {
             if (col.gameObject.CompareTag("GroundCheck"))
             {
-                if (_onGround) 
+                if (_onGround && !_onWall) 
                 {
                     EventManager.TriggerEvent("InAir");
-                    _onGround = false;
                     _onWall = false;
                 }
+                else if (_onWall)
+                {
+                    EventManager.TriggerEvent("OnWall"); 
+                }
+                _onGround = false;
+                
             }
             else if (col.gameObject.CompareTag("Wall"))
             {
-                Debug.Log("OnGround= " + _onGround);
+           //     Debug.Log("OnGround= " + _onGround);
                 if (!_onGround)
                 {
                     Debug.Log("In air from wall");
                     EventManager.TriggerEvent("InAir");
-                    _onWall = false;
                 }
+                _onWall = false;
             }
             
         }
@@ -81,7 +89,7 @@ namespace ParkourNews.Scripts
             {
                 EventManager.TriggerEvent("OnGround");
                 _onGround = true;
-                _onWall = false;
+      //          _onWall = false;
             }
             
         }
