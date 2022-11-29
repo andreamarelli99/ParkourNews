@@ -31,6 +31,8 @@ public class StickmanController : MonoBehaviour
     private Vector2 _movement = Vector2.zero;
 
     private StickmanActions _stickmanActions;
+    
+    private bool _canMove;
 
     //--Run
 
@@ -62,6 +64,7 @@ public class StickmanController : MonoBehaviour
     private Boolean _onGroundEvent = false;
     private Boolean _onWallEvent = false;
     private Boolean _inAirEvent = false;
+    private bool _isSlidingOblique;
 
     private Boolean _isJumpWall;
     
@@ -81,6 +84,11 @@ public class StickmanController : MonoBehaviour
     private bool _timerOn = false;
     [SerializeField] private float _timeLeft;
     [SerializeField] private GameObject _spawnEffect;
+    
+    [SerializeField] private float slidingObliqueForce = 10f;
+    
+    // Direction for slipping
+    private Vector2 _slipDir;
 
     private void Start()
     {
@@ -120,6 +128,7 @@ public class StickmanController : MonoBehaviour
         _canDash = true;
         _isGrappling = false;
         _canRoll = false;
+        _canMove = true;
         
         EventManager.StartListening("OnBouncey",OnBouncey);
         //_animator.SetBool("IsDead",false);
@@ -134,7 +143,6 @@ public class StickmanController : MonoBehaviour
         
         //Triggering SpawnSound
         EventManager.TriggerEvent("SpawnSound");
-
     }
 
     
@@ -153,17 +161,19 @@ public class StickmanController : MonoBehaviour
     {
         // ----- MOVEMENT LEFT/RIGHT ------
         // allows horizontal movement by pressing wasd/arrows
-        _movement.x = Input.GetAxis("Horizontal");
-
+        if (_canMove)
+        {
+            _movement.x = Input.GetAxis("Horizontal");
+        }
 
         // If the input is moving the player right and the player is facing left...
-        if (_movement.x > 0 && !m_FacingRight)
+        if (_movement.x > 0 && _facingDirection == -1)
         {
             // ... flip the player.
             Flip();
         }
         // Otherwise if the input is moving the player left and the player is facing right...
-        else if (_movement.x < 0 && m_FacingRight)
+        else if (_movement.x < 0 && _facingDirection == 1)
         {
             // ... flip the player.
             Flip();
@@ -181,6 +191,47 @@ public class StickmanController : MonoBehaviour
             _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x / _xArtificialDragOnFloor, _rigidbody2D.velocity.y);
         }
         
+        if (_isSlidingOblique)
+        {
+            _rigidbody2D.AddForce(_slipDir * (slidingObliqueForce * _facingDirection * -1));
+        }
+    }
+    
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        // check if a slippery ground is touched by the stickman
+        if (col.gameObject.CompareTag("SlideObliqueLeft"))
+        {
+            Debug.Log("Slip in left");
+            _isSlidingOblique = true;
+            _canMove = false;
+            _isJumping = false;
+            _isDoubleJumping = false;
+            _isCrouched = false;
+            _isSliding = false;
+            if (_facingDirection == 1)
+            {
+                Debug.Log("flip");
+                Flip();
+            }
+            _slipDir = Vector2.Perpendicular(col.contacts[0].normal).normalized;
+            _animator.SetBool("IsSlidingOblique", true);
+        } else if (col.gameObject.CompareTag("SlideObliqueRight")) {
+            Debug.Log("Slip in right");
+            _isSlidingOblique = true;
+            _canMove = false;
+            _isJumping = false;
+            _isDoubleJumping = false;
+            _isCrouched = false;
+            _isSliding = false;
+            if (_facingDirection == -1)
+            {
+                Debug.Log("flip");
+                Flip();
+            }
+            _slipDir = Vector2.Perpendicular(col.contacts[0].normal).normalized;
+            _animator.SetBool("IsSlidingOblique", true);
+        }
     }
 
     [SerializeField] private float _airDrag = 1f;
@@ -210,9 +261,7 @@ public class StickmanController : MonoBehaviour
         }
         else
         {
-            
-            _follower.SetPosition(_transform);
-            
+            // _follower.SetPosition(_transform);
         }
 
         if (_isJumping)
@@ -286,6 +335,7 @@ public class StickmanController : MonoBehaviour
     {
         //EventManager.StopListening("InAir",InAir);
         _canRoll = true;
+        _canMove = true;
         if (_isGrappling)
         {
             Debug.Log("Jump from hook!");
@@ -483,15 +533,15 @@ public class StickmanController : MonoBehaviour
     
     private void Flip()
     {
-        if(!_isSliding || !_isJumpWall){
-        // Switch the way the player is labelled as facing.
-        m_FacingRight = !m_FacingRight;
-        _facingDirection *= -1;
+        if(!_isSliding || !_isJumpWall || !_isSlidingOblique) {
+            // Switch the way the player is labelled as facing.
+            m_FacingRight = !m_FacingRight;
+            _facingDirection *= -1;
 
-        // Multiply the player's x local scale by -1.
-        Vector3 theScale = transform.localScale;
-        theScale.x *= -1;
-        transform.localScale = theScale;
+            // Multiply the player's x local scale by -1.
+            Vector3 theScale = transform.localScale;
+            theScale.x *= -1;
+            transform.localScale = theScale;
         }
     }
 
