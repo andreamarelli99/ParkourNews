@@ -60,7 +60,7 @@ public class StickmanController : MonoBehaviour
     [SerializeField] private float _wallJumpForce = 5f;
     [SerializeField]private Vector2 _wallHopDirection;
     [SerializeField]private Vector2 _wallJumpDirection;
-    [SerializeField] private float _incrementForceY = 1.1f;
+    [SerializeField] private float _incrementForceY = 1.07f;
     
     //-- Booleans for listening events
     private Boolean _onGroundEvent = false;
