@@ -274,7 +274,7 @@ public class StickmanController : MonoBehaviour
         
         _slideObliqueDir = new Vector2(footX, footY).normalized;
         Debug.Log(_slideObliqueDir);
-        Debug.DrawLine(new Vector3(0,0,0),_slideObliqueDir, Color.cyan, 1000);
+        //Debug.DrawLine(new Vector3(0,0,0),_slideObliqueDir, Color.cyan, 1000);
         
         // _slipDir = Vector2.Perpendicular(col.contacts[0].normal).normalized;
         _animator.SetBool("IsSlidingOblique", true);
@@ -315,7 +315,7 @@ public class StickmanController : MonoBehaviour
         }
         else
         {
-            // _follower.SetPosition(_transform);
+            _follower.SetPosition(_transform);
         }
 
         if (_isJumping &&!_death)
