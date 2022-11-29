@@ -102,7 +102,6 @@ namespace ParkourNews.Scripts
                 _onWall = false;
                 _canJump = false;
             }
-            
         }
 
         private void OnTriggerStay2D(Collider2D col)

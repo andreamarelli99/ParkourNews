@@ -13,7 +13,6 @@ TagManager:
   - StickmanFoot
   - Camera
   - StickmanHand
-  - Slip
   - Trap
   - Hook
   - EndLevelCollectible
@@ -30,6 +29,9 @@ TagManager:
   - Wall
   - GroundCheck
   - ResumeButton
+  - SlideObliqueLeft
+  - SlideObliqueRight
+  - ObliqueCheck
   layers:
   - Default
   - TransparentFX

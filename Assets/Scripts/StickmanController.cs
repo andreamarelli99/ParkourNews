@@ -13,9 +13,10 @@ public class StickmanController : MonoBehaviour
 {
     private Spawner _follower;
     [SerializeField] private Rigidbody2D _rigidbody2D;
+    private SpriteRenderer _spriteRenderer;
     public Animator _animator;
-    private bool m_FacingRight = true;  // For determining which way the player is currently facing.
-    private int _facingDirection = 1;
+    // private bool m_FacingRight = true;
+    private int _facingDirection = 1; // For determining which way the player is currently facing.
 
     private Vector2 _initialPosition;
 
@@ -31,6 +32,8 @@ public class StickmanController : MonoBehaviour
     private Vector2 _movement = Vector2.zero;
 
     private StickmanActions _stickmanActions;
+    
+    private bool _canMove;
 
     //--Run
 
@@ -66,6 +69,7 @@ public class StickmanController : MonoBehaviour
     private Boolean _onGroundEvent = false;
     private Boolean _onWallEvent = false;
     private Boolean _inAirEvent = false;
+    private bool _isSlidingOblique;
 
     private Boolean _isJumpWall;
     
@@ -85,6 +89,12 @@ public class StickmanController : MonoBehaviour
     private bool _timerOn = false;
     [SerializeField] private float _timeLeft;
     [SerializeField] private GameObject _spawnEffect;
+    
+    // Slide oblique
+    [SerializeField] private float slidingObliqueForce = 10f;
+    private float _slidingObliqueColliderRadius = 0.5f;
+    private Vector2 _slideObliqueDir;
+    private bool _isSlidingObliqueRight;
 
     private void Start()
     {
@@ -104,6 +114,7 @@ public class StickmanController : MonoBehaviour
         _stickmanActions = new StickmanActions();
         _transform = GetComponent<Transform>();
         _follower = GameObject.FindObjectOfType<Spawner>();
+        _spriteRenderer = _rigidbody2D.GetComponent<SpriteRenderer>();
     }
 
     private void OnEnable()
@@ -124,6 +135,7 @@ public class StickmanController : MonoBehaviour
         _canDash = true;
         _isGrappling = false;
         _canRoll = false;
+        _canMove = true;
         
         EventManager.StartListening("OnBouncey",OnBouncey);
         //_animator.SetBool("IsDead",false);
@@ -134,11 +146,13 @@ public class StickmanController : MonoBehaviour
         EventManager.StartListening("OnGround", OnGround);
         _onGroundEvent = true;
         EventManager.StartListening("InAir", InAir);
+        EventManager.StartListening("OnSlidingObliqueExit", OnSlidingObliqueExit);
+        EventManager.StartListening("OnSlidingObliqueLeftEnter", OnSlidingObliqueLeftEnter);
+        EventManager.StartListening("OnSlidingObliqueRightEnter", OnSlidingObliqueRightEnter);
         _inAirEvent = true;
         
         //Triggering SpawnSound
         EventManager.TriggerEvent("SpawnSound");
-
     }
 
     
@@ -157,17 +171,19 @@ public class StickmanController : MonoBehaviour
     {
         // ----- MOVEMENT LEFT/RIGHT ------
         // allows horizontal movement by pressing wasd/arrows
-        _movement.x = Input.GetAxis("Horizontal");
-
+        if (_canMove)
+        {
+            _movement.x = Input.GetAxis("Horizontal");
+        }
 
         // If the input is moving the player right and the player is facing left...
-        if (_movement.x > 0 && !m_FacingRight)
+        if (_movement.x > 0 && _facingDirection == -1)
         {
             // ... flip the player.
             Flip();
         }
         // Otherwise if the input is moving the player left and the player is facing right...
-        else if (_movement.x < 0 && m_FacingRight)
+        else if (_movement.x < 0 && _facingDirection == 1)
         {
             // ... flip the player.
             Flip();
@@ -185,6 +201,91 @@ public class StickmanController : MonoBehaviour
             _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x / _xArtificialDragOnFloor, _rigidbody2D.velocity.y);
         }
         
+        if (_isSlidingOblique &&  _rigidbody2D.velocity.magnitude < slidingObliqueForce)
+        {
+            if ((_isSlidingObliqueRight && _facingDirection == -1) || (!_isSlidingObliqueRight && _facingDirection == 1))
+            {
+                Flip();
+            }
+            
+            _rigidbody2D.velocity = _slideObliqueDir * slidingObliqueForce;
+            // Here we should find a way to apply a force for a natural acceleration
+            // _rigidbody2D.AddForce(_slideObliqueDir * slidingObliqueForce);
+        }
+    }
+    
+    /*
+     * private void OnCollisionEnter2D(Collision2D col)
+     
+    {
+         if (col.gameObject.CompareTag("SlideObliqueRight")) {
+            Debug.Log("Slip in right");
+            _isSlidingOblique = true;
+            _canMove = false;
+            _isJumping = false;
+            _isDoubleJumping = false;
+            _isCrouched = false;
+            _isSliding = false;
+            if (_facingDirection == -1)
+            {
+                Debug.Log("flip");
+                Flip();
+            }
+            _slipDir = Vector2.Perpendicular(col.contacts[0].normal).normalized;
+            Debug.Log("temp1 Collision: " + _slipDir + "   " + col.contacts[0].point.normalized);
+            _animator.SetBool("IsSlidingOblique", true);
+        }
+    }*/
+    
+    private void OnSlidingObliqueLeftEnter()
+    {
+        _isSlidingObliqueRight = false;
+        OnSlidingObliqueEnter();
+    }
+
+    private void OnSlidingObliqueRightEnter()
+    {
+        _isSlidingObliqueRight = true;
+        OnSlidingObliqueEnter();
+    }
+
+    private void OnSlidingObliqueEnter()
+    {
+        Debug.Log("temp2 force " + _slideObliqueDir * slidingObliqueForce);
+        Debug.Log("temp2 velocity " + _rigidbody2D.velocity);
+        _canMove = false;
+        Debug.Log("sliding" + _canMove);
+        _isSlidingOblique = true;
+        _isJumping = false;
+        _isDoubleJumping = false;
+        _isCrouched = false;
+        _isSliding = false;
+
+        var size = _spriteRenderer.bounds.size;
+        var width = size.x;
+        var height = size.y;
+
+        var position = _spriteRenderer.transform.position;
+        var positionX = position.x;
+        var positionY = position.y;
+        
+        var footX = positionX - width / 2;
+        var footY = positionY - height / 2; 
+        
+        _slideObliqueDir = new Vector2(footX, footY).normalized;
+        Debug.Log(_slideObliqueDir);
+        Debug.DrawLine(new Vector3(0,0,0),_slideObliqueDir, Color.cyan, 1000);
+        
+        // _slipDir = Vector2.Perpendicular(col.contacts[0].normal).normalized;
+        _animator.SetBool("IsSlidingOblique", true);
+    }
+
+    private void OnSlidingObliqueExit()
+    {
+        Debug.Log("exit");
+        _canMove = true;
+        _isSlidingOblique = false;
+        _animator.SetBool("IsSlidingOblique", false);
     }
 
     [SerializeField] private float _airDrag = 1f;
@@ -214,9 +315,7 @@ public class StickmanController : MonoBehaviour
         }
         else
         {
-            
-            _follower.SetPosition(_transform);
-            
+            // _follower.SetPosition(_transform);
         }
 
         if (_isJumping &&!_death)
@@ -290,6 +389,7 @@ public class StickmanController : MonoBehaviour
     {
         //EventManager.StopListening("InAir",InAir);
         _canRoll = true;
+        _canMove = true;
         if (_isGrappling)
         {
             Debug.Log("Jump from hook!");
@@ -297,7 +397,7 @@ public class StickmanController : MonoBehaviour
             _animator.SetBool("IsGrappling",false);
             _isGrappling = false;
             _isJumping = true;
-            _rigidbody2D.AddForce(new Vector2((m_FacingRight?1:-1)* _jumpForce/4,  _jumpForce/2 ), ForceMode2D.Impulse);
+            _rigidbody2D.AddForce(new Vector2(_facingDirection * _jumpForce/4,  _jumpForce/2 ), ForceMode2D.Impulse);
             //EventManager.StartListening("OnHook",OnHook);
         }
         else if (_isJumpWall || _justFlipped)
@@ -388,13 +488,12 @@ public class StickmanController : MonoBehaviour
             Debug.Log("No more than Double Jump!");
     }
 
-    
     private void OnDash(InputAction.CallbackContext context)
     {
         if (_canDash&&!_isCrouched)
         {
             EventManager.TriggerEvent("DashSound");
-            _rigidbody2D.AddForce((m_FacingRight ? 1 : -1) * Vector2.right * _dashForce, ForceMode2D.Impulse);
+            _rigidbody2D.AddForce(_facingDirection * Vector2.right * _dashForce, ForceMode2D.Impulse);
             _canDash = false;
             _animator.SetBool("IsSliding", false);
             _animator.SetBool("IsCrouched", false);
@@ -497,8 +596,9 @@ public class StickmanController : MonoBehaviour
     
     private void Flip()
     {
-        if(!_isSliding || !_isJumpWall)
-        {
+        if(!_isSliding || !_isJumpWall || !_isSlidingOblique) {
+            Debug.Log("flip!");
+            
             if (_isJumpWall)
             {
                 Debug.Log("Setting justFlipped true");
@@ -507,13 +607,13 @@ public class StickmanController : MonoBehaviour
             }
 
             // Switch the way the player is labelled as facing.
-        m_FacingRight = !m_FacingRight;
-        _facingDirection *= -1;
+            // m_FacingRight = !m_FacingRight;
+            _facingDirection *= -1;
 
-        // Multiply the player's x local scale by -1.
-        Vector3 theScale = transform.localScale;
-        theScale.x *= -1;
-        transform.localScale = theScale;
+            // Multiply the player's x local scale by -1.
+            Vector3 theScale = transform.localScale;
+            theScale.x *= -1;
+            transform.localScale = theScale;
         }
     }
 
@@ -616,7 +716,7 @@ public class StickmanController : MonoBehaviour
     {
         _animator.SetBool("IsSliding", true);
         _isSliding = true;
-        _rigidbody2D.AddForce((m_FacingRight ? 1 : -1) * _slideForce* Vector2.right, ForceMode2D.Impulse);
+        _rigidbody2D.AddForce(_facingDirection * _slideForce* Vector2.right, ForceMode2D.Impulse);
         
         //wait until the stickman speed has decreased enough to "crouch walking"
         while (Math.Abs(_rigidbody2D.velocity.x) >= _minRunSpeed)
