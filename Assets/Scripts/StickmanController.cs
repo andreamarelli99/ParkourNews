@@ -206,8 +206,9 @@ public class StickmanController : MonoBehaviour
         
         if (_isSlidingOblique &&  _rigidbody2D.velocity.magnitude < slidingObliqueForce)
         {
-            Debug.Log(_facingDirection);
-            _rigidbody2D.velocity = _slidingObliqueDir * slidingObliqueForce;
+            // Apply a force bottom right or bottom left based on the direction of the sliding oblique.
+            // In this way, the player is pushed by gravity against the floor and in the direction of it.
+            _rigidbody2D.AddForce(Vector2.down + Vector2.right * Math.Sign(_slidingObliqueDir.x));
         }
     }
 
@@ -224,6 +225,7 @@ public class StickmanController : MonoBehaviour
     private void OnSlidingObliqueEnter(bool isRight)
     {
         Debug.Log("Slide in");
+        _animator.SetBool("IsSlidingOblique", true);
         _canMove = false;
         _isSlidingOblique = true;
         _isJumping = false;
@@ -247,18 +249,15 @@ public class StickmanController : MonoBehaviour
         {
             _slidingObliqueDir *= -1;
         }
-        Debug.Log(_slidingObliqueDir.x + " " + _facingDirection);
-        // Flip the player when is looking to the opposite side of the sliding platform.
+        
+        // Flip the player if it is looking to the opposite side of the sliding platform.
         if (Math.Sign(_slidingObliqueDir.x) != Math.Sign(_facingDirection))
         {
             Flip();
         }
-        _rigidbody2D.AddForce(Vector2.down * slidingObliqueForce);
         
         // Now block the player flip until it exits the sliding oblique.
         _canFlip = false;
-        Debug.Log("temp2" + _slidingObliqueDir.x + " " + _facingDirection);
-        _animator.SetBool("IsSlidingOblique", true);
     }
 
     private void OnSlidingObliqueExit()
@@ -440,7 +439,7 @@ public class StickmanController : MonoBehaviour
             var dir = Vector2.up;
             if (_isSlidingOblique)
             {
-                // Apply a 45' force in same direction of the slide oblique.
+                // Apply a 45' force in same direction of the sliding oblique.
                 dir = Vector2.up + Vector2.right * Math.Sign(_slidingObliqueDir.x);
             }
             _rigidbody2D.AddForce(_jumpForce * dir, ForceMode2D.Impulse);
