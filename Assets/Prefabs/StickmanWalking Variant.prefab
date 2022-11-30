@@ -559,6 +559,7 @@ GameObject:
   - component: {fileID: 8143102729369267767}
   - component: {fileID: 6045938048998689245}
   - component: {fileID: 1229613893646320465}
+  - component: {fileID: 8548584236420569505}
   m_Layer: 3
   m_Name: ObliqueCheck
   m_TagString: ObliqueCheck
@@ -614,7 +615,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3320714398181588544}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -623,6 +624,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.1351457}
   serializedVersion: 2
   m_Radius: 0.3648543
+--- !u!70 &8548584236420569505
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3320714398181588544}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.15599692, y: -0.10871029}
+  m_Size: {x: 4.334085, y: 0.548616}
+  m_Direction: 1
 --- !u!1001 &4950377936767018920
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1865,21 +1882,21 @@ MonoBehaviour:
   _minSpeed: 0
   _minRunSpeed: 2
   _slideForce: 9
-  _jumpForce: 7.5
+  _jumpForce: 7
   _wallHopForce: 5
   _wallJumpForce: 8
   _wallHopDirection: {x: 1, y: 0.5}
   _wallJumpDirection: {x: 0.5, y: 2}
   _incrementForceY: 1.07
   _dashForce: 5
-  _timeLeft: 0
-  _spawnEffect: {fileID: 6997444155794476504, guid: 112f4fb0dd90100428b4c2ef78f1977d, type: 3}
+  _timeLeft: 0.4
+  _deathEffect: {fileID: 6997444155794476504, guid: 112f4fb0dd90100428b4c2ef78f1977d, type: 3}
   slidingObliqueForce: 10
-  _xDecreasingWhenFalling: 1.1
-  _yIncreasingWhenFalling: 1.1
+  _xDecreasingWhenFalling: 1
+  _yIncreasingWhenFalling: 1
   _xArtificialDragOnFloor: 1.02
-  _airDrag: 0.5
-  _addGravity: 8
+  _airDrag: 0.2
+  _addGravity: 10
 --- !u!114 &3645940805640267744
 MonoBehaviour:
   m_ObjectHideFlags: 0
