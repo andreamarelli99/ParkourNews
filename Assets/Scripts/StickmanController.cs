@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using Cinemachine;
 using ParkourNews.Scripts;
 using Unity.VisualScripting;
@@ -8,6 +9,8 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using Vector2 = UnityEngine.Vector2;
+using Vector3 = UnityEngine.Vector3;
 
 public class StickmanController : MonoBehaviour
 {
@@ -213,30 +216,7 @@ public class StickmanController : MonoBehaviour
             // _rigidbody2D.AddForce(_slideObliqueDir * slidingObliqueForce);
         }
     }
-    
-    /*
-     * private void OnCollisionEnter2D(Collision2D col)
-     
-    {
-         if (col.gameObject.CompareTag("SlideObliqueRight")) {
-            Debug.Log("Slip in right");
-            _isSlidingOblique = true;
-            _canMove = false;
-            _isJumping = false;
-            _isDoubleJumping = false;
-            _isCrouched = false;
-            _isSliding = false;
-            if (_facingDirection == -1)
-            {
-                Debug.Log("flip");
-                Flip();
-            }
-            _slipDir = Vector2.Perpendicular(col.contacts[0].normal).normalized;
-            Debug.Log("temp1 Collision: " + _slipDir + "   " + col.contacts[0].point.normalized);
-            _animator.SetBool("IsSlidingOblique", true);
-        }
-    }*/
-    
+
     private void OnSlidingObliqueLeftEnter()
     {
         _isSlidingObliqueRight = false;
@@ -251,10 +231,7 @@ public class StickmanController : MonoBehaviour
 
     private void OnSlidingObliqueEnter()
     {
-        Debug.Log("temp2 force " + _slideObliqueDir * slidingObliqueForce);
-        Debug.Log("temp2 velocity " + _rigidbody2D.velocity);
         _canMove = false;
-        Debug.Log("sliding" + _canMove);
         _isSlidingOblique = true;
         _isJumping = false;
         _isDoubleJumping = false;
@@ -262,27 +239,19 @@ public class StickmanController : MonoBehaviour
         _isSliding = false;
 
         var size = _spriteRenderer.bounds.size;
-        var width = size.x;
-        var height = size.y;
-
         var position = _spriteRenderer.transform.position;
-        var positionX = position.x;
-        var positionY = position.y;
+
+        var footX = position.x - size.x / 2;
+        var footY = position.y - size.y / 2; 
         
-        var footX = positionX - width / 2;
-        var footY = positionY - height / 2; 
-        
-        _slideObliqueDir = new Vector2(footX, footY).normalized;
-        Debug.Log(_slideObliqueDir);
         //Debug.DrawLine(new Vector3(0,0,0),_slideObliqueDir, Color.cyan, 1000);
         
-        // _slipDir = Vector2.Perpendicular(col.contacts[0].normal).normalized;
+        _slideObliqueDir = new Vector2(footX, footY).normalized;
         _animator.SetBool("IsSlidingOblique", true);
     }
 
     private void OnSlidingObliqueExit()
     {
-        Debug.Log("exit");
         _canMove = true;
         _isSlidingOblique = false;
         _animator.SetBool("IsSlidingOblique", false);
@@ -446,7 +415,16 @@ public class StickmanController : MonoBehaviour
             Debug.Log("Jump!");
             _animator.SetBool("IsJumping",true);
             //_animator.SetBool("IsSlidingWall",false);
-            _rigidbody2D.AddForce(new Vector2(0f, _jumpForce), ForceMode2D.Impulse);
+            // A normal jump is directed up
+            var dir = Vector2.up;
+            if (_isSlidingOblique)
+            {
+                // In sliding oblique the player follows the direction of the slided floor.
+                // The jump direction is the resultant force of the tangent and normal vector relative to the sliding oblique.
+                dir = _slideObliqueDir + Vector2.Perpendicular(_slideObliqueDir);
+            }
+            _rigidbody2D.AddForce(_jumpForce * dir, ForceMode2D.Impulse);
+            
             if (!_onWallEvent)
             {
                 EventManager.StartListening("OnWall", OnWall);
@@ -462,7 +440,7 @@ public class StickmanController : MonoBehaviour
             EventManager.TriggerEvent("JumpSound");
             
         }
-        else if (!_isDoubleJumping&&!_isCrouched)
+        else if (!_isDoubleJumping && !_isCrouched)
         {
             _isJumpWall = false;
             _isDoubleJumping = true;
