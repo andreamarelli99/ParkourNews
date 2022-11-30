@@ -177,7 +177,7 @@ public class StickmanControllerSound : MonoBehaviour
             }
         }
 
-        _follower.SetPosition(_transform);
+        _follower.SetPosition(_transform.position);
     }
     
     private void OnTriggerEnter2D(Collider2D col)

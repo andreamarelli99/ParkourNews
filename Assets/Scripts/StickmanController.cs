@@ -90,7 +90,7 @@ public class StickmanController : MonoBehaviour
     private bool _death = false;
     private bool _timerOn = false;
     [SerializeField] private float _timeLeft;
-    [SerializeField] private GameObject _spawnEffect;
+    [SerializeField] private GameObject _deathEffect;
     
     // Slide oblique
     private bool _isSlidingOblique;
@@ -143,7 +143,6 @@ public class StickmanController : MonoBehaviour
         
         EventManager.StartListening("OnBouncey",OnBouncey);
         //_animator.SetBool("IsDead",false);
-        EventManager.StartListening("OnDeath",OnDeath);
         EventManager.StartListening("OnWall", OnWall);
         _onWallEvent = true;
         EventManager.StartListening("OnWallButCantJump", OnWallButCantJump);
@@ -194,7 +193,7 @@ public class StickmanController : MonoBehaviour
 
         if (_isJumping && _rigidbody2D.velocity.y < 0)
         {
-           _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x / _xDecreasingWhenFalling, _rigidbody2D.velocity.y); 
+           _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x / _xDecreasingWhenFalling, _rigidbody2D.velocity.y*_yIncreasingWhenFalling); 
            
         }
 
@@ -289,25 +288,9 @@ public class StickmanController : MonoBehaviour
             _animator.SetFloat("Speed",Mathf.Abs(_realSpeed));
             _rigidbody2D.AddForce(_walkSpeed * Time.fixedDeltaTime * _movement);
         }
-        if (_timerOn)
-        {
-            if (_timeLeft > 0)
-            {
-                _timeLeft -= Time.deltaTime;
-                _spawnEffect.transform.position = _transform.position;
-            }
-            else
-            {
-                ExecuteSpawnEffect();
-                DestroyImmediate(gameObject,true);//Destroy(gameObject);
-                _timerOn = false;
-            }
-        }
-        else
-        {
-            _follower.SetPosition(_transform);
-        }
-
+        
+        _follower.SetPosition(_transform.position);
+        
         if (_isJumping &&!_death)
         {
             var velocity = transform.InverseTransformDirection(_rigidbody2D.velocity);
@@ -355,16 +338,15 @@ public class StickmanController : MonoBehaviour
     private void Die()
     {
         _animator.SetTrigger("IsDeath");
-        _timerOn = true;
-        EventManager.TriggerEvent("DeathSound");
+        StartCoroutine(ExecuteDeathEffectCoroutine());
     }
     
-    private void ExecuteSpawnEffect()
+    private IEnumerator ExecuteDeathEffectCoroutine()
     {
-        Instantiate(_spawnEffect, _transform.position, _transform.rotation);
-   //     EventManager.TriggerEvent("OnDeath");
-   //EventManager.TriggerEvent("SpawnSound");
-        //  AudioSource.PlayClipAtPoint(soundEffect, transform.position);
+        yield return new WaitForSeconds(_timeLeft);
+        Instantiate(_deathEffect, _transform.position, _transform.rotation);
+        EventManager.TriggerEvent("OnDeath");
+        DestroyImmediate(gameObject,true);
     }
 
     private void OnMenu(InputAction.CallbackContext context)
@@ -696,16 +678,6 @@ public class StickmanController : MonoBehaviour
         EventManager.StartListening("OnBouncey",OnBouncey);
     }
 
-    private void OnDeath()
-    {
-        EventManager.StopListening("OnDeath",OnDeath);
-        //_animator.SetBool("IsDead",true);
-        _rigidbody2D.position = _initialPosition;
-        Debug.Log("You Died!");
-        EventManager.TriggerEvent("OnPlayerDeath");
-        EventManager.StartListening("OnDeath",OnDeath);
-    }
-    
     public void CanDash()
     {
         Debug.Log("Now you can dash!");
