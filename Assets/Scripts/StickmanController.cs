@@ -207,8 +207,7 @@ public class StickmanController : MonoBehaviour
         if (_isSlidingOblique &&  _rigidbody2D.velocity.magnitude < slidingObliqueForce)
         {
             Debug.Log(_facingDirection);
-            // _rigidbody2D.velocity = _slidingObliqueDir * slidingObliqueForce;
-            _rigidbody2D.AddForce(Vector2.down * slidingObliqueForce);
+            _rigidbody2D.velocity = _slidingObliqueDir * slidingObliqueForce;
         }
     }
 
@@ -241,7 +240,7 @@ public class StickmanController : MonoBehaviour
         
         // Debug.DrawLine(new Vector3(0,0,0),_slideObliqueDir, Color.cyan, 1000);
         
-        _slidingObliqueDir = new Vector2(footX, footY).normalized;
+        _slidingObliqueDir = Vector2.Perpendicular(new Vector2(footX, footY).normalized);
         
         // Right slides must always apply a force on the right, left slides vice versa.
         if ((!isRight && _slidingObliqueDir.x > 0) || (isRight && _slidingObliqueDir.x < 0))
@@ -254,6 +253,8 @@ public class StickmanController : MonoBehaviour
         {
             Flip();
         }
+        _rigidbody2D.AddForce(Vector2.down * slidingObliqueForce);
+        
         // Now block the player flip until it exits the sliding oblique.
         _canFlip = false;
         Debug.Log("temp2" + _slidingObliqueDir.x + " " + _facingDirection);
@@ -263,6 +264,7 @@ public class StickmanController : MonoBehaviour
     private void OnSlidingObliqueExit()
     {
         _isSlidingOblique = false;
+        _isJumping = true;
         StartCoroutine("DisableSlidingObliqueCoroutine");
     }
     
@@ -313,7 +315,6 @@ public class StickmanController : MonoBehaviour
             float force_x = -_airDrag * velocity.x;
             _rigidbody2D.AddRelativeForce(new Vector2(force_x, 0));
             _rigidbody2D.AddForce(new Vector2(0f, -_addGravity), ForceMode2D.Force);
-            
         }
 
     }
