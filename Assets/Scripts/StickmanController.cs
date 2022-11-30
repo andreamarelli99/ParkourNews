@@ -72,7 +72,6 @@ public class StickmanController : MonoBehaviour
     private Boolean _onGroundEvent = false;
     private Boolean _onWallEvent = false;
     private Boolean _inAirEvent = false;
-    private bool _isSlidingOblique;
 
     private Boolean _isJumpWall;
     
@@ -94,10 +93,11 @@ public class StickmanController : MonoBehaviour
     [SerializeField] private GameObject _spawnEffect;
     
     // Slide oblique
+    private bool _isSlidingOblique;
     [SerializeField] private float slidingObliqueForce = 10f;
-    private float _slidingObliqueColliderRadius = 0.5f;
-    private Vector2 _slideObliqueDir;
-    private bool _isSlidingObliqueRight;
+    private Vector2 _slidingObliqueDir;
+    private float _slidingObliqueColliderRadius = 3f;
+    private bool _canFlip;
 
     private void Start()
     {
@@ -139,6 +139,7 @@ public class StickmanController : MonoBehaviour
         _isGrappling = false;
         _canRoll = false;
         _canMove = true;
+        _canFlip = true;
         
         EventManager.StartListening("OnBouncey",OnBouncey);
         //_animator.SetBool("IsDead",false);
@@ -149,16 +150,15 @@ public class StickmanController : MonoBehaviour
         EventManager.StartListening("OnGround", OnGround);
         _onGroundEvent = true;
         EventManager.StartListening("InAir", InAir);
+        _inAirEvent = true;
+        
         EventManager.StartListening("OnSlidingObliqueExit", OnSlidingObliqueExit);
         EventManager.StartListening("OnSlidingObliqueLeftEnter", OnSlidingObliqueLeftEnter);
         EventManager.StartListening("OnSlidingObliqueRightEnter", OnSlidingObliqueRightEnter);
-        _inAirEvent = true;
         
         //Triggering SpawnSound
         EventManager.TriggerEvent("SpawnSound");
     }
-
-    
 
     private void OnDisable()
     {
@@ -198,7 +198,7 @@ public class StickmanController : MonoBehaviour
            
         }
 
-        //Augmenting drag, just when is changig direction
+        //Augmenting drag, just when is changing direction
         if (_movement.x * _rigidbody2D.velocity.x < 0 && !_isJumping)
         {
             _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x / _xArtificialDragOnFloor, _rigidbody2D.velocity.y);
@@ -206,55 +206,75 @@ public class StickmanController : MonoBehaviour
         
         if (_isSlidingOblique &&  _rigidbody2D.velocity.magnitude < slidingObliqueForce)
         {
-            if ((_isSlidingObliqueRight && _facingDirection == -1) || (!_isSlidingObliqueRight && _facingDirection == 1))
-            {
-                Flip();
-            }
-            
-            _rigidbody2D.velocity = _slideObliqueDir * slidingObliqueForce;
-            // Here we should find a way to apply a force for a natural acceleration
-            // _rigidbody2D.AddForce(_slideObliqueDir * slidingObliqueForce);
+            Debug.Log(_facingDirection);
+            // _rigidbody2D.velocity = _slidingObliqueDir * slidingObliqueForce;
+            _rigidbody2D.AddForce(Vector2.down * slidingObliqueForce);
         }
     }
 
     private void OnSlidingObliqueLeftEnter()
     {
-        _isSlidingObliqueRight = false;
-        OnSlidingObliqueEnter();
+        OnSlidingObliqueEnter(false);
     }
 
     private void OnSlidingObliqueRightEnter()
     {
-        _isSlidingObliqueRight = true;
-        OnSlidingObliqueEnter();
+        OnSlidingObliqueEnter(true);
     }
 
-    private void OnSlidingObliqueEnter()
+    private void OnSlidingObliqueEnter(bool isRight)
     {
+        Debug.Log("Slide in");
         _canMove = false;
         _isSlidingOblique = true;
         _isJumping = false;
         _isDoubleJumping = false;
         _isCrouched = false;
         _isSliding = false;
+        _justFlipped = false;
 
         var size = _spriteRenderer.bounds.size;
         var position = _spriteRenderer.transform.position;
 
-        var footX = position.x - size.x / 2;
+        var footX = position.x - size.x / 2 - _slidingObliqueColliderRadius / 2;
         var footY = position.y - size.y / 2; 
         
-        //Debug.DrawLine(new Vector3(0,0,0),_slideObliqueDir, Color.cyan, 1000);
+        // Debug.DrawLine(new Vector3(0,0,0),_slideObliqueDir, Color.cyan, 1000);
         
-        _slideObliqueDir = new Vector2(footX, footY).normalized;
+        _slidingObliqueDir = new Vector2(footX, footY).normalized;
+        
+        // Right slides must always apply a force on the right, left slides vice versa.
+        if ((!isRight && _slidingObliqueDir.x > 0) || (isRight && _slidingObliqueDir.x < 0))
+        {
+            _slidingObliqueDir *= -1;
+        }
+        Debug.Log(_slidingObliqueDir.x + " " + _facingDirection);
+        // Flip the player when is looking to the opposite side of the sliding platform.
+        if (Math.Sign(_slidingObliqueDir.x) != Math.Sign(_facingDirection))
+        {
+            Flip();
+        }
+        // Now block the player flip until it exits the sliding oblique.
+        _canFlip = false;
+        Debug.Log("temp2" + _slidingObliqueDir.x + " " + _facingDirection);
         _animator.SetBool("IsSlidingOblique", true);
     }
 
     private void OnSlidingObliqueExit()
     {
-        _canMove = true;
         _isSlidingOblique = false;
-        _animator.SetBool("IsSlidingOblique", false);
+        StartCoroutine("DisableSlidingObliqueCoroutine");
+    }
+    
+    IEnumerator DisableSlidingObliqueCoroutine()
+    {
+        yield return new WaitForSeconds(0.1f);
+        if (!_isSlidingOblique)
+        {
+            _canMove = true;
+            _canFlip = true;
+            _animator.SetBool("IsSlidingOblique", false);
+        }
     }
 
     [SerializeField] private float _airDrag = 1f;
@@ -419,9 +439,8 @@ public class StickmanController : MonoBehaviour
             var dir = Vector2.up;
             if (_isSlidingOblique)
             {
-                // In sliding oblique the player follows the direction of the slided floor.
-                // The jump direction is the resultant force of the tangent and normal vector relative to the sliding oblique.
-                dir = _slideObliqueDir + Vector2.Perpendicular(_slideObliqueDir);
+                // Apply a 45' force in same direction of the slide oblique.
+                dir = Vector2.up + Vector2.right * Math.Sign(_slidingObliqueDir.x);
             }
             _rigidbody2D.AddForce(_jumpForce * dir, ForceMode2D.Impulse);
             
@@ -574,6 +593,9 @@ public class StickmanController : MonoBehaviour
     
     private void Flip()
     {
+        if (!_canFlip)
+            return;
+        
         if(!_isSliding || !_isJumpWall || !_isSlidingOblique) {
             Debug.Log("flip!");
             
