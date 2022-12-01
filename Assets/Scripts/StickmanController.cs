@@ -518,16 +518,6 @@ public class StickmanController : MonoBehaviour
         }
     }
 
-    /*private void OnHook()
-    {
-        EventManager.StopListening("OnHook",OnHook);
-        _isJumping = false;
-        _animator.SetBool("IsJumping",false);
-        _animator.SetBool("IsGrappling",true);
-        
-        Debug.Log("Grappling Hook");
-    }*/
-    
     private void OnWall()
     {
         if (_onWallEvent)
