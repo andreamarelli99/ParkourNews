@@ -21,8 +21,6 @@ public class StickmanController : MonoBehaviour
     // private bool m_FacingRight = true;
     private int _facingDirection = 1; // For determining which way the player is currently facing.
 
-    private Vector2 _initialPosition;
-
     //----------------------------SPEED-------------------------------//
     //put _Xspeed and _maxXspeed to regulate the stickman acceleration
     [SerializeField] private float _walkSpeed = 1000f;
@@ -107,7 +105,6 @@ public class StickmanController : MonoBehaviour
         QualitySettings.vSyncCount = 1;
         _wallHopDirection.Normalize();
         _wallJumpDirection.Normalize();
-        _initialPosition = _transform.position;
     }
 
     private void Awake()
@@ -150,6 +147,8 @@ public class StickmanController : MonoBehaviour
         _onGroundEvent = true;
         EventManager.StartListening("InAir", InAir);
         _inAirEvent = true;
+        
+        EventManager.StartListening("PreDeath", Die);
         
         EventManager.StartListening("OnSlidingObliqueExit", OnSlidingObliqueExit);
         EventManager.StartListening("OnSlidingObliqueLeftEnter", OnSlidingObliqueLeftEnter);
@@ -303,24 +302,8 @@ public class StickmanController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if ((col.gameObject.CompareTag("Trap") && !_death))
-        {
-            _rigidbody2D.velocity = new Vector2(0,_rigidbody2D.velocity.y);
-            _death = true;
-            Die();
-        }
-        
-        if ((col.gameObject.CompareTag("RedLine")) && !_death)
-        {
-            _rigidbody2D.velocity = new Vector2(0,_rigidbody2D.velocity.y);
-            _death = true;
-            col.gameObject.SetActive(false);
-            Die();
-        }
-
         if (col.gameObject.CompareTag("Hook") && _isJumping)
         {
-
             _isJumping = false;
             _isGrappling = true;
             _animator.SetBool("IsJumping", true);
@@ -337,6 +320,7 @@ public class StickmanController : MonoBehaviour
 
     private void Die()
     {
+        EventManager.StopListening("PreDeath", Die);
         _animator.SetTrigger("IsDeath");
         StartCoroutine(ExecuteDeathEffectCoroutine());
     }

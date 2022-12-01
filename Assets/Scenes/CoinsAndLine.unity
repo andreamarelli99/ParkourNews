@@ -307,11 +307,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7582388956150554656, guid: 996ec991d3027fa408fb9e96726d201c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 55.9
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 7582388956150554656, guid: 996ec991d3027fa408fb9e96726d201c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 28.1
+      value: 24.6
       objectReference: {fileID: 0}
     - target: {fileID: 7582388956150554656, guid: 996ec991d3027fa408fb9e96726d201c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -349,6 +349,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7582388957679358031, guid: 996ec991d3027fa408fb9e96726d201c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7582388957679358031, guid: 996ec991d3027fa408fb9e96726d201c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7582388957679358031, guid: 996ec991d3027fa408fb9e96726d201c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7582388957679358032, guid: 996ec991d3027fa408fb9e96726d201c, type: 3}
+      propertyPath: m_Follow
+      value: 
+      objectReference: {fileID: 1892250826}
+    - target: {fileID: 7582388957679358032, guid: 996ec991d3027fa408fb9e96726d201c, type: 3}
+      propertyPath: m_LookAt
+      value: 
+      objectReference: {fileID: 1892250826}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 996ec991d3027fa408fb9e96726d201c, type: 3}
 --- !u!1001 &360932696
@@ -1604,6 +1624,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _onGround: 0
   _onWall: 0
+  _canJump: 1
 --- !u!1001 &1466059250
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2942246122326038980}
   - component: {fileID: 2942246122326038983}
   - component: {fileID: 2942246122326038987}
+  - component: {fileID: 1979305916}
   m_Layer: 0
   m_Name: RedLine
   m_TagString: RedLine
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 2942246122326038984}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -182.7, y: 5.2, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8933736613573609115}
@@ -98,7 +99,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -138,9 +139,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawner: {fileID: 0}
-  _speed: 20
-  _amplitude: 5
-  _frequenz: 0.2
+  _speed: 15
+--- !u!114 &1979305916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2942246122326038984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdd10fb83982bd146bb6a4f4758d71b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2942246120955044998
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -151,6 +162,30 @@ PrefabInstance:
     - target: {fileID: 1902843405342421417, guid: 51a40b5560cef764e8d5bcd8a7e69b02, type: 3}
       propertyPath: m_Parameters.widthMultiplier
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1902843405342421417, guid: 51a40b5560cef764e8d5bcd8a7e69b02, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.b
+      value: 0.87843144
+      objectReference: {fileID: 0}
+    - target: {fileID: 1902843405342421417, guid: 51a40b5560cef764e8d5bcd8a7e69b02, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.g
+      value: 0.87843144
+      objectReference: {fileID: 0}
+    - target: {fileID: 1902843405342421417, guid: 51a40b5560cef764e8d5bcd8a7e69b02, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.r
+      value: 0.87843144
+      objectReference: {fileID: 0}
+    - target: {fileID: 5994281620100555293, guid: 51a40b5560cef764e8d5bcd8a7e69b02, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5994281620100555293, guid: 51a40b5560cef764e8d5bcd8a7e69b02, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5994281620100555293, guid: 51a40b5560cef764e8d5bcd8a7e69b02, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7428891520650376975, guid: 51a40b5560cef764e8d5bcd8a7e69b02, type: 3}
       propertyPath: m_RootOrder
