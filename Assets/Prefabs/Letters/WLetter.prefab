@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7261772091136314364}
   - component: {fileID: 726423511696875946}
   - component: {fileID: 8148953406197286175}
+  - component: {fileID: -6573125113746410345}
   m_Layer: 0
   m_Name: WLetter
   m_TagString: Ground
@@ -149,5 +150,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 142f6467c17447b2996672a501aae77b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onGround: 0
+  _onWall: 0
+  _canJump: 1
+--- !u!114 &-6573125113746410345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7261772091136314365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c7aee769e5efda4d91a69b59d1f8a0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

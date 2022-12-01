@@ -138,7 +138,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1579d508f95c98743b2c6f23a101a933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawner: {fileID: 0}
   _speed: 15
 --- !u!114 &1979305916
 MonoBehaviour:
@@ -234,6 +233,10 @@ PrefabInstance:
     - target: {fileID: 7428891520650377011, guid: 51a40b5560cef764e8d5bcd8a7e69b02, type: 3}
       propertyPath: m_Name
       value: RedLineTrail
+      objectReference: {fileID: 0}
+    - target: {fileID: 7707114960046917372, guid: 51a40b5560cef764e8d5bcd8a7e69b02, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51a40b5560cef764e8d5bcd8a7e69b02, type: 3}

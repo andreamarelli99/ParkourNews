@@ -302,7 +302,7 @@ public class StickmanController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if ((col.gameObject.CompareTag("Trap") && !_death))
+        if ((col.gameObject.CompareTag("Trap") || col.gameObject.CompareTag("RedLine"))&& !_death)
         {
             _rigidbody2D.velocity = new Vector2(0,_rigidbody2D.velocity.y);
             _death = true;
@@ -496,7 +496,7 @@ public class StickmanController : MonoBehaviour
     //todo real crouch
     private void OnCrouch(InputAction.CallbackContext context)
     {
-        if (!_isCrouched) //if the stickman is not in a crouch position -> crouch
+        if (!_isCrouched && !_isJumping) //if the stickman is not in a crouch position -> crouch
         {
             // if the player is running when the crouch is called slide and then crouch
             if (Math.Abs(_rigidbody2D.velocity.x) >= _minRunSpeed)
