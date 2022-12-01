@@ -310,6 +310,7 @@ public class StickmanController : MonoBehaviour
         }
         else if (col.gameObject.CompareTag("Hook") && _isJumping)
         {
+            EventManager.TriggerEvent("WallJumpMessage");
             _isJumping = false;
             _isGrappling = true;
             _canRoll = false;
