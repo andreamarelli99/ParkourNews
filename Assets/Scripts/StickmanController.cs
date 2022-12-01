@@ -302,10 +302,17 @@ public class StickmanController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.CompareTag("Hook") && _isJumping)
+        if ((col.gameObject.CompareTag("Trap") && !_death))
+        {
+            _rigidbody2D.velocity = new Vector2(0,_rigidbody2D.velocity.y);
+            _death = true;
+            Die();
+        }
+        else if (col.gameObject.CompareTag("Hook") && _isJumping)
         {
             _isJumping = false;
             _isGrappling = true;
+            _canRoll = false;
             _animator.SetBool("IsJumping", true);
             _animator.SetBool("IsGrappling", true);
             _rigidbody2D.isKinematic = true;
@@ -352,6 +359,7 @@ public class StickmanController : MonoBehaviour
             _animator.SetBool("IsGrappling",false);
             _isGrappling = false;
             _isJumping = true;
+            _canRoll = true;
             _rigidbody2D.AddForce(new Vector2(_facingDirection * _jumpForce/4,  _jumpForce/2 ), ForceMode2D.Impulse);
             //EventManager.StartListening("OnHook",OnHook);
         }
@@ -453,7 +461,7 @@ public class StickmanController : MonoBehaviour
 
     private void OnDash(InputAction.CallbackContext context)
     {
-        if (_canDash&&!_isCrouched)
+        if (_canDash&&!_isCrouched && !_isSlidingOblique)
         {
             EventManager.TriggerEvent("DashSound");
             _rigidbody2D.AddForce(_facingDirection * Vector2.right * _dashForce, ForceMode2D.Impulse);
