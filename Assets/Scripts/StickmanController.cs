@@ -402,12 +402,18 @@ public class StickmanController : MonoBehaviour
                 _onGroundEvent = true;
             }
         }
-        else if (!_isJumping&&!_isCrouched)
+        else if (!_isJumping)
         {
             _isJumpWall = false;
             _isJumping = true;
+            _isCrouched = false;
+            _isSliding = false;
+            _isSlidingOblique = false;
             Debug.Log("Jump!");
             _animator.SetBool("IsJumping",true);
+            _animator.SetBool("IsCrouched",false);
+            _animator.SetBool("IsSliding",false);
+            _animator.SetBool("IsSlidingOblique",false);
             //_animator.SetBool("IsSlidingWall",false);
             // A normal jump is directed up
             var dir = Vector2.up;
@@ -466,6 +472,8 @@ public class StickmanController : MonoBehaviour
             EventManager.TriggerEvent("DashSound");
             _rigidbody2D.AddForce(_facingDirection * Vector2.right * _dashForce, ForceMode2D.Impulse);
             _canDash = false;
+            _isSliding = false;
+            _isCrouched = false;
             _animator.SetBool("IsSliding", false);
             _animator.SetBool("IsCrouched", false);
             EventManager.TriggerEvent("OnDash");
@@ -678,8 +686,11 @@ public class StickmanController : MonoBehaviour
 
     IEnumerator WaitUntilWalkingSpeed()
     {
-        _animator.SetBool("IsSliding", true);
-        _isSliding = true;
+        if (!_isJumping)
+        {
+            _animator.SetBool("IsSliding", true);
+            _isSliding = true;
+        }
         _rigidbody2D.AddForce(_facingDirection * _slideForce* Vector2.right, ForceMode2D.Impulse);
         
         //wait until the stickman speed has decreased enough to "crouch walking"

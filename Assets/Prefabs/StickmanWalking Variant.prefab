@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 231774540}
   - component: {fileID: 5320324843196031599}
-  m_Layer: 3
+  m_Layer: 9
   m_Name: GroundCheck
   m_TagString: GroundCheck
   m_Icon: {fileID: 0}
@@ -390,7 +390,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1476861442}
   - component: {fileID: 4317003942840715131}
-  m_Layer: 3
+  m_Layer: 9
   m_Name: WallCheck
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -510,7 +510,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7689327921719819573}
   - component: {fileID: 4482680310386352810}
-  m_Layer: 3
+  m_Layer: 9
   m_Name: CollectibleCheck
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -558,7 +558,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4898677913401361518}
   - component: {fileID: 2827894360229462389}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: BodyHighCollider
   m_TagString: PlayerCheck
   m_Icon: {fileID: 0}
@@ -626,7 +626,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4316899407980134101}
   - component: {fileID: 3884219332564864489}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: FootCollider
   m_TagString: PlayerCheck
   m_Icon: {fileID: 0}
@@ -691,7 +691,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8941590713016059622}
   - component: {fileID: 39983103625244582}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: LegHighCollider
   m_TagString: PlayerCheck
   m_Icon: {fileID: 0}
@@ -761,7 +761,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8333795033692126587}
   - component: {fileID: 435825454126821798}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: HandCollider
   m_TagString: PlayerCheck
   m_Icon: {fileID: 0}
@@ -829,7 +829,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7594519548054685705}
   - component: {fileID: 749643988833704053}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: LegHighCollider
   m_TagString: PlayerCheck
   m_Icon: {fileID: 0}
@@ -896,7 +896,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1824071709999643055}
   - component: {fileID: 7211145638490289077}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: ArmLowCollider
   m_TagString: PlayerCheck
   m_Icon: {fileID: 0}
@@ -962,7 +962,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3276089501510569200}
   - component: {fileID: 636143075944320346}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: HeadCollider
   m_TagString: PlayerCheck
   m_Icon: {fileID: 0}
@@ -1012,7 +1012,7 @@ GameObject:
   - component: {fileID: 1229613893646320465}
   - component: {fileID: 8548584236420569505}
   - component: {fileID: 3881072770659828427}
-  m_Layer: 3
+  m_Layer: 9
   m_Name: ObliqueCheck
   m_TagString: ObliqueCheck
   m_Icon: {fileID: 0}
@@ -1092,7 +1092,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3152622248787497463}
   - component: {fileID: 2743016586458250787}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: HandCollider
   m_TagString: PlayerCheck
   m_Icon: {fileID: 0}
@@ -1160,7 +1160,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6249206979694100595}
   - component: {fileID: 2131610946613530414}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: ArmHighCollider
   m_TagString: PlayerCheck
   m_Icon: {fileID: 0}
@@ -1227,7 +1227,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3397765212390722520}
   - component: {fileID: 2313530329560226549}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: BodyLowCollider
   m_TagString: PlayerCheck
   m_Icon: {fileID: 0}
@@ -1296,7 +1296,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7560430861314784856}
   - component: {fileID: 1733005313000297490}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: ArmLowCollider
   m_TagString: PlayerCheck
   m_Icon: {fileID: 0}
@@ -1360,7 +1360,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2193024913568699143}
   - component: {fileID: 8117618449108159353}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: LegLowCollider
   m_TagString: PlayerCheck
   m_Icon: {fileID: 0}
@@ -1427,7 +1427,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6066418701499776076}
   - component: {fileID: 3878854536752266734}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: LegLowCollider
   m_TagString: PlayerCheck
   m_Icon: {fileID: 0}
@@ -1494,7 +1494,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8333412890593031308}
   - component: {fileID: 2893854651027679628}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: FootCollider
   m_TagString: PlayerCheck
   m_Icon: {fileID: 0}
@@ -1559,7 +1559,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9062098018204669492}
   - component: {fileID: 3070206140389168488}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: ArmHighCollider
   m_TagString: PlayerCheck
   m_Icon: {fileID: 0}
@@ -2740,8 +2740,8 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 1
-  m_UseAutoMass: 1
-  m_Mass: 0.24978283
+  m_UseAutoMass: 0
+  m_Mass: 0.18
   m_LinearDrag: 2
   m_AngularDrag: 0.07
   m_GravityScale: 8
