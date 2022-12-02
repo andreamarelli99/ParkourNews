@@ -51,6 +51,7 @@ public class Spawner : MonoBehaviour
     
     private IEnumerator RespawnCoroutine()
     {
+        EventManager.TriggerEvent("OnRespawn"); 
         yield return new WaitForSeconds(2f);
         if (!_stickmanCreated)
         {
