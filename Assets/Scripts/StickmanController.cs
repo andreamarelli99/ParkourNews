@@ -8,7 +8,9 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.iOS;
 using UnityEngine.SceneManagement;
+using Quaternion = System.Numerics.Quaternion;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 
@@ -97,6 +99,8 @@ public class StickmanController : MonoBehaviour
     private float _slidingObliqueColliderRadius = 3f;
     private bool _canFlip;
 
+    //auto rotate
+    private BoxCollider2D _col2D;
     private void Start()
     {
         //var cam = GameObject.FindObjectOfType<CameraSet>();
@@ -105,6 +109,9 @@ public class StickmanController : MonoBehaviour
         QualitySettings.vSyncCount = 1;
         _wallHopDirection.Normalize();
         _wallJumpDirection.Normalize();
+        
+        _col2D = gameObject.GetComponentInChildren<BoxCollider2D>();
+        
     }
 
     private void Awake()
@@ -167,11 +174,26 @@ public class StickmanController : MonoBehaviour
     [SerializeField] private float _yIncreasingWhenFalling = 1.02f;
     [SerializeField] private float _xArtificialDragOnFloor = 1.015f;
     
+    //auto rotate
+    public Vector2 _botRight,_botLeft;
+    public LayerMask _whatIsGround =  1 << 8;
+    
     // Update is called once per frame
     void Update()
     {
         // ----- MOVEMENT LEFT/RIGHT ------
         // allows horizontal movement by pressing wasd/arrows
+        _botRight = new Vector2(_col2D.bounds.max.x,_col2D.bounds.min.y);
+        _botLeft = new Vector2(_col2D.bounds.min.x,_col2D.bounds.min.y);
+        RaycastHit2D hitR = Physics2D.Raycast(_botRight,Vector2.down,1f,_whatIsGround);
+        RaycastHit2D hitL = Physics2D.Raycast(_botLeft,Vector2.down,1f,_whatIsGround);
+        Debug.DrawRay(_botRight,Vector2.down, Color.red);
+        Debug.DrawRay(_botLeft,Vector2.down, Color.green);
+        if(hitR.collider != null) Debug.Log("HitR: "+hitR.point);
+        if(hitL.collider != null) Debug.Log("HitL: "+hitL.point);
+        Debug.Log("The angle between the Normal and Global Up is: " + Vector2.Angle(Vector2.up,hitR.normal));
+        
+        _rigidbody2D.MoveRotation(Vector2.Angle(Vector2.up,hitR.normal) * Time.time);
         if (_canMove)
         {
             _movement.x = Input.GetAxis("Horizontal");
@@ -311,6 +333,7 @@ public class StickmanController : MonoBehaviour
         else if (col.gameObject.CompareTag("Hook") && _isJumping)
         {
             EventManager.TriggerEvent("WallJumpMessage");
+            Debug.Log("Attached to Hook");
             _isJumping = false;
             _isGrappling = true;
             _canRoll = false;
