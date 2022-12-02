@@ -186,6 +186,10 @@ public class StickmanController : MonoBehaviour
     {
         // ----- MOVEMENT LEFT/RIGHT ------
         // allows horizontal movement by pressing wasd/arrows
+        
+        
+        /*
+        //Raycast for player 
         _botRight = new Vector2(_col2D.bounds.max.x,_col2D.bounds.min.y);
         _botLeft = new Vector2(_col2D.bounds.min.x,_col2D.bounds.min.y);
         RaycastHit2D hitR = Physics2D.Raycast(_botRight,Vector2.down,1f,_whatIsGround);
@@ -195,8 +199,7 @@ public class StickmanController : MonoBehaviour
         if(hitR.collider != null) Debug.Log("HitR: "+hitR.point);
         if(hitL.collider != null) Debug.Log("HitL: "+hitL.point);
         Debug.Log("The angle between the Normal and Global Up is: " + Vector2.Angle(Vector2.up,hitR.normal));
-        
-        _rigidbody2D.MoveRotation(Vector2.Angle(Vector2.up,hitR.normal) * Time.time);
+        _rigidbody2D.MoveRotation(Vector2.Angle(Vector2.up,hitR.normal) * Time.time);*/
         if (_canMove)
         {
             _movement.x = Input.GetAxis("Horizontal");
@@ -386,8 +389,10 @@ public class StickmanController : MonoBehaviour
             _animator.SetBool("IsGrappling",false);
             _isGrappling = false;
             _isJumping = true;
+            _isDoubleJumping = false;
             _canRoll = true;
-            _rigidbody2D.AddForce(new Vector2(_facingDirection * _jumpForce/4,  _jumpForce/2 ), ForceMode2D.Impulse);
+            _rigidbody2D.AddForce(new Vector2(_facingDirection * _jumpForce,  0 ), ForceMode2D.Impulse);
+            _rigidbody2D.AddForce(new Vector2(0,  _jumpForce/2 ), ForceMode2D.Impulse);
             //EventManager.StartListening("OnHook",OnHook);
         }
         else if (_isJumpWall || _justFlipped)
