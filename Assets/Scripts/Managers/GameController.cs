@@ -15,7 +15,7 @@ public class GameController: MonoBehaviour
     
     // dash cooldown value
     [SerializeField] private int secondsBetweenDash=5;
-       
+    [SerializeField] private int secondsBetweenSlide=2;
 
         void Awake()
         {
@@ -31,7 +31,7 @@ public class GameController: MonoBehaviour
             EventManager.StartListening("OnLevelCompletion",OnLevelCompletion);
             EventManager.StartListening("OnPlayLevel",OnPlayLevel);
             EventManager.StartListening("OnDash",OnDash);
-      
+        
             
         }
 
@@ -47,7 +47,10 @@ public class GameController: MonoBehaviour
         {
             EventManager.StopListening("OnDash",OnDash);
             Invoke("CanDash", secondsBetweenDash);
+            EventManager.StartListening("OnDash",OnDash);
         }
+
+      
         
         // When the stickman dies the level will restart
         
@@ -68,9 +71,11 @@ public class GameController: MonoBehaviour
 //todo: cambia in modo che il messaggio lo riceve lo stickman controller
         private void CanDash()
         {
-            _stickman.CanDash();
+            EventManager.TriggerEvent("CanDash");
             EventManager.StartListening("OnDash",OnDash);
+            
         }
 
+        
        
     }

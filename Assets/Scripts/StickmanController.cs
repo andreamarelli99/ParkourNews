@@ -79,6 +79,7 @@ public class StickmanController : MonoBehaviour
     private Boolean _isSliding;
     private float SlideRate = 2f; //The interval you want your player to be able to slide.
     private float NextSlide = 0f; //The actual time the player will be able to fire.
+    private Boolean _canSlide = true;
 
     //--Dash
     [SerializeField] private float _dashForce = 9f;
@@ -145,6 +146,7 @@ public class StickmanController : MonoBehaviour
         _canRoll = false;
         _canMove = true;
         _canFlip = true;
+        _canSlide = true;
         
         EventManager.StartListening("OnBouncey",OnBouncey);
         //_animator.SetBool("IsDead",false);
@@ -157,6 +159,9 @@ public class StickmanController : MonoBehaviour
         _inAirEvent = true;
         
         EventManager.StartListening("PreDeath", Die);
+        
+        EventManager.StartListening("CanDash", CanDash);
+       
         
         EventManager.StartListening("OnSlidingObliqueExit", OnSlidingObliqueExit);
         EventManager.StartListening("OnSlidingObliqueLeftEnter", OnSlidingObliqueLeftEnter);
@@ -703,10 +708,20 @@ public class StickmanController : MonoBehaviour
 
     public void CanDash()
     {
+        EventManager.StopListening("CanDash",CanDash);
         Debug.Log("Now you can dash!");
         _canDash = true;
+        EventManager.StartListening("CanDash",CanDash);
     }
 
+    public void CanSlide()
+    {
+        EventManager.StopListening("CanSlide",CanSlide);
+        Debug.Log("Now you can slide!");
+        _canSlide = true;
+        EventManager.StartListening("CanSlide",CanSlide);
+    }
+    
     IEnumerator WaitUntilWalkingSpeed()
     {
         if (!_isSliding)
