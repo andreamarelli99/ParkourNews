@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 public class PlayerCoinsCounter : MonoBehaviour
@@ -14,10 +15,22 @@ public class PlayerCoinsCounter : MonoBehaviour
         EventManager.StartListening("OnCoin", AddCoin);
     }
 
+    private void Start()
+    {
+        EventManager.StartListening("OnRespawn",OnRespawn);
+    }
+
     private void AddCoin()
     {
         _inkers++;
         _inkersText.text = "Inkers: "+ _inkers;
     }
-    
+
+    private void OnRespawn()
+    {
+        EventManager.StopListening("OnRespawn",OnRespawn);
+        _inkersText.text = "Inkers: 0";
+        EventManager.StartListening("OnRespawn",OnRespawn);
+    }
+
 }
