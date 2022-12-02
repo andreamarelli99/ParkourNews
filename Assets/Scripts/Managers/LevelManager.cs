@@ -36,7 +36,7 @@ namespace ParkourNews.Scripts
             _currentLevel = 1;
             
             EventManager.StartListening("StartNextLevel",OnStartNextLevel);
-            EventManager.StartListening("Reset",OnReset);
+            EventManager.StartListening("OnRespawn",OnRespawn);
             EventManager.StartListening("OnCoin",OnCoin);
             
         }
@@ -46,11 +46,11 @@ namespace ParkourNews.Scripts
             _currentLevel = level;
         }
 
-        public void OnReset()
+        public void OnRespawn()
         {
-            EventManager.StopListening("Reset",OnReset);
+            EventManager.StopListening("OnRespawn",OnRespawn);
             _playerPoints = 0;
-            EventManager.StartListening("Reset",OnReset);
+            EventManager.StartListening("OnRespawn",OnRespawn);
         }
         
         public int GetCurrentLevel()

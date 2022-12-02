@@ -29,7 +29,6 @@ public class GameController: MonoBehaviour
         {
             
             EventManager.StartListening("OnLevelCompletion",OnLevelCompletion);
-            EventManager.StartListening("OnPlayerDeath",OnPlayerDeath);
             EventManager.StartListening("OnPlayLevel",OnPlayLevel);
             EventManager.StartListening("OnDash",OnDash);
       
@@ -51,11 +50,7 @@ public class GameController: MonoBehaviour
         }
         
         // When the stickman dies the level will restart
-        private void OnPlayerDeath()
-        {
-            EventManager.TriggerEvent("Reset");
-        }
-
+        
         private void OnLevelCompletion() //todo 
         {
             EventManager.StopListening("OnLevelCompletion",OnLevelCompletion);
