@@ -237,7 +237,7 @@ public class StickmanController : MonoBehaviour
         {
             // Apply a force bottom right or bottom left based on the direction of the sliding oblique.
             // In this way, the player is pushed by gravity against the floor and in the direction of it.
-            _rigidbody2D.AddForce(Vector2.down + Vector2.right * _facingDirection);
+            _rigidbody2D.AddForce((Vector2.down + Vector2.right * _facingDirection) * slidingObliqueForce);
         }
     }
 
@@ -662,6 +662,8 @@ public class StickmanController : MonoBehaviour
         _animator.SetBool("IsSlidingWall", false);
         _animator.SetBool("IsCrouched", false);
         _animator.SetBool("IsSlidingOblique",false);
+        _canFlip = true;
+        _canMove = true;
 
         Debug.Log("Ended Jump!");
     }
