@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class CoinController : MonoBehaviour
@@ -6,8 +7,21 @@ public class CoinController : MonoBehaviour
     {
         if (col.CompareTag("Player")){
             EventManager.TriggerEvent("OnCoin"); 
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
+    }
+
+    private void Start()
+    {
+        EventManager.StartListening("OnRespawn",OnRespawn);
+    }
+
+    private void OnRespawn()
+    {
+        Debug.Log("respawn");
+        EventManager.StopListening("OnRespawn",OnRespawn);
+        gameObject.SetActive(true);
+        EventManager.StartListening("OnRespawn",OnRespawn);
     }
 
 }
