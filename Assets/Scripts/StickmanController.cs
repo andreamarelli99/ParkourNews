@@ -75,8 +75,10 @@ public class StickmanController : MonoBehaviour
 
     private Boolean _isJumpWall;
     
-    //check if it is sliding
+    //--Slide
     private Boolean _isSliding;
+    private float SlideRate = 2f; //The interval you want your player to be able to slide.
+    private float NextSlide = 0f; //The actual time the player will be able to fire.
 
     //--Dash
     [SerializeField] private float _dashForce = 9f;
@@ -98,6 +100,7 @@ public class StickmanController : MonoBehaviour
     private Vector2 _slidingObliqueDir;
     private float _slidingObliqueColliderRadius = 3f;
     private bool _canFlip;
+    
 
     //auto rotate
     private BoxCollider2D _col2D;
@@ -428,6 +431,8 @@ public class StickmanController : MonoBehaviour
         }
         else if (!_isJumping)
         {
+
+            if (_isSliding || _isCrouched) _walkSpeed *= 2;
             _isJumpWall = false;
             _isJumping = true;
             _isCrouched = false;
@@ -519,25 +524,23 @@ public class StickmanController : MonoBehaviour
     //todo real crouch
     private void OnCrouch(InputAction.CallbackContext context)
     {
-        if (!_isCrouched && !_isJumping) //if the stickman is not in a crouch position -> crouch
+        if (!_isCrouched && !_isJumping && !_isSliding && !_isSlidingOblique) //if the stickman is not in a crouch position -> crouch
         {
-            // if the player is running when the crouch is called slide and then crouch
-            if (Math.Abs(_rigidbody2D.velocity.x) >= _minRunSpeed && _isRunning)
-            {
-                StartCoroutine(WaitUntilWalkingSpeed());
-                Debug.Log("Can slide");
-            }
+                // if the player is running when the crouch is called slide and then crouch
+                if (Math.Abs(_rigidbody2D.velocity.x) >= _minRunSpeed && _isRunning && Time.time > NextSlide)
+                {
+                    StartCoroutine(WaitUntilWalkingSpeed());
+                    NextSlide = Time.time + SlideRate;
+                    Debug.Log("Can slide");
+                }
 
-            Debug.Log("Crouch!");
-            _isCrouched = true;
-            if(!_isJumping)
-            {
+                Debug.Log("Crouch!");
+                _isCrouched = true;
                 _animator.SetBool("IsCrouched", true);
                 _walkSpeed /= 2;
 
-            }
         }
-        else //if the stickman is in a crouch position -> getUp
+        else if(!_isJumping && !_isSliding && !_isSlidingOblique)//if the stickman is in a crouch position -> getUp
         {
             //todo check for collisions
             Debug.Log("Get Up!");
@@ -706,7 +709,7 @@ public class StickmanController : MonoBehaviour
 
     IEnumerator WaitUntilWalkingSpeed()
     {
-        if (!_isJumping && _isRunning)
+        if (!_isSliding)
         {
             _animator.SetBool("IsSliding", true);
             _isSliding = true;
