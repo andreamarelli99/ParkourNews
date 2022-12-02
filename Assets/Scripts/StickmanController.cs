@@ -652,9 +652,11 @@ public class StickmanController : MonoBehaviour
         _isDoubleJumping = false;
         _isCrouched = false;
         _isJumpWall = false;
+        _isSlidingOblique = false;
         _animator.SetBool("IsJumping",false);
         _animator.SetBool("IsSlidingWall", false);
         _animator.SetBool("IsCrouched", false);
+        _animator.SetBool("IsSlidingOblique",false);
 
         Debug.Log("Ended Jump!");
     }
