@@ -533,6 +533,8 @@ public class StickmanController : MonoBehaviour
             if(!_isJumping)
             {
                 _animator.SetBool("IsCrouched", true);
+                _walkSpeed /= 2;
+
             }
         }
         else //if the stickman is in a crouch position -> getUp
@@ -541,7 +543,8 @@ public class StickmanController : MonoBehaviour
             Debug.Log("Get Up!");
             _isCrouched = false;
             _animator.SetBool("IsCrouched", false);
-           
+            _walkSpeed *= 2;
+
         }
     }
 
