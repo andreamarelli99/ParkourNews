@@ -13,6 +13,7 @@ namespace ParkourNews.Scripts
             //check if a bouncey element is touched by the stickman
             if (col.gameObject.CompareTag("Stickman")){
                 EventManager.TriggerEvent("OnLevelCompletion");
+                EventManager.TriggerEvent("FinishSound");
                 Destroy(this.gameObject);       
             }
         }
