@@ -27,6 +27,12 @@ namespace ParkourNews.Scripts
             coinsPerLevel.Add(0);
             coinsPerLevel.Add(0);
             coinsPerLevel.Add(0);
+            coinsPerLevel.Add(0);
+            coinsPerLevel.Add(1);
+            coinsPerLevel.Add(0);
+            coinsPerLevel.Add(0);
+            coinsPerLevel.Add(0);
+            coinsPerLevel.Add(0);
         }
 
         
@@ -70,7 +76,7 @@ namespace ParkourNews.Scripts
                 EventManager.StartListening("StartNextLevel", OnStartNextLevel);
             }
             else 
-                SceneManager.LoadScene("EndGame");
+                SceneManager.LoadScene("Menu");
         }
         
         public float getPlayerPointsRatio()
