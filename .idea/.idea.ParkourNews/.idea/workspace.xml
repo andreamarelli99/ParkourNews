@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a21cc26-fe96-4869-9603-03d818d6f1ed" name="Changes" comment="fix new save">
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/LevelManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/LevelManager.cs" afterDir="false" />
-    </list>
+    <list default="true" id="2a21cc26-fe96-4869-9603-03d818d6f1ed" name="Changes" comment="fix show levels" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,6 +31,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MainMenu/MenuController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Scripts/MainMenu/MenuController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Scripts/Managers/LevelManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Scripts/Managers/LevelManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerEffects/DeathEffectExplosion.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/StickmanController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/mapEffects/GroundController.cs" root0="FORCE_HIGHLIGHTING" />
@@ -42,6 +41,7 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventInterfaces.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/InputModules/StandaloneInputModule.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/UserSettings/EditorUserSettings.asset" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/UserSettings/EditorUserSettings.asset" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -478,7 +478,21 @@
       <option name="project" value="LOCAL" />
       <updated>1670087300521</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="fix on stair">
+      <created>1670087773959</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1670087773959</updated>
+    </task>
+    <task id="LOCAL-00045" summary="fix show levels">
+      <created>1670088157222</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1670088157222</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -554,8 +568,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Add link menu selector - levels" />
-    <MESSAGE value="on hover change color&#10;stars png" />
     <MESSAGE value="saving system restored" />
     <MESSAGE value="fix on save when a save file is created" />
     <MESSAGE value="fix on player result game data" />
@@ -579,6 +591,8 @@
     <MESSAGE value="suggestions + better graphic for ink counter" />
     <MESSAGE value="fix Levels" />
     <MESSAGE value="fix new save" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix new save" />
+    <MESSAGE value="fix on stair" />
+    <MESSAGE value="fix show levels" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix show levels" />
   </component>
 </project>
