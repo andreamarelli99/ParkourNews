@@ -93,7 +93,7 @@ namespace ParkourNews.Scripts
 
         public int numberOfLevels()
         {
-            return _maxLevel;
+            return coinsPerLevel.Count;
         }
         
         private void OnCoin()
