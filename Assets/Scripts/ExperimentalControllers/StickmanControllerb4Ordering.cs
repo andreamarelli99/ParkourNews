@@ -8,135 +8,108 @@ using Vector3 = UnityEngine.Vector3;
 /* Controller of the stickman/player, here there're:                     
  - values of speed for the various player movements
  - player movements
- - death of the stickman
  */
 
 
-public class StickmanController : MonoBehaviour
+public class StickmanControllerb4Ordering : MonoBehaviour
 {
-    
     [SerializeField] private Rigidbody2D _rigidbody2D;
     private Spawner _follower;
     private SpriteRenderer _spriteRenderer;
     public Animator _animator;
-    
-    #region SPEED_VALUES
-    //------------------------------------- SPEED VALUES -------------------------------------//
+    // private bool m_FacingRight = true;
+    private int _facingDirection = 1; // For determining which way the player is currently facing.
+
+    //----------------------------SPEED-------------------------------//
+    //put _Xspeed and _maxXspeed to regulate the stickman acceleration
     [SerializeField] private float _walkSpeed = 1000f;
-    
     [SerializeField] private float _minSpeed = 0f;
-    
-    // When the stickman speed >= _minRunSpeed -> RUN
     [SerializeField] private float _minRunSpeed = 2f;
-    
     private float _realSpeed;
-    #endregion
-    
-    #region MOVEMENTS
-    //------------------------------------- MOVEMENTS -------------------------------------//
-    // For determining which way the stickman is currently facing
-    private int _facingDirection = 1; 
-    
-    // To manage actions and/or inputs without specifying controllers/keyboard
+
+    //--------------------------MOVEMENTS-----------------------------//
+    //to manage actions and/or inputs w/o specifying controllers/keyboard
+    private Vector2 _movement = Vector2.zero;
+
     private StickmanActions _stickmanActions;
     
-    // Set to zero
-    private Vector2 _movement = Vector2.zero;
-    
-    // Check if the stickman can move
     private bool _canMove;
 
-    //----- Run -----//
-    // To check if the stickman is running
+    //--Run
+
     private Boolean _isRunning;
     
-    //----- Flip -----//
-    // To check if the stickman has flipped its direction
+    private Boolean _isDead;
+    
+    //--Flip
     private Boolean _justFlipped = false;
-    // To check if the stickman can flip
-    private bool _canFlip;
     
-    //----- Crouch -----//
-    // To check if the stickman is crouching
-    private Boolean _isCrouched; 
-    // Force applied when the stickman slides
+    //--Crouch
+    private Boolean _isCrouched; //check if the stickman is crouching
     [SerializeField] private float _slideForce = 9f;
-    
-    //----- Roll -----//
-    // To check if the stickman can roll
+
+    //--Roll
     private bool _canRoll;
-    
-    //----- Jump -----//
-    // To check on On Ground Event 
-    private Boolean _onGroundEvent = false;
-    // To check on In Air Event 
-    private Boolean _inAirEvent = false;
-    // Force applied when the stickman jumps
+
+    //--Jump
     [SerializeField] private float _jumpForce = 12f;
-    // To check if the player is jumping
+    //to check if the player is jumping
     private Boolean _isJumping;
-    // To check if the player is doubleJumping
+    //to check if the player is doubleJumping
     private Boolean _isDoubleJumping;
     
-    //-----Jump: Jump Wall -----//
-    // To check of the player is jumping on the wall
-    private Boolean _isJumpWall;
-    // To check on On Wall Event 
-    private Boolean _onWallEvent = false;
-    // Force applied when the stickman is wall jumping
+    //--Jump Wall
     [SerializeField] private float _wallHopForce = 8f;
-    // Force applied by the wall to the stickman when wall jumping
     [SerializeField] private float _wallJumpForce = 5f;
-    // Positive Force on y applied when the stickman is wall jumping
-    [SerializeField] private float _incrementForceY = 1.07f;
-    // Wall Jump directions
     [SerializeField]private Vector2 _wallHopDirection;
     [SerializeField]private Vector2 _wallJumpDirection;
+    [SerializeField] private float _incrementForceY = 1.07f;
     
-    //----- Slide -----//
-    // To check if the stickman is sliding
+    //-- Booleans for listening events
+    private Boolean _onGroundEvent = false;
+    private Boolean _onWallEvent = false;
+    private Boolean _inAirEvent = false;
+
+    private Boolean _isJumpWall;
+    
+    //--Slide
     private Boolean _isSliding;
-    // The minimum amount of time between two slides 
-    [SerializeField] private float SlideRate = 2f; 
-    // The minimum time when the stickman will be able to slide again
-    private float NextSlide = 0f;
-    // To check if the stickman can slide
+    private float SlideRate = 2f; //The interval you want your player to be able to slide.
+    private float NextSlide = 0f; //The actual time the player will be able to fire.
     private Boolean _canSlide = true;
 
-    //----- Dash -----//
-    // Force applied when the stickman is dashing
+    //--Dash
     [SerializeField] private float _dashForce = 9f;
-    // To check if the stickman can dash
     private Boolean _canDash;
     
-    //----- Grappling -----//
-    // To check if the player is grappling 
+    //--Grappling
     private bool _isGrappling;
     
-    //----- Slide oblique -----//
-    // Force applied when the stickman is sliding on an oblique object
-    [SerializeField] private float slidingObliqueForce = 10f;
-    // To check if the stickman is sliding on an oblique object
-    private bool _isSlidingOblique;
-    #endregion
-
-    #region DEATH
-    //------------------------------------- DEATH -------------------------------------//
-    // To check if the stickman is dead
-    private Boolean _isDead;
+    //Death
     private Transform _transform;
     private bool _death = false;
     private bool _timerOn = false;
     [SerializeField] private float _timeLeft;
     [SerializeField] private GameObject _deathEffect;
-    #endregion
     
+    // Slide oblique
+    [SerializeField] private float slidingObliqueForce = 10f;
+    private bool _isSlidingOblique;
+    private bool _canFlip;
+    
+
+    //auto rotate
+    private BoxCollider2D _col2D;
     private void Start()
     {
+        //var cam = GameObject.FindObjectOfType<CameraSet>();
+        //cam.SetStickman(gameObject);
         Application.targetFrameRate = 30;
         QualitySettings.vSyncCount = 1;
         _wallHopDirection.Normalize();
         _wallJumpDirection.Normalize();
+        
+        _col2D = gameObject.GetComponentInChildren<BoxCollider2D>();
         
     }
 
@@ -152,14 +125,13 @@ public class StickmanController : MonoBehaviour
 
     private void OnEnable()
     {
-        // Enable stickman actions
         _stickmanActions.Enable();
+
         _stickmanActions.Player.Jump.performed += OnJump;
         _stickmanActions.Player.Dash.performed += OnDash;
         _stickmanActions.Player.Crouch.performed += OnCrouch;
         _stickmanActions.Player.Roll.performed += OnSomersault;
         
-        // Default values for checks on stickman's actions
         _isCrouched = false;
         _isJumping = false;
         _isDoubleJumping = false;
@@ -172,9 +144,8 @@ public class StickmanController : MonoBehaviour
         _canFlip = true;
         _canSlide = true;
         
-        
-        // Start listening on Events
         EventManager.StartListening("OnBouncey",OnBouncey);
+        //_animator.SetBool("IsDead",false);
         EventManager.StartListening("OnWall", OnWall);
         _onWallEvent = true;
         EventManager.StartListening("OnWallButCantJump", OnWallButCantJump);
@@ -182,11 +153,17 @@ public class StickmanController : MonoBehaviour
         _onGroundEvent = true;
         EventManager.StartListening("InAir", InAir);
         _inAirEvent = true;
+        
         EventManager.StartListening("PreDeath", Die);
+        
         EventManager.StartListening("CanDash", CanDash);
+       
+        
         EventManager.StartListening("OnSlidingObliqueExit", OnSlidingObliqueExit);
         EventManager.StartListening("OnSlidingObliqueLeftEnter", OnSlidingObliqueLeftEnter);
         EventManager.StartListening("OnSlidingObliqueRightEnter", OnSlidingObliqueRightEnter);
+        
+        //Triggering SpawnSound
         EventManager.TriggerEvent("SpawnSound");
     }
 
@@ -209,6 +186,19 @@ public class StickmanController : MonoBehaviour
         // ----- MOVEMENT LEFT/RIGHT ------
         // allows horizontal movement by pressing wasd/arrows
         
+        
+        /*
+        //Raycast for player 
+        _botRight = new Vector2(_col2D.bounds.max.x,_col2D.bounds.min.y);
+        _botLeft = new Vector2(_col2D.bounds.min.x,_col2D.bounds.min.y);
+        RaycastHit2D hitR = Physics2D.Raycast(_botRight,Vector2.down,1f,_whatIsGround);
+        RaycastHit2D hitL = Physics2D.Raycast(_botLeft,Vector2.down,1f,_whatIsGround);
+        Debug.DrawRay(_botRight,Vector2.down, Color.red);
+        Debug.DrawRay(_botLeft,Vector2.down, Color.green);
+        if(hitR.collider != null) Debug.Log("HitR: "+hitR.point);
+        if(hitL.collider != null) Debug.Log("HitL: "+hitL.point);
+        Debug.Log("The angle between the Normal and Global Up is: " + Vector2.Angle(Vector2.up,hitR.normal));
+        _rigidbody2D.MoveRotation(Vector2.Angle(Vector2.up,hitR.normal) * Time.time);*/
         if (_canMove)
         {
             _movement.x = Input.GetAxis("Horizontal");
