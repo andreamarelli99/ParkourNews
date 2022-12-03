@@ -62,8 +62,9 @@ public class Spawner : MonoBehaviour
     public void Resume()
     {
         pauseMenu.SetActive(false);
-        Time.timeScale = 1f; 
+        Time.timeScale = 1f;
         levelMenu.SetActive(true);
+        
     }
 
     public void LevelSelector()

@@ -2874,13 +2874,14 @@ MonoBehaviour:
   _jumpForce: 6.5
   _wallHopForce: 5
   _wallJumpForce: 8
+  _incrementForceY: 1.07
   _wallHopDirection: {x: 1, y: 0.5}
   _wallJumpDirection: {x: 0.5, y: 2}
-  _incrementForceY: 1.07
+  SlideRate: 2
   _dashForce: 5
+  slidingObliqueForce: 20
   _timeLeft: 0.4
   _deathEffect: {fileID: 6997444155794476504, guid: 112f4fb0dd90100428b4c2ef78f1977d, type: 3}
-  slidingObliqueForce: 20
   _xDecreasingWhenFalling: 1
   _yIncreasingWhenFalling: 1
   _xArtificialDragOnFloor: 1.02

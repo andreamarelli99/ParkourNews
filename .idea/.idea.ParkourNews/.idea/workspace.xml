@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a21cc26-fe96-4869-9603-03d818d6f1ed" name="Changes" comment="Add: suggestions on 1st scene">
+    <list default="true" id="2a21cc26-fe96-4869-9603-03d818d6f1ed" name="Changes" comment="menu and 2nd scene">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ParkourNews/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ParkourNews/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts/BebasNeue-Regular SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fonts/BebasNeue-Regular SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/0.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/0.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/2.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/MainMenu/keyboard.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/MainMenu/keyboard.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/StickmanWalking Variant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/StickmanWalking Variant.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/4.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/4.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/9.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/9.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerEffects/Spawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerEffects/Spawner.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,6 +23,8 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Fonts/BebasNeue-Regular SDF.asset" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Fonts/BebasNeue-Regular SDF.asset" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Scenes/0.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Scenes/1.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Scenes/3.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Scenes/3.unity" root0="SKIP_HIGHLIGHTING" />
@@ -39,6 +41,7 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventInterfaces.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/InputModules/StandaloneInputModule.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/UserSettings/EditorUserSettings.asset" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -439,7 +442,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670079469743</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="menu and 2nd scene">
+      <created>1670080743195</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1670080743195</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -515,7 +525,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="fixed Slide" />
     <MESSAGE value="cannot flip when crouching" />
     <MESSAGE value="fix: coin&#10;add: end level collectible controller&#10;started: save/load system (json)" />
     <MESSAGE value="started to implement change of scene" />
@@ -540,6 +549,7 @@
     <MESSAGE value="cleaner code in StickmanController.cs" />
     <MESSAGE value=" red sign" />
     <MESSAGE value="Add: suggestions on 1st scene" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add: suggestions on 1st scene" />
+    <MESSAGE value="menu and 2nd scene" />
+    <option name="LAST_COMMIT_MESSAGE" value="menu and 2nd scene" />
   </component>
 </project>
