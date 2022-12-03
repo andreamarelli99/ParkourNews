@@ -29,6 +29,7 @@ public class PlayerCoinsCounter : MonoBehaviour
     private void OnRespawn()
     {
         EventManager.StopListening("OnRespawn",OnRespawn);
+        _inkers = 0;
         _inkersText.text = "Inkers: 0";
         EventManager.StartListening("OnRespawn",OnRespawn);
     }
