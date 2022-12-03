@@ -1,16 +1,7 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Numerics;
-using Cinemachine;
-using ParkourNews.Scripts;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.InputSystem;
-using UnityEngine.iOS;
-using UnityEngine.SceneManagement;
-using Quaternion = System.Numerics.Quaternion;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 
@@ -134,7 +125,6 @@ public class StickmanController : MonoBehaviour
         _stickmanActions.Player.Dash.performed += OnDash;
         _stickmanActions.Player.Crouch.performed += OnCrouch;
         _stickmanActions.Player.Roll.performed += OnSomersault;
-        _stickmanActions.Player.Menu.performed += OnMenu;
         
         _isCrouched = false;
         _isJumping = false;
@@ -365,11 +355,6 @@ public class StickmanController : MonoBehaviour
         Instantiate(_deathEffect, _transform.position, _transform.rotation);
         EventManager.TriggerEvent("OnDeath");
         DestroyImmediate(gameObject,true);
-    }
-
-    private void OnMenu(InputAction.CallbackContext context)
-    {
-        EventManager.TriggerEvent("OnMenu");
     }
 
 

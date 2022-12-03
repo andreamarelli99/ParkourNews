@@ -1,21 +1,21 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Timers;
-using Cinemachine;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class Spawner : MonoBehaviour
 {
     [SerializeField] private GameObject _drop;
     [SerializeField] private GameObject _spawnEffect;
     [SerializeField] private GameObject _stickman;
+    [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject levelMenu;
+    
     private Transform _transform;
     private bool _stickmanCreated = false;
     private Vector2 _initialPosition;
 
+    private StickmanActions _stickmanActions;
     [SerializeField] float _timeLeft;
 
     private Vector3 _position;
@@ -25,6 +25,7 @@ public class Spawner : MonoBehaviour
     private void Awake()
     {
         _transform = GetComponent<Transform>();
+        _stickmanActions = new StickmanActions();
     }
     
     // Start is called before the first frame update
@@ -33,12 +34,50 @@ public class Spawner : MonoBehaviour
     //    ExecuteSpawnEffect();
         SpawnDrop();
         _initialPosition = _transform.position;
+        pauseMenu.SetActive(false);
     }
     
     private void OnEnable()
     {
+        _stickmanActions.Enable();
         EventManager.StartListening("OnDeath", OnDeath);
+        _stickmanActions.Player.Menu.performed += OnMenu;
     }
+    
+    
+
+    private void OnDisable()
+    {
+        _stickmanActions.Disable();
+    }
+    
+    
+    private void OnMenu(InputAction.CallbackContext context)
+    {
+        pauseMenu.SetActive(true);
+        Time.timeScale = 0f; 
+        levelMenu.SetActive(false);
+    }
+
+    public void Resume()
+    {
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1f; 
+        levelMenu.SetActive(true);
+    }
+
+    public void LevelSelector()
+    {
+        Time.timeScale = 1f; 
+        SceneManager.LoadScene("MenuSelector");
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
+    
+    
     
     private void OnDeath()
     {
@@ -85,7 +124,7 @@ public class Spawner : MonoBehaviour
     private IEnumerator SpawnStickManCoroutine()
     {
         yield return new WaitForSeconds(_timeLeft);
-        Instantiate(_stickman, new Vector3(_transform.position.x, _transform.position.y, _transform.position.y), Quaternion.identity);
+        Instantiate(_stickman, new Vector3(_transform.position.x, _transform.position.y, _transform.position.z), Quaternion.identity, gameObject.transform.parent);
         _stickmanCreated = true;
     }
 

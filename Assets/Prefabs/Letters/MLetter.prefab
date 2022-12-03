@@ -31,7 +31,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2249818997276902293}
+  - {fileID: 7107790295834950999}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -112,8 +114,7 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.67907107, y: -16.068481}
-      - {x: 12.16298, y: 13.354099}
+    - - {x: 12.16298, y: 13.354099}
       - {x: 12.15746, y: -12.810071}
       - {x: 8.037781, y: -12.825116}
       - {x: 8.026645, y: -17.051403}
@@ -124,8 +125,15 @@ PolygonCollider2D:
       - {x: 20.97462, y: 13.148061}
       - {x: 20.973257, y: 17.417915}
       - {x: 9.081873, y: 17.424963}
-      - {x: -0.10233083, y: -6.393563}
-      - {x: -9.222294, y: 17.383255}
+      - {x: 8.382252, y: 15.559086}
+      - {x: 9.538851, y: 15.120271}
+      - {x: 1.1322777, y: -6.966266}
+      - {x: -0.077206045, y: -6.2424297}
+      - {x: -1.317555, y: -7.110201}
+      - {x: -9.917021, y: 12.4294}
+      - {x: -10.073667, y: 14.640178}
+      - {x: -8.427362, y: 15.408134}
+      - {x: -9.194387, y: 17.447004}
       - {x: -20.979784, y: 17.431305}
       - {x: -20.985855, y: 13.139051}
       - {x: -16.838314, y: 13.17196}
@@ -138,7 +146,6 @@ PolygonCollider2D:
       - {x: -12.61855, y: 13.252397}
       - {x: -0.7722201, y: -17.41594}
       - {x: 0.17145568, y: -17.396547}
-      - {x: 0.58329284, y: -16.309345}
 --- !u!114 &-5272816878632665568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,5 +171,153 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3c7aee769e5efda4d91a69b59d1f8a0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &7539081421656686983
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2249818997276902293}
+  - component: {fileID: 8157893286235738355}
+  - component: {fileID: 1119059694254684411}
+  m_Layer: 0
+  m_Name: SlideRight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2249818997276902293
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7539081421656686983}
+  m_LocalRotation: {x: -0, y: -0, z: 0.18228465, w: 0.9832458}
+  m_LocalPosition: {x: -5.42, y: 6.38, z: 0}
+  m_LocalScale: {x: 1, y: 23.221514, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6092250433488528746}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 21.006}
+--- !u!60 &8157893286235738355
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7539081421656686983}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.43338847, y: 0.40954894}
+      - {x: -1.3543763, y: 0.4015483}
+      - {x: -0.94354, y: -0.60509706}
+      - {x: 0.40521923, y: -0.5928567}
+--- !u!114 &1119059694254684411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7539081421656686983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c093011ee229934e8e50cd0eba957f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &8878620320564169375
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7107790295834950999}
+  - component: {fileID: 8359350256839839333}
+  - component: {fileID: 6185102678078954670}
+  m_Layer: 0
+  m_Name: SlideLeft
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7107790295834950999
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8878620320564169375}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6092250433488528746}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &8359350256839839333
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8878620320564169375}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 8.366805, y: 15.479042}
+      - {x: 9.49563, y: 15.073037}
+      - {x: 1.0982356, y: -6.9096236}
+      - {x: -0.056301475, y: -6.1651874}
+--- !u!114 &6185102678078954670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8878620320564169375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd8bb4d676d34a0b914ce133058abaf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
