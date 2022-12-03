@@ -106,9 +106,7 @@ public class AudioManager : MonoBehaviour
     private void PlayJumpWallSound()
     {
         EventManager.StopListening("JumpWallSound", PlayJumpWallSound);
-
         PlaySound("JumpWallSound");
-
         EventManager.StartListening("JumpWallSound", PlayJumpWallSound);
     }
 
@@ -161,7 +159,7 @@ public class AudioManager : MonoBehaviour
         if (s == null)
             Debug.Log("Sound not found");
         else
-            sfxSource.PlayOneShot(s);
+            AudioSource.PlayClipAtPoint(s, transform.position, 0.7f);
     }
 
     public void EnableMusic(bool enable)
