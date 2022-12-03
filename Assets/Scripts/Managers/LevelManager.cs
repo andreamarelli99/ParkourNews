@@ -21,18 +21,16 @@ namespace ParkourNews.Scripts
         {
             DontDestroyOnLoad(this.gameObject);
             coinsPerLevel=new List<int>();
-            coinsPerLevel.Add(0);
-            coinsPerLevel.Add(1);
-            coinsPerLevel.Add(0);
-            coinsPerLevel.Add(0);
-            coinsPerLevel.Add(0);
-            coinsPerLevel.Add(0);
-            coinsPerLevel.Add(0);
-            coinsPerLevel.Add(1);
-            coinsPerLevel.Add(0);
-            coinsPerLevel.Add(0);
-            coinsPerLevel.Add(0);
-            coinsPerLevel.Add(0);
+            coinsPerLevel.Add(6);
+            coinsPerLevel.Add(35);
+            coinsPerLevel.Add(28);
+            coinsPerLevel.Add(20);
+            coinsPerLevel.Add(27);
+            coinsPerLevel.Add(31);
+            coinsPerLevel.Add(47);
+            coinsPerLevel.Add(40);
+            coinsPerLevel.Add(35);
+            coinsPerLevel.Add(27);
         }
 
         
@@ -73,11 +71,11 @@ namespace ParkourNews.Scripts
                 _currentLevel += 1;
                 SceneManager.LoadScene(_currentLevel.ToString());
                 EventManager.TriggerEvent("OnPlayLevel");
-                
+                EventManager.StartListening("StartNextLevel", OnStartNextLevel);
             }
             else 
                 SceneManager.LoadScene("Menu");
-            EventManager.StartListening("StartNextLevel", OnStartNextLevel);
+           
         }
         
         public float getPlayerPointsRatio()

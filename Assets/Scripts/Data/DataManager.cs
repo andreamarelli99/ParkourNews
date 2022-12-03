@@ -95,6 +95,7 @@ namespace ParkourNews.Scripts
 
         public double getLastUnlockedLevel()
         {
+            Load();
             return gameData.lastLevelUnlocked;
         }
 
