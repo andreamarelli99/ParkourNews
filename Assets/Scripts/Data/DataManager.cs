@@ -42,7 +42,9 @@ namespace ParkourNews.Scripts
 
         public bool IsNewGame()
         {
-            return _newGame;
+            bool b = _newGame;
+            _newGame = false;
+            return b;
         }
 
         private void Save()
