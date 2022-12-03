@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a21cc26-fe96-4869-9603-03d818d6f1ed" name="Changes" comment="suggestions for scenes: 4 &amp; 9">
+    <list default="true" id="2a21cc26-fe96-4869-9603-03d818d6f1ed" name="Changes" comment="suggestions + better graphic for ink counter">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ParkourNews/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ParkourNews/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts/BebasNeue-Regular SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fonts/BebasNeue-Regular SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/3.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/6.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/6.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/LevelManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/LevelManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +21,7 @@
     <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Fonts/BebasNeue-Regular SDF.asset" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Fonts/BebasNeue-Regular SDF.asset" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Scenes/0.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Scenes/1.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Scenes/1.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Scenes/3.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Scenes/3.unity" root0="SKIP_HIGHLIGHTING" />
@@ -455,7 +453,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670082689178</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="suggestions + better graphic for ink counter">
+      <created>1670085127583</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1670085127583</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -531,7 +536,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="fix: coin&#10;add: end level collectible controller&#10;started: save/load system (json)" />
     <MESSAGE value="started to implement change of scene" />
     <MESSAGE value="fix" />
     <MESSAGE value="Add link menu selector - levels" />
@@ -556,6 +560,7 @@
     <MESSAGE value="Add: suggestions on 1st scene" />
     <MESSAGE value="menu and 2nd scene" />
     <MESSAGE value="suggestions for scenes: 4 &amp; 9" />
-    <option name="LAST_COMMIT_MESSAGE" value="suggestions for scenes: 4 &amp; 9" />
+    <MESSAGE value="suggestions + better graphic for ink counter" />
+    <option name="LAST_COMMIT_MESSAGE" value="suggestions + better graphic for ink counter" />
   </component>
 </project>

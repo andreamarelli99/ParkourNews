@@ -73,10 +73,11 @@ namespace ParkourNews.Scripts
                 _currentLevel += 1;
                 SceneManager.LoadScene(_currentLevel.ToString());
                 EventManager.TriggerEvent("OnPlayLevel");
-                EventManager.StartListening("StartNextLevel", OnStartNextLevel);
+                
             }
             else 
                 SceneManager.LoadScene("Menu");
+            EventManager.StartListening("StartNextLevel", OnStartNextLevel);
         }
         
         public float getPlayerPointsRatio()
