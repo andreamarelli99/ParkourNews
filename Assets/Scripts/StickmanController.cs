@@ -262,7 +262,7 @@ public class StickmanController : MonoBehaviour
         Debug.Log("sliding oblique in");
         
         _isSlidingOblique = true;
-        _animator.SetBool("IsSlidingOblique", true);
+        _animator.SetBool(IsSlidingOblique, true);
 
         // Push the player against the floor.
         _rigidbody2D.AddForce(Vector2.down * slidingObliqueForce);
@@ -303,19 +303,29 @@ public class StickmanController : MonoBehaviour
             Debug.Log("disable sliding oblique");
             _canMove = true;
             _canFlip = true;
-            _animator.SetBool("IsSlidingOblique", false);
+            _animator.SetBool(IsSlidingOblique, false);
         }
     }
 
     [SerializeField] private float _airDrag = 1f;
     [SerializeField] private float _addGravity = 1f;
+    
+    // Cached Properties
+    private static readonly int IsJumping = Animator.StringToHash("IsJumping");
+    private static readonly int IsSlidingOblique = Animator.StringToHash("IsSlidingOblique");
+    private static readonly int IsSlidingWall = Animator.StringToHash("IsSlidingWall");
+    private static readonly int IsCrouched = Animator.StringToHash("IsCrouched");
+    private static readonly int IsSliding = Animator.StringToHash("IsSliding");
+    private static readonly int Speed = Animator.StringToHash("Speed");
+    private static readonly int IsGrappling = Animator.StringToHash("IsGrappling");
+    private static readonly int IsDeath = Animator.StringToHash("IsDeath");
 
     private void FixedUpdate()
     {
         if(!_isSliding){
             _realSpeed = Mathf.Max(_minSpeed, Mathf.Abs(_rigidbody2D.velocity.x));
             _isRunning=_realSpeed >= _minRunSpeed;
-            _animator.SetFloat("Speed",Mathf.Abs(_realSpeed));
+            _animator.SetFloat(Speed,Mathf.Abs(_realSpeed));
             _rigidbody2D.AddForce(_walkSpeed * Time.fixedDeltaTime * _movement);
         }
         
@@ -346,8 +356,8 @@ public class StickmanController : MonoBehaviour
             _isJumping = false;
             _isGrappling = true;
             _canRoll = false;
-            _animator.SetBool("IsJumping", true);
-            _animator.SetBool("IsGrappling", true);
+            _animator.SetBool(IsJumping, true);
+            _animator.SetBool(IsGrappling, true);
             _rigidbody2D.isKinematic = true;
             gameObject.transform.position =
                 new Vector3(col.gameObject.GetComponent<Collider2D>().transform.position.x,
@@ -361,7 +371,7 @@ public class StickmanController : MonoBehaviour
     private void Die()
     {
         EventManager.StopListening("PreDeath", Die);
-        _animator.SetTrigger("IsDeath");
+        _animator.SetTrigger(IsDeath);
         StartCoroutine(ExecuteDeathEffectCoroutine());
     }
     
@@ -384,7 +394,7 @@ public class StickmanController : MonoBehaviour
         {
             Debug.Log("Jump from hook!");
             _rigidbody2D.isKinematic = false;
-            _animator.SetBool("IsGrappling",false);
+            _animator.SetBool(IsGrappling,false);
             _isGrappling = false;
             _isJumping = true;
             _isDoubleJumping = false;
@@ -397,7 +407,7 @@ public class StickmanController : MonoBehaviour
         {
             _isJumpWall = false;
             Debug.Log("Jumping from wall");
-            _animator.SetBool("IsJumping",true);
+            _animator.SetBool(IsJumping,true);
             
             int oppositeDirection = 1;
             float incForce = 1;
@@ -442,10 +452,10 @@ public class StickmanController : MonoBehaviour
             _isSliding = false;
             _isSlidingOblique = false;
             Debug.Log("Jump!");
-            _animator.SetBool("IsJumping",true);
-            _animator.SetBool("IsCrouched",false);
-            _animator.SetBool("IsSliding",false);
-            _animator.SetBool("IsSlidingOblique",false);
+            _animator.SetBool(IsJumping,true);
+            _animator.SetBool(IsCrouched,false);
+            _animator.SetBool(IsSliding,false);
+            _animator.SetBool(IsSlidingOblique,false);
             //_animator.SetBool("IsSlidingWall",false);
             _rigidbody2D.AddForce(_jumpForce * Vector2.up, ForceMode2D.Impulse);
             
@@ -507,8 +517,8 @@ public class StickmanController : MonoBehaviour
             _canDash = false;
             _isSliding = false;
             _isCrouched = false;
-            _animator.SetBool("IsSliding", false);
-            _animator.SetBool("IsCrouched", false);
+            _animator.SetBool(IsSliding, false);
+            _animator.SetBool(IsCrouched, false);
             EventManager.TriggerEvent("OnDash");
         }
     }
@@ -573,8 +583,8 @@ public class StickmanController : MonoBehaviour
         _isDoubleJumping = true;
         _isJumping = false;
         _isJumpWall = true;
-        _animator.SetBool("IsJumping",false);
-        _animator.SetBool("IsSlidingWall",true);
+        _animator.SetBool(IsJumping,false);
+        _animator.SetBool(IsSlidingWall,true);
         Debug.Log("Attached to wall");
     }
     
@@ -595,8 +605,8 @@ public class StickmanController : MonoBehaviour
         _isDoubleJumping = true; // if flase after reaching the same wall the player can perform another NORMAL jump (like double jumping)
         _isJumping = true;
         _isJumpWall = false;
-        _animator.SetBool("IsJumping",false);
-        _animator.SetBool("IsSlidingWall",true);
+        _animator.SetBool(IsJumping,false);
+        _animator.SetBool(IsSlidingWall,true);
         Debug.Log("Attached to wall");
     }
     
@@ -659,10 +669,10 @@ public class StickmanController : MonoBehaviour
         _isCrouched = false;
         _isJumpWall = false;
         _isSlidingOblique = false;
-        _animator.SetBool("IsJumping",false);
-        _animator.SetBool("IsSlidingWall", false);
-        _animator.SetBool("IsCrouched", false);
-        _animator.SetBool("IsSlidingOblique",false);
+        _animator.SetBool(IsJumping,false);
+        _animator.SetBool(IsSlidingWall, false);
+        _animator.SetBool(IsCrouched, false);
+        _animator.SetBool(IsSlidingOblique,false);
         _canFlip = true;
         _canMove = true;
 
@@ -694,9 +704,9 @@ public class StickmanController : MonoBehaviour
             _onWallEvent = true;
         }
         
-        _animator.SetBool("IsJumping",true);
-        Debug.Log("inair");
-        _animator.SetBool("IsSlidingWall",false);
+        _animator.SetBool(IsJumping,true);
+        Debug.Log("InAir");
+        _animator.SetBool(IsSlidingWall,false);
     }
 
     private void OnBouncey()
@@ -729,7 +739,7 @@ public class StickmanController : MonoBehaviour
     {
         if (!_isSliding)
         {
-            _animator.SetBool("IsSliding", true);
+            _animator.SetBool(IsSliding, true);
             _isSliding = true;
             _rigidbody2D.AddForce(_facingDirection * _slideForce* Vector2.right, ForceMode2D.Impulse);
         }
@@ -740,7 +750,7 @@ public class StickmanController : MonoBehaviour
             yield return null;
         }
         
-        _animator.SetBool("IsSliding", false);
+        _animator.SetBool(IsSliding, false);
         _isSliding = false;
     }
 }
