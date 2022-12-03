@@ -68,15 +68,16 @@ namespace ParkourNews.Scripts
         {
             EventManager.StopListening("StartNextLevel",OnStartNextLevel);
             
-            if (_currentLevel < _maxLevel)
-            {
-                _currentLevel += 1;
-                SceneManager.LoadScene(_currentLevel.ToString());
-                EventManager.TriggerEvent("OnPlayLevel");
+            //if (_currentLevel < _maxLevel)
+           // {
+            //    _currentLevel += 1;
+            //    SceneManager.LoadScene(_currentLevel.ToString());
+            //    EventManager.TriggerEvent("OnPlayLevel");
+            //    EventManager.StartListening("StartNextLevel", OnStartNextLevel);
+          //  }
+          //  else 
+                SceneManager.LoadScene("MenuSelector");
                 EventManager.StartListening("StartNextLevel", OnStartNextLevel);
-            }
-            else 
-                SceneManager.LoadScene("Menu");
            
         }
         
