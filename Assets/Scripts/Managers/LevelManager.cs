@@ -82,7 +82,7 @@ namespace ParkourNews.Scripts
         {
             float coins=coinsPerLevel[_currentLevel - 1];
             if(coins>0)
-                return _playerPoints/_currentLevel;
+                return _playerPoints/coins;
             return 1;
         }
 
