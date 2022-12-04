@@ -21,8 +21,8 @@ namespace ParkourNews.Scripts
             // default values
             gameData.musicEnabled = true;
             gameData.sfxEnabled = true;
-            gameData.musicVolume = 0.5f;
-            gameData.sfxVolume = 0.6f;
+            gameData.musicVolume = 0.1f;
+            gameData.sfxVolume = 0.2f;
             
             _filePath = Path.Combine(Application.persistentDataPath, "savegame.json");
             if (File.Exists(_filePath))
