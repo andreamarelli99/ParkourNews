@@ -29,8 +29,8 @@ public class SfxEnablerButton : MonoBehaviour
     
     IEnumerator WaitForDataManager()
     {
-        yield return new WaitForSeconds(0.1f);
-        _enabled = _dataManager.GetMusicEnabled();
+        yield return new WaitForSeconds(0.2f);
+        _enabled = _dataManager.GetSfxEnabled();
         ChangeImage();
     }
 

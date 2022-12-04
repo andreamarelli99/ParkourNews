@@ -25,7 +25,7 @@ public class SfxVolumeSlider : MonoBehaviour
     
     IEnumerator WaitForDataManager()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.2f);
         _volume = _dataManager.GetSfxVolume();
         _slider.value = _volume;
     }

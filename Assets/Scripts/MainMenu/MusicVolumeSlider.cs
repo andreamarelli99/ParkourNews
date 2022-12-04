@@ -25,7 +25,7 @@ public class MusicVolumeSlider : MonoBehaviour
     
     IEnumerator WaitForDataManager()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.2f);
         _volume = _dataManager.GetMusicVolume();
         _slider.value = _volume;
     }

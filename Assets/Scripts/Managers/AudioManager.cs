@@ -27,12 +27,12 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        PlayMusic("Theme");
         _dataManager = FindObjectOfType<DataManager>();
         musicSource.mute = !_dataManager.GetMusicEnabled();
         musicSource.volume = _dataManager.GetMusicVolume();
         sfxSource.mute = !_dataManager.GetSfxEnabled();
         sfxSource.volume = _dataManager.GetSfxVolume();
+        PlayMusic("Theme");
     }
 
     private void OnEnable()

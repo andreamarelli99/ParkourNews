@@ -18,6 +18,12 @@ namespace ParkourNews.Scripts
 
         private void Start()
         {
+            // default values
+            gameData.musicEnabled = true;
+            gameData.sfxEnabled = true;
+            gameData.musicVolume = 0.5f;
+            gameData.sfxVolume = 0.6f;
+            
             _filePath = Path.Combine(Application.persistentDataPath, "savegame.json");
             if (File.Exists(_filePath))
             {
@@ -138,6 +144,7 @@ namespace ParkourNews.Scripts
         public void SetMusicEnabled(bool musicEnabled)
         {
             gameData.musicEnabled = musicEnabled;
+            Save();
         }
 
         public bool GetSfxEnabled()
@@ -148,6 +155,7 @@ namespace ParkourNews.Scripts
         public void SetSfxEnabled(bool sfxEnabled)
         {
             gameData.sfxEnabled = sfxEnabled;
+            Save();
         }
     }
 }
