@@ -6,18 +6,23 @@ public class SfxEnablerButton : MonoBehaviour
 {
     [SerializeField] public Sprite offSprite;
     [SerializeField] public Sprite onSprite;
-    private Button _button;
-
+    
     private DataManager _dataManager;
+    private AudioManager _audioManager;
+    private Button _button;
+    
     private bool _enabled;
     private Image _image;
 
     private void Start()
     {
+        _image = GetComponent<Image>();
         _button = GetComponent<Button>();
         _button.onClick.AddListener(OnClick);
-        _image = GetComponent<Image>();
+        
         _dataManager = FindObjectOfType<DataManager>();
+        _audioManager = FindObjectOfType<AudioManager>();
+        
         _enabled = _dataManager.GetSfxEnabled();
         ChangeImage();
     }
@@ -25,7 +30,7 @@ public class SfxEnablerButton : MonoBehaviour
     private void OnClick()
     {
         _enabled = !_enabled;
-        _dataManager.SetMusicEnabled(_enabled);
+        _audioManager.SetSfxEnabled(_enabled);
         ChangeImage();
     }
 

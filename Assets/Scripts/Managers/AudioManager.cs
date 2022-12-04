@@ -163,25 +163,25 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void EnableMusic(bool enable)
+    public void SetMusicEnabled(bool enable)
     {
-        musicSource.mute = enable;
+        musicSource.mute = !enable;
         _dataManager.SetMusicEnabled(enable);
     }
 
-    public void EnableSfx(bool enable)
+    public void SetSfxEnabled(bool enable)
     {
-        sfxSource.mute = enable;
+        sfxSource.mute = !enable;
         _dataManager.SetSfxEnabled(enable);
     }
 
-    public void MusicVolume(float volume)
+    public void SetMusicVolume(float volume)
     {
         musicSource.volume = volume;
         _dataManager.SetMusicVolume(volume);
     }
 
-    public void SfxVolume(float volume)
+    public void SetSfxVolume(float volume)
     {
         sfxSource.volume = volume;
         _dataManager.SetSfxVolume(volume);
