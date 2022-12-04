@@ -2,6 +2,7 @@ using System;
 using ParkourNews.Scripts;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class SfxVolumeSlider : MonoBehaviour
 {
@@ -19,6 +20,12 @@ public class SfxVolumeSlider : MonoBehaviour
         _dataManager = FindObjectOfType<DataManager>();
         _audioManager = FindObjectOfType<AudioManager>();
         
+        StartCoroutine(nameof(WaitForDataManager));
+    }
+    
+    IEnumerator WaitForDataManager()
+    {
+        yield return new WaitForSeconds(0.1f);
         _volume = _dataManager.GetSfxVolume();
         _slider.value = _volume;
     }

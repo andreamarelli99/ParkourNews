@@ -1,6 +1,7 @@
 using ParkourNews.Scripts;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class MusicEnablerButton : MonoBehaviour
 {
@@ -23,6 +24,12 @@ public class MusicEnablerButton : MonoBehaviour
         _dataManager = FindObjectOfType<DataManager>();
         _audioManager = FindObjectOfType<AudioManager>();
         
+        StartCoroutine(nameof(WaitForDataManager));
+    }
+    
+    IEnumerator WaitForDataManager()
+    {
+        yield return new WaitForSeconds(0.1f);
         _enabled = _dataManager.GetMusicEnabled();
         ChangeImage();
     }

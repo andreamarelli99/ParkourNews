@@ -1,6 +1,7 @@
 using ParkourNews.Scripts;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class SfxEnablerButton : MonoBehaviour
 {
@@ -23,7 +24,13 @@ public class SfxEnablerButton : MonoBehaviour
         _dataManager = FindObjectOfType<DataManager>();
         _audioManager = FindObjectOfType<AudioManager>();
         
-        _enabled = _dataManager.GetSfxEnabled();
+        StartCoroutine(nameof(WaitForDataManager));
+    }
+    
+    IEnumerator WaitForDataManager()
+    {
+        yield return new WaitForSeconds(0.1f);
+        _enabled = _dataManager.GetMusicEnabled();
         ChangeImage();
     }
 
