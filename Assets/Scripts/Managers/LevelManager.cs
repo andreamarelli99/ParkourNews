@@ -17,9 +17,12 @@ namespace ParkourNews.Scripts
 
         [SerializeField] private List<int> coinsPerLevel;
 
+        private DataManager _dataManager;
+
         private void Awake()
         {
             DontDestroyOnLoad(this.gameObject);
+            _dataManager = FindObjectOfType<DataManager>();
             coinsPerLevel=new List<int>();
             coinsPerLevel.Add(6);
             coinsPerLevel.Add(35);
@@ -55,13 +58,15 @@ namespace ParkourNews.Scripts
             
             int nextLevel = _currentLevel + 1;
             Debug.Log("livello finito :  "+ _currentLevel +" && prossimo livello: "+ nextLevel + "&& tot livelli: "+coinsPerLevel.Count);
+            _dataManager.SetData(GetCurrentLevel(),getPlayerPointsRatio());
+            EventManager.TriggerEvent("Save");
             _currentLevel = nextLevel;
             if (nextLevel <= coinsPerLevel.Count)
                 SceneManager.LoadScene(nextLevel.ToString());
             else
                 SceneManager.LoadScene("MenuSelector");
-            
             EventManager.StartListening("EndLevel",OnEndLevel);
+            
         }
         
 

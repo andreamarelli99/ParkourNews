@@ -44,6 +44,7 @@ namespace ParkourNews.Scripts
 
             EventManager.StartListening("Save", Save);
             EventManager.StartListening("Load", Load);
+            
         }
 
         public bool IsNewGame()
