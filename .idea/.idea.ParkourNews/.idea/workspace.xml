@@ -4,10 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a21cc26-fe96-4869-9603-03d818d6f1ed" name="Changes" comment="fix for demo">
+    <list default="true" id="2a21cc26-fe96-4869-9603-03d818d6f1ed" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Collectible/EndCollectible.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Collectible/EndCollectible.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ParkourNews/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ParkourNews/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerEffects/Spawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerEffects/Spawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/10.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/10.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/11.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/11.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/12.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/12.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/3.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/4.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/4.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/5.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/5.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/6.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/6.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/7.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/7.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/8.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/8.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/9.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/9.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/LevelManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/LevelManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/StickmanController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StickmanController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,7 +179,8 @@
       <workItem from="1669988974367" duration="1806000" />
       <workItem from="1670026171092" duration="3304000" />
       <workItem from="1670069613708" duration="769000" />
-      <workItem from="1670143414910" duration="1043000" />
+      <workItem from="1670143414910" duration="3459000" />
+      <workItem from="1670147472899" duration="325000" />
     </task>
     <task id="LOCAL-00001" summary="Commented WIP">
       <created>1666469419938</created>
@@ -495,7 +511,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670093151603</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="fix spawn menu">
+      <created>1670144528193</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1670144528193</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -571,7 +594,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="fix on player result game data" />
     <MESSAGE value="fix on level completion + added dont destroy to some elements" />
     <MESSAGE value="updating scenes" />
     <MESSAGE value="next level as message" />
@@ -596,6 +618,7 @@
     <MESSAGE value="fix show levels" />
     <MESSAGE value="less noise w/ sound" />
     <MESSAGE value="fix for demo" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix for demo" />
+    <MESSAGE value="fix spawn menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix spawn menu" />
   </component>
 </project>

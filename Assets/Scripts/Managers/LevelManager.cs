@@ -45,7 +45,25 @@ namespace ParkourNews.Scripts
             EventManager.StartListening("OnRespawn",OnRespawn);
             EventManager.StartListening("OnCoin",OnCoin);
             
+            EventManager.StartListening("EndLevel",OnEndLevel);
+            
         }
+
+        private void OnEndLevel()
+        {
+            EventManager.StopListening("EndLevel",OnEndLevel);
+            
+            int nextLevel = _currentLevel + 1;
+            Debug.Log("livello finito :  "+ _currentLevel +" && prossimo livello: "+ nextLevel + "&& tot livelli: "+coinsPerLevel.Count);
+            _currentLevel = nextLevel;
+            if (nextLevel <= coinsPerLevel.Count)
+                SceneManager.LoadScene(nextLevel.ToString());
+            else
+                SceneManager.LoadScene("MenuSelector");
+            
+            EventManager.StartListening("EndLevel",OnEndLevel);
+        }
+        
 
         public void setCurrentLevel(int level)
         {

@@ -189,6 +189,7 @@ public class StickmanController : MonoBehaviour
         EventManager.StartListening("OnSlidingObliqueLeftEnter", OnSlidingObliqueLeftEnter);
         EventManager.StartListening("OnSlidingObliqueRightEnter", OnSlidingObliqueRightEnter);
         EventManager.TriggerEvent("SpawnSound");
+        EventManager.TriggerEvent("StickmanSpawned");
     }
 
     private void OnDisable()
