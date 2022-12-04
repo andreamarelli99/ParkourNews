@@ -28,17 +28,15 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         PlayMusic("Theme");
-        /*_dataManager = FindObjectOfType<DataManager>();
+        _dataManager = FindObjectOfType<DataManager>();
         musicSource.mute = !_dataManager.GetMusicEnabled();
         musicSource.volume = _dataManager.GetMusicVolume();
         sfxSource.mute = !_dataManager.GetSfxEnabled();
-        sfxSource.volume = _dataManager.GetSfxVolume();*/
+        sfxSource.volume = _dataManager.GetSfxVolume();
     }
 
     private void OnEnable()
     {
-        MusicVolume(0.02f);
-        SfxVolume(0.5f);
         EventManager.StartListening("JumpSound", PlayJumpSound);
         EventManager.StartListening("DoubleJumpSound", PlayDoubleJumpSound);
         EventManager.StartListening("OnCoin", PlayCollectSound);
@@ -159,30 +157,33 @@ public class AudioManager : MonoBehaviour
         if (s == null)
             Debug.Log("Sound not found");
         else
-            AudioSource.PlayClipAtPoint(s, transform.position, 0.7f);
+        {
+            sfxSource.clip = s;
+            sfxSource.Play();
+        }
     }
 
     public void EnableMusic(bool enable)
     {
         musicSource.mute = enable;
-        //_dataManager.SetMusicEnabled(enable);
+        _dataManager.SetMusicEnabled(enable);
     }
 
     public void EnableSfx(bool enable)
     {
         sfxSource.mute = enable;
-        //_dataManager.SetSfxEnabled(enable);
+        _dataManager.SetSfxEnabled(enable);
     }
 
     public void MusicVolume(float volume)
     {
         musicSource.volume = volume;
-        //_dataManager.SetMusicVolume(volume);
+        _dataManager.SetMusicVolume(volume);
     }
 
     public void SfxVolume(float volume)
     {
         sfxSource.volume = volume;
-        //_dataManager.SetSfxVolume(volume);
+        _dataManager.SetSfxVolume(volume);
     }
 }
