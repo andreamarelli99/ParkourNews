@@ -35,13 +35,15 @@ public class Spawner : MonoBehaviour
         SpawnDrop();
         _initialPosition = _transform.position;
         pauseMenu.SetActive(false);
+        EventManager.StartListening("OpenMenu",OnOpenMenu);
     }
     
     private void OnEnable()
     {
-        _stickmanActions.Enable();
+       // _stickmanActions.Enable();
+        
         EventManager.StartListening("OnDeath", OnDeath);
-        _stickmanActions.Player.Menu.performed += OnMenu;
+        
     }
     
     
@@ -52,7 +54,7 @@ public class Spawner : MonoBehaviour
     }
     
     
-    private void OnMenu(InputAction.CallbackContext context)
+    private void OnOpenMenu()
     {
         pauseMenu.SetActive(true);
         Time.timeScale = 0f; 

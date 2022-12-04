@@ -158,6 +158,7 @@ public class StickmanController : MonoBehaviour
         _stickmanActions.Player.Dash.performed += OnDash;
         _stickmanActions.Player.Crouch.performed += OnCrouch;
         _stickmanActions.Player.Roll.performed += OnSomersault;
+        _stickmanActions.Player.Menu.performed += OnMenu;
         
         // Default values for checks on stickman's actions
         _isCrouched = false;
@@ -245,6 +246,11 @@ public class StickmanController : MonoBehaviour
             // In this way, the player is pushed by gravity against the floor and in the direction of it.
             _rigidbody2D.AddForce((Vector2.down + Vector2.right * _facingDirection) * slidingObliqueForce);
         }
+    }
+
+    private void OnMenu(InputAction.CallbackContext context)
+    {
+        EventManager.TriggerEvent("OpenMenu");
     }
 
     private void OnSlidingObliqueLeftEnter()
