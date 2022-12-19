@@ -4,19 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a21cc26-fe96-4869-9603-03d818d6f1ed" name="Changes" comment="esc to pause&#10;forse fix cloni (testare)&#10;better movement speed">
+    <list default="true" id="2a21cc26-fe96-4869-9603-03d818d6f1ed" name="Changes" comment="fix animator - pause">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ParkourNews/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ParkourNews/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/StickmanWalking.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Player/StickmanWalking.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/ControllerButtons.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/ControllerButtons.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/SpaceBar.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/SpaceBar.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/StickmanWalking Variant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/StickmanWalking Variant.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerEffects/Spawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerEffects/Spawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StickmanController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StickmanController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,13 +169,6 @@
       <workItem from="1670069613708" duration="769000" />
       <workItem from="1670143414910" duration="3459000" />
       <workItem from="1670147472899" duration="1119000" />
-    </task>
-    <task id="LOCAL-00003" summary="merge + double jump">
-      <created>1666596410097</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1666596410097</updated>
     </task>
     <task id="LOCAL-00004" summary="Fix immagini">
       <created>1666615689672</created>
@@ -524,7 +506,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671440531048</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="fix animator - pause">
+      <created>1671469065260</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1671469065260</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -600,7 +589,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="fix on points type" />
     <MESSAGE value="check on save done" />
     <MESSAGE value="fix save when first playing" />
     <MESSAGE value="scene fix" />
@@ -625,6 +613,7 @@
     <MESSAGE value="fix change of scene upon level completion" />
     <MESSAGE value="menu suggestions + fix on canvas inkers" />
     <MESSAGE value="esc to pause&#10;forse fix cloni (testare)&#10;better movement speed" />
-    <option name="LAST_COMMIT_MESSAGE" value="esc to pause&#10;forse fix cloni (testare)&#10;better movement speed" />
+    <MESSAGE value="fix animator - pause" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix animator - pause" />
   </component>
 </project>

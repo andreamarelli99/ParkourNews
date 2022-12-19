@@ -235,6 +235,11 @@ public class StickmanController : MonoBehaviour,ISingleton
             // ... flip the player.
             Flip();
         }
+        
+        else if (_movement.x == 0)
+        {
+            _rigidbody2D.velocity = new Vector2(0,_rigidbody2D.velocity.y);
+        }
 
         if (_isJumping && _rigidbody2D.velocity.y < 0)
         {
