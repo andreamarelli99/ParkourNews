@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a21cc26-fe96-4869-9603-03d818d6f1ed" name="Changes" comment="Now on key horizontal move =0 the character stays still on its horizontal coord">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ParkourNews/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ParkourNews/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/StickmanWalking Variant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/StickmanWalking Variant.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StickmanController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StickmanController.cs" afterDir="false" />
-    </list>
+    <list default="true" id="2a21cc26-fe96-4869-9603-03d818d6f1ed" name="Changes" comment="stop pressing stops the stickman" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -171,20 +167,6 @@
       <workItem from="1670069613708" duration="769000" />
       <workItem from="1670143414910" duration="3459000" />
       <workItem from="1670147472899" duration="1119000" />
-    </task>
-    <task id="LOCAL-00005" summary="Added Bouncey controller: no more double jumping after bouncey collisions">
-      <created>1666704512031</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1666704512031</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Death implemented">
-      <created>1666706650681</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1666706650681</updated>
     </task>
     <task id="LOCAL-00007" summary="Start to work on coin collection (still in discussion)">
       <created>1666707309813</created>
@@ -515,7 +497,21 @@
       <option name="project" value="LOCAL" />
       <updated>1671470022407</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="more speed = less acceleration">
+      <created>1671472489597</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1671472489598</updated>
+    </task>
+    <task id="LOCAL-00055" summary="stop pressing stops the stickman">
+      <created>1671472786726</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1671472786726</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -591,8 +587,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="fix save when first playing" />
-    <MESSAGE value="scene fix" />
     <MESSAGE value="scene" />
     <MESSAGE value="in game menu  (press m)" />
     <MESSAGE value="fix camera" />
@@ -616,6 +610,8 @@
     <MESSAGE value="esc to pause&#10;forse fix cloni (testare)&#10;better movement speed" />
     <MESSAGE value="fix animator - pause" />
     <MESSAGE value="Now on key horizontal move =0 the character stays still on its horizontal coord" />
-    <option name="LAST_COMMIT_MESSAGE" value="Now on key horizontal move =0 the character stays still on its horizontal coord" />
+    <MESSAGE value="more speed = less acceleration" />
+    <MESSAGE value="stop pressing stops the stickman" />
+    <option name="LAST_COMMIT_MESSAGE" value="stop pressing stops the stickman" />
   </component>
 </project>
