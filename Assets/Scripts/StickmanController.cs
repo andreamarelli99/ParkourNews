@@ -236,11 +236,6 @@ public class StickmanController : MonoBehaviour,ISingleton
             Flip();
         }
         
-        else if (_movement.x == 0)
-        {
-            _rigidbody2D.velocity = new Vector2(0,_rigidbody2D.velocity.y);
-        }
-
         if (_isJumping && _rigidbody2D.velocity.y < 0)
         {
            _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x / _xDecreasingWhenFalling, _rigidbody2D.velocity.y*_yIncreasingWhenFalling); 
@@ -342,11 +337,10 @@ public class StickmanController : MonoBehaviour,ISingleton
     private void FixedUpdate()
     {
         if(!_isSliding){
-            _realSpeed = Mathf.Max(_minSpeed, Mathf.Abs(_rigidbody2D.velocity.x));
-            _realSpeed = Math.Min(_realSpeed, _maxSpeed);
+            _realSpeed = Mathf.Abs(_rigidbody2D.velocity.x);
             _isRunning=_realSpeed >= _minRunSpeed;
             _animator.SetFloat(Speed,Mathf.Abs(_realSpeed));
-            _rigidbody2D.AddForce(_walkSpeed * Time.fixedDeltaTime * _movement);
+            _rigidbody2D.AddForce(_walkSpeed*(_maxSpeed-_realSpeed/_maxSpeed) * Time.fixedDeltaTime * _movement);
         }
         
         _follower.SetPosition(_transform.position);

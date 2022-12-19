@@ -3039,9 +3039,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigidbody2D: {fileID: 2134717079}
   _animator: {fileID: 2134717078}
-  _walkSpeed: 800
-  _minSpeed: 0.5
-  _maxSpeed: 3
+  _walkSpeed: 200
+  _minSpeed: 1
+  _maxSpeed: 5
   _minRunSpeed: 2
   _slideForce: 9
   _jumpForce: 6.5

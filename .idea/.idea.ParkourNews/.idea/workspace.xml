@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a21cc26-fe96-4869-9603-03d818d6f1ed" name="Changes" comment="fix animator - pause">
+    <list default="true" id="2a21cc26-fe96-4869-9603-03d818d6f1ed" name="Changes" comment="Now on key horizontal move =0 the character stays still on its horizontal coord">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ParkourNews/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ParkourNews/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/StickmanWalking Variant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/StickmanWalking Variant.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StickmanController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StickmanController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,13 +171,6 @@
       <workItem from="1670069613708" duration="769000" />
       <workItem from="1670143414910" duration="3459000" />
       <workItem from="1670147472899" duration="1119000" />
-    </task>
-    <task id="LOCAL-00004" summary="Fix immagini">
-      <created>1666615689672</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1666615689672</updated>
     </task>
     <task id="LOCAL-00005" summary="Added Bouncey controller: no more double jumping after bouncey collisions">
       <created>1666704512031</created>
@@ -513,7 +508,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671469065260</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="Now on key horizontal move =0 the character stays still on its horizontal coord">
+      <created>1671470022407</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1671470022407</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -589,7 +591,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="check on save done" />
     <MESSAGE value="fix save when first playing" />
     <MESSAGE value="scene fix" />
     <MESSAGE value="scene" />
@@ -614,6 +615,7 @@
     <MESSAGE value="menu suggestions + fix on canvas inkers" />
     <MESSAGE value="esc to pause&#10;forse fix cloni (testare)&#10;better movement speed" />
     <MESSAGE value="fix animator - pause" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix animator - pause" />
+    <MESSAGE value="Now on key horizontal move =0 the character stays still on its horizontal coord" />
+    <option name="LAST_COMMIT_MESSAGE" value="Now on key horizontal move =0 the character stays still on its horizontal coord" />
   </component>
 </project>
