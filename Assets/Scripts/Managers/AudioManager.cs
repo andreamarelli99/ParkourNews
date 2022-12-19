@@ -11,6 +11,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] public AudioSource musicSource, sfxSource;
 
     private DataManager _dataManager;
+    
+    private bool _enabled;
 
     private void Awake()
     {
@@ -27,11 +29,23 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
+        //Debug.Log("Starting AudioManager");
+        
         _dataManager = FindObjectOfType<DataManager>();
+        
+        StartCoroutine(nameof(WaitForDataManager));
+        
+    }
+    
+    IEnumerator WaitForDataManager()
+    {
+        yield return new WaitForSeconds(0.5f);
         musicSource.mute = !_dataManager.GetMusicEnabled();
         musicSource.volume = _dataManager.GetMusicVolume();
         sfxSource.mute = !_dataManager.GetSfxEnabled();
         sfxSource.volume = _dataManager.GetSfxVolume();
+        //Debug.Log("Music: " + musicSource.mute + musicSource.volume);
+        
         PlayMusic("Theme");
     }
 
@@ -158,8 +172,9 @@ public class AudioManager : MonoBehaviour
             Debug.Log("Sound not found");
         else
         {
+            //Debug.Log("Spawning sound music");
             sfxSource.clip = s;
-            sfxSource.Play();
+            sfxSource.PlayOneShot(sfxSource.clip);
         }
     }
 

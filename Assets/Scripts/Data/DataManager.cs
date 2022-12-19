@@ -18,6 +18,7 @@ namespace ParkourNews.Scripts
 
         private void Start()
         {
+            //Debug.Log("Starting DataManager");
             // default values
             gameData.musicEnabled = true;
             gameData.sfxEnabled = true;
@@ -28,6 +29,7 @@ namespace ParkourNews.Scripts
             if (File.Exists(_filePath))
             {
                 Load();
+                //Debug.Log("Printing volume music" + gameData.musicVolume + " " + gameData.musicEnabled);
                 _newGame = false;
             }
             else
