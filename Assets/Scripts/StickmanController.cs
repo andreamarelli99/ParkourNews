@@ -340,7 +340,7 @@ public class StickmanController : MonoBehaviour,ISingleton
             _realSpeed = Mathf.Abs(_rigidbody2D.velocity.x);
             _isRunning=_realSpeed >= _minRunSpeed;
             _animator.SetFloat(Speed,Mathf.Abs(_realSpeed));
-            if(Input.GetAxis("Horizontal") != 0)
+            if(Input.GetAxis("Horizontal") != 0 || !Input.anyKeyDown || _isJumping|| _isDoubleJumping|| _isSlidingOblique|| _isSliding|| _isGrappling|| _isJumpWall)
                 _rigidbody2D.AddForce(_walkSpeed*(_maxSpeed-_realSpeed/_maxSpeed) * Time.fixedDeltaTime * _movement);
             else
             {
