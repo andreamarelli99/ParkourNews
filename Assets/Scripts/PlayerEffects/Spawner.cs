@@ -1,15 +1,17 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class Spawner : MonoBehaviour
+public class Spawner : MonoBehaviour, ISingleton
 {
     [SerializeField] private GameObject _drop;
     [SerializeField] private GameObject _spawnEffect;
     [SerializeField] private GameObject _stickman;
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject levelMenu;
+    private bool _pauseIsOn;
     
     private Transform _transform;
     private bool _stickmanCreated = false;
@@ -33,6 +35,7 @@ public class Spawner : MonoBehaviour
     {
     //    ExecuteSpawnEffect();
         SpawnDrop();
+        _pauseIsOn = false;
         _initialPosition = _transform.position;
         pauseMenu.SetActive(false);
         EventManager.StartListening("OpenMenu",OnOpenMenu);
@@ -41,7 +44,7 @@ public class Spawner : MonoBehaviour
     private void OnEnable()
     {
        // _stickmanActions.Enable();
-        
+       
         EventManager.StartListening("OnDeath", OnDeath);
         
     }
@@ -50,14 +53,16 @@ public class Spawner : MonoBehaviour
 
     private void OnDisable()
     {
+      
         _stickmanActions.Disable();
     }
-    
-    
+
+
     private void OnOpenMenu()
     {
+        
         pauseMenu.SetActive(true);
-        Time.timeScale = 0f; 
+        Time.timeScale = 0f;
         levelMenu.SetActive(false);
     }
 
@@ -66,7 +71,6 @@ public class Spawner : MonoBehaviour
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         levelMenu.SetActive(true);
-        
     }
 
     public void LevelSelector()
@@ -84,8 +88,8 @@ public class Spawner : MonoBehaviour
     
     private void OnDeath()
     {
-        _stickmanCreated = false;
         EventManager.StopListening("OnDeath",OnDeath);
+        _stickmanCreated = false;
         StartCoroutine(RespawnCoroutine());
         EventManager.StartListening("OnDeath",OnDeath);
     }

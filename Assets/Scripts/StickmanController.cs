@@ -24,7 +24,8 @@ public class StickmanController : MonoBehaviour
     //------------------------------------- SPEED VALUES -------------------------------------//
     [SerializeField] private float _walkSpeed = 1000f;
     
-    [SerializeField] private float _minSpeed = 0f;
+    [SerializeField] private float _minSpeed = 0.5f;
+    [SerializeField] private float _maxSpeed = 3f;
     
     // When the stickman speed >= _minRunSpeed -> RUN
     [SerializeField] private float _minRunSpeed = 2f;
@@ -331,6 +332,7 @@ public class StickmanController : MonoBehaviour
     {
         if(!_isSliding){
             _realSpeed = Mathf.Max(_minSpeed, Mathf.Abs(_rigidbody2D.velocity.x));
+            _realSpeed = Math.Min(_realSpeed, _maxSpeed);
             _isRunning=_realSpeed >= _minRunSpeed;
             _animator.SetFloat(Speed,Mathf.Abs(_realSpeed));
             _rigidbody2D.AddForce(_walkSpeed * Time.fixedDeltaTime * _movement);
@@ -542,7 +544,6 @@ public class StickmanController : MonoBehaviour
         }
     }
     
-    //todo real crouch
     private void OnCrouch(InputAction.CallbackContext context)
     {
         if (!_isCrouched && !_isJumping && !_isSliding && !_isSlidingOblique) //if the stickman is not in a crouch position -> crouch
@@ -685,7 +686,6 @@ public class StickmanController : MonoBehaviour
 
         Debug.Log("Ended Jump!");
     }
-    
     
     private void InAir()
     {

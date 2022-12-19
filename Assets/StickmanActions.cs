@@ -295,7 +295,7 @@ public partial class @StickmanActions : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""9f69b23d-09a6-427b-9808-899baf03dff2"",
-                    ""path"": ""<Keyboard>/m"",
+                    ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
