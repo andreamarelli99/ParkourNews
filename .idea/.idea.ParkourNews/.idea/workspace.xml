@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a21cc26-fe96-4869-9603-03d818d6f1ed" name="Changes" comment="workspace">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ParkourNews/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ParkourNews/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StickmanController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StickmanController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
-    </list>
+    <list default="true" id="2a21cc26-fe96-4869-9603-03d818d6f1ed" name="Changes" comment="deceleration only in-air or during actions" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -171,13 +167,6 @@
       <workItem from="1670069613708" duration="769000" />
       <workItem from="1670143414910" duration="3459000" />
       <workItem from="1670147472899" duration="1119000" />
-    </task>
-    <task id="LOCAL-00008" summary="Start Fake Collider">
-      <created>1666715948100</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1666715948100</updated>
     </task>
     <task id="LOCAL-00009" summary="Fix collider w/ ground">
       <created>1666726706602</created>
@@ -515,7 +504,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671472938866</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="deceleration only in-air or during actions">
+      <created>1671483212120</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1671483212120</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -591,7 +587,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="in game menu  (press m)" />
     <MESSAGE value="fix camera" />
     <MESSAGE value="pause implemented (press m)" />
     <MESSAGE value="reset inkers : message" />
@@ -616,6 +611,7 @@
     <MESSAGE value="more speed = less acceleration" />
     <MESSAGE value="stop pressing stops the stickman" />
     <MESSAGE value="workspace" />
-    <option name="LAST_COMMIT_MESSAGE" value="workspace" />
+    <MESSAGE value="deceleration only in-air or during actions" />
+    <option name="LAST_COMMIT_MESSAGE" value="deceleration only in-air or during actions" />
   </component>
 </project>
