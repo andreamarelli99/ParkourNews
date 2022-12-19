@@ -340,7 +340,12 @@ public class StickmanController : MonoBehaviour,ISingleton
             _realSpeed = Mathf.Abs(_rigidbody2D.velocity.x);
             _isRunning=_realSpeed >= _minRunSpeed;
             _animator.SetFloat(Speed,Mathf.Abs(_realSpeed));
-            _rigidbody2D.AddForce(_walkSpeed*(_maxSpeed-_realSpeed/_maxSpeed) * Time.fixedDeltaTime * _movement);
+            if(Input.GetAxis("Horizontal") != 0)
+                _rigidbody2D.AddForce(_walkSpeed*(_maxSpeed-_realSpeed/_maxSpeed) * Time.fixedDeltaTime * _movement);
+            else
+            {
+                _rigidbody2D.velocity = new Vector2(0, _rigidbody2D.velocity.y);
+            }
         }
         
         _follower.SetPosition(_transform.position);
