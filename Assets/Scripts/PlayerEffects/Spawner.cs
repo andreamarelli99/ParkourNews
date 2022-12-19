@@ -1,5 +1,7 @@
 using System.Collections;
+using System.Linq;
 using Unity.VisualScripting;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -11,6 +13,11 @@ public class Spawner : MonoBehaviour, ISingleton
     [SerializeField] private GameObject _stickman;
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject levelMenu;
+
+    private SpriteRenderer[] _stickmanSprite;
+
+    private Vector2 _stickmanPos;
+    
     private bool _pauseIsOn;
     
     private Transform _transform;
@@ -34,6 +41,7 @@ public class Spawner : MonoBehaviour, ISingleton
     void Start()
     {
     //    ExecuteSpawnEffect();
+        _stickmanSprite = GetComponentsInChildren<SpriteRenderer>();
         SpawnDrop();
         _pauseIsOn = false;
         _initialPosition = _transform.position;
@@ -60,17 +68,14 @@ public class Spawner : MonoBehaviour, ISingleton
 
     private void OnOpenMenu()
     {
-        
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
-        levelMenu.SetActive(false);
     }
 
     public void Resume()
     {
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
-        levelMenu.SetActive(true);
     }
 
     public void LevelSelector()

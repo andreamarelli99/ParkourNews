@@ -4,16 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a21cc26-fe96-4869-9603-03d818d6f1ed" name="Changes" comment="">
+    <list default="true" id="2a21cc26-fe96-4869-9603-03d818d6f1ed" name="Changes" comment="esc to pause&#10;forse fix cloni (testare)&#10;better movement speed">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ParkourNews/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ParkourNews/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/StickmanWalking.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Player/StickmanWalking.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ParkourNews.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ParkourNews.inputactions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/ControllerButtons.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/ControllerButtons.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/SpaceBar.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/SpaceBar.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/StickmanWalking Variant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/StickmanWalking Variant.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/1.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerEffects/Spawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerEffects/Spawner.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/StickmanController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StickmanController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StickmanActions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StickmanActions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,11 +29,13 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Animations/Player/StickmanWalking.controller" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Prefabs/StickmanWalking Variant.prefab" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Scenes/1.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CameraSet.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Collectible/PlayerCoinsCounter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MainMenu/MenuController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerEffects/DeathEffectExplosion.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Scripts/PlayerEffects/Spawner.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/StickmanController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/mapEffects/GroundController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/mapEffects/RedLineManager.cs" root0="FORCE_HIGHLIGHTING" />
@@ -39,6 +44,7 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventInterfaces.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/InputModules/StandaloneInputModule.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/ProjectSettings/TagManager.asset" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -174,13 +180,6 @@
       <workItem from="1670069613708" duration="769000" />
       <workItem from="1670143414910" duration="3459000" />
       <workItem from="1670147472899" duration="1119000" />
-    </task>
-    <task id="LOCAL-00002" summary="ADDITION:EventManager to manage jump and double jump">
-      <created>1666560752999</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1666560752999</updated>
     </task>
     <task id="LOCAL-00003" summary="merge + double jump">
       <created>1666596410097</created>
@@ -518,7 +517,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671121126970</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="esc to pause&#10;forse fix cloni (testare)&#10;better movement speed">
+      <created>1671440531048</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1671440531048</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -594,7 +600,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="next level as message" />
     <MESSAGE value="fix on points type" />
     <MESSAGE value="check on save done" />
     <MESSAGE value="fix save when first playing" />
@@ -619,6 +624,7 @@
     <MESSAGE value="fix spawn menu" />
     <MESSAGE value="fix change of scene upon level completion" />
     <MESSAGE value="menu suggestions + fix on canvas inkers" />
-    <option name="LAST_COMMIT_MESSAGE" value="menu suggestions + fix on canvas inkers" />
+    <MESSAGE value="esc to pause&#10;forse fix cloni (testare)&#10;better movement speed" />
+    <option name="LAST_COMMIT_MESSAGE" value="esc to pause&#10;forse fix cloni (testare)&#10;better movement speed" />
   </component>
 </project>

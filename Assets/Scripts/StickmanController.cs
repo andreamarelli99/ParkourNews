@@ -1,5 +1,7 @@
 using System;
 using System.Collections;
+using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Vector2 = UnityEngine.Vector2;
@@ -12,7 +14,7 @@ using Vector3 = UnityEngine.Vector3;
  */
 
 
-public class StickmanController : MonoBehaviour
+public class StickmanController : MonoBehaviour,ISingleton
 {
     
     [SerializeField] private Rigidbody2D _rigidbody2D;
@@ -138,11 +140,12 @@ public class StickmanController : MonoBehaviour
         QualitySettings.vSyncCount = 1;
         _wallHopDirection.Normalize();
         _wallJumpDirection.Normalize();
-        
+
     }
 
     private void Awake()
     {
+        _animator = GetComponent<Animator>();
         //find the rigid body
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _stickmanActions = new StickmanActions();
@@ -153,6 +156,7 @@ public class StickmanController : MonoBehaviour
 
     private void OnEnable()
     {
+        _animator.Play("PlayerIdle");
         // Enable stickman actions
         _stickmanActions.Enable();
         _stickmanActions.Player.Jump.performed += OnJump;
@@ -196,6 +200,8 @@ public class StickmanController : MonoBehaviour
     private void OnDisable()
     {
         _stickmanActions.Disable();
+        Debug.Log("Stickman is disabled");
+
     }
 
     [SerializeField] private float _xDecreasingWhenFalling =  1.015f;

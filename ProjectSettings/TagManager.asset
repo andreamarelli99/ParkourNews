@@ -35,6 +35,7 @@ TagManager:
   - Spawner
   - CollectibleCheck
   - WallCheck
+  - StickmanSprite
   layers:
   - Default
   - TransparentFX
@@ -47,8 +48,8 @@ TagManager:
   - EnvironmentObjects
   - Checkers
   - Collectibles
-  - 
-  - 
+  - Pause
+  - Map
   - 
   - 
   - 
@@ -69,15 +70,27 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Pause
+    uniqueID: 2470939461
+    locked: 0
+  - name: Player
+    uniqueID: 764866689
+    locked: 0
   - name: DangeousObjects
     uniqueID: 1815738763
-    locked: 0
-  - name: Default
-    uniqueID: 0
     locked: 0
   - name: Collectibles
     uniqueID: 25260635
     locked: 0
   - name: top
     uniqueID: 3788835089
+    locked: 0
+  - name: UI
+    uniqueID: 877053875
+    locked: 0
+  - name: Map
+    uniqueID: 3266438055
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0
