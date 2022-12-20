@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a21cc26-fe96-4869-9603-03d818d6f1ed" name="Changes" comment="fix on colors&#10;when game starts the play button is selected">
+    <list default="true" id="2a21cc26-fe96-4869-9603-03d818d6f1ed" name="Changes" comment="initial menu buttons work with controller">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu/MenuNavigation.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ParkourNews/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ParkourNews/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/0.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/0.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/MainMenu/MenuController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu/MenuController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MainMenu/MenuNavigation/ButtonColoring.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu/MenuNavigation/ButtonColoring.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +20,7 @@
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Scenes/0.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Scenes/0.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Scenes/0.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Scenes/1.unity" root0="SKIP_HIGHLIGHTING" />
@@ -178,21 +179,7 @@
       <workItem from="1670069613708" duration="769000" />
       <workItem from="1670143414910" duration="3459000" />
       <workItem from="1670147472899" duration="1119000" />
-      <workItem from="1671541235105" duration="14406000" />
-    </task>
-    <task id="LOCAL-00014" summary="slide">
-      <created>1667577331751</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1667577331751</updated>
-    </task>
-    <task id="LOCAL-00015" summary="slide implemented">
-      <created>1667577518244</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1667577518244</updated>
+      <workItem from="1671541235105" duration="16596000" />
     </task>
     <task id="LOCAL-00016" summary="fixed Slide">
       <created>1667638363528</created>
@@ -523,7 +510,21 @@
       <option name="project" value="LOCAL" />
       <updated>1671556458627</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="fix on colors&#10;when game starts the play button is selected">
+      <created>1671558106984</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1671558106984</updated>
+    </task>
+    <task id="LOCAL-00064" summary="initial menu buttons work with controller">
+      <created>1671558299533</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1671558299533</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -599,7 +600,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="menu and 2nd scene" />
     <MESSAGE value="suggestions for scenes: 4 &amp; 9" />
     <MESSAGE value="suggestions + better graphic for ink counter" />
     <MESSAGE value="fix Levels" />
@@ -624,6 +624,7 @@
     <MESSAGE value="end menu with stars" />
     <MESSAGE value="visual hint on menu" />
     <MESSAGE value="fix on colors&#10;when game starts the play button is selected" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix on colors&#10;when game starts the play button is selected" />
+    <MESSAGE value="initial menu buttons work with controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="initial menu buttons work with controller" />
   </component>
 </project>
