@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using ParkourNews.Scripts;
 
 using TMPro;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
@@ -22,7 +23,10 @@ public class MenuController : MonoBehaviour
     private Button _quitButton;
     private Button _backButton;
     private LevelManager _levelManager;
-    
+
+    [SerializeField] private GameObject firstSelectedButtonMainMenu;
+    [SerializeField] private GameObject firstSelectedButtonOptions;
+    [SerializeField] private GameObject firstSelectedButtonExitOptions;
 
     private int _numberOfLevels;
     
@@ -42,7 +46,12 @@ public class MenuController : MonoBehaviour
         _imageSegmentDim = _imageSegmentDim / _numberOfLevels;
         
         mainMenu.SetActive(true);
-        
+        //clear selected object
+        EventSystem.current.SetSelectedGameObject(null);
+        //set play as the selected object
+        EventSystem.current.SetSelectedGameObject(playMenu);
+
+
         _playButton = GameObject.FindWithTag("PlayButton").GetComponent<Button>();
         _playButton.onClick.AddListener(OnClickPlayButton);
         
