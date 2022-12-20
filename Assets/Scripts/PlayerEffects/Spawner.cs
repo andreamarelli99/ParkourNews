@@ -49,7 +49,7 @@ public class Spawner : MonoBehaviour, ISingleton
     {
     //    ExecuteSpawnEffect();
         _stickmanSprite = GetComponentsInChildren<SpriteRenderer>();
-        SpawnDrop();
+        //SpawnDrop();
         _pauseIsOn = false;
         _initialPosition = _transform.position;
         pauseMenu.SetActive(false);
@@ -73,6 +73,7 @@ public class Spawner : MonoBehaviour, ISingleton
         EventManager.StartListening("EndMenu",OnEndMenu);
         if(_currentLevel>=_maxLevel)
             GameObject.FindWithTag("NextLevelButton").SetActive(false);
+        EventManager.StartListening("SpawnStickman",OnSpawnStickman);
     }
     
     private void OnEnable()
@@ -96,6 +97,12 @@ public class Spawner : MonoBehaviour, ISingleton
     {
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
+    }
+
+    private void OnSpawnStickman()
+    {
+        SpawnDrop();
+        EventManager.StopListening("SpawnStickman", OnSpawnStickman);
     }
 
     public void Resume()
