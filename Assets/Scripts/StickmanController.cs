@@ -224,19 +224,19 @@ public class StickmanController : MonoBehaviour,ISingleton
         }
 
         // If the input is moving the player right and the player is facing left...
-        if (_movement.x > 0 && _facingDirection == -1)
+        if (_movement.x > 0 && _facingDirection == -1 && Time.timeScale!=0)
         {
             // ... flip the player.
             Flip();
         }
         // Otherwise if the input is moving the player left and the player is facing right...
-        else if (_movement.x < 0 && _facingDirection == 1)
+        else if (_movement.x < 0 && _facingDirection == 1 && Time.timeScale!=0)
         {
             // ... flip the player.
             Flip();
         }
         
-        if (_isJumping && _rigidbody2D.velocity.y < 0)
+        if (_isJumping && _rigidbody2D.velocity.y < 0 )
         {
            _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x / _xDecreasingWhenFalling, _rigidbody2D.velocity.y*_yIncreasingWhenFalling); 
            
@@ -409,130 +409,138 @@ public class StickmanController : MonoBehaviour,ISingleton
         //EventManager.StopListening("InAir",InAir);
         _canRoll = true;
         _canMove = true;
-        if (_isGrappling)
+        if (Time.timeScale != 0)
         {
-            Debug.Log("Jump from hook!");
-            _rigidbody2D.isKinematic = false;
-            _animator.SetBool(IsGrappling,false);
-            _isGrappling = false;
-            _isJumping = true;
-            _isDoubleJumping = false;
-            _canRoll = true;
-            _rigidbody2D.AddForce(new Vector2(_facingDirection * _jumpForce,  0 ), ForceMode2D.Impulse);
-            _rigidbody2D.AddForce(new Vector2(0,  _jumpForce/2 ), ForceMode2D.Impulse);
-            //EventManager.StartListening("OnHook",OnHook);
+            if (_isGrappling)
+            {
+                Debug.Log("Jump from hook!");
+                _rigidbody2D.isKinematic = false;
+                _animator.SetBool(IsGrappling, false);
+                _isGrappling = false;
+                _isJumping = true;
+                _isDoubleJumping = false;
+                _canRoll = true;
+                _rigidbody2D.AddForce(new Vector2(_facingDirection * _jumpForce, 0), ForceMode2D.Impulse);
+                _rigidbody2D.AddForce(new Vector2(0, _jumpForce / 2), ForceMode2D.Impulse);
+                //EventManager.StartListening("OnHook",OnHook);
+            }
+            else if (_isJumpWall || _justFlipped)
+            {
+                _isJumpWall = false;
+                Debug.Log("Jumping from wall");
+                _animator.SetBool(IsJumping, true);
+
+                int oppositeDirection = 1;
+                float incForce = 1;
+                Debug.Log("Jumping with justFlipped: " + _justFlipped);
+                if (_justFlipped)
+                {
+                    oppositeDirection = -1;
+                    incForce = _incrementForceY;
+                }
+
+                Vector2 forceToAddHop = new Vector2(
+                    _wallHopForce * _wallHopDirection.x * -_facingDirection * oppositeDirection,
+                    _wallHopForce * _wallHopDirection.y * incForce);
+                _rigidbody2D.AddForce(forceToAddHop, ForceMode2D.Impulse);
+
+
+
+                Vector2 forceToAddJump =
+                    new Vector2(_wallJumpDirection.x * _wallJumpForce * _facingDirection * oppositeDirection,
+                        _wallJumpDirection.y * _wallJumpForce * incForce);
+                _rigidbody2D.AddForce(forceToAddJump, ForceMode2D.Impulse);
+
+
+
+                //Triggering sound for JumpWall
+                //           EventManager.TriggerEvent("JumpWallSound");
+
+                if (!_onWallEvent)
+                {
+                    EventManager.StartListening("OnWall", OnWall);
+                    _onWallEvent = true;
+                }
+
+                if (!_onGroundEvent)
+                {
+                    EventManager.StartListening("OnGround", OnGround);
+                    _onGroundEvent = true;
+                }
+            }
+            else if (!_isJumping)
+            {
+
+                if (_isSliding || _isCrouched) _walkSpeed *= 2;
+                _isJumpWall = false;
+                _isJumping = true;
+                _isCrouched = false;
+                _isSliding = false;
+                _isSlidingOblique = false;
+                Debug.Log("Jump!");
+                _animator.SetBool(IsJumping, true);
+                _animator.SetBool(IsCrouched, false);
+                _animator.SetBool(IsSliding, false);
+                _animator.SetBool(IsSlidingOblique, false);
+                //_animator.SetBool("IsSlidingWall",false);
+                _rigidbody2D.AddForce(_jumpForce * Vector2.up, ForceMode2D.Impulse);
+
+                if (!_onWallEvent)
+                {
+                    EventManager.StartListening("OnWall", OnWall);
+                    _onWallEvent = true;
+                }
+
+                if (!_onGroundEvent)
+                {
+                    EventManager.StartListening("OnGround", OnGround);
+                    _onGroundEvent = true;
+                }
+
+                //Triggering sound for jump
+                EventManager.TriggerEvent("JumpSound");
+
+            }
+            else if (!_isDoubleJumping && !_isCrouched)
+            {
+                _isJumpWall = false;
+                _isDoubleJumping = true;
+                Debug.Log("Double Jump!");
+                _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, 0f);
+                //_animator.SetBool("IsSlidingWall",false);
+                // A normal jump is directed up
+                var dir = Vector2.up;
+                if (_isSlidingOblique)
+                {
+                    // Apply a 45' force in same direction of the sliding oblique.
+                    dir = Vector2.up + Vector2.right * _facingDirection;
+                }
+
+                _rigidbody2D.AddForce(dir * _jumpForce, ForceMode2D.Impulse);
+
+                if (!_onWallEvent)
+                {
+                    EventManager.StartListening("OnWall", OnWall);
+                    _onWallEvent = true;
+                }
+
+                if (!_onGroundEvent)
+                {
+                    EventManager.StartListening("OnGround", OnGround);
+                    _onGroundEvent = true;
+                }
+
+                //Triggering sound for DoubleJump
+                EventManager.TriggerEvent("DoubleJumpSound");
+            }
+            else
+                Debug.Log("No more than Double Jump!");
         }
-        else if (_isJumpWall || _justFlipped)
-        {
-            _isJumpWall = false;
-            Debug.Log("Jumping from wall");
-            _animator.SetBool(IsJumping,true);
-            
-            int oppositeDirection = 1;
-            float incForce = 1;
-            Debug.Log("Jumping with justFlipped: " + _justFlipped);
-            if (_justFlipped)
-            {
-                oppositeDirection = -1;
-                incForce = _incrementForceY;
-            }
-
-            Vector2 forceToAddHop = new Vector2(_wallHopForce * _wallHopDirection.x * -_facingDirection * oppositeDirection, 
-                _wallHopForce * _wallHopDirection.y * incForce);
-            _rigidbody2D.AddForce(forceToAddHop, ForceMode2D.Impulse);
-
-            
-
-            Vector2 forceToAddJump =
-                new Vector2(_wallJumpDirection.x * _wallJumpForce * _facingDirection * oppositeDirection, _wallJumpDirection.y * _wallJumpForce * incForce);
-            _rigidbody2D.AddForce(forceToAddJump, ForceMode2D.Impulse);
-            
-            
-            
-            //Triggering sound for JumpWall
-            //           EventManager.TriggerEvent("JumpWallSound");
-
-            if (!_onWallEvent)
-            {
-                EventManager.StartListening("OnWall", OnWall);
-                _onWallEvent = true;
-            }
-            if (!_onGroundEvent)
-            {
-                EventManager.StartListening("OnGround", OnGround);
-                _onGroundEvent = true;
-            }
-        }
-        else if (!_isJumping)
-        {
-
-            if (_isSliding || _isCrouched) _walkSpeed *= 2;
-            _isJumpWall = false;
-            _isJumping = true;
-            _isCrouched = false;
-            _isSliding = false;
-            _isSlidingOblique = false;
-            Debug.Log("Jump!");
-            _animator.SetBool(IsJumping,true);
-            _animator.SetBool(IsCrouched,false);
-            _animator.SetBool(IsSliding,false);
-            _animator.SetBool(IsSlidingOblique,false);
-            //_animator.SetBool("IsSlidingWall",false);
-            _rigidbody2D.AddForce(_jumpForce * Vector2.up, ForceMode2D.Impulse);
-            
-            if (!_onWallEvent)
-            {
-                EventManager.StartListening("OnWall", OnWall);
-                _onWallEvent = true;
-            }
-            if (!_onGroundEvent)
-            {
-                EventManager.StartListening("OnGround", OnGround);
-                _onGroundEvent = true;
-            }
-
-            //Triggering sound for jump
-            EventManager.TriggerEvent("JumpSound");
-            
-        }
-        else if (!_isDoubleJumping && !_isCrouched)
-        {
-            _isJumpWall = false;
-            _isDoubleJumping = true;
-            Debug.Log("Double Jump!");
-            _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, 0f);
-            //_animator.SetBool("IsSlidingWall",false);
-            // A normal jump is directed up
-            var dir = Vector2.up;
-            if (_isSlidingOblique)
-            {
-                // Apply a 45' force in same direction of the sliding oblique.
-                dir = Vector2.up + Vector2.right * _facingDirection;
-            }
-            _rigidbody2D.AddForce(dir * _jumpForce, ForceMode2D.Impulse);
-            
-            if (!_onWallEvent)
-            {
-                EventManager.StartListening("OnWall", OnWall);
-                _onWallEvent = true;
-            }
-            if (!_onGroundEvent)
-            {
-                EventManager.StartListening("OnGround", OnGround);
-                _onGroundEvent = true;
-            }
-            
-            //Triggering sound for DoubleJump
-            EventManager.TriggerEvent("DoubleJumpSound");
-        }
-        else 
-            Debug.Log("No more than Double Jump!");
     }
-    
 
     private void OnDash(InputAction.CallbackContext context)
     {
-        if (_canDash&&!_isCrouched && !_isSlidingOblique)
+        if (_canDash&&!_isCrouched && !_isSlidingOblique&& Time.timeScale!=0)
         {
             EventManager.TriggerEvent("DashSound");
             _rigidbody2D.AddForce(_facingDirection * Vector2.right * _dashForce, ForceMode2D.Impulse);
@@ -548,7 +556,7 @@ public class StickmanController : MonoBehaviour,ISingleton
     private void OnSomersault(InputAction.CallbackContext context)
     {
         //when you enter here do the roll animation
-        if (_canRoll)
+        if (_canRoll&& Time.timeScale!=0)
         {
             Debug.Log("Somersault");
             _rigidbody2D.velocity = new Vector2(0, _rigidbody2D.velocity.y);
@@ -559,7 +567,7 @@ public class StickmanController : MonoBehaviour,ISingleton
     
     private void OnCrouch(InputAction.CallbackContext context)
     {
-        if (!_isCrouched && !_isJumping && !_isSliding && !_isSlidingOblique) //if the stickman is not in a crouch position -> crouch
+        if (!_isCrouched && !_isJumping && !_isSliding && !_isSlidingOblique&& Time.timeScale!=0) //if the stickman is not in a crouch position -> crouch
         {
                 // if the player is running when the crouch is called slide and then crouch
                 if (Math.Abs(_rigidbody2D.velocity.x) >= _minRunSpeed && _isRunning && Time.time > NextSlide)
@@ -575,7 +583,7 @@ public class StickmanController : MonoBehaviour,ISingleton
                 _walkSpeed /= 2;
 
         }
-        else if(!_isJumping && !_isSliding && !_isSlidingOblique)//if the stickman is in a crouch position -> getUp
+        else if(!_isJumping && !_isSliding && !_isSlidingOblique&& Time.timeScale!=0)//if the stickman is in a crouch position -> getUp
         {
             //todo check for collisions
             Debug.Log("Get Up!");

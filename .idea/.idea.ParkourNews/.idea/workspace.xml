@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a21cc26-fe96-4869-9603-03d818d6f1ed" name="Changes" comment="menu selector works with the controller">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu/PauseMenu.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu/PauseMenu.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
-    </list>
+    <list default="true" id="2a21cc26-fe96-4869-9603-03d818d6f1ed" name="Changes" comment="menu with controller works&#10;&#10;found &quot;bugs&quot; if we press actions command in pause/end menu the scripts execute them" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,6 +21,7 @@
     <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Scenes/0.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Scenes/0.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Scenes/0.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Scenes/1.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Scenes/1.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Scenes/1.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Scenes/MenuSelector.unity" root0="SKIP_HIGHLIGHTING" />
@@ -183,14 +180,7 @@
       <workItem from="1670069613708" duration="769000" />
       <workItem from="1670143414910" duration="3459000" />
       <workItem from="1670147472899" duration="1119000" />
-      <workItem from="1671541235105" duration="18250000" />
-    </task>
-    <task id="LOCAL-00020" summary="Add link menu selector - levels">
-      <created>1668958820054</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1668958820054</updated>
+      <workItem from="1671541235105" duration="19106000" />
     </task>
     <task id="LOCAL-00021" summary="on hover change color&#10;stars png">
       <created>1668963605745</created>
@@ -528,7 +518,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671564922687</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="menu with controller works&#10;&#10;found &quot;bugs&quot; if we press actions command in pause/end menu the scripts execute them">
+      <created>1671565917387</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1671565917387</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -604,7 +601,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="fix on stair" />
     <MESSAGE value="fix show levels" />
     <MESSAGE value="less noise w/ sound" />
     <MESSAGE value="fix for demo" />
@@ -629,6 +625,7 @@
     <MESSAGE value="fix" />
     <MESSAGE value="main menu&#10;options&#10;&#10;work with controller" />
     <MESSAGE value="menu selector works with the controller" />
-    <option name="LAST_COMMIT_MESSAGE" value="menu selector works with the controller" />
+    <MESSAGE value="menu with controller works&#10;&#10;found &quot;bugs&quot; if we press actions command in pause/end menu the scripts execute them" />
+    <option name="LAST_COMMIT_MESSAGE" value="menu with controller works&#10;&#10;found &quot;bugs&quot; if we press actions command in pause/end menu the scripts execute them" />
   </component>
 </project>
