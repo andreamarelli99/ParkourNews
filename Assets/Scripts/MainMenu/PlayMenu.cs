@@ -13,6 +13,7 @@ public class PlayMenu: MonoBehaviour
     [SerializeField] private GameObject buttonFirstLevel;
     [SerializeField] private GameObject buttonNextPage;
     [SerializeField] private GameObject buttonPrevPage;
+    private GameObject _lastSelectedEl;
     
     
         private int _totalLevel;
@@ -35,6 +36,7 @@ public class PlayMenu: MonoBehaviour
             EventSystem.current.SetSelectedGameObject(null);
             //set play as the selected object
             EventSystem.current.SetSelectedGameObject(buttonFirstLevel);
+            _lastSelectedEl = buttonFirstLevel;
             
             _levelManager = FindObjectOfType<LevelManager>();
             _totalLevel = _levelManager.numberOfLevels();
@@ -125,5 +127,16 @@ public class PlayMenu: MonoBehaviour
                 }
             }
             checkButton();
+        }
+        void Update()
+        {
+            if (EventSystem.current.currentSelectedGameObject == null)
+            {
+                EventSystem.current.SetSelectedGameObject(_lastSelectedEl);
+            }
+            else
+            {
+                _lastSelectedEl = EventSystem.current.currentSelectedGameObject;
+            }
         }
     }

@@ -33,6 +33,7 @@ public class MenuController : MonoBehaviour
     [SerializeField] private GameObject firstSelectedButtonMainMenu;
     [SerializeField] private GameObject firstSelectedButtonOptions;
     [SerializeField] private GameObject firstSelectedButtonExitOptions;
+    private GameObject _lastSelectedEl;
     
 
     private int _numberOfLevels;
@@ -61,7 +62,7 @@ public class MenuController : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(null);
         //set play as the selected object
         EventSystem.current.SetSelectedGameObject(firstSelectedButtonMainMenu);
-
+        _lastSelectedEl = firstSelectedButtonMainMenu;
 
         _playButton = GameObject.FindWithTag("PlayButton").GetComponent<Button>();
         _playButton.onClick.AddListener(OnClickPlayButton);
@@ -155,4 +156,15 @@ public class MenuController : MonoBehaviour
         }
     }
     
+    void Update()
+    {
+        if (EventSystem.current.currentSelectedGameObject == null)
+        {
+            EventSystem.current.SetSelectedGameObject(_lastSelectedEl);
+        }
+        else
+        {
+            _lastSelectedEl = EventSystem.current.currentSelectedGameObject;
+        }
+    }
 }

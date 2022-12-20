@@ -27,6 +27,8 @@ public class GameController: MonoBehaviour
         
         private void Start()
         {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
             
             EventManager.StartListening("OnLevelCompletion",OnLevelCompletion);
             EventManager.StartListening("OnPlayLevel",OnPlayLevel);
