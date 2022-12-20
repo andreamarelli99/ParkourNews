@@ -49,7 +49,7 @@ public class MenuController : MonoBehaviour
         //clear selected object
         EventSystem.current.SetSelectedGameObject(null);
         //set play as the selected object
-        EventSystem.current.SetSelectedGameObject(playMenu);
+        EventSystem.current.SetSelectedGameObject(firstSelectedButtonMainMenu);
 
 
         _playButton = GameObject.FindWithTag("PlayButton").GetComponent<Button>();
