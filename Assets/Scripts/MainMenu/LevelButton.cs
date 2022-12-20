@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
-    public class LevelButton:MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+    public class LevelButton:MonoBehaviour
     {
         public Sprite lockSprite;
         public Text levelText;
@@ -17,11 +17,8 @@ using UnityEngine.UI;
         private ColorBlock _colors;
         public GameObject levelStarPrefab;
         private Image _image;
-        private Color buttonColor =  new Color32(179,179,179,70);
-        private Color buttonTextColor = Color.black;
-        private Color buttonSelectedColor = Color.green;
-        private Color buttonHoverColor = Color.black;
-        private Color buttonHoverTextColor=Color.white;
+        [SerializeField] private Color buttonColor =  new Color32(179,179,179,70);
+        [SerializeField] private Color buttonSelectedColor = new Color32(160, 251, 232, 255);
         private LevelStar _levelStar;
         private LevelManager _levelManager;
 
@@ -44,8 +41,7 @@ using UnityEngine.UI;
             levelText.alignment=TextAnchor.MiddleCenter;
             _colors = _button.colors;
             _colors.normalColor = buttonColor;
-            _colors.pressedColor = buttonSelectedColor;
-            _colors.highlightedColor = buttonHoverColor;
+            _colors.selectedColor = buttonSelectedColor;
             _button.colors = _colors;
             
             
@@ -78,14 +74,5 @@ using UnityEngine.UI;
             SceneManager.LoadScene(levelText.text);
             
         }
-
-        public void OnPointerEnter(PointerEventData eventData)
-        {
-            levelText.color = buttonHoverTextColor;
-        }
-
-        public void OnPointerExit(PointerEventData eventData)
-        {
-            levelText.color = buttonTextColor;
-        }
+        
     }

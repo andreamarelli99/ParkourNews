@@ -1046,7 +1046,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Main Menu
+  m_text: 'Main Menu '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e11499012ab49b1418654384c28896fc, type: 2}
   m_sharedMaterial: {fileID: -3692997671159930495, guid: e11499012ab49b1418654384c28896fc, type: 2}
@@ -1073,8 +1073,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60
-  m_fontSizeBase: 60
+  m_fontSize: 57
+  m_fontSizeBase: 57
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1519,6 +1519,7 @@ GameObject:
   - component: {fileID: 888944951}
   - component: {fileID: 888944950}
   - component: {fileID: 888944949}
+  - component: {fileID: 888944952}
   m_Layer: 5
   m_Name: Next
   m_TagString: Untagged
@@ -1641,6 +1642,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 888944947}
   m_CullTransparentMesh: 1
+--- !u!114 &888944952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888944947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ee0a8fc31b9472f99031668f61acff8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonColor: {r: 0.7019608, g: 0.7019608, b: 0.7019608, a: 0.27450982}
+  buttonSelectedColor: {r: 0.627451, g: 0.9843137, b: 0.9098039, a: 1}
 --- !u!1 &954190595
 GameObject:
   m_ObjectHideFlags: 0
@@ -2481,6 +2496,7 @@ GameObject:
   - component: {fileID: 1202808231}
   - component: {fileID: 1202808230}
   - component: {fileID: 1202808229}
+  - component: {fileID: 1202808232}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: BackButton
@@ -2497,7 +2513,7 @@ RectTransform:
   m_GameObject: {fileID: 1202808227}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 388109141}
@@ -2572,7 +2588,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1202808227}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -2603,6 +2619,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1202808227}
   m_CullTransparentMesh: 1
+--- !u!114 &1202808232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1202808227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ee0a8fc31b9472f99031668f61acff8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonColor: {r: 0.7019608, g: 0.7019608, b: 0.7019608, a: 0.27450982}
+  buttonSelectedColor: {r: 0.627451, g: 0.9843137, b: 0.9098039, a: 1}
 --- !u!1 &1232512351
 GameObject:
   m_ObjectHideFlags: 0
@@ -2753,6 +2783,7 @@ GameObject:
   - component: {fileID: 1414430216}
   - component: {fileID: 1414430215}
   - component: {fileID: 1414430214}
+  - component: {fileID: 1414430218}
   m_Layer: 5
   m_Name: Prev
   m_TagString: Untagged
@@ -2875,6 +2906,20 @@ RectTransform:
   m_AnchoredPosition: {x: -651, y: 83.90579}
   m_SizeDelta: {x: 255.62317, y: 77.8116}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1414430218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414430213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ee0a8fc31b9472f99031668f61acff8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonColor: {r: 0.7019608, g: 0.7019608, b: 0.7019608, a: 0.27450982}
+  buttonSelectedColor: {r: 0.627451, g: 0.9843137, b: 0.9098039, a: 1}
 --- !u!1 &1478505050
 GameObject:
   m_ObjectHideFlags: 0
@@ -3259,6 +3304,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d78d8c81978447485923016c4debda7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonFirstLevel: {fileID: 657721006}
+  buttonNextPage: {fileID: 888944947}
+  buttonPrevPage: {fileID: 1414430213}
   unlockedValue: 3
   nextButton: {fileID: 888944947}
   prevButton: {fileID: 1414430213}

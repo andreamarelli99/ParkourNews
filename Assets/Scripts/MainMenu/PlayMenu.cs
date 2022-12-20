@@ -3,12 +3,18 @@ using System.Collections.Generic;
 using ParkourNews.Scripts;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 
 public class PlayMenu: MonoBehaviour
-    {
+{
+    [SerializeField] private GameObject buttonFirstLevel;
+    [SerializeField] private GameObject buttonNextPage;
+    [SerializeField] private GameObject buttonPrevPage;
+    
+    
         private int _totalLevel;
         public int unlockedValue = 0; //last level unlocked
         private int _totalPages=0;
@@ -25,6 +31,11 @@ public class PlayMenu: MonoBehaviour
 
         private void Start()
         {
+            //clear selected object
+            EventSystem.current.SetSelectedGameObject(null);
+            //set play as the selected object
+            EventSystem.current.SetSelectedGameObject(buttonFirstLevel);
+            
             _levelManager = FindObjectOfType<LevelManager>();
             _totalLevel = _levelManager.numberOfLevels();
             _dataManager = FindObjectOfType<DataManager>();
@@ -48,12 +59,31 @@ public class PlayMenu: MonoBehaviour
             Debug.Log("Next");
             _page ++;
             Refresh();
+            
+            //clear selected object
+            EventSystem.current.SetSelectedGameObject(null);
+            //set play as the selected object
+            if(buttonNextPage.activeSelf)
+                EventSystem.current.SetSelectedGameObject(buttonNextPage);
+            else
+            {
+                EventSystem.current.SetSelectedGameObject(buttonPrevPage);
+            }
         }
 
         public void ClickBack()
         {
             _page --;
             Refresh();
+            //clear selected object
+            EventSystem.current.SetSelectedGameObject(null);
+            //set play as the selected object
+            if(buttonPrevPage.activeSelf)
+                EventSystem.current.SetSelectedGameObject(buttonPrevPage);
+            else
+            {
+                EventSystem.current.SetSelectedGameObject(buttonNextPage);
+            }
         }
 
         public void ClickBackMenu()
