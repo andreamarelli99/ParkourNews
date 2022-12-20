@@ -80,6 +80,11 @@ public class MenuController : MonoBehaviour
         optionsMenu.SetActive(true);
         backMenu.SetActive(true);
         
+        //clear selected object
+        EventSystem.current.SetSelectedGameObject(null);
+        //set play as the selected object
+        EventSystem.current.SetSelectedGameObject(firstSelectedButtonOptions);
+        
         _backButton = GameObject.FindWithTag("BackButton").GetComponent<Button>();
         _playButton.onClick.AddListener(OnClickBackButton);
     }
@@ -94,6 +99,11 @@ public class MenuController : MonoBehaviour
         backMenu.SetActive(false);
         optionsMenu.SetActive(false);
         mainMenu.SetActive(true);
+        
+        //clear selected object
+        EventSystem.current.SetSelectedGameObject(null);
+        //set play as the selected object
+        EventSystem.current.SetSelectedGameObject(firstSelectedButtonExitOptions);
     }
     
 }

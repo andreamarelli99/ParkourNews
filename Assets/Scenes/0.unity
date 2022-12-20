@@ -1618,8 +1618,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonColor: {r: 0.7019608, g: 0.7019608, b: 0.7019608, a: 0.27450982}
-  buttonSelectedColor: {r: 0, g: 1, b: 0, a: 1}
-  buttonHoverColor: {r: 0.56078434, g: 0.85490197, b: 0.8666667, a: 1}
+  buttonSelectedColor: {r: 0, g: 1, b: 0.79607844, a: 1}
 --- !u!1 &511819086
 GameObject:
   m_ObjectHideFlags: 0
@@ -2709,8 +2708,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonColor: {r: 0.7019608, g: 0.7019608, b: 0.7019608, a: 0.27450982}
-  buttonSelectedColor: {r: 0, g: 1, b: 0, a: 1}
-  buttonHoverColor: {r: 0.56078434, g: 0.85490197, b: 0.8666667, a: 1}
+  buttonSelectedColor: {r: 0.627451, g: 0.9843137, b: 0.9098039, a: 1}
 --- !u!1 &1000157877
 GameObject:
   m_ObjectHideFlags: 0
@@ -2988,8 +2986,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonColor: {r: 0.7019608, g: 0.7019608, b: 0.7019608, a: 0.27450982}
-  buttonSelectedColor: {r: 0, g: 1, b: 0, a: 1}
-  buttonHoverColor: {r: 0.56078434, g: 0.85490197, b: 0.8666667, a: 1}
+  buttonSelectedColor: {r: 0.627451, g: 0.9843137, b: 0.9098039, a: 1}
 --- !u!1001 &1009729201
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3536,7 +3533,7 @@ MonoBehaviour:
   playMenu: {fileID: 0}
   backMenu: {fileID: 47721989}
   firstSelectedButtonMainMenu: {fileID: 466607393}
-  firstSelectedButtonOptions: {fileID: 1008519434}
+  firstSelectedButtonOptions: {fileID: 1191315950}
   firstSelectedButtonExitOptions: {fileID: 972911055}
 --- !u!1 &1190617867
 GameObject:
@@ -3742,7 +3739,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonColor: {r: 0.7019608, g: 0.7019608, b: 0.7019608, a: 0.27450982}
   buttonSelectedColor: {r: 0, g: 1, b: 0.79607844, a: 1}
-  buttonHoverColor: {r: 0.56078434, g: 0.85490197, b: 0.8666667, a: 1}
 --- !u!1 &1218348725
 GameObject:
   m_ObjectHideFlags: 0
