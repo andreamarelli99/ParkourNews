@@ -59,6 +59,7 @@ public class Spawner : MonoBehaviour, ISingleton
         
         EventManager.StartListening("OpenMenu",OnOpenMenu);
         EventManager.StartListening("EndMenu",OnEndMenu);
+        EventManager.StartListening("SpawnStickman",OnSpawnStickman);
     }
     
     private void OnEndMenu()
