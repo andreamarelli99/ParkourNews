@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Linq;
+using ParkourNews.Scripts;
 using Unity.VisualScripting;
 using UnityEditor.Animations;
 using UnityEngine;
@@ -13,6 +14,12 @@ public class Spawner : MonoBehaviour, ISingleton
     [SerializeField] private GameObject _stickman;
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject levelMenu;
+    [SerializeField] private GameObject endMenu;
+    
+    private LevelManager _levelManager;
+    private int _currentLevel;
+    private int _nextLevel;
+    private int _maxLevel;
 
     private SpriteRenderer[] _stickmanSprite;
 
@@ -46,7 +53,27 @@ public class Spawner : MonoBehaviour, ISingleton
         _pauseIsOn = false;
         _initialPosition = _transform.position;
         pauseMenu.SetActive(false);
+        endMenu.SetActive(false);
+
+        _levelManager = FindObjectOfType<LevelManager>();
+        
         EventManager.StartListening("OpenMenu",OnOpenMenu);
+        EventManager.StartListening("EndMenu",OnEndMenu);
+        EventManager.StartListening("SpawnStickman",OnSpawnStickman);
+    }
+    
+    private void OnEndMenu()
+    {
+        Debug.Log("EndMenu");
+        EventManager.StopListening("EndMenu",OnEndMenu);
+        endMenu.SetActive(true);
+        Time.timeScale = 0f;
+        _currentLevel = _levelManager.GetCurrentLevel();
+        _nextLevel = _levelManager.GetNextLevel();
+        _maxLevel = _levelManager.numberOfLevels();
+        EventManager.StartListening("EndMenu",OnEndMenu);
+        if(_currentLevel>=_maxLevel)
+            GameObject.FindWithTag("NextLevelButton").SetActive(false);
         EventManager.StartListening("SpawnStickman",OnSpawnStickman);
     }
     
@@ -91,6 +118,20 @@ public class Spawner : MonoBehaviour, ISingleton
         SceneManager.LoadScene("MenuSelector");
     }
 
+    public void NextLevel()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(_nextLevel.ToString());
+    }
+
+    public void Redo()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(_currentLevel.ToString());
+    }
+    
+    
+    
     public void Quit()
     {
         Application.Quit();

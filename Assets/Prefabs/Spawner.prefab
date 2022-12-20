@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3505838588645829429}
   m_Layer: 0
   m_Name: Spawner
-  m_TagString: Untagged
+  m_TagString: Spawner
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,6 +48,9 @@ MonoBehaviour:
   _drop: {fileID: 374287736051873349, guid: d19047eb598a84e43a2b01ce45b9e909, type: 3}
   _spawnEffect: {fileID: 8415308070707112126, guid: 99bdfa68e923b4a49bc14b34d581b280, type: 3}
   _stickman: {fileID: 4851653737861826069, guid: 23ec1657be30b0441afdb48fe99a5459, type: 3}
+  pauseMenu: {fileID: 0}
+  levelMenu: {fileID: 0}
+  endMenu: {fileID: 0}
   _timeLeft: 1.33
 --- !u!114 &3505838588645829429
 MonoBehaviour:

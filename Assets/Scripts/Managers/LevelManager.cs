@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace ParkourNews.Scripts
 {
@@ -16,8 +18,9 @@ namespace ParkourNews.Scripts
         [SerializeField] private int _maxLevel =3;
 
         [SerializeField] private List<int> coinsPerLevel;
-
+        
         private DataManager _dataManager;
+        private int _nextLevel;
 
         private void Awake()
         {
@@ -50,26 +53,29 @@ namespace ParkourNews.Scripts
             
             EventManager.StartListening("EndLevel",OnEndLevel);
             
+           
+            
         }
+
+        
 
         private void OnEndLevel()
         {
-            EventManager.StopListening("EndLevel",OnEndLevel);
             
-            int nextLevel = _currentLevel + 1;
-            Debug.Log("livello finito :  "+ _currentLevel +" && prossimo livello: "+ nextLevel + "&& tot livelli: "+coinsPerLevel.Count);
+            
+            EventManager.StopListening("EndLevel",OnEndLevel);
+            _nextLevel = _currentLevel + 1;
+            Debug.Log("livello finito :  "+ _currentLevel +" && prossimo livello: "+ _nextLevel + "&& tot livelli: "+coinsPerLevel.Count);
             _dataManager.SetData(GetCurrentLevel(),getPlayerPointsRatio());
             EventManager.TriggerEvent("Save");
-            _currentLevel = nextLevel;
-            if (nextLevel <= coinsPerLevel.Count)
-                SceneManager.LoadScene(nextLevel.ToString());
-            else
-                SceneManager.LoadScene("MenuSelector");
+
+            EventManager.TriggerEvent("EndMenu");
+            
             EventManager.StartListening("EndLevel",OnEndLevel);
             
         }
-        
 
+        
         public void setCurrentLevel(int level)
         {
             _currentLevel = level;
@@ -86,6 +92,11 @@ namespace ParkourNews.Scripts
         {
             return _currentLevel;
         }
+        public int GetNextLevel()
+        {
+            return _nextLevel;
+        }
+        
 
         public void OnStartNextLevel() 
         {
