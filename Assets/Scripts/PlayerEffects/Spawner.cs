@@ -6,6 +6,7 @@ using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Spawner : MonoBehaviour, ISingleton
 {
@@ -15,8 +16,15 @@ public class Spawner : MonoBehaviour, ISingleton
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject levelMenu;
     [SerializeField] private GameObject endMenu;
+    [SerializeField] private Image image;
+    
+    public Sprite starsSprite0;
+    public Sprite starsSprite1;
+    public Sprite starsSprite2;
+    public Sprite starsSprite3;
     
     private LevelManager _levelManager;
+    private DataManager _dataManager;
     private int _currentLevel;
     private int _nextLevel;
     private int _maxLevel;
@@ -64,6 +72,7 @@ public class Spawner : MonoBehaviour, ISingleton
     
     private void OnEndMenu()
     {
+        
         Debug.Log("EndMenu");
         EventManager.StopListening("EndMenu",OnEndMenu);
         endMenu.SetActive(true);
@@ -75,6 +84,28 @@ public class Spawner : MonoBehaviour, ISingleton
         if(_currentLevel>=_maxLevel)
             GameObject.FindWithTag("NextLevelButton").SetActive(false);
         EventManager.StartListening("SpawnStickman",OnSpawnStickman);
+
+        int stars = _levelManager.getStars();
+        Debug.Log("end menu stars" + stars);
+        switch (stars)
+        {
+            case 0: 
+                image.sprite = starsSprite0;
+                break;
+            case 1:
+                image.sprite = starsSprite1;
+                break;
+            case 2:
+                image.sprite = starsSprite2;
+                break;
+            case 3:
+                image.sprite = starsSprite3;
+                break;
+            default:
+                image.sprite = starsSprite0;
+                break;
+        }
+
     }
     
     private void OnEnable()

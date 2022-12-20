@@ -10,7 +10,7 @@ namespace ParkourNews.Scripts
         [SerializeField] private GameData gameData;
         private string _filePath;
         private bool _newGame = true;
-
+        private int _stars;
         private void Awake()
         {
             DontDestroyOnLoad(gameObject);
@@ -66,6 +66,10 @@ namespace ParkourNews.Scripts
             gameData = JsonUtility.FromJson<GameData>(File.ReadAllText(_filePath));
         }
 
+        public int getStars()
+        {
+            return _stars;
+        }
         public GameData GetData()
         {
             return gameData;
@@ -76,32 +80,32 @@ namespace ParkourNews.Scripts
             Debug.Log("clevel= " + cLevel + "points= " + plPoints);
             gameData.lastLevelUnlocked = Math.Max(cLevel + 1, gameData.lastLevelUnlocked);
 
-            int stars;
+            
 
             switch (plPoints)
             {
                 //to assign stars
 
                 case >= 1:
-                    stars = 3;
+                    _stars = 3;
                     break;
                 case >= (float)2 / 3:
-                    stars = 2;
+                    _stars = 2;
                     break;
                 case >= (float)1 / 3:
-                    stars = 1;
+                    _stars = 1;
                     break;
                 default:
-                    stars = 0;
+                    _stars = 0;
                     break;
             }
 
-            Debug.Log("stars= " + stars);
+            Debug.Log("stars= " + _stars);
 
             if (gameData.playerResults.Count < cLevel)
-                gameData.playerResults.Add(new Vector2(cLevel, stars));
-            else if (stars > gameData.playerResults[cLevel - 1].y)
-                gameData.playerResults[cLevel - 1] = new Vector2(cLevel, stars);
+                gameData.playerResults.Add(new Vector2(cLevel, _stars));
+            else if (_stars > gameData.playerResults[cLevel - 1].y)
+                gameData.playerResults[cLevel - 1] = new Vector2(cLevel, _stars);
         }
 
         public double getLastUnlockedLevel()

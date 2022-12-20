@@ -140,5 +140,10 @@ namespace ParkourNews.Scripts
             EventManager.StartListening("OnCoin",OnCoin);
             
         }
+
+        public int getStars()
+        {
+            return _dataManager.getStars();
+        }
     }
 }
