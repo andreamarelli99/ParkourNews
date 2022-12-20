@@ -447,6 +447,8 @@ public class StickmanController : MonoBehaviour,ISingleton
                 new Vector2(_wallJumpDirection.x * _wallJumpForce * _facingDirection * oppositeDirection, _wallJumpDirection.y * _wallJumpForce * incForce);
             _rigidbody2D.AddForce(forceToAddJump, ForceMode2D.Impulse);
             
+            
+            
             //Triggering sound for JumpWall
             //           EventManager.TriggerEvent("JumpWallSound");
 
@@ -526,6 +528,7 @@ public class StickmanController : MonoBehaviour,ISingleton
         else 
             Debug.Log("No more than Double Jump!");
     }
+    
 
     private void OnDash(InputAction.CallbackContext context)
     {
@@ -656,7 +659,7 @@ public class StickmanController : MonoBehaviour,ISingleton
 
     IEnumerator DisableJustFlippedCoroutine()
     {
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.2f);
         _justFlipped = false;
         Debug.Log("Setting justFlipped false");
     }
