@@ -3390,8 +3390,12 @@ PrefabInstance:
       value: Main Camera
       objectReference: {fileID: 0}
     - target: {fileID: 7582388957679358030, guid: 996ec991d3027fa408fb9e96726d201c, type: 3}
+      propertyPath: _zoomInMax
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7582388957679358030, guid: 996ec991d3027fa408fb9e96726d201c, type: 3}
       propertyPath: _zoomSpeed
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7582388957679358030, guid: 996ec991d3027fa408fb9e96726d201c, type: 3}
       propertyPath: _percentageFollowing

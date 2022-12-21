@@ -19,7 +19,7 @@ public class CameraSet : MonoBehaviour
     [SerializeField] private float _dumping = 3f;
     
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
         _cam = GetComponent<CinemachineVirtualCamera>();
         _cam.m_Lens.OrthographicSize = _zoomOutMax;
@@ -28,6 +28,8 @@ public class CameraSet : MonoBehaviour
         _cam.Follow = _mapCenter.transform;
         _cam.GetCinemachineComponent<CinemachineFramingTransposer>().m_XDamping = _dumping;
         _cam.GetCinemachineComponent<CinemachineFramingTransposer>().m_YDamping = _dumping;
+        _incZoom = 1f;
+        _currentFov = 30f;
         //_cam.Follow = _spawner.transform;
         StartCoroutine(ZoomInCoroutine());
     }
@@ -44,8 +46,9 @@ public class CameraSet : MonoBehaviour
                 _cam.Follow = _spawner.transform;
             }
             
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForFixedUpdate();
         }
+        
         _cam.GetCinemachineComponent<CinemachineFramingTransposer>().m_XDamping = 1f;
         _cam.GetCinemachineComponent<CinemachineFramingTransposer>().m_YDamping = 1f;
         EventManager.TriggerEvent("SpawnStickman");

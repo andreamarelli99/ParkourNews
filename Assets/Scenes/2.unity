@@ -2959,11 +2959,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7582388957679358030, guid: 996ec991d3027fa408fb9e96726d201c, type: 3}
       propertyPath: _zoomSpeed
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7582388957679358030, guid: 996ec991d3027fa408fb9e96726d201c, type: 3}
       propertyPath: _zoomOutMax
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7582388957679358030, guid: 996ec991d3027fa408fb9e96726d201c, type: 3}
+      propertyPath: _percentageFollowing
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7582388957679358031, guid: 996ec991d3027fa408fb9e96726d201c, type: 3}
       propertyPath: m_LocalPosition.x
