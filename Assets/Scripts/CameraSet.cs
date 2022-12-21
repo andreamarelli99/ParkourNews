@@ -16,6 +16,7 @@ public class CameraSet : MonoBehaviour
     private float _incZoom = 1f;
     [SerializeField] private float _percentageFollowing = 10f;
     [SerializeField] private float _deltaZoomIncrement = 0.01f;
+    [SerializeField] private float _dumping = 3f;
     
     // Start is called before the first frame update
     void Start()
@@ -25,8 +26,8 @@ public class CameraSet : MonoBehaviour
         _spawner = GameObject.FindObjectOfType<Spawner>();
         _mapCenter = GameObject.FindGameObjectWithTag("CenterLevel");
         _cam.Follow = _mapCenter.transform;
-        _cam.GetCinemachineComponent<CinemachineFramingTransposer>().m_XDamping = 3f;
-        _cam.GetCinemachineComponent<CinemachineFramingTransposer>().m_YDamping = 3f;
+        _cam.GetCinemachineComponent<CinemachineFramingTransposer>().m_XDamping = _dumping;
+        _cam.GetCinemachineComponent<CinemachineFramingTransposer>().m_YDamping = _dumping;
         //_cam.Follow = _spawner.transform;
         StartCoroutine(ZoomInCoroutine());
     }
