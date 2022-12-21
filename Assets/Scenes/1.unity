@@ -915,21 +915,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1565733163}
     - target: {fileID: 272804719358764181, guid: fcf0466e2ec50c642b2c0198212c9929, type: 3}
-      propertyPath: starsSprite0
+      propertyPath: infoCanvas
       value: 
-      objectReference: {fileID: 21300000, guid: e53495fba08c39649a270cdd9ae9b021, type: 3}
-    - target: {fileID: 272804719358764181, guid: fcf0466e2ec50c642b2c0198212c9929, type: 3}
-      propertyPath: starsSprite1
-      value: 
-      objectReference: {fileID: 21300000, guid: 3bf45774415f7b94b9d6a4513a305bbf, type: 3}
-    - target: {fileID: 272804719358764181, guid: fcf0466e2ec50c642b2c0198212c9929, type: 3}
-      propertyPath: starsSprite2
-      value: 
-      objectReference: {fileID: 21300000, guid: 44d6065238160f24f8d9a6a682531adb, type: 3}
-    - target: {fileID: 272804719358764181, guid: fcf0466e2ec50c642b2c0198212c9929, type: 3}
-      propertyPath: starsSprite3
-      value: 
-      objectReference: {fileID: 21300000, guid: 5c27b1cd17dbd4f44957eac9d7c299ca, type: 3}
+      objectReference: {fileID: 606232849}
     - target: {fileID: 272804719358764182, guid: fcf0466e2ec50c642b2c0198212c9929, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1358,7 +1346,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6661290219102425688, guid: b4e1545c8da902a498c961f0cb6800a9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 20
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6661290219102425688, guid: b4e1545c8da902a498c961f0cb6800a9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1398,6 +1386,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4e1545c8da902a498c961f0cb6800a9, type: 3}
+--- !u!1 &606232849 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6661290219102425684, guid: b4e1545c8da902a498c961f0cb6800a9, type: 3}
+  m_PrefabInstance: {fileID: 606232848}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &648029330
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3927,6 +3920,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 332025683724426185, guid: 0718310be83b8dc4a8a15649ea539fc3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 332025683724426190, guid: 0718310be83b8dc4a8a15649ea539fc3, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4015,18 +4012,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 327953757}
-    - target: {fileID: 332025685153442535, guid: 0718310be83b8dc4a8a15649ea539fc3, type: 3}
-      propertyPath: buttonColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 332025685153442536, guid: 0718310be83b8dc4a8a15649ea539fc3, type: 3}
-      propertyPath: buttonColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 332025685153442537, guid: 0718310be83b8dc4a8a15649ea539fc3, type: 3}
-      propertyPath: buttonColor.a
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0718310be83b8dc4a8a15649ea539fc3, type: 3}
 --- !u!1001 &8441483943938910935
@@ -4036,22 +4021,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1164050695}
     m_Modifications:
-    - target: {fileID: 955395635, guid: b2cf6d5fa68e4284a874c35c15a1a4de, type: 3}
-      propertyPath: buttonColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8441483943938910941, guid: b2cf6d5fa68e4284a874c35c15a1a4de, type: 3}
-      propertyPath: buttonColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8441483943938910942, guid: b2cf6d5fa68e4284a874c35c15a1a4de, type: 3}
-      propertyPath: buttonColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8441483943938910943, guid: b2cf6d5fa68e4284a874c35c15a1a4de, type: 3}
-      propertyPath: buttonColor.a
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8441483944512934293, guid: b2cf6d5fa68e4284a874c35c15a1a4de, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -4151,10 +4120,6 @@ PrefabInstance:
     - target: {fileID: 8441483945082329745, guid: b2cf6d5fa68e4284a874c35c15a1a4de, type: 3}
       propertyPath: m_Name
       value: EndMenu
-      objectReference: {fileID: 0}
-    - target: {fileID: 8441483945082329745, guid: b2cf6d5fa68e4284a874c35c15a1a4de, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8441483945339162380, guid: b2cf6d5fa68e4284a874c35c15a1a4de, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

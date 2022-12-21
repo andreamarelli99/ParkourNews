@@ -14,6 +14,7 @@ public class Spawner : MonoBehaviour, ISingleton
     [SerializeField] private GameObject levelMenu;
     [SerializeField] private GameObject endMenu;
     [SerializeField] private Image image;
+    [SerializeField] private GameObject infoCanvas;
     
     public Sprite starsSprite0;
     public Sprite starsSprite1;
@@ -57,6 +58,7 @@ public class Spawner : MonoBehaviour, ISingleton
         //SpawnDrop();
         _pauseIsOn = false;
         _initialPosition = _transform.position;
+        
         pauseMenu.SetActive(false);
         endMenu.SetActive(false);
 
@@ -72,6 +74,7 @@ public class Spawner : MonoBehaviour, ISingleton
         
         Debug.Log("EndMenu");
         EventManager.StopListening("EndMenu",OnEndMenu);
+        infoCanvas.SetActive(false);
         endMenu.SetActive(true);
         Time.timeScale = 0f;
         _currentLevel = _levelManager.GetCurrentLevel();
@@ -125,6 +128,7 @@ public class Spawner : MonoBehaviour, ISingleton
     private void OnOpenMenu()
     {
         pauseMenu.SetActive(true);
+        infoCanvas.SetActive(false);
         Time.timeScale = 0f;
     }
 
@@ -137,12 +141,13 @@ public class Spawner : MonoBehaviour, ISingleton
     public void Resume()
     {
         pauseMenu.SetActive(false);
+        infoCanvas.SetActive(true);
         Time.timeScale = 1f;
     }
 
     public void LevelSelector()
     {
-        Time.timeScale = 1f; 
+        Time.timeScale = 1f;  
         SceneManager.LoadScene("MenuSelector");
     }
 
@@ -155,6 +160,7 @@ public class Spawner : MonoBehaviour, ISingleton
     public void Redo()
     {
         Time.timeScale = 1f;
+        infoCanvas.SetActive(true);
         SceneManager.LoadScene(_currentLevel.ToString());
     }
     
