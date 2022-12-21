@@ -160,7 +160,6 @@ public class Spawner : MonoBehaviour, ISingleton
     public void Redo()
     {
         Time.timeScale = 1f;
-        infoCanvas.SetActive(true);
         SceneManager.LoadScene(_currentLevel.ToString());
     }
     
