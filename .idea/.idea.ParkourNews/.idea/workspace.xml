@@ -4,17 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a21cc26-fe96-4869-9603-03d818d6f1ed" name="Changes" comment="add end menu and pause menu to all the levels">
+    <list default="true" id="2a21cc26-fe96-4869-9603-03d818d6f1ed" name="Changes" comment="lv 4 pause/end menus are working">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ParkourNews/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ParkourNews/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/10.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/10.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/11.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/11.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/12.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/12.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/4.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/4.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/5.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/5.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/6.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/6.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/7.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/7.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/8.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/8.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/9.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/9.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/LevelManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/LevelManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerEffects/Spawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerEffects/Spawner.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -27,6 +22,10 @@
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Scenes/1.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Scenes/2.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Scenes/3.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Scenes/4.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CameraSet.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Collectible/PlayerCoinsCounter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MainMenu/MenuController.cs" root0="FORCE_HIGHLIGHTING" />
@@ -40,6 +39,7 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventInterfaces.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/InputModules/StandaloneInputModule.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/UserSettings/EditorUserSettings.asset" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -180,20 +180,6 @@
       <workItem from="1671793711835" duration="2323000" />
       <workItem from="1671820336109" duration="1000" />
       <workItem from="1671873500937" duration="1581000" />
-    </task>
-    <task id="LOCAL-00022" summary="saving system restored">
-      <created>1669016666879</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1669016666879</updated>
-    </task>
-    <task id="LOCAL-00023" summary="fix on save when a save file is created">
-      <created>1669020340601</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1669020340601</updated>
     </task>
     <task id="LOCAL-00024" summary="fix on player result game data">
       <created>1669024400946</created>
@@ -524,7 +510,21 @@
       <option name="project" value="LOCAL" />
       <updated>1671568687185</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="add end menu and pause menu to all the levels">
+      <created>1671902413505</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1671902413506</updated>
+    </task>
+    <task id="LOCAL-00072" summary="lv 4 pause/end menus are working">
+      <created>1671902874577</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1671902874577</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -600,7 +600,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="fix for demo" />
     <MESSAGE value="fix spawn menu" />
     <MESSAGE value="fix change of scene upon level completion" />
     <MESSAGE value="menu suggestions + fix on canvas inkers" />
@@ -625,6 +624,7 @@
     <MESSAGE value="menu with controller works&#10;&#10;found &quot;bugs&quot; if we press actions command in pause/end menu the scripts execute them" />
     <MESSAGE value="mouse effect on game is removed" />
     <MESSAGE value="add end menu and pause menu to all the levels" />
-    <option name="LAST_COMMIT_MESSAGE" value="add end menu and pause menu to all the levels" />
+    <MESSAGE value="lv 4 pause/end menus are working" />
+    <option name="LAST_COMMIT_MESSAGE" value="lv 4 pause/end menus are working" />
   </component>
 </project>

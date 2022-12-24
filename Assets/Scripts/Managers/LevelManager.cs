@@ -46,11 +46,9 @@ namespace ParkourNews.Scripts
         public void Start()
         {
             _currentLevel = 1;
-            
-            EventManager.StartListening("StartNextLevel",OnStartNextLevel);
+           
             EventManager.StartListening("OnRespawn",OnRespawn);
             EventManager.StartListening("OnCoin",OnCoin);
-            
             EventManager.StartListening("EndLevel",OnEndLevel);
             
            
@@ -98,22 +96,6 @@ namespace ParkourNews.Scripts
         }
         
 
-        public void OnStartNextLevel() 
-        {
-            EventManager.StopListening("StartNextLevel",OnStartNextLevel);
-            
-            //if (_currentLevel < _maxLevel)
-           // {
-            //    _currentLevel += 1;
-            //    SceneManager.LoadScene(_currentLevel.ToString());
-            //    EventManager.TriggerEvent("OnPlayLevel");
-            //    EventManager.StartListening("StartNextLevel", OnStartNextLevel);
-          //  }
-          //  else 
-                SceneManager.LoadScene("MenuSelector");
-                EventManager.StartListening("StartNextLevel", OnStartNextLevel);
-           
-        }
         
         public float getPlayerPointsRatio()
         {

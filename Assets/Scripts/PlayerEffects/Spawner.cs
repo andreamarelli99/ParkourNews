@@ -105,7 +105,7 @@ public class Spawner : MonoBehaviour, ISingleton
                 image.sprite = starsSprite0;
                 break;
         }
-
+       
     }
     
     private void OnEnable()
@@ -154,6 +154,7 @@ public class Spawner : MonoBehaviour, ISingleton
     public void NextLevel()
     {
         Time.timeScale = 1f;
+        _levelManager.setCurrentLevel(_currentLevel+1);
         SceneManager.LoadScene(_nextLevel.ToString());
     }
 
