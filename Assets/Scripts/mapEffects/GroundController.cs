@@ -7,6 +7,38 @@ namespace ParkourNews.Scripts
 {
     public class GroundController:MonoBehaviour
     {
+        
+        [SerializeField] private bool _onGround = false;
+        
+        [SerializeField] private bool _onWall = false;
+
+        [SerializeField] private bool _canJump = true;
+
+        private float _coyoteTime = 0.1f;
+        private float _timer = 0;
+        private bool _coyoteTimerOn = false;
+
+        private void FixedUpdate()
+        {
+            if (_coyoteTimerOn)
+            {
+                _timer += Time.deltaTime;
+                
+                if (_timer >= _coyoteTime)
+                {
+                    if (!_onGround && !_onWall)
+                    {
+                        EventManager.TriggerEvent("InAir");
+                    }
+                    
+                    _coyoteTimerOn = false;
+                    _timer = 0;
+
+                }
+            }
+            
+        }
+
         private void OnCollisionEnter2D(Collision2D col)
         {
             //check if ground is touched by the stickman
@@ -17,15 +49,10 @@ namespace ParkourNews.Scripts
             }
         }
         
-        [SerializeField] private bool _onGround = false;
-        
-        [SerializeField] private bool _onWall = false;
-
-        [SerializeField] private bool _canJump = true;
-
         private void OnEnable()
         {
             EventManager.StartListening("WallJumpMessage", WallJumpMessage);
+            EventManager.StartListening("OnDeath", ResetValues);
         }
 
         private void WallJumpMessage()
@@ -44,7 +71,7 @@ namespace ParkourNews.Scripts
                     EventManager.TriggerEvent("WallJumpMessage");
                     _onGround = true;
                 }
-                
+
             }
             else if (col.gameObject.CompareTag("Wall"))
             {
@@ -71,7 +98,6 @@ namespace ParkourNews.Scripts
                         _onWall = true;
                     }
                 }
-                
             }
         }
 
@@ -79,16 +105,17 @@ namespace ParkourNews.Scripts
         {
             if (col.gameObject.CompareTag("GroundCheck"))
             {
-                if (_onGround && !_onWall) 
+                if (_onGround && !_onWall)
                 {
-                    EventManager.TriggerEvent("InAir");
+                    _coyoteTimerOn = true;
                     _onWall = false;
+                    _onGround = false;
                 }
                 else if (_onWall)
                 {
                     EventManager.TriggerEvent("OnWall"); 
+                    _onGround = false;
                 }
-                _onGround = false;
                 
             }
             else if (col.gameObject.CompareTag("Wall"))
@@ -122,5 +149,11 @@ namespace ParkourNews.Scripts
             
         }
 
+        private void ResetValues()
+        {
+            _onGround = false;
+            _onWall = false;
+            _canJump = true;
+        }
     }
 }

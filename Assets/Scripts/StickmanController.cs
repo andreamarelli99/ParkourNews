@@ -133,6 +133,8 @@ public class StickmanController : MonoBehaviour,ISingleton
     [SerializeField] private float _timeLeft;
     [SerializeField] private GameObject _deathEffect;
     #endregion
+
+    [SerializeField] private GameObject _jumpEffect;
     
     private void Start()
     {
@@ -333,6 +335,10 @@ public class StickmanController : MonoBehaviour,ISingleton
     private static readonly int Speed = Animator.StringToHash("Speed");
     private static readonly int IsGrappling = Animator.StringToHash("IsGrappling");
     private static readonly int IsDeath = Animator.StringToHash("IsDeath");
+    
+    [SerializeField] private float _jumpBufferTime = 0.2f;
+    private float _jumpBufferTimer = 0;
+    private bool _jumpBufferTimerOn = false;
 
     private void FixedUpdate()
     {
@@ -356,6 +362,26 @@ public class StickmanController : MonoBehaviour,ISingleton
             float force_x = -_airDrag * velocity.x;
             _rigidbody2D.AddRelativeForce(new Vector2(force_x, 0));
             _rigidbody2D.AddForce(new Vector2(0f, -_addGravity), ForceMode2D.Force);
+        }
+        
+        if (_jumpBufferTimerOn)
+        {
+            if (_isDoubleJumping)
+            {
+                _jumpBufferTimer += Time.deltaTime;
+                
+                if (_jumpBufferTimer >= _jumpBufferTime)
+                {
+                    _jumpBufferTimerOn = false;
+                    _jumpBufferTimer = 0;
+                }
+            }
+            else
+            {
+                OnJump(new InputAction.CallbackContext());
+                Debug.Log("JUMP BUFFER!!!!");
+            }
+            
         }
 
     }
@@ -390,6 +416,7 @@ public class StickmanController : MonoBehaviour,ISingleton
     private void Die()
     {
         EventManager.StopListening("PreDeath", Die);
+        EventManager.TriggerEvent("WallJumpMessage");
         _animator.SetTrigger(IsDeath);
         StartCoroutine(ExecuteDeathEffectCoroutine());
     }
@@ -422,6 +449,7 @@ public class StickmanController : MonoBehaviour,ISingleton
                 _canRoll = true;
                 _rigidbody2D.AddForce(new Vector2(_facingDirection * _jumpForce, 0), ForceMode2D.Impulse);
                 _rigidbody2D.AddForce(new Vector2(0, _jumpForce / 2), ForceMode2D.Impulse);
+                Instantiate(_jumpEffect, transform.position, transform.rotation);
                 //EventManager.StartListening("OnHook",OnHook);
             }
             else if (_isJumpWall || _justFlipped)
@@ -467,6 +495,8 @@ public class StickmanController : MonoBehaviour,ISingleton
                     EventManager.StartListening("OnGround", OnGround);
                     _onGroundEvent = true;
                 }
+                
+                Instantiate(_jumpEffect, transform.position, transform.rotation);
             }
             else if (!_isJumping)
             {
@@ -499,6 +529,9 @@ public class StickmanController : MonoBehaviour,ISingleton
 
                 //Triggering sound for jump
                 EventManager.TriggerEvent("JumpSound");
+                
+                
+                Instantiate(_jumpEffect, transform.position, transform.rotation);
 
             }
             else if (!_isDoubleJumping && !_isCrouched)
@@ -532,10 +565,18 @@ public class StickmanController : MonoBehaviour,ISingleton
 
                 //Triggering sound for DoubleJump
                 EventManager.TriggerEvent("DoubleJumpSound");
+
+                Instantiate(_jumpEffect, transform.position, transform.rotation);
             }
             else
+            {
                 Debug.Log("No more than Double Jump!");
+                _jumpBufferTimerOn = true;
+                Debug.Log("_jumpBufferTimerOn = true");
+            }
         }
+        
+        
     }
 
     private void OnDash(InputAction.CallbackContext context)
@@ -671,6 +712,7 @@ public class StickmanController : MonoBehaviour,ISingleton
         _justFlipped = false;
         Debug.Log("Setting justFlipped false");
     }
+    
 
     //---- called upon events----//
     private void OnGround()

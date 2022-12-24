@@ -4,15 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a21cc26-fe96-4869-9603-03d818d6f1ed" name="Changes" comment="lv2 updated to work again">
+    <list default="true" id="2a21cc26-fe96-4869-9603-03d818d6f1ed" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Effects/JumpEffect.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Effects/JumpEffect.prefab.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ParkourNews/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ParkourNews/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/PlayerWin.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Player/PlayerWin.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/PlayerWin2.0.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Player/PlayerWin2.0.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/StickmanWalking.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Player/StickmanWalking.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/2.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/3.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraSet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CameraSet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/StickmanWalking Variant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/StickmanWalking Variant.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StickmanController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StickmanController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StickmanController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StickmanController.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/mapEffects/GroundController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/mapEffects/GroundController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,11 +28,12 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CameraSet.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Collectible/PlayerCoinsCounter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MainMenu/MenuController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MapEffects/GroundController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MapEffects/RedLineManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MapEffects/Rotating.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerEffects/DeathEffectExplosion.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerEffects/JumpDisappear.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/StickmanController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/mapEffects/GroundController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/mapEffects/RedLineManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/mapEffects/Rotating.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.common@6.0.4/Editor/InternalBridge/TexturePlatformSettings/TexturePlatformSettings.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventInterfaces.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs" root0="SKIP_HIGHLIGHTING" />
@@ -73,7 +75,7 @@
       <method v="2" />
     </configuration>
     <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="D:\Programmi\Unity\Editor\Unity 2021.3.10f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.10f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Users\Akaviri\Desktop\PARKOURNEWS_project\ParkourNews -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\Akaviri\Desktop\PARKOURNEWS_project\ParkourNews" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -172,8 +174,31 @@
       <workItem from="1670143414910" duration="3459000" />
       <workItem from="1670147472899" duration="1119000" />
       <workItem from="1671541235105" duration="19106000" />
-      <workItem from="1671609935316" duration="4030000" />
-      <workItem from="1671656107965" duration="2592000" />
+      <workItem from="1671613398441" duration="6802000" />
+      <workItem from="1671793711835" duration="2323000" />
+      <workItem from="1671820336109" duration="1000" />
+      <workItem from="1671873500937" duration="1581000" />
+    </task>
+    <task id="LOCAL-00022" summary="saving system restored">
+      <created>1669016666879</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1669016666879</updated>
+    </task>
+    <task id="LOCAL-00023" summary="fix on save when a save file is created">
+      <created>1669020340601</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1669020340601</updated>
+    </task>
+    <task id="LOCAL-00024" summary="fix on player result game data">
+      <created>1669024400946</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1669024400946</updated>
     </task>
     <task id="LOCAL-00025" summary="fix on level completion + added dont destroy to some elements">
       <created>1669026296825</created>
@@ -497,28 +522,7 @@
       <option name="project" value="LOCAL" />
       <updated>1671568687185</updated>
     </task>
-    <task id="LOCAL-00071" summary="lastSaves">
-      <created>1671569123856</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1671569123857</updated>
-    </task>
-    <task id="LOCAL-00072" summary="fix on canvas inkers in menus">
-      <created>1671611530440</created>
-      <option name="number" value="00072" />
-      <option name="presentableId" value="LOCAL-00072" />
-      <option name="project" value="LOCAL" />
-      <updated>1671611530440</updated>
-    </task>
-    <task id="LOCAL-00073" summary="lv2 updated to work again">
-      <created>1671613741896</created>
-      <option name="number" value="00073" />
-      <option name="presentableId" value="LOCAL-00073" />
-      <option name="project" value="LOCAL" />
-      <updated>1671613741896</updated>
-    </task>
-    <option name="localTasksCounter" value="74" />
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -594,6 +598,9 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="less noise w/ sound" />
+    <MESSAGE value="fix for demo" />
+    <MESSAGE value="fix spawn menu" />
     <MESSAGE value="fix change of scene upon level completion" />
     <MESSAGE value="menu suggestions + fix on canvas inkers" />
     <MESSAGE value="esc to pause&#10;forse fix cloni (testare)&#10;better movement speed" />
@@ -616,9 +623,6 @@
     <MESSAGE value="menu selector works with the controller" />
     <MESSAGE value="menu with controller works&#10;&#10;found &quot;bugs&quot; if we press actions command in pause/end menu the scripts execute them" />
     <MESSAGE value="mouse effect on game is removed" />
-    <MESSAGE value="lastSaves" />
-    <MESSAGE value="fix on canvas inkers in menus" />
-    <MESSAGE value="lv2 updated to work again" />
-    <option name="LAST_COMMIT_MESSAGE" value="lv2 updated to work again" />
+    <option name="LAST_COMMIT_MESSAGE" value="mouse effect on game is removed" />
   </component>
 </project>

@@ -3055,6 +3055,7 @@ MonoBehaviour:
   slidingObliqueForce: 20
   _timeLeft: 0.4
   _deathEffect: {fileID: 6997444155794476504, guid: 112f4fb0dd90100428b4c2ef78f1977d, type: 3}
+  _jumpEffect: {fileID: 8862720832066345401, guid: 181d8e4118067964d8d0da9b08c1a346, type: 3}
   _xDecreasingWhenFalling: 1
   _yIncreasingWhenFalling: 1
   _xArtificialDragOnFloor: 1.02
@@ -3065,6 +3066,7 @@ MonoBehaviour:
     m_Bits: 256
   _airDrag: 0.05
   _addGravity: 10
+  _jumpBufferTime: 0.2
 --- !u!4 &5265668442436819661 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 981836455414578533, guid: b303275011dc1744ba4d2a7bcdfa75c8, type: 3}
