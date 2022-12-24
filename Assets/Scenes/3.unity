@@ -3383,11 +3383,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7582388956150554657, guid: 996ec991d3027fa408fb9e96726d201c, type: 3}
       propertyPath: orthographic size
-      value: 16
+      value: 49.7564
       objectReference: {fileID: 0}
     - target: {fileID: 7582388956150554660, guid: 996ec991d3027fa408fb9e96726d201c, type: 3}
       propertyPath: m_Name
       value: Main Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 7582388957104544568, guid: 996ec991d3027fa408fb9e96726d201c, type: 3}
+      propertyPath: m_XDamping
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7582388957104544568, guid: 996ec991d3027fa408fb9e96726d201c, type: 3}
+      propertyPath: m_YDamping
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7582388957679358030, guid: 996ec991d3027fa408fb9e96726d201c, type: 3}
       propertyPath: _zoomInMax
@@ -3423,7 +3431,7 @@ PrefabInstance:
       objectReference: {fileID: 327953756}
     - target: {fileID: 7582388957679358032, guid: 996ec991d3027fa408fb9e96726d201c, type: 3}
       propertyPath: m_Lens.OrthographicSize
-      value: 16
+      value: 49.7564
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 996ec991d3027fa408fb9e96726d201c, type: 3}
