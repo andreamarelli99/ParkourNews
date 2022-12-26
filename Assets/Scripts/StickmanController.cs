@@ -26,7 +26,7 @@ public class StickmanController : MonoBehaviour,ISingleton
     //------------------------------------- SPEED VALUES -------------------------------------//
     [SerializeField] private float _walkSpeed = 1000f;
     
-    [SerializeField] private float _minSpeed = 0.5f;
+    [SerializeField] private float _stopForce = 5f;
     [SerializeField] private float _maxSpeed = 3f;
     
     // When the stickman speed >= _minRunSpeed -> RUN
@@ -76,6 +76,7 @@ public class StickmanController : MonoBehaviour,ISingleton
     private Boolean _inAirEvent = false;
     // Force applied when the stickman jumps
     [SerializeField] private float _jumpForce = 12f;
+    [SerializeField] private float _jumpForceWhenIsSlidingWall = 3f;
     // To check if the player is jumping
     private Boolean _isJumping;
     // To check if the player is doubleJumping
@@ -213,7 +214,7 @@ public class StickmanController : MonoBehaviour,ISingleton
     //auto rotate
     public Vector2 _botRight,_botLeft;
     public LayerMask _whatIsGround =  1 << 8;
-    
+
     // Update is called once per frame
     void Update()
     {
@@ -224,6 +225,7 @@ public class StickmanController : MonoBehaviour,ISingleton
         {
             _movement.x = Input.GetAxis("Horizontal");
         }
+        
 
         // If the input is moving the player right and the player is facing left...
         if (_movement.x > 0 && _facingDirection == -1 && Time.timeScale!=0)
@@ -258,6 +260,109 @@ public class StickmanController : MonoBehaviour,ISingleton
         }
     }
 
+
+    [SerializeField] private float _airDrag = 1f;
+    [SerializeField] private float _addGravity = 1f;
+    
+    // Cached Properties
+    private static readonly int IsJumping = Animator.StringToHash("IsJumping");
+    private static readonly int IsSlidingOblique = Animator.StringToHash("IsSlidingOblique");
+    private static readonly int IsSlidingWall = Animator.StringToHash("IsSlidingWall");
+    private static readonly int IsCrouched = Animator.StringToHash("IsCrouched");
+    private static readonly int IsSliding = Animator.StringToHash("IsSliding");
+    private static readonly int Speed = Animator.StringToHash("Speed");
+    private static readonly int IsGrappling = Animator.StringToHash("IsGrappling");
+    private static readonly int IsDeath = Animator.StringToHash("IsDeath");
+    
+    [SerializeField] private float _jumpBufferTime = 0.2f;
+    private float _jumpBufferTimer = 0;
+    private bool _jumpBufferTimerOn = false;
+
+
+    private void FixedUpdate()
+    {
+        if (_jumpBufferTimerOn)
+        {
+            if (_isDoubleJumping)
+            {
+                _jumpBufferTimer += Time.deltaTime;
+                
+                if (_jumpBufferTimer >= _jumpBufferTime)
+                {
+                    _jumpBufferTimerOn = false;
+                    _jumpBufferTimer = 0;
+                }
+            }
+            else if (!_isJumping && !_isCrouched && !_isSlidingOblique)
+            {
+                OnJump(new InputAction.CallbackContext());
+                _jumpBufferTimerOn = false;
+                _jumpBufferTimer = 0;
+                
+            }
+            else
+            {
+                _jumpBufferTimerOn = false;
+                _jumpBufferTimer = 0;
+            }
+            
+        }
+        
+        if(!_isSliding){
+            
+            _realSpeed = Mathf.Abs(_rigidbody2D.velocity.x);
+            _isRunning=_realSpeed >= _minRunSpeed;
+            _animator.SetFloat(Speed,Mathf.Abs(_realSpeed));
+            
+            if(Input.GetAxis("Horizontal") != 0 || !Input.anyKeyDown || _isJumping|| _isDoubleJumping|| _isSlidingOblique|| _isSliding|| _isGrappling|| _isJumpWall)
+                _rigidbody2D.AddForce(_walkSpeed*(_maxSpeed-_realSpeed/_stopForce) * Time.fixedDeltaTime * _movement);
+            else
+            {
+                _rigidbody2D.velocity = new Vector2(0, _rigidbody2D.velocity.y);
+            }
+        }
+        
+        _follower.SetPosition(_transform.position);
+        
+        if (_isJumping &&!_death)
+        {
+            var velocity = transform.InverseTransformDirection(_rigidbody2D.velocity);
+            float force_x = -_airDrag * velocity.x;
+            _rigidbody2D.AddRelativeForce(new Vector2(force_x, 0));
+            _rigidbody2D.AddForce(new Vector2(0f, -_addGravity), ForceMode2D.Force);
+        }
+        
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if ((col.gameObject.CompareTag("Trap") || col.gameObject.CompareTag("RedLine"))&& !_death)
+        {
+            _rigidbody2D.velocity = new Vector2(0,_rigidbody2D.velocity.y);
+            _death = true;
+            Die();
+        }
+        else if (col.gameObject.CompareTag("Hook") && _isJumping)
+        {
+            EventManager.TriggerEvent("WallJumpMessage");
+            Debug.Log("Attached to Hook");
+            _isJumping = false;
+            _isGrappling = true;
+            _canRoll = false;
+            _animator.SetBool(IsJumping, true);
+            _animator.SetBool(IsGrappling, true);
+            _rigidbody2D.isKinematic = true;
+            gameObject.transform.position =
+                new Vector3(col.gameObject.GetComponent<Collider2D>().transform.position.x,
+                    (col.gameObject.GetComponent<Collider2D>().transform.position.y -
+                     col.gameObject.GetComponent<SpriteRenderer>().bounds.size.y),
+                    0);
+            _rigidbody2D.velocity = Vector2.zero;
+        }
+    }
+    
+    
     private void OnMenu(InputAction.CallbackContext context)
     {
         EventManager.TriggerEvent("OpenMenu");
@@ -320,96 +425,6 @@ public class StickmanController : MonoBehaviour,ISingleton
             _canMove = true;
             _canFlip = true;
             _animator.SetBool(IsSlidingOblique, false);
-        }
-    }
-
-    [SerializeField] private float _airDrag = 1f;
-    [SerializeField] private float _addGravity = 1f;
-    
-    // Cached Properties
-    private static readonly int IsJumping = Animator.StringToHash("IsJumping");
-    private static readonly int IsSlidingOblique = Animator.StringToHash("IsSlidingOblique");
-    private static readonly int IsSlidingWall = Animator.StringToHash("IsSlidingWall");
-    private static readonly int IsCrouched = Animator.StringToHash("IsCrouched");
-    private static readonly int IsSliding = Animator.StringToHash("IsSliding");
-    private static readonly int Speed = Animator.StringToHash("Speed");
-    private static readonly int IsGrappling = Animator.StringToHash("IsGrappling");
-    private static readonly int IsDeath = Animator.StringToHash("IsDeath");
-    
-    [SerializeField] private float _jumpBufferTime = 0.2f;
-    private float _jumpBufferTimer = 0;
-    private bool _jumpBufferTimerOn = false;
-
-    private void FixedUpdate()
-    {
-        if(!_isSliding){
-            _realSpeed = Mathf.Abs(_rigidbody2D.velocity.x);
-            _isRunning=_realSpeed >= _minRunSpeed;
-            _animator.SetFloat(Speed,Mathf.Abs(_realSpeed));
-            if(Input.GetAxis("Horizontal") != 0 || !Input.anyKeyDown || _isJumping|| _isDoubleJumping|| _isSlidingOblique|| _isSliding|| _isGrappling|| _isJumpWall)
-                _rigidbody2D.AddForce(_walkSpeed*(_maxSpeed-_realSpeed/_maxSpeed) * Time.fixedDeltaTime * _movement);
-            else
-            {
-                _rigidbody2D.velocity = new Vector2(0, _rigidbody2D.velocity.y);
-            }
-        }
-        
-        _follower.SetPosition(_transform.position);
-        
-        if (_isJumping &&!_death)
-        {
-            var velocity = transform.InverseTransformDirection(_rigidbody2D.velocity);
-            float force_x = -_airDrag * velocity.x;
-            _rigidbody2D.AddRelativeForce(new Vector2(force_x, 0));
-            _rigidbody2D.AddForce(new Vector2(0f, -_addGravity), ForceMode2D.Force);
-        }
-        
-        if (_jumpBufferTimerOn)
-        {
-            if (_isDoubleJumping)
-            {
-                _jumpBufferTimer += Time.deltaTime;
-                
-                if (_jumpBufferTimer >= _jumpBufferTime)
-                {
-                    _jumpBufferTimerOn = false;
-                    _jumpBufferTimer = 0;
-                }
-            }
-            else
-            {
-                OnJump(new InputAction.CallbackContext());
-                Debug.Log("JUMP BUFFER!!!!");
-            }
-            
-        }
-
-    }
-
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-        if ((col.gameObject.CompareTag("Trap") || col.gameObject.CompareTag("RedLine"))&& !_death)
-        {
-            _rigidbody2D.velocity = new Vector2(0,_rigidbody2D.velocity.y);
-            _death = true;
-            Die();
-        }
-        else if (col.gameObject.CompareTag("Hook") && _isJumping)
-        {
-            EventManager.TriggerEvent("WallJumpMessage");
-            Debug.Log("Attached to Hook");
-            _isJumping = false;
-            _isGrappling = true;
-            _canRoll = false;
-            _animator.SetBool(IsJumping, true);
-            _animator.SetBool(IsGrappling, true);
-            _rigidbody2D.isKinematic = true;
-            gameObject.transform.position =
-                new Vector3(col.gameObject.GetComponent<Collider2D>().transform.position.x,
-                    (col.gameObject.GetComponent<Collider2D>().transform.position.y -
-                     col.gameObject.GetComponent<SpriteRenderer>().bounds.size.y),
-                    0);
-            _rigidbody2D.velocity = Vector2.zero;
         }
     }
 
@@ -547,9 +562,13 @@ public class StickmanController : MonoBehaviour,ISingleton
                 {
                     // Apply a 45' force in same direction of the sliding oblique.
                     dir = Vector2.up + Vector2.right * _facingDirection;
+                    _rigidbody2D.AddForce(dir * _jumpForceWhenIsSlidingWall, ForceMode2D.Impulse);
+                }
+                else
+                {
+                    _rigidbody2D.AddForce(dir * _jumpForce, ForceMode2D.Impulse);
                 }
 
-                _rigidbody2D.AddForce(dir * _jumpForce, ForceMode2D.Impulse);
 
                 if (!_onWallEvent)
                 {
@@ -572,7 +591,6 @@ public class StickmanController : MonoBehaviour,ISingleton
             {
                 Debug.Log("No more than Double Jump!");
                 _jumpBufferTimerOn = true;
-                Debug.Log("_jumpBufferTimerOn = true");
             }
         }
         

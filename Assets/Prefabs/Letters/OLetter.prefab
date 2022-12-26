@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 6261215856785917860}
   - component: {fileID: 2748621560111109879}
   - component: {fileID: 8359491489744724411}
-  - component: {fileID: -1512401888287051889}
   - component: {fileID: -1512177677353376541}
   - component: {fileID: -6913913512739140431}
+  - component: {fileID: 4710832928286405664}
   m_Layer: 0
   m_Name: OLetter
   m_TagString: Ground
@@ -262,21 +262,6 @@ PolygonCollider2D:
       - {x: -2.2816718, y: -17.673586}
       - {x: -1.935218, y: -17.640451}
       - {x: -1.320827, y: -17.692724}
---- !u!114 &-1512401888287051889
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3345816705650075258}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 142f6467c17447b2996672a501aae77b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _onGround: 0
-  _onWall: 0
-  _canJump: 1
 --- !u!114 &-1512177677353376541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,5 +284,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d959af26330bc84f9f84fd6584210e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4710832928286405664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3345816705650075258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c414a51a843e114429ba03499e0debb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
