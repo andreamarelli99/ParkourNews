@@ -2901,7 +2901,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: -8653719598885068355, guid: b303275011dc1744ba4d2a7bcdfa75c8, type: 3}
   m_PrefabInstance: {fileID: 4950377936767018920}
   m_PrefabAsset: {fileID: 0}
---- !u!50 &2134717079
+--- !u!50 &-2369486580919725800
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -3032,12 +3032,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4851653737861826069}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c0e8c007c7a60ba43a199787698c64fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rigidbody2D: {fileID: 2134717079}
+  _rigidbody2D: {fileID: 0}
   _animator: {fileID: 2134717078}
   _walkSpeed: 350
   _stopForce: 4
@@ -3045,6 +3045,7 @@ MonoBehaviour:
   _minRunSpeed: 2
   _slideForce: 9
   _jumpForce: 8
+  _jumpForceWhenIsSlidingWall: 3
   _wallHopForce: 5
   _wallJumpForce: 8
   _incrementForceY: 1.07
@@ -3067,6 +3068,40 @@ MonoBehaviour:
   _airDrag: 0
   _addGravity: 10
   _jumpBufferTime: 0.1
+--- !u!114 &2346527659617751410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4851653737861826069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbfb23717f7dee14688bccda60b77b9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _characterBounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  _groundLayer:
+    serializedVersion: 2
+    m_Bits: 4225
+  _detectorCount: 3
+  _detectionRayLength: 0.1
+  _rayBuffer: 0.1
+  _acceleration: 90
+  _moveClamp: 13
+  _deAcceleration: 60
+  _apexBonus: 2
+  _fallClamp: -40
+  _minFallSpeed: 80
+  _maxFallSpeed: 120
+  _jumpHeight: 30
+  _jumpApexThreshold: 10
+  _coyoteTimeThreshold: 0.1
+  _jumpBuffer: 0.1
+  _jumpEndEarlyGravityModifier: 3
+  _freeColliderIterations: 10
 --- !u!4 &5265668442436819661 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 981836455414578533, guid: b303275011dc1744ba4d2a7bcdfa75c8, type: 3}
