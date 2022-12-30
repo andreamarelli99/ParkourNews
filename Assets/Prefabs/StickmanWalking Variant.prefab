@@ -3045,6 +3045,7 @@ MonoBehaviour:
   _minRunSpeed: 2
   _slideForce: 9
   _jumpForce: 8
+  _jumpForceWhenIsSlidingWall: 3
   _wallHopForce: 5
   _wallJumpForce: 8
   _incrementForceY: 1.07
@@ -3056,6 +3057,8 @@ MonoBehaviour:
   _timeLeft: 0.4
   _deathEffect: {fileID: 6997444155794476504, guid: 112f4fb0dd90100428b4c2ef78f1977d, type: 3}
   _jumpEffect: {fileID: 8862720832066345401, guid: 181d8e4118067964d8d0da9b08c1a346, type: 3}
+  _dashRightEffect: {fileID: 2326508574397370693, guid: 4cea5465d1423d440b8e09ef5fc9d861, type: 3}
+  _dashLeftEffect: {fileID: 1016376062601662439, guid: 20d5f3f472b413647b5f3188cb26edbd, type: 3}
   _xDecreasingWhenFalling: 1
   _yIncreasingWhenFalling: 1
   _xArtificialDragOnFloor: 1

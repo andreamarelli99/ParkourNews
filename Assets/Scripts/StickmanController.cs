@@ -133,9 +133,11 @@ public class StickmanController : MonoBehaviour,ISingleton
     private bool _timerOn = false;
     [SerializeField] private float _timeLeft;
     [SerializeField] private GameObject _deathEffect;
+    [SerializeField] private GameObject _jumpEffect;
+    [SerializeField] private GameObject _dashRightEffect;
+    [SerializeField] private GameObject _dashLeftEffect;
     #endregion
 
-    [SerializeField] private GameObject _jumpEffect;
     
     private void Start()
     {
@@ -295,7 +297,9 @@ public class StickmanController : MonoBehaviour,ISingleton
             }
             else if (!_isJumping && !_isCrouched && !_isSlidingOblique)
             {
-                OnJump(new InputAction.CallbackContext());
+                Debug.Log("JUMP BUFFER!!!");
+                _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, 0);
+                OnJump(default);
                 _jumpBufferTimerOn = false;
                 _jumpBufferTimer = 0;
                 
@@ -515,7 +519,7 @@ public class StickmanController : MonoBehaviour,ISingleton
             }
             else if (!_isJumping)
             {
-
+                
                 if (_isSliding || _isCrouched) _walkSpeed *= 2;
                 _isJumpWall = false;
                 _isJumping = true;
@@ -529,6 +533,7 @@ public class StickmanController : MonoBehaviour,ISingleton
                 _animator.SetBool(IsSlidingOblique, false);
                 //_animator.SetBool("IsSlidingWall",false);
                 _rigidbody2D.AddForce(_jumpForce * Vector2.up, ForceMode2D.Impulse);
+                Debug.Log(_rigidbody2D.velocity.y);
 
                 if (!_onWallEvent)
                 {
@@ -602,6 +607,14 @@ public class StickmanController : MonoBehaviour,ISingleton
         if (_canDash&&!_isCrouched && !_isSlidingOblique&& Time.timeScale!=0)
         {
             EventManager.TriggerEvent("DashSound");
+            if (_facingDirection == 1)
+            {
+                Instantiate(_dashRightEffect, transform.position + new Vector3(0,0.5f,-0.1f), Quaternion.identity);
+            }
+            else
+            {
+                Instantiate(_dashLeftEffect, transform.position + new Vector3(0,0.5f,-0.1f), Quaternion.identity); 
+            }
             _rigidbody2D.AddForce(_facingDirection * Vector2.right * _dashForce, ForceMode2D.Impulse);
             _canDash = false;
             _isSliding = false;
