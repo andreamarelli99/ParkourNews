@@ -99,10 +99,15 @@ namespace ParkourNews.Scripts
         
         public float getPlayerPointsRatio()
         {
+            float collectedCoins = _playerPoints;
             float coins=coinsPerLevel[_currentLevel - 1];
+            Debug.Log("Coins: " + _playerPoints);
+            Debug.Log("Coins in level: " + coins);
+            resetPlayerPoints();
             if(coins>0)
-                return _playerPoints/coins;
+                return collectedCoins/coins;
             return 1;
+            
         }
 
         public void resetPlayerPoints()
@@ -119,6 +124,7 @@ namespace ParkourNews.Scripts
         {
             EventManager.StopListening("OnCoin",OnCoin);
             _playerPoints+= _coinValue;
+            Debug.Log("Coins: " + _playerPoints);
             EventManager.StartListening("OnCoin",OnCoin);
             
         }
