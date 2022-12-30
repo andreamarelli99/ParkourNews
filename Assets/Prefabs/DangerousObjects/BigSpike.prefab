@@ -13,15 +13,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2898206902133695559, guid: e9997e1902aebba408696c415541bbc3, type: 3}
       propertyPath: m_LocalScale.x
-      value: 3
+      value: 1.04
       objectReference: {fileID: 0}
     - target: {fileID: 2898206902133695559, guid: e9997e1902aebba408696c415541bbc3, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 2898206902133695559, guid: e9997e1902aebba408696c415541bbc3, type: 3}
       propertyPath: m_LocalScale.z
-      value: 3
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 2898206902133695559, guid: e9997e1902aebba408696c415541bbc3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -69,7 +69,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2898206902133695608, guid: e9997e1902aebba408696c415541bbc3, type: 3}
       propertyPath: m_SortingLayer
-      value: -1
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 2898206902133695608, guid: e9997e1902aebba408696c415541bbc3, type: 3}
       propertyPath: m_SortingOrder
@@ -83,5 +83,107 @@ PrefabInstance:
       propertyPath: m_Name
       value: BigSpike
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 3432195707396508278, guid: e9997e1902aebba408696c415541bbc3, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3432195707396508278, guid: e9997e1902aebba408696c415541bbc3, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3432195707396508278, guid: e9997e1902aebba408696c415541bbc3, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].x
+      value: 0.0914157
+      objectReference: {fileID: 0}
+    - target: {fileID: 3432195707396508278, guid: e9997e1902aebba408696c415541bbc3, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].y
+      value: 0.9156496
+      objectReference: {fileID: 0}
+    - target: {fileID: 3432195707396508278, guid: e9997e1902aebba408696c415541bbc3, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].x
+      value: -0.14038642
+      objectReference: {fileID: 0}
+    - target: {fileID: 3432195707396508278, guid: e9997e1902aebba408696c415541bbc3, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].y
+      value: 0.9236281
+      objectReference: {fileID: 0}
+    - target: {fileID: 3432195707396508278, guid: e9997e1902aebba408696c415541bbc3, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].x
+      value: -0.8096139
+      objectReference: {fileID: 0}
+    - target: {fileID: 3432195707396508278, guid: e9997e1902aebba408696c415541bbc3, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].y
+      value: -0.9519669
+      objectReference: {fileID: 0}
+    - target: {fileID: 3432195707396508278, guid: e9997e1902aebba408696c415541bbc3, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].x
+      value: -0.5726787
+      objectReference: {fileID: 0}
+    - target: {fileID: 3432195707396508278, guid: e9997e1902aebba408696c415541bbc3, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].y
+      value: -0.9604242
+      objectReference: {fileID: 0}
+    - target: {fileID: 3432195707396508278, guid: e9997e1902aebba408696c415541bbc3, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[4].x
+      value: -0.015178634
+      objectReference: {fileID: 0}
+    - target: {fileID: 3432195707396508278, guid: e9997e1902aebba408696c415541bbc3, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[4].y
+      value: 0.5492821
+      objectReference: {fileID: 0}
+    - target: {fileID: 3432195707396508278, guid: e9997e1902aebba408696c415541bbc3, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[5].x
+      value: 0.5195773
+      objectReference: {fileID: 0}
+    - target: {fileID: 3432195707396508278, guid: e9997e1902aebba408696c415541bbc3, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[5].y
+      value: -0.96682006
+      objectReference: {fileID: 0}
+    - target: {fileID: 3432195707396508278, guid: e9997e1902aebba408696c415541bbc3, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[6].x
+      value: 0.8094759
+      objectReference: {fileID: 0}
+    - target: {fileID: 3432195707396508278, guid: e9997e1902aebba408696c415541bbc3, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[6].y
+      value: -0.9624653
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3432195707396508278, guid: e9997e1902aebba408696c415541bbc3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e9997e1902aebba408696c415541bbc3, type: 3}
+--- !u!1 &814886601297963079 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2898206902133695609, guid: e9997e1902aebba408696c415541bbc3, type: 3}
+  m_PrefabInstance: {fileID: 2555635393379994686}
+  m_PrefabAsset: {fileID: 0}
+--- !u!60 &7070261257619081213
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814886601297963079}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.2, y: 3.2}
+    newSize: {x: 0.5, y: 0.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.021995123, y: 0.5334792}
+      - {x: 0.51450115, y: -0.9512371}
+      - {x: 0.78, y: -0.97999996}
+      - {x: 0.10540827, y: 0.9093511}
+      - {x: -0.1286285, y: 0.90627277}
+      - {x: -0.8209976, y: -0.95123714}
+      - {x: -0.55389607, y: -0.95561856}
