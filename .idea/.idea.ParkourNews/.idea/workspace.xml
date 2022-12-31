@@ -5,14 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2a21cc26-fe96-4869-9603-03d818d6f1ed" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerEffects/DashDisappear.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerEffects/DashDisappear.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/PlayerEffects/SpriteSheets/DashRight.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/PlayerEffects/SpriteSheets/DashRight.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ParkourNews/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ParkourNews/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/StickmanWalking Variant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/StickmanWalking Variant.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StickmanController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StickmanController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,16 +17,14 @@
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/BouncingLettersGroundController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CameraSet.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Collectible/PlayerCoinsCounter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MainMenu/MenuController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MapEffects/GroundController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MapEffects/RedLineManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MapEffects/Rotating.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerEffects/DeathEffectExplosion.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerEffects/JumpDisappear.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/StickmanController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/mapEffects/GroundController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/mapEffects/RedLineManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/mapEffects/Rotating.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.common@6.0.4/Editor/InternalBridge/TexturePlatformSettings/TexturePlatformSettings.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventInterfaces.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs" root0="SKIP_HIGHLIGHTING" />
@@ -76,7 +66,7 @@
       <method v="2" />
     </configuration>
     <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.10f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="D:\Programmi\Unity\Editor\Unity 2021.3.10f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Users\Akaviri\Desktop\PARKOURNEWS_project\ParkourNews -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\Akaviri\Desktop\PARKOURNEWS_project\ParkourNews" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -175,11 +165,15 @@
       <workItem from="1670143414910" duration="3459000" />
       <workItem from="1670147472899" duration="1119000" />
       <workItem from="1671541235105" duration="19106000" />
-      <workItem from="1671613398441" duration="6802000" />
-      <workItem from="1671793711835" duration="2323000" />
-      <workItem from="1671820336109" duration="1000" />
-      <workItem from="1671873500937" duration="1581000" />
-      <workItem from="1672325749584" duration="5139000" />
+      <workItem from="1671609935316" duration="4030000" />
+      <workItem from="1671656107965" duration="3082000" />
+    </task>
+    <task id="LOCAL-00025" summary="fix on level completion + added dont destroy to some elements">
+      <created>1669026296825</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1669026296825</updated>
     </task>
     <task id="LOCAL-00026" summary="updating scenes">
       <created>1669026314513</created>
@@ -496,35 +490,28 @@
       <option name="project" value="LOCAL" />
       <updated>1671568687185</updated>
     </task>
-    <task id="LOCAL-00071" summary="add end menu and pause menu to all the levels">
-      <created>1671902413505</created>
+    <task id="LOCAL-00071" summary="lastSaves">
+      <created>1671569123856</created>
       <option name="number" value="00071" />
       <option name="presentableId" value="LOCAL-00071" />
       <option name="project" value="LOCAL" />
-      <updated>1671902413506</updated>
+      <updated>1671569123857</updated>
     </task>
-    <task id="LOCAL-00072" summary="lv 4 pause/end menus are working">
-      <created>1671902874577</created>
+    <task id="LOCAL-00072" summary="fix on canvas inkers in menus">
+      <created>1671611530440</created>
       <option name="number" value="00072" />
       <option name="presentableId" value="LOCAL-00072" />
       <option name="project" value="LOCAL" />
-      <updated>1671902874577</updated>
+      <updated>1671611530440</updated>
     </task>
-    <task id="LOCAL-00073" summary="lv5 menus are working + fixed bug on nextLevel">
-      <created>1671905139018</created>
+    <task id="LOCAL-00073" summary="lv2 updated to work again">
+      <created>1671613741896</created>
       <option name="number" value="00073" />
       <option name="presentableId" value="LOCAL-00073" />
       <option name="project" value="LOCAL" />
-      <updated>1671905139018</updated>
+      <updated>1671613741896</updated>
     </task>
-    <task id="LOCAL-00074" summary="lv6,7,8 menus are working">
-      <created>1671905933389</created>
-      <option name="number" value="00074" />
-      <option name="presentableId" value="LOCAL-00074" />
-      <option name="project" value="LOCAL" />
-      <updated>1671905933390</updated>
-    </task>
-    <option name="localTasksCounter" value="75" />
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -600,6 +587,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="fix change of scene upon level completion" />
     <MESSAGE value="menu suggestions + fix on canvas inkers" />
     <MESSAGE value="esc to pause&#10;forse fix cloni (testare)&#10;better movement speed" />
     <MESSAGE value="fix animator - pause" />
@@ -621,10 +609,9 @@
     <MESSAGE value="menu selector works with the controller" />
     <MESSAGE value="menu with controller works&#10;&#10;found &quot;bugs&quot; if we press actions command in pause/end menu the scripts execute them" />
     <MESSAGE value="mouse effect on game is removed" />
-    <MESSAGE value="add end menu and pause menu to all the levels" />
-    <MESSAGE value="lv 4 pause/end menus are working" />
-    <MESSAGE value="lv5 menus are working + fixed bug on nextLevel" />
-    <MESSAGE value="lv6,7,8 menus are working" />
-    <option name="LAST_COMMIT_MESSAGE" value="lv6,7,8 menus are working" />
+    <MESSAGE value="lastSaves" />
+    <MESSAGE value="fix on canvas inkers in menus" />
+    <MESSAGE value="lv2 updated to work again" />
+    <option name="LAST_COMMIT_MESSAGE" value="lv2 updated to work again" />
   </component>
 </project>
