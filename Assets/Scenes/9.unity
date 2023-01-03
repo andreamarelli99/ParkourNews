@@ -562,6 +562,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 105356754}
     m_Modifications:
+    - target: {fileID: -4443563640108769507, guid: 56f7aeac1c80db84db3212ada27fb2c7, type: 3}
+      propertyPath: fadeSpeed
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 2198764123110160424, guid: 56f7aeac1c80db84db3212ada27fb2c7, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -817,6 +821,10 @@ PrefabInstance:
     - target: {fileID: 1488237521165602514, guid: 51720ac258b49ce439c9ef5576086b85, type: 3}
       propertyPath: m_Name
       value: FLetter
+      objectReference: {fileID: 0}
+    - target: {fileID: 2696268266416790369, guid: 51720ac258b49ce439c9ef5576086b85, type: 3}
+      propertyPath: fadeSpeed
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51720ac258b49ce439c9ef5576086b85, type: 3}
@@ -1176,6 +1184,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 105356754}
     m_Modifications:
+    - target: {fileID: 528555276569991481, guid: d8404a52fe569ac49a655f50d1302365, type: 3}
+      propertyPath: fadeSpeed
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 2735679149411052479, guid: d8404a52fe569ac49a655f50d1302365, type: 3}
       propertyPath: m_Name
       value: ALetter
@@ -2073,7 +2085,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5018604306537195387, guid: e1c41d8d192496b46a5763cba621a8b5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.6
+      value: 11.758562
       objectReference: {fileID: 0}
     - target: {fileID: 5018604306537195387, guid: e1c41d8d192496b46a5763cba621a8b5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2739,6 +2751,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 105356754}
     m_Modifications:
+    - target: {fileID: -4164285396238205352, guid: 160b5de4d4cde6d43b4728971c883054, type: 3}
+      propertyPath: fadeSpeed
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 6068820095325321389, guid: 160b5de4d4cde6d43b4728971c883054, type: 3}
       propertyPath: m_RootOrder
       value: 1
