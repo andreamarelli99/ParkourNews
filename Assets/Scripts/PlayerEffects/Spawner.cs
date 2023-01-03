@@ -34,7 +34,7 @@ public class Spawner : MonoBehaviour, ISingleton
     private bool _pauseIsOn;
     
     private Transform _transform;
-    private bool _stickmanCreated = false;
+    public static bool _stickmanCreated = false;
     private Vector2 _initialPosition;
 
     private StickmanActions _stickmanActions;

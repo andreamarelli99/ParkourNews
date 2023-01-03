@@ -8,11 +8,13 @@ public class LettersManager : MonoBehaviour
     void Start()
     {
         EventManager.StartListening("OnRespawn", OnRespawn);
-        gameObject.SetActive(true);
+        //gameObject.SetActive(true);
     }
 
     private void OnRespawn()
     {
+        gameObject.SetActive(false);
+        Debug.Log("Letter " + gameObject.name + " activated");
         gameObject.SetActive(true);
     }
 }

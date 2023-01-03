@@ -11,6 +11,7 @@ public class GroundControllerRedLine : MonoBehaviour
     private SpriteRenderer _spiteRenderer;
     private Color _startColor;
     private Color _endColor;
+    
 
     private void Awake()
     {
@@ -21,6 +22,7 @@ public class GroundControllerRedLine : MonoBehaviour
 
     private void OnEnable()
     {
+        Debug.Log(gameObject.name + " onEnable");
         _spiteRenderer.color = _startColor;
     }
 
@@ -35,14 +37,17 @@ public class GroundControllerRedLine : MonoBehaviour
 
     private IEnumerator FadeAlphaToZero(SpriteRenderer _renderer, float duration)
     {
-        
         float time = 0;
-        while (time < duration) {
+        while (time < duration)
+        {
             time += Time.deltaTime;
-            _renderer.color = Color.Lerp(_startColor, _endColor, time/duration);
+            _renderer.color = Color.Lerp(_startColor, _endColor, time / duration);
             yield return null;
         }
-        gameObject.SetActive(false);
+        if (Spawner._stickmanCreated)
+        {
+            Debug.Log("Letter " + gameObject.name + " Deactivated");
+            gameObject.SetActive(false);
+        }
     }
-
 }
