@@ -3649,6 +3649,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3963976664698889568, guid: 1b4a614cca3c8d74ba07cad07286305a, type: 3}
+      propertyPath: m_SortingLayer
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3963976664698889568, guid: 1b4a614cca3c8d74ba07cad07286305a, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1028529241
+      objectReference: {fileID: 0}
     - target: {fileID: 3963976664698889569, guid: 1b4a614cca3c8d74ba07cad07286305a, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -6317,6 +6325,10 @@ PrefabInstance:
     - target: {fileID: 7447446027979140567, guid: b11bc5ab45bc8bd46af21f889f1308af, type: 3}
       propertyPath: m_Name
       value: Isometric Hook
+      objectReference: {fileID: 0}
+    - target: {fileID: 7447446027979140567, guid: b11bc5ab45bc8bd46af21f889f1308af, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b11bc5ab45bc8bd46af21f889f1308af, type: 3}
