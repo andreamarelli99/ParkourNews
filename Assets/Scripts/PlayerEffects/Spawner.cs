@@ -68,44 +68,50 @@ public class Spawner : MonoBehaviour, ISingleton
         EventManager.StartListening("EndMenu",OnEndMenu);
         EventManager.StartListening("SpawnStickman",OnSpawnStickman);
     }
-    
+
     private void OnEndMenu()
     {
-        
-        Debug.Log("EndMenu");
-        EventManager.StopListening("EndMenu",OnEndMenu);
-        infoCanvas.SetActive(false);
-        endMenu.SetActive(true);
-        Time.timeScale = 0f;
-        _currentLevel = _levelManager.GetCurrentLevel();
-        _nextLevel = _levelManager.GetNextLevel();
-        _maxLevel = _levelManager.numberOfLevels();
-        EventManager.StartListening("EndMenu",OnEndMenu);
-        if(_currentLevel>=_maxLevel)
-            GameObject.FindWithTag("NextLevelButton").SetActive(false);
-        EventManager.StartListening("SpawnStickman",OnSpawnStickman);
-
-        int stars = _levelManager.getStars();
-        Debug.Log("end menu stars" + stars);
-        switch (stars)
+        if (_currentLevel <_maxLevel)
         {
-            case 0: 
-                image.sprite = starsSprite0;
-                break;
-            case 1:
-                image.sprite = starsSprite1;
-                break;
-            case 2:
-                image.sprite = starsSprite2;
-                break;
-            case 3:
-                image.sprite = starsSprite3;
-                break;
-            default:
-                image.sprite = starsSprite0;
-                break;
+
+            Debug.Log("EndMenu");
+            EventManager.StopListening("EndMenu", OnEndMenu);
+            infoCanvas.SetActive(false);
+            endMenu.SetActive(true);
+            Time.timeScale = 0f;
+            _currentLevel = _levelManager.GetCurrentLevel();
+            _nextLevel = _levelManager.GetNextLevel();
+            _maxLevel = _levelManager.numberOfLevels();
+            EventManager.StartListening("EndMenu", OnEndMenu);
+
+            EventManager.StartListening("SpawnStickman", OnSpawnStickman);
+
+            int stars = _levelManager.getStars();
+            Debug.Log("end menu stars" + stars);
+            switch (stars)
+            {
+                case 0:
+                    image.sprite = starsSprite0;
+                    break;
+                case 1:
+                    image.sprite = starsSprite1;
+                    break;
+                case 2:
+                    image.sprite = starsSprite2;
+                    break;
+                case 3:
+                    image.sprite = starsSprite3;
+                    break;
+                default:
+                    image.sprite = starsSprite0;
+                    break;
+            }
         }
-       
+        else
+        {
+            SceneManager.LoadScene("EndGame");
+        }
+
     }
     
     private void OnEnable()
