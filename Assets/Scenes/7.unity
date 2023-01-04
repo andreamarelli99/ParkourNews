@@ -710,8 +710,8 @@ RectTransform:
   - {fileID: 1563134307}
   - {fileID: 619965362}
   - {fileID: 1688136801}
-  - {fileID: 149308848}
   - {fileID: 551319251}
+  - {fileID: 149308848}
   - {fileID: 1428767186}
   m_Father: {fileID: 1166681970}
   m_RootOrder: 1
@@ -818,7 +818,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1065.0852, y: -366.6949}
+  m_AnchoredPosition: {x: -1065.0852, y: -367.58}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &179947764
@@ -2321,6 +2321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c7aee769e5efda4d91a69b59d1f8a0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fadeDuration: 2
 --- !u!114 &551319254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2718,6 +2719,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c7aee769e5efda4d91a69b59d1f8a0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fadeDuration: 2
 --- !u!1001 &629404218
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4021,7 +4023,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1062.7852, y: -378.2949}
+  m_AnchoredPosition: {x: -1062.7852, y: -379.4}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &842332309
@@ -4799,7 +4801,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1164558827675353932, guid: b18c904e533628f43b7728df91120bc2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.9314423
+      value: 7.1
       objectReference: {fileID: 0}
     - target: {fileID: 1164558827675353932, guid: b18c904e533628f43b7728df91120bc2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4873,6 +4875,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c7aee769e5efda4d91a69b59d1f8a0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fadeDuration: 2
 --- !u!1001 &1213350132
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6402,6 +6405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c7aee769e5efda4d91a69b59d1f8a0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fadeDuration: 2
 --- !u!1001 &1580977949
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7900,6 +7904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c7aee769e5efda4d91a69b59d1f8a0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fadeDuration: 2
 --- !u!1 &2028992291
 GameObject:
   m_ObjectHideFlags: 0
