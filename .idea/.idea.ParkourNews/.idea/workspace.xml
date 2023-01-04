@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a21cc26-fe96-4869-9603-03d818d6f1ed" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu/EndMenuController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu/EndMenuController.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ParkourNews/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ParkourNews/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts/BebasNeue-Regular SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fonts/BebasNeue-Regular SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/EndGame.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/EndGame.unity" afterDir="false" />
+    <list default="true" id="2a21cc26-fe96-4869-9603-03d818d6f1ed" name="Changes" comment="endMenu">
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/10.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/10.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerEffects/Spawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerEffects/Spawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -176,13 +171,6 @@
       <workItem from="1671541235105" duration="19106000" />
       <workItem from="1671609935316" duration="4030000" />
       <workItem from="1671656107965" duration="3082000" />
-    </task>
-    <task id="LOCAL-00025" summary="fix on level completion + added dont destroy to some elements">
-      <created>1669026296825</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1669026296825</updated>
     </task>
     <task id="LOCAL-00026" summary="updating scenes">
       <created>1669026314513</created>
@@ -520,7 +508,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671613741896</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="endMenu">
+      <created>1672822226971</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1672822226972</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -596,7 +591,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="fix change of scene upon level completion" />
     <MESSAGE value="menu suggestions + fix on canvas inkers" />
     <MESSAGE value="esc to pause&#10;forse fix cloni (testare)&#10;better movement speed" />
     <MESSAGE value="fix animator - pause" />
@@ -621,6 +615,7 @@
     <MESSAGE value="lastSaves" />
     <MESSAGE value="fix on canvas inkers in menus" />
     <MESSAGE value="lv2 updated to work again" />
-    <option name="LAST_COMMIT_MESSAGE" value="lv2 updated to work again" />
+    <MESSAGE value="endMenu" />
+    <option name="LAST_COMMIT_MESSAGE" value="endMenu" />
   </component>
 </project>

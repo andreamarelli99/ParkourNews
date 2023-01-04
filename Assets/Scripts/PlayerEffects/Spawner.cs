@@ -71,6 +71,11 @@ public class Spawner : MonoBehaviour, ISingleton
 
     private void OnEndMenu()
     {
+        _currentLevel = _levelManager.GetCurrentLevel();
+        _nextLevel = _levelManager.GetNextLevel();
+        _maxLevel = _levelManager.numberOfLevels();
+        
+        Debug.Log(_currentLevel);
         if (_currentLevel <_maxLevel)
         {
 
@@ -79,9 +84,7 @@ public class Spawner : MonoBehaviour, ISingleton
             infoCanvas.SetActive(false);
             endMenu.SetActive(true);
             Time.timeScale = 0f;
-            _currentLevel = _levelManager.GetCurrentLevel();
-            _nextLevel = _levelManager.GetNextLevel();
-            _maxLevel = _levelManager.numberOfLevels();
+            
             EventManager.StartListening("EndMenu", OnEndMenu);
 
             EventManager.StartListening("SpawnStickman", OnSpawnStickman);
