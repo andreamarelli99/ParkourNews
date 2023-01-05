@@ -39,6 +39,7 @@ public class Spawner : MonoBehaviour, ISingleton
 
     private StickmanActions _stickmanActions;
     [SerializeField] float _timeLeft;
+    [SerializeField] private float _timeToRespawn = 2;
 
     private Vector3 _position;
     // public AudioClip soundEffect;
@@ -194,7 +195,7 @@ public class Spawner : MonoBehaviour, ISingleton
     private IEnumerator RespawnCoroutine()
     {
         EventManager.TriggerEvent("OnRespawn"); 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(_timeToRespawn);
         if (!_stickmanCreated)
         {
             SetPosition(_initialPosition);
