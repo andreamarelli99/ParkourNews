@@ -14,12 +14,13 @@ GameObject:
   - component: {fileID: 4652131726814989357}
   - component: {fileID: 2332564934350422941}
   - component: {fileID: 3461515440258379130}
+  - component: {fileID: -3653899262852997346}
   m_Layer: 0
   m_Name: 1Letter
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5583524490550224241
 Transform:
@@ -164,3 +165,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d959af26330bc84f9f84fd6584210e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &-3653899262852997346
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191827346021133197}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

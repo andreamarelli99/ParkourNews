@@ -364,10 +364,25 @@ public class StickmanController : MonoBehaviour,ISingleton
                     0);
             _rigidbody2D.velocity = Vector2.zero;
         }
+        
         else if (col.gameObject.CompareTag("CheckPoint"))
         {
             Debug.Log("CheckpointConfermed");
             _follower.SetInitialPosition(col.gameObject.transform.position);
+        }
+        
+        else if (col.gameObject.CompareTag("StartRedLineCheckPoint"))
+        {
+            Debug.Log("StartEndRedLineCheckPoint");
+            _follower.SetInitialPosition(col.gameObject.transform.position);
+            EventManager.TriggerEvent("StartRedLineFromCheckPoint");
+        }
+        
+        else if (col.gameObject.CompareTag("EndRedLineCheckPoint"))
+        {
+            Debug.Log("ReachedEndRedLineCheckPoint");
+            _follower.SetInitialPosition(col.gameObject.transform.position);
+            EventManager.TriggerEvent("ReachedEndRedLineCheckPoint");
         }
     }
     
