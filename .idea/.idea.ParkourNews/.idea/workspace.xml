@@ -5,53 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2a21cc26-fe96-4869-9603-03d818d6f1ed" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Trail.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Trail.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/mapEffects/RedLineMangerAfterCheckPoint.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/mapEffects/RedLineMangerAfterCheckPoint.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Collectibles/inkwell_coin_checkpoint.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Collectibles/inkwell_coin_checkpoint.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Collectible/CoinControllerCheckPoint.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Collectible/CoinControllerCheckPoint.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ParkourNews/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ParkourNews/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Letters/0Letter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Letters/0Letter.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Letters/1Letter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Letters/1Letter.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Letters/2Letter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Letters/2Letter.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Letters/3Letter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Letters/3Letter.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Letters/4Letter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Letters/4Letter.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Letters/5Letter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Letters/5Letter.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Letters/6Letter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Letters/6Letter.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Letters/7Letter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Letters/7Letter.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Letters/8Letter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Letters/8Letter.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Letters/9Letter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Letters/9Letter.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Letters/=Letter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Letters/=Letter.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Letters/ALetter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Letters/ALetter.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Letters/BLetter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Letters/BLetter.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Letters/CLetter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Letters/CLetter.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Letters/DLetter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Letters/DLetter.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Letters/ELetter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Letters/ELetter.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Letters/FLetter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Letters/FLetter.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Letters/GLetter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Letters/GLetter.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Letters/HLetter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Letters/HLetter.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Letters/ILetter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Letters/ILetter.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Letters/JLetter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Letters/JLetter.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Letters/KLetter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Letters/KLetter.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Letters/LLetter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Letters/LLetter.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Letters/MLetter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Letters/MLetter.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Letters/NLetter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Letters/NLetter.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Letters/OLetter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Letters/OLetter.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Letters/PLetter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Letters/PLetter.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Letters/QLetter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Letters/QLetter.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Letters/RLetter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Letters/RLetter.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Letters/SLetter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Letters/SLetter.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Letters/TLetter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Letters/TLetter.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Letters/ULetter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Letters/ULetter.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Letters/VLetter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Letters/VLetter.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Letters/WLetter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Letters/WLetter.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Letters/XLetter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Letters/XLetter.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Letters/YLetter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Letters/YLetter.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Letters/ZLetter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Letters/ZLetter.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Trail.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Trail.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/AndreaScene/NewStyleScene 1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/AndreaScene/NewStyleScene 1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerEffects/Spawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerEffects/Spawner.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/StickmanController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StickmanController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -218,6 +179,7 @@
       <workItem from="1671656107965" duration="3082000" />
       <workItem from="1672825490514" duration="137000" />
       <workItem from="1672865590718" duration="5901000" />
+      <workItem from="1672937115988" duration="757000" />
     </task>
     <task id="LOCAL-00027" summary="next level as message">
       <created>1669105286007</created>
