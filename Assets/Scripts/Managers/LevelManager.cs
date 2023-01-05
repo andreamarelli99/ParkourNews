@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using Unity.VisualScripting.Antlr3.Runtime;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace ParkourNews.Scripts
@@ -26,7 +22,7 @@ namespace ParkourNews.Scripts
         {
             DontDestroyOnLoad(this.gameObject);
             _dataManager = FindObjectOfType<DataManager>();
-            coinsPerLevel=new List<int>();
+            coinsPerLevel = new List<int>();
             coinsPerLevel.Add(6);
             coinsPerLevel.Add(35);
             coinsPerLevel.Add(28);
@@ -50,27 +46,19 @@ namespace ParkourNews.Scripts
             EventManager.StartListening("OnRespawn",OnRespawn);
             EventManager.StartListening("OnCoin",OnCoin);
             EventManager.StartListening("EndLevel",OnEndLevel);
-            
-           
-            
         }
 
         
 
         private void OnEndLevel()
         {
-            
-            
             EventManager.StopListening("EndLevel",OnEndLevel);
             _nextLevel = _currentLevel + 1;
             Debug.Log("livello finito :  "+ _currentLevel +" && prossimo livello: "+ _nextLevel + "&& tot livelli: "+coinsPerLevel.Count);
             _dataManager.SetData(GetCurrentLevel(),getPlayerPointsRatio());
             EventManager.TriggerEvent("Save");
-
             EventManager.TriggerEvent("EndMenu");
-            
             EventManager.StartListening("EndLevel",OnEndLevel);
-            
         }
 
         
@@ -83,6 +71,7 @@ namespace ParkourNews.Scripts
         {
             EventManager.StopListening("OnRespawn",OnRespawn);
             _playerPoints = 0;
+            EventManager.TriggerEvent("onResetCoinsBar");
             EventManager.StartListening("OnRespawn",OnRespawn);
         }
         
@@ -90,17 +79,21 @@ namespace ParkourNews.Scripts
         {
             return _currentLevel;
         }
+        
         public int GetNextLevel()
         {
             return _nextLevel;
         }
         
-
+        public int GetCoinsCurrentLevel()
+        {
+            return coinsPerLevel[_currentLevel - 1];
+        }
         
         public float getPlayerPointsRatio()
         {
             float collectedCoins = _playerPoints;
-            float coins=coinsPerLevel[_currentLevel - 1];
+            float coins = coinsPerLevel[_currentLevel - 1];
             Debug.Log("Coins: " + _playerPoints);
             Debug.Log("Coins in level: " + coins);
             resetPlayerPoints();

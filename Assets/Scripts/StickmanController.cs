@@ -368,12 +368,14 @@ public class StickmanController : MonoBehaviour,ISingleton
         else if (col.gameObject.CompareTag("CheckPoint"))
         {
             Debug.Log("CheckpointConfermed");
+            EventManager.TriggerEvent("CheckPointReached");
             _follower.SetInitialPosition(col.gameObject.transform.position);
         }
         
         else if (col.gameObject.CompareTag("StartRedLineCheckPoint"))
         {
             Debug.Log("StartEndRedLineCheckPoint");
+            EventManager.TriggerEvent("CheckPointReached");
             _follower.SetInitialPosition(col.gameObject.transform.position);
             EventManager.TriggerEvent("StartRedLineFromCheckPoint");
         }
@@ -381,6 +383,7 @@ public class StickmanController : MonoBehaviour,ISingleton
         else if (col.gameObject.CompareTag("EndRedLineCheckPoint"))
         {
             Debug.Log("ReachedEndRedLineCheckPoint");
+            EventManager.TriggerEvent("CheckPointReached");
             _follower.SetInitialPosition(col.gameObject.transform.position);
             EventManager.TriggerEvent("ReachedEndRedLineCheckPoint");
         }
