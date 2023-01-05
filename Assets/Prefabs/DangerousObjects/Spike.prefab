@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2898206902133695559}
   - component: {fileID: 2898206902133695608}
   - component: {fileID: -1963098136255567691}
+  - component: {fileID: 4826396161263970452}
   m_Layer: 6
   m_Name: Spike
   m_TagString: Trap
@@ -117,3 +118,36 @@ PolygonCollider2D:
       - {x: 0.7905925, y: -0.9637283}
       - {x: 0.11210186, y: 0.91720414}
       - {x: -0.13984068, y: 0.91696703}
+--- !u!60 &4826396161263970452
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2898206902133695609}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.2, y: 3.2}
+    newSize: {x: 0.5, y: 0.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.021682352, y: 0.5382849}
+      - {x: 0.517427, y: -0.96285594}
+      - {x: 0.7896995, y: -0.9617153}
+      - {x: 0.24674258, y: 0.54284483}
+      - {x: -0.27314347, y: 0.5364871}
+      - {x: -0.62, y: -0.35}
+      - {x: -0.818334, y: -0.96333206}
+      - {x: -0.55, y: -0.9601294}
