@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a21cc26-fe96-4869-9603-03d818d6f1ed" name="Changes" comment="lv1 revamp completed" />
+    <list default="true" id="2a21cc26-fe96-4869-9603-03d818d6f1ed" name="Changes" comment="lv 3 revamp" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,6 +21,7 @@
     <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Prefabs/MapEffects/CanvasInkers.prefab" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Scenes/0.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Scenes/0.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Scenes/1.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Scenes/1.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Scenes/1.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Scenes/1.unity" root0="SKIP_HIGHLIGHTING" />
@@ -186,20 +187,6 @@
       <workItem from="1672825490514" duration="137000" />
       <workItem from="1672865590718" duration="5901000" />
       <workItem from="1672937115988" duration="757000" />
-    </task>
-    <task id="LOCAL-00030" summary="fix save when first playing">
-      <created>1669480930630</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1669480930630</updated>
-    </task>
-    <task id="LOCAL-00031" summary="scene fix">
-      <created>1669481910189</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1669481910189</updated>
     </task>
     <task id="LOCAL-00032" summary="scene">
       <created>1669481928769</created>
@@ -530,7 +517,21 @@
       <option name="project" value="LOCAL" />
       <updated>1672953850013</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="lv2 revamp done">
+      <created>1672954091465</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1672954091465</updated>
+    </task>
+    <task id="LOCAL-00080" summary="lv 3 revamp">
+      <created>1672954828241</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1672954828242</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -606,8 +607,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="more speed = less acceleration" />
-    <MESSAGE value="stop pressing stops the stickman" />
     <MESSAGE value="workspace" />
     <MESSAGE value="deceleration only in-air or during actions" />
     <MESSAGE value="endLevelMenu draft" />
@@ -631,6 +630,8 @@
     <MESSAGE value="Menu selector revamp" />
     <MESSAGE value="l1 inkers info" />
     <MESSAGE value="lv1 revamp completed" />
-    <option name="LAST_COMMIT_MESSAGE" value="lv1 revamp completed" />
+    <MESSAGE value="lv2 revamp done" />
+    <MESSAGE value="lv 3 revamp" />
+    <option name="LAST_COMMIT_MESSAGE" value="lv 3 revamp" />
   </component>
 </project>
