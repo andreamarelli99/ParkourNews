@@ -8,7 +8,7 @@ namespace MainMenu.MenuNavigation
 {
     public class ButtonColoring: MonoBehaviour
     {
-        [SerializeField] private Color buttonColor =  new Color32(179,179,179,70);
+        [SerializeField] private Color buttonColor =  new Color32(179,179,179,168);
         [SerializeField] private Color buttonSelectedColor = new Color32(214, 167, 148, 255);
        
         private ColorBlock _colors;
