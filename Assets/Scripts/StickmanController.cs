@@ -130,8 +130,7 @@ public class StickmanController : MonoBehaviour,ISingleton
     private Boolean _isDead;
     private Transform _transform;
     private bool _death = false;
-    private bool _timerOn = false;
-    [SerializeField] private float _timeLeft;
+    [SerializeField] private float _deathTime;
     [SerializeField] private GameObject _deathEffect;
     [SerializeField] private GameObject _jumpEffect;
     [SerializeField] private GameObject _dashRightEffect;
@@ -465,7 +464,7 @@ public class StickmanController : MonoBehaviour,ISingleton
     
     private IEnumerator ExecuteDeathEffectCoroutine()
     {
-        yield return new WaitForSeconds(_timeLeft);
+        yield return new WaitForSeconds(_deathTime);
         Instantiate(_deathEffect, _transform.position, _transform.rotation);
         EventManager.TriggerEvent("OnDeath");
         DestroyImmediate(gameObject,true);
