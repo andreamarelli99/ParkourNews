@@ -2454,17 +2454,25 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3515974535518091537, guid: 73b2a1ec445279b4387f7ccfb548e297, type: 3}
+      propertyPath: m_Color.b
+      value: 0.31764707
+      objectReference: {fileID: 0}
+    - target: {fileID: 3515974535518091537, guid: 73b2a1ec445279b4387f7ccfb548e297, type: 3}
+      propertyPath: m_Color.r
+      value: 0.70980394
+      objectReference: {fileID: 0}
     - target: {fileID: 3986667650216871594, guid: 73b2a1ec445279b4387f7ccfb548e297, type: 3}
       propertyPath: m_Color.b
-      value: 0.21176472
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3986667650216871594, guid: 73b2a1ec445279b4387f7ccfb548e297, type: 3}
       propertyPath: m_Color.g
-      value: 0.9607844
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3986667650216871594, guid: 73b2a1ec445279b4387f7ccfb548e297, type: 3}
       propertyPath: m_Color.r
-      value: 0.04705883
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4420432707613791688, guid: 73b2a1ec445279b4387f7ccfb548e297, type: 3}
       propertyPath: m_Layer
@@ -2601,6 +2609,10 @@ PrefabInstance:
     - target: {fileID: 7553510383711266936, guid: 73b2a1ec445279b4387f7ccfb548e297, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8011605191194779864, guid: 73b2a1ec445279b4387f7ccfb548e297, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8074242951521930813, guid: 73b2a1ec445279b4387f7ccfb548e297, type: 3}
       propertyPath: m_LocalScale.x
