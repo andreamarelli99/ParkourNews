@@ -50,7 +50,10 @@ public class CoinBarController : MonoBehaviour
     {
         EventManager.StopListening("OnRespawn", OnRespawn);
         _slider.value = _inkersInLastCheckPoint;
-        starsImage.sprite = noStars;
+        if (_inkersInLastCheckPoint >= _slider.maxValue) starsImage.sprite = threeStars;
+        else if(_inkersInLastCheckPoint >= _slider.maxValue * 0.66) starsImage.sprite  = twoStars;
+        else if(_inkersInLastCheckPoint >= _slider.maxValue * 0.33) starsImage.sprite = oneStars;
+   //     starsImage.sprite = noStars;
         EventManager.StartListening("OnRespawn", OnRespawn);
     }
 }
