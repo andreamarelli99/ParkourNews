@@ -34,7 +34,7 @@ namespace ParkourNews.Scripts
             coinsPerLevel.Add(35);
             coinsPerLevel.Add(27);
             coinsPerLevel.Add(17);
-            coinsPerLevel.Add(28);
+            coinsPerLevel.Add(19);
         }
 
         
