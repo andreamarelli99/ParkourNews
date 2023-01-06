@@ -668,6 +668,8 @@ GameObject:
   - component: {fileID: 6026525556784365459}
   - component: {fileID: 6026525556784365463}
   - component: {fileID: 6026525556784365462}
+  - component: {fileID: 1545475403513550711}
+  - component: {fileID: -3711107891253404327}
   m_Layer: 5
   m_Name: CanvasInkers 1
   m_TagString: Untagged
@@ -795,6 +797,30 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &1545475403513550711
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6026525556784365468}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &-3711107891253404327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6026525556784365468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f0804a0797b2e84ab9c996705d061d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6244679929136430221
 GameObject:
   m_ObjectHideFlags: 0
