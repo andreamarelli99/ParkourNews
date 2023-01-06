@@ -26,8 +26,6 @@ namespace ParkourNews.Scripts
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            Debug.Log("trigger enter");
-            Debug.Log(collision.gameObject.CompareTag("Player"));
             if (_gameIsOn&&collision.gameObject.CompareTag("Player")){
                 //EventManager.TriggerEvent("EndLevel");
                 EventManager.TriggerEvent("WinAnimation");
