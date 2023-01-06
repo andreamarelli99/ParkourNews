@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a21cc26-fe96-4869-9603-03d818d6f1ed" name="Changes" comment="end menu revamp" />
+    <list default="true" id="2a21cc26-fe96-4869-9603-03d818d6f1ed" name="Changes" comment="end game menu revamp">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ParkourNews/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ParkourNews/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/0.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/0.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -192,20 +197,6 @@
       <workItem from="1672825490514" duration="137000" />
       <workItem from="1672865590718" duration="5901000" />
       <workItem from="1672937115988" duration="757000" />
-    </task>
-    <task id="LOCAL-00037" summary=" red sign">
-      <created>1670078021270</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1670078021270</updated>
-    </task>
-    <task id="LOCAL-00038" summary="Add: suggestions on 1st scene">
-      <created>1670079469743</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1670079469743</updated>
     </task>
     <task id="LOCAL-00039" summary="menu and 2nd scene">
       <created>1670080743195</created>
@@ -536,7 +527,21 @@
       <option name="project" value="LOCAL" />
       <updated>1672963437276</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="pause menu revamp">
+      <created>1672963643922</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1672963643922</updated>
+    </task>
+    <task id="LOCAL-00087" summary="end game menu revamp">
+      <created>1672963823999</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1672963823999</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -612,8 +617,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="end menu with stars" />
-    <MESSAGE value="visual hint on menu" />
     <MESSAGE value="fix on colors&#10;when game starts the play button is selected" />
     <MESSAGE value="initial menu buttons work with controller" />
     <MESSAGE value="fixed back and forth in options for key settings" />
@@ -637,6 +640,8 @@
     <MESSAGE value="easier lv.8" />
     <MESSAGE value="all lv revamp" />
     <MESSAGE value="end menu revamp" />
-    <option name="LAST_COMMIT_MESSAGE" value="end menu revamp" />
+    <MESSAGE value="pause menu revamp" />
+    <MESSAGE value="end game menu revamp" />
+    <option name="LAST_COMMIT_MESSAGE" value="end game menu revamp" />
   </component>
 </project>
