@@ -14,6 +14,7 @@ public class CameraSet : MonoBehaviour
     [SerializeField] private float _zoomOutMax = 30f;
     private float _currentFov = 30f;
     private float _incZoom = 1f;
+    private bool _speedUpKey = false;
     [SerializeField] private float _percentageFollowing = 10f;
     [SerializeField] private float _deltaZoomIncrement = 0.01f;
     [SerializeField] private float _dumping = 3f;
@@ -66,12 +67,13 @@ public class CameraSet : MonoBehaviour
     void Update()
     {
 
-
-        /*if (_spawner != null)
+        if (Input.anyKey && !_speedUpKey)
         {
-            _cam.Follow = _spawner.transform; //_stickman.transform;
-        }*/
-
+            Debug.Log("KeyPressedZoom");
+            _deltaZoomIncrement = 0.5f;
+            _speedUpKey = true;
+        }
+        
     }
 
     public void SetStickman(GameObject stickman)

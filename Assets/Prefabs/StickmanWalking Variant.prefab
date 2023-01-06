@@ -1009,7 +1009,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8143102729369267767}
-  - component: {fileID: 1229613893646320465}
   - component: {fileID: 8548584236420569505}
   - component: {fileID: 3881072770659828427}
   m_Layer: 9
@@ -1034,22 +1033,6 @@ Transform:
   m_Father: {fileID: 6024849325085433462}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &1229613893646320465
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3320714398181588544}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.50590426}
-  serializedVersion: 2
-  m_Radius: 0.83445716
 --- !u!70 &8548584236420569505
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1063,9 +1046,9 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.15599692, y: -0.10871029}
-  m_Size: {x: 4.334085, y: 0.548616}
-  m_Direction: 1
+  m_Offset: {x: 0, y: 0.3}
+  m_Size: {x: 0.84, y: 1.36}
+  m_Direction: 0
 --- !u!70 &3881072770659828427
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1080,7 +1063,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 2.5, y: 0.2}
+  m_Size: {x: 3, y: 0.2}
   m_Direction: 1
 --- !u!1 &3877137558602349551
 GameObject:
