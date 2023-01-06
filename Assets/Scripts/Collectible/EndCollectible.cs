@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -22,15 +23,29 @@ namespace ParkourNews.Scripts
             Debug.Log("Game is On");
             EventManager.StartListening("StickmanSpawned",OnStickmanSpawned);
         }
-        
-        private void OnCollisionEnter2D(Collision2D collision)
+
+        private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (_gameIsOn&&collision.gameObject.CompareTag("Stickman")){
-                EventManager.TriggerEvent("EndLevel");
+            Debug.Log("trigger enter");
+            Debug.Log(collision.gameObject.CompareTag("Player"));
+            if (_gameIsOn&&collision.gameObject.CompareTag("Player")){
+                //EventManager.TriggerEvent("EndLevel");
+                EventManager.TriggerEvent("WinAnimation");
                 EventManager.TriggerEvent("FinishSound");
-                gameObject.SetActive(false);
+                gameObject.GetComponent<SpriteRenderer>().color = new Color(
+                     gameObject.GetComponent<SpriteRenderer>().color.r,
+                     gameObject.GetComponent<SpriteRenderer>().color.g,
+                     gameObject.GetComponent<SpriteRenderer>().color.b, 0f);
                 _gameIsOn = false;
+                StartCoroutine(EndLevelCoroutine());
             }
+        }
+
+        IEnumerator EndLevelCoroutine()
+        {
+            yield return new WaitForSeconds(2);
+            EventManager.TriggerEvent("EndLevel");
+            gameObject.SetActive(false);
         }
     }
 }

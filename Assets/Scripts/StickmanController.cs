@@ -159,7 +159,7 @@ public class StickmanController : MonoBehaviour,ISingleton
     }
 
     private void OnEnable()
-    {
+    { 
         _animator.Play("PlayerIdle");
         // Enable stickman actions
         _stickmanActions.Enable();
@@ -199,6 +199,7 @@ public class StickmanController : MonoBehaviour,ISingleton
         EventManager.StartListening("OnSlidingObliqueRightEnter", OnSlidingObliqueRightEnter);
         EventManager.TriggerEvent("SpawnSound");
         EventManager.TriggerEvent("StickmanSpawned");
+        EventManager.StartListening("WinAnimation", WinAnimation);
     }
 
     private void OnDisable()
@@ -688,6 +689,13 @@ public class StickmanController : MonoBehaviour,ISingleton
         }
     }
 
+
+    private void WinAnimation()
+    {
+        _animator.SetTrigger("IsWin");
+        _canMove = false;
+        _canFlip = false;
+    }
     private void OnWall()
     {
         if (_onWallEvent)
