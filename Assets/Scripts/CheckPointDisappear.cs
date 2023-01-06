@@ -9,7 +9,8 @@ public class CheckPointDisappear : MonoBehaviour
     {
         if (col.gameObject.CompareTag("WallCheck"))
         {
-            
+            Destroy(this, 1);
         }
     }
+    
 }
