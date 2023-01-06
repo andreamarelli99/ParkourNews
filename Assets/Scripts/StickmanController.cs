@@ -672,15 +672,7 @@ public class StickmanController : MonoBehaviour,ISingleton
     {
         if (!_isCrouched && !_isJumping && !_isSliding && !_isSlidingOblique&& Time.timeScale!=0) //if the stickman is not in a crouch position -> crouch
         {
-                // if the player is running when the crouch is called slide and then crouch
-                if (Math.Abs(_rigidbody2D.velocity.x) >= _minRunSpeed && _isRunning && Time.time > NextSlide)
-                {
-                    StartCoroutine(WaitUntilWalkingSpeed());
-                    NextSlide = Time.time + SlideRate;
-                    Debug.Log("Can slide");
-                }
-
-                Debug.Log("Crouch!");
+            Debug.Log("Crouch!");
                 _isCrouched = true;
                 _animator.SetBool("IsCrouched", true);
                 _walkSpeed /= 2;
