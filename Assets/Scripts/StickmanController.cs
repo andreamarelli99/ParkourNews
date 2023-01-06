@@ -692,9 +692,16 @@ public class StickmanController : MonoBehaviour,ISingleton
 
     private void WinAnimation()
     {
+        EventManager.StopListening("OnGround", OnGround);
+        _stickmanActions.Player.Jump.performed -= OnJump;
         _animator.SetTrigger("IsWin");
+        _rigidbody2D.velocity = Vector2.zero;
+        _rigidbody2D.mass = 2000000;
         _canMove = false;
         _canFlip = false;
+        _canDash = false;
+        _canSlide = false;
+        _canRoll = false;
     }
     private void OnWall()
     {
