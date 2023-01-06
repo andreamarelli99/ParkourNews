@@ -68,6 +68,7 @@ public class Spawner : MonoBehaviour, ISingleton
         EventManager.StartListening("OpenMenu",OnOpenMenu);
         EventManager.StartListening("EndMenu",OnEndMenu);
         EventManager.StartListening("SpawnStickman",OnSpawnStickman);
+        EventManager.StartListening("Reload",OnReload);
     }
 
     private void OnEndMenu()
@@ -171,11 +172,20 @@ public class Spawner : MonoBehaviour, ISingleton
     public void Redo()
     {
         Time.timeScale = 1f;
+        _currentLevel = _levelManager.GetCurrentLevel();
         SceneManager.LoadScene(_currentLevel.ToString());
     }
-    
-    
-    
+
+    public void OnReload()
+    {
+        Debug.Log("Reload action, reloading lv:" +_currentLevel);
+        
+        EventManager.StopListening("Reload",OnReload);
+        Redo();
+        EventManager.StartListening("Reload",OnReload);
+    }
+
+
     public void Quit()
     {
         Application.Quit();
