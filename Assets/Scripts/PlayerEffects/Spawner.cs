@@ -205,7 +205,7 @@ public class Spawner : MonoBehaviour, ISingleton
     
     public void SetInitialPosition(Vector3 position)
     {
-        _initialPosition = new Vector3(position.x, position.y-5f);
+        _initialPosition = new Vector3(position.x, position.y);
     }
 
 
