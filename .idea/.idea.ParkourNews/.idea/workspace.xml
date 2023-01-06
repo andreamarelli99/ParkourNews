@@ -4,9 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a21cc26-fe96-4869-9603-03d818d6f1ed" name="Changes" comment="l1 inkers info">
+    <list default="true" id="2a21cc26-fe96-4869-9603-03d818d6f1ed" name="Changes" comment="fix lv9">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ParkourNews/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ParkourNews/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/AndreaScene/NewStyleScene 1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/AndreaScene/NewStyleScene 1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/10.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/10.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/11.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/11.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/12.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/12.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/3.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/4.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/4.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/5.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/5.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/6.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/6.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/7.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/7.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/8.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/8.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/9.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/9.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -19,17 +30,20 @@
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Prefabs/Menu/PauseMenu.prefab" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Scenes/1.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Scenes/9.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BouncingLettersGroundController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CameraSet.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Collectible/PlayerCoinsCounter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MainMenu/MenuController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MapEffects/GroundController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MapEffects/RedLineManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MapEffects/RedLineMangerAfterCheckPoint.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MapEffects/Rotating.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerEffects/DeathEffectExplosion.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerEffects/JumpDisappear.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/StickmanController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/mapEffects/GroundController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/mapEffects/RedLineManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/mapEffects/RedLineMangerAfterCheckPoint.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/mapEffects/Rotating.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.common@6.0.4/Editor/InternalBridge/TexturePlatformSettings/TexturePlatformSettings.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@1.17.6/Editor/PlasticSCM/PlasticWindow.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventInterfaces.cs" root0="SKIP_HIGHLIGHTING" />
@@ -179,13 +193,6 @@
       <workItem from="1672963674501" duration="526000" />
       <workItem from="1673016997883" duration="4343000" />
       <workItem from="1673039945512" duration="361000" />
-    </task>
-    <task id="LOCAL-00028" summary="fix on points type">
-      <created>1669105604561</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1669105604561</updated>
     </task>
     <task id="LOCAL-00029" summary="check on save done">
       <created>1669106719564</created>
@@ -523,7 +530,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672952555367</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="fix lv9">
+      <created>1673040971008</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1673040971008</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -599,7 +613,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Now on key horizontal move =0 the character stays still on its horizontal coord" />
     <MESSAGE value="more speed = less acceleration" />
     <MESSAGE value="stop pressing stops the stickman" />
     <MESSAGE value="workspace" />
@@ -624,6 +637,7 @@
     <MESSAGE value="fix on lv 10" />
     <MESSAGE value="Menu selector revamp" />
     <MESSAGE value="l1 inkers info" />
-    <option name="LAST_COMMIT_MESSAGE" value="l1 inkers info" />
+    <MESSAGE value="fix lv9" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix lv9" />
   </component>
 </project>
