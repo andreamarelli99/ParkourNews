@@ -8,7 +8,7 @@ public class LettersManager : MonoBehaviour
     void Start()
     {
         EventManager.StartListening("OnRespawn", OnRespawn);
-        EventManager.StartListening("CheckPointReached", OnRespawn);
+  //      EventManager.StartListening("CheckPointReached", OnRespawn);
         
         //gameObject.SetActive(true);
     }
