@@ -60,9 +60,18 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "ZoomMap",
+                    "type": "Button",
+                    "id": "a4149204-d393-4594-b9b5-099077c73307",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Reload",
                     "type": "Button",
-                    "id": "413c5c78-bf6a-4075-8e1f-694ff4d6c120",
+                    "id": "57cd50a8-d1a2-45fe-bbe2-08031074737c",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -314,22 +323,44 @@
                 },
                 {
                     "name": "",
-                    "id": "c92572a5-0f1c-4090-b5eb-f153b80a011a",
+                    "id": "cbb74e48-1c1c-4902-ac83-42279e2feeac",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ZoomMap",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1874adf6-a35c-4ea2-96e9-b5ca63c2cf43",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ZoomMap",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0628b974-926c-463f-b03a-57f34821da87",
                     "path": "<Keyboard>/r",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard&Mouse",
+                    "groups": "",
                     "action": "Reload",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "09a11a3f-0ccd-42bb-8ddb-439b9fdfa79e",
+                    "id": "6d46e685-a03f-45c5-bf01-2074dc6c745d",
                     "path": "<Gamepad>/rightStickPress",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Gamepad",
+                    "groups": "",
                     "action": "Reload",
                     "isComposite": false,
                     "isPartOfComposite": false

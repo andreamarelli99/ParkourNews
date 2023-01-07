@@ -82,9 +82,18 @@ public partial class @StickmanActions : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""ZoomMap"",
+                    ""type"": ""Button"",
+                    ""id"": ""a4149204-d393-4594-b9b5-099077c73307"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""Reload"",
                     ""type"": ""Button"",
-                    ""id"": ""413c5c78-bf6a-4075-8e1f-694ff4d6c120"",
+                    ""id"": ""57cd50a8-d1a2-45fe-bbe2-08031074737c"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -336,22 +345,44 @@ public partial class @StickmanActions : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""c92572a5-0f1c-4090-b5eb-f153b80a011a"",
+                    ""id"": ""cbb74e48-1c1c-4902-ac83-42279e2feeac"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ZoomMap"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1874adf6-a35c-4ea2-96e9-b5ca63c2cf43"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ZoomMap"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0628b974-926c-463f-b03a-57f34821da87"",
                     ""path"": ""<Keyboard>/r"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
+                    ""groups"": """",
                     ""action"": ""Reload"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""09a11a3f-0ccd-42bb-8ddb-439b9fdfa79e"",
+                    ""id"": ""6d46e685-a03f-45c5-bf01-2074dc6c745d"",
                     ""path"": ""<Gamepad>/rightStickPress"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Gamepad"",
+                    ""groups"": """",
                     ""action"": ""Reload"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -773,6 +804,7 @@ public partial class @StickmanActions : IInputActionCollection2, IDisposable
         m_Player_Crouch = m_Player.FindAction("Crouch", throwIfNotFound: true);
         m_Player_Roll = m_Player.FindAction("Roll", throwIfNotFound: true);
         m_Player_Menu = m_Player.FindAction("Menu", throwIfNotFound: true);
+        m_Player_ZoomMap = m_Player.FindAction("ZoomMap", throwIfNotFound: true);
         m_Player_Reload = m_Player.FindAction("Reload", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
@@ -844,6 +876,7 @@ public partial class @StickmanActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Crouch;
     private readonly InputAction m_Player_Roll;
     private readonly InputAction m_Player_Menu;
+    private readonly InputAction m_Player_ZoomMap;
     private readonly InputAction m_Player_Reload;
     public struct PlayerActions
     {
@@ -855,6 +888,7 @@ public partial class @StickmanActions : IInputActionCollection2, IDisposable
         public InputAction @Crouch => m_Wrapper.m_Player_Crouch;
         public InputAction @Roll => m_Wrapper.m_Player_Roll;
         public InputAction @Menu => m_Wrapper.m_Player_Menu;
+        public InputAction @ZoomMap => m_Wrapper.m_Player_ZoomMap;
         public InputAction @Reload => m_Wrapper.m_Player_Reload;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
@@ -883,6 +917,9 @@ public partial class @StickmanActions : IInputActionCollection2, IDisposable
                 @Menu.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMenu;
                 @Menu.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMenu;
                 @Menu.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMenu;
+                @ZoomMap.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnZoomMap;
+                @ZoomMap.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnZoomMap;
+                @ZoomMap.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnZoomMap;
                 @Reload.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReload;
                 @Reload.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReload;
                 @Reload.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReload;
@@ -908,6 +945,9 @@ public partial class @StickmanActions : IInputActionCollection2, IDisposable
                 @Menu.started += instance.OnMenu;
                 @Menu.performed += instance.OnMenu;
                 @Menu.canceled += instance.OnMenu;
+                @ZoomMap.started += instance.OnZoomMap;
+                @ZoomMap.performed += instance.OnZoomMap;
+                @ZoomMap.canceled += instance.OnZoomMap;
                 @Reload.started += instance.OnReload;
                 @Reload.performed += instance.OnReload;
                 @Reload.canceled += instance.OnReload;
@@ -1017,6 +1057,7 @@ public partial class @StickmanActions : IInputActionCollection2, IDisposable
         void OnCrouch(InputAction.CallbackContext context);
         void OnRoll(InputAction.CallbackContext context);
         void OnMenu(InputAction.CallbackContext context);
+        void OnZoomMap(InputAction.CallbackContext context);
         void OnReload(InputAction.CallbackContext context);
     }
     public interface IUIActions
