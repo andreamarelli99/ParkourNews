@@ -133,9 +133,12 @@ public class Spawner : MonoBehaviour, ISingleton
 
     private void OnOpenMenu()
     {
-        pauseMenu.SetActive(true);
-        infoCanvas.SetActive(false);
-        Time.timeScale = 0f;
+        if (!endMenu.activeSelf)
+        {
+            pauseMenu.SetActive(true);
+            infoCanvas.SetActive(false);
+            Time.timeScale = 0f;
+        }
     }
 
     private void OnSpawnStickman()
