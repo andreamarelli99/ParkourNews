@@ -189,7 +189,7 @@ public class StickmanController : MonoBehaviour,ISingleton
         _isRunning = false;
         _canDash = true;
         _isGrappling = false;
-        _canRoll = false;
+        _canRoll = true;
         _canMove = true;
         _canFlip = true;
         _canSlide = true;
@@ -290,6 +290,7 @@ public class StickmanController : MonoBehaviour,ISingleton
     [SerializeField] private float _jumpBufferTime = 0.2f;
     private float _jumpBufferTimer = 0;
     private bool _jumpBufferTimerOn = false;
+    private static readonly int IsRolling = Animator.StringToHash("IsRolling");
 
 
     private void FixedUpdate()
@@ -685,11 +686,24 @@ public class StickmanController : MonoBehaviour,ISingleton
         //when you enter here do the roll animation
         if (_canRoll&& Time.timeScale!=0)
         {
-            Debug.Log("Somersault");
+            Debug.Log("Roll");
+            //_rigidbody2D.velocity = Vector2.zero;
+            //_rigidbody2D.angularVelocity = 0f;
             _rigidbody2D.velocity = new Vector2(0, _rigidbody2D.velocity.y);
-            _animator.SetTrigger("IsRolling");
             _canRoll = false;
+            StartCoroutine(WaitForRolling());
+            //_rigidbody2D.velocity = new Vector2(0, _rigidbody2D.velocity.y);
+            _animator.SetTrigger(IsRolling);
         }
+    }
+
+    IEnumerator WaitForRolling()
+    {
+        Debug.Log("wait for rolling");
+        _rigidbody2D.AddForce(Vector2.up * 1f, ForceMode2D.Impulse);
+        _rigidbody2D.velocity = Vector2.zero;
+        yield return new WaitForSeconds(0.3f);
+
     }
     
     private void OnCrouch(InputAction.CallbackContext context)
