@@ -189,7 +189,7 @@ public class StickmanController : MonoBehaviour,ISingleton
         _isRunning = false;
         _canDash = true;
         _isGrappling = false;
-        _canRoll = true;
+        _canRoll = false;
         _canMove = true;
         _canFlip = true;
         _canSlide = true;
@@ -290,9 +290,12 @@ public class StickmanController : MonoBehaviour,ISingleton
     [SerializeField] private float _jumpBufferTime = 0.2f;
     private float _jumpBufferTimer = 0;
     private bool _jumpBufferTimerOn = false;
-    private static readonly int IsRolling = Animator.StringToHash("IsRolling");
 
-
+    [SerializeField] private float _rollingMovementStopperTime = 0.3f;
+    private float _rollingMovementStopperTimer = 0;
+    private bool _rollingMovementStopperTimerOn = false;
+    
+    
     private void FixedUpdate()
     {
         if (_isSlidingOblique &&  _rigidbody2D.velocity.magnitude < slidingObliqueForce)
@@ -316,7 +319,6 @@ public class StickmanController : MonoBehaviour,ISingleton
             }
             else if (!_isJumping && !_isCrouched && !_isSlidingOblique)
             {
-                Debug.Log("JUMP BUFFER!!!");
                 _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, 0);
                 OnJump(default);
                 _jumpBufferTimerOn = false;
@@ -329,6 +331,28 @@ public class StickmanController : MonoBehaviour,ISingleton
                 _jumpBufferTimer = 0;
             }
             
+        }
+
+        if (_rollingMovementStopperTimerOn)
+        {
+            if (!_canMove)
+            {
+                var transformPosition = transform.position;
+                transformPosition.x = _transform.position.x;
+                _rigidbody2D.velocity = new Vector2(0, _rigidbody2D.velocity.y);
+                _rollingMovementStopperTimer += Time.deltaTime;
+                
+                if (_rollingMovementStopperTimer >= _rollingMovementStopperTime)
+                {
+                    _rollingMovementStopperTimerOn = false;
+                    _rollingMovementStopperTimer = 0;
+                }
+            }
+            else
+            {
+                _rollingMovementStopperTimerOn = false;
+                _rollingMovementStopperTimer = 0;
+            }
         }
         
         if(!_isSliding){
@@ -686,24 +710,15 @@ public class StickmanController : MonoBehaviour,ISingleton
         //when you enter here do the roll animation
         if (_canRoll&& Time.timeScale!=0)
         {
-            Debug.Log("Roll");
-            //_rigidbody2D.velocity = Vector2.zero;
-            //_rigidbody2D.angularVelocity = 0f;
-            _rigidbody2D.velocity = new Vector2(0, _rigidbody2D.velocity.y);
+            Debug.Log("Somersault");
+            _rigidbody2D.constraints = RigidbodyConstraints2D.FreezePositionX;
+         //   _rigidbody2D.velocity = new Vector2(0, _rigidbody2D.velocity.y);
+            _canMove = false;
+            _rollingMovementStopperTimerOn = true;
+            _animator.SetTrigger("IsRolling");
             _canRoll = false;
-            StartCoroutine(WaitForRolling());
-            //_rigidbody2D.velocity = new Vector2(0, _rigidbody2D.velocity.y);
-            _animator.SetTrigger(IsRolling);
+            StartCoroutine(StopMovingForRollingEffectCoroutine());
         }
-    }
-
-    IEnumerator WaitForRolling()
-    {
-        Debug.Log("wait for rolling");
-        _rigidbody2D.AddForce(Vector2.up * 1f, ForceMode2D.Impulse);
-        _rigidbody2D.velocity = Vector2.zero;
-        yield return new WaitForSeconds(0.3f);
-
     }
     
     private void OnCrouch(InputAction.CallbackContext context)
@@ -817,6 +832,17 @@ public class StickmanController : MonoBehaviour,ISingleton
         yield return new WaitForSeconds(0.2f);
         _justFlipped = false;
         Debug.Log("Setting justFlipped false");
+    }
+
+    IEnumerator StopMovingForRollingEffectCoroutine()
+    {
+        yield return new WaitForSeconds(0.3f);
+        _rigidbody2D.constraints = RigidbodyConstraints2D.FreezeRotation;
+        _transform.rotation = new Quaternion(0, 0, 0, 0);
+        Debug.Log("Liberato dal blocco");
+        _rollingMovementStopperTimerOn = false;
+        _rollingMovementStopperTimer = 0;
+        _canMove = true;
     }
     
 
