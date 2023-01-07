@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a21cc26-fe96-4869-9603-03d818d6f1ed" name="Changes" comment="new level finally added">
+    <list default="true" id="2a21cc26-fe96-4869-9603-03d818d6f1ed" name="Changes" comment="fix endMenu lv15">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ParkourNews/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ParkourNews/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts/BebasNeue-Regular SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fonts/BebasNeue-Regular SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/13.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/13.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/15.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/15.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/3.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -206,13 +203,6 @@
       <workItem from="1673044391707" duration="795000" />
       <workItem from="1673046862630" duration="3038000" />
       <workItem from="1673082116501" duration="1236000" />
-    </task>
-    <task id="LOCAL-00030" summary="fix save when first playing">
-      <created>1669480930630</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1669480930630</updated>
     </task>
     <task id="LOCAL-00031" summary="scene fix">
       <created>1669481910189</created>
@@ -550,7 +540,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673111944844</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="fix">
+      <created>1673120992279</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1673120992279</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -626,7 +623,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="stop pressing stops the stickman" />
     <MESSAGE value="workspace" />
     <MESSAGE value="deceleration only in-air or during actions" />
     <MESSAGE value="endLevelMenu draft" />
@@ -637,7 +633,6 @@
     <MESSAGE value="fix on colors&#10;when game starts the play button is selected" />
     <MESSAGE value="initial menu buttons work with controller" />
     <MESSAGE value="fixed back and forth in options for key settings" />
-    <MESSAGE value="fix" />
     <MESSAGE value="main menu&#10;options&#10;&#10;work with controller" />
     <MESSAGE value="menu selector works with the controller" />
     <MESSAGE value="menu with controller works&#10;&#10;found &quot;bugs&quot; if we press actions command in pause/end menu the scripts execute them" />
@@ -651,6 +646,8 @@
     <MESSAGE value="l1 inkers info" />
     <MESSAGE value="useless scenes deleted" />
     <MESSAGE value="[PROVA] aggiunta livello" />
-    <option name="LAST_COMMIT_MESSAGE" value="[PROVA] aggiunta livello" />
+    <MESSAGE value="fix" />
+    <MESSAGE value="fix endMenu lv15" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix endMenu lv15" />
   </component>
 </project>

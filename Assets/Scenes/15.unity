@@ -52180,6 +52180,14 @@ PrefabInstance:
       propertyPath: m_Navigation.m_SelectOnRight
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 527062642144624298, guid: 94121cbfa5be5cf409f9cd13e4c019d8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1351732182}
+    - target: {fileID: 527062642144624298, guid: 94121cbfa5be5cf409f9cd13e4c019d8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Quit
+      objectReference: {fileID: 0}
     - target: {fileID: 527062642502485097, guid: 94121cbfa5be5cf409f9cd13e4c019d8, type: 3}
       propertyPath: m_Navigation.m_SelectOnUp
       value: 
@@ -52188,6 +52196,14 @@ PrefabInstance:
       propertyPath: m_Navigation.m_SelectOnRight
       value: 
       objectReference: {fileID: 8247969168526778175}
+    - target: {fileID: 527062642502485097, guid: 94121cbfa5be5cf409f9cd13e4c019d8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1351732182}
+    - target: {fileID: 527062642502485097, guid: 94121cbfa5be5cf409f9cd13e4c019d8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LevelSelector
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8247969167597757883, guid: 94121cbfa5be5cf409f9cd13e4c019d8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 94121cbfa5be5cf409f9cd13e4c019d8, type: 3}
