@@ -89,10 +89,10 @@ namespace ParkourNews.Scripts
                 case >= 1:
                     _stars = 3;
                     break;
-                case >= (float)2 / 3:
+                case >= 0.66f:
                     _stars = 2;
                     break;
-                case >= (float)1 / 3:
+                case >= 0.33f:
                     _stars = 1;
                     break;
                 default:
