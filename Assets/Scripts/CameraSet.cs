@@ -18,6 +18,7 @@ public class CameraSet : MonoBehaviour
     private float _currentFov = 30f;
     private float _incZoom = 1f;
     private bool _speedUpKey = false;
+    private bool _zoomed = true;
     [SerializeField] private float _percentageFollowing = 10f;
     [SerializeField] private float _deltaZoomIncrement = 0.01f;
     [SerializeField] private float _dumping = 3f;
@@ -55,21 +56,20 @@ public class CameraSet : MonoBehaviour
 
     private void OnZoomOutMap(InputAction.CallbackContext context)
     {
-        /*_cam.Follow = _mapCenter.transform;
-        _cam.m_Lens.OrthographicSize = _zoomOutMax;
-        _cam.GetCinemachineComponent<CinemachineFramingTransposer>().m_XDamping = _dumping;
-        _cam.GetCinemachineComponent<CinemachineFramingTransposer>().m_YDamping = _dumping;
-        _incZoom = 1f;
-        _currentFov = 30f;*/
-        EventManager.TriggerEvent("ZoomCamera");
-        StartCoroutine(ZoomOutCoroutine());
+        if (_zoomed)
+        {
+            EventManager.TriggerEvent("ZoomCamera");
+            StartCoroutine(ZoomOutCoroutine());
+        }
         
     }
     
     private void OnZoomInMap(InputAction.CallbackContext context)
-    {
+    { 
+        if(!_zoomed){
         EventManager.TriggerEvent("ZoomCamera");
-        StartCoroutine(ZoomInCoroutine());
+       StartCoroutine(ZoomInCoroutine());
+       }
     }
 
     IEnumerator ZoomInCoroutine()
@@ -86,7 +86,8 @@ public class CameraSet : MonoBehaviour
             
             yield return new WaitForFixedUpdate();
         }
-        
+
+        _zoomed = true;
         _cam.GetCinemachineComponent<CinemachineFramingTransposer>().m_XDamping = 1f;
         _cam.GetCinemachineComponent<CinemachineFramingTransposer>().m_YDamping = 1f;
         EventManager.TriggerEvent("SpawnStickman");
@@ -107,6 +108,7 @@ public class CameraSet : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
 
+        _zoomed = false;
         _cam.GetCinemachineComponent<CinemachineFramingTransposer>().m_XDamping = 1f;
         _cam.GetCinemachineComponent<CinemachineFramingTransposer>().m_YDamping = 1f;
     }

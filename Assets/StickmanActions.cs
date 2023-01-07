@@ -87,7 +87,7 @@ public partial class @StickmanActions : IInputActionCollection2, IDisposable
                     ""id"": ""a4149204-d393-4594-b9b5-099077c73307"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Press(behavior=2)"",
+                    ""interactions"": ""Press(pressPoint=1,behavior=2)"",
                     ""initialStateCheck"": true
                 },
                 {
