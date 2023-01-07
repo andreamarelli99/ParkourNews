@@ -3,7 +3,9 @@ using System.Collections;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 
@@ -168,6 +170,7 @@ public class StickmanController : MonoBehaviour,ISingleton
         _stickmanActions.Player.Crouch.performed += OnCrouch;
         _stickmanActions.Player.Roll.performed += OnSomersault;
         _stickmanActions.Player.Menu.performed += OnMenu;
+        _stickmanActions.Player.Reload.performed += OnReload;
         
         // Default values for checks on stickman's actions
         _isCrouched = false;
@@ -395,6 +398,11 @@ public class StickmanController : MonoBehaviour,ISingleton
         EventManager.TriggerEvent("OpenMenu");
     }
 
+    private void OnReload(InputAction.CallbackContext context)
+    {
+        EventManager.TriggerEvent("Reload");
+    }
+    
     private void OnSlidingObliqueLeftEnter()
     {
         OnSlidingObliqueEnter(false);
@@ -664,15 +672,7 @@ public class StickmanController : MonoBehaviour,ISingleton
     {
         if (!_isCrouched && !_isJumping && !_isSliding && !_isSlidingOblique&& Time.timeScale!=0) //if the stickman is not in a crouch position -> crouch
         {
-                // if the player is running when the crouch is called slide and then crouch
-                if (Math.Abs(_rigidbody2D.velocity.x) >= _minRunSpeed && _isRunning && Time.time > NextSlide)
-                {
-                    StartCoroutine(WaitUntilWalkingSpeed());
-                    NextSlide = Time.time + SlideRate;
-                    Debug.Log("Can slide");
-                }
-
-                Debug.Log("Crouch!");
+            Debug.Log("Crouch!");
                 _isCrouched = true;
                 _animator.SetBool("IsCrouched", true);
                 _walkSpeed /= 2;

@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerCoinsCounter : MonoBehaviour
 {
     private int _inkers = 0;
+    private int _inkersInLastCheckPoint = 0;
 
     private GameObject _inkersTextObject;
     
@@ -15,6 +16,12 @@ public class PlayerCoinsCounter : MonoBehaviour
     private void Start()
     {
         EventManager.StartListening("OnRespawn",OnRespawn);
+        EventManager.StartListening("CheckPointReached", CheckPointReached);
+    }
+
+    private void CheckPointReached()
+    {
+        _inkersInLastCheckPoint = _inkers;
     }
 
     private void AddCoin()

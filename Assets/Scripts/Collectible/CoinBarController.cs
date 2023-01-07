@@ -6,6 +6,8 @@ public class CoinBarController : MonoBehaviour
 {
     private Slider _slider;
     private LevelManager _levelManager;
+    
+    private float _inkersInLastCheckPoint = 0;
 
     [SerializeField] private Image starsImage;
     [SerializeField] private Sprite noStars; 
@@ -22,6 +24,12 @@ public class CoinBarController : MonoBehaviour
         _slider.maxValue = _levelManager.GetCoinsCurrentLevel();
         EventManager.StartListening("OnCoin", OnCoin);
         EventManager.StartListening("OnRespawn", OnRespawn);
+        EventManager.StartListening("CheckPointReached", CheckPointReached);
+    }
+    
+    private void CheckPointReached()
+    {
+        _inkersInLastCheckPoint = _slider.value;
     }
 
     void OnCoin()
@@ -41,8 +49,11 @@ public class CoinBarController : MonoBehaviour
     void OnRespawn()
     {
         EventManager.StopListening("OnRespawn", OnRespawn);
-        _slider.value = 0;
-        starsImage.sprite = noStars;
+        _slider.value = _inkersInLastCheckPoint;
+        if (_inkersInLastCheckPoint >= _slider.maxValue) starsImage.sprite = threeStars;
+        else if(_inkersInLastCheckPoint >= _slider.maxValue * 0.66) starsImage.sprite  = twoStars;
+        else if(_inkersInLastCheckPoint >= _slider.maxValue * 0.33) starsImage.sprite = oneStars;
+   //     starsImage.sprite = noStars;
         EventManager.StartListening("OnRespawn", OnRespawn);
     }
 }
