@@ -11,7 +11,6 @@ public class CameraSet : MonoBehaviour
     private GameObject _mapCenter;
     private CinemachineVirtualCamera _cam;
     private StickmanActions _stickmanActions;
-    private bool _zoomed = false;
 
     [SerializeField] private float _zoomSpeed = 3f;
     [SerializeField] private float _zoomInMax = 11.36f;
@@ -34,7 +33,8 @@ public class CameraSet : MonoBehaviour
     {
         _stickmanActions = new StickmanActions();
         _stickmanActions.Enable();
-        _stickmanActions.Player.ZoomMap.performed += OnZoomMap;
+        _stickmanActions.Player.ZoomMap.started += OnZoomOutMap;
+        _stickmanActions.Player.ZoomMap.canceled += OnZoomInMap;
         _cam = GetComponent<CinemachineVirtualCamera>();
         _cam.m_Lens.OrthographicSize = _zoomOutMax;
         _spawner = GameObject.FindObjectOfType<Spawner>();
@@ -53,27 +53,23 @@ public class CameraSet : MonoBehaviour
         _stickmanActions.Disable();
     }
 
-    private void OnZoomMap(InputAction.CallbackContext context)
+    private void OnZoomOutMap(InputAction.CallbackContext context)
     {
-        /*if (!_zoomed)
-        {
-            _cam.Follow = _mapCenter.transform;
-            _cam.m_Lens.OrthographicSize = _zoomOutMax;
-            _cam.GetCinemachineComponent<CinemachineFramingTransposer>().m_XDamping = _dumping;
-            _cam.GetCinemachineComponent<CinemachineFramingTransposer>().m_YDamping = _dumping;
-            _incZoom = 1f;
-            _currentFov = 30f;
-            _zoomed = true;
-            EventManager.TriggerEvent("ZoomCamera");
-        }
-        else
-        {
-            _zoomed = false;
-            EventManager.TriggerEvent("ZoomCamera");
-            StartCoroutine(ZoomInCoroutine());
-        }*/
+        /*_cam.Follow = _mapCenter.transform;
+        _cam.m_Lens.OrthographicSize = _zoomOutMax;
+        _cam.GetCinemachineComponent<CinemachineFramingTransposer>().m_XDamping = _dumping;
+        _cam.GetCinemachineComponent<CinemachineFramingTransposer>().m_YDamping = _dumping;
+        _incZoom = 1f;
+        _currentFov = 30f;*/
+        EventManager.TriggerEvent("ZoomCamera");
+        StartCoroutine(ZoomOutCoroutine());
         
-        
+    }
+    
+    private void OnZoomInMap(InputAction.CallbackContext context)
+    {
+        EventManager.TriggerEvent("ZoomCamera");
+        StartCoroutine(ZoomInCoroutine());
     }
 
     IEnumerator ZoomInCoroutine()
@@ -94,6 +90,25 @@ public class CameraSet : MonoBehaviour
         _cam.GetCinemachineComponent<CinemachineFramingTransposer>().m_XDamping = 1f;
         _cam.GetCinemachineComponent<CinemachineFramingTransposer>().m_YDamping = 1f;
         EventManager.TriggerEvent("SpawnStickman");
+    }
+    
+    IEnumerator ZoomOutCoroutine()
+    {
+        while (_currentFov < _zoomOutMax - 1)
+        {
+            _incZoom -= _deltaZoomIncrement;
+            ZoomScreen(_incZoom);
+
+            if (_currentFov > _zoomInMax + ((_zoomOutMax - _zoomInMax) / 100) * _percentageFollowing)
+            {
+                _cam.Follow = _mapCenter.transform;
+            }
+
+            yield return new WaitForFixedUpdate();
+        }
+
+        _cam.GetCinemachineComponent<CinemachineFramingTransposer>().m_XDamping = 1f;
+        _cam.GetCinemachineComponent<CinemachineFramingTransposer>().m_YDamping = 1f;
     }
     
     public void ZoomScreen(float inc)
