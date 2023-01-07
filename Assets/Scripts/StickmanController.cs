@@ -23,6 +23,12 @@ public class StickmanController : MonoBehaviour,ISingleton
     private Spawner _follower;
     private SpriteRenderer _spriteRenderer;
     public Animator _animator;
+
+    #region GRAVITY_VALUES
+    //------------------------------------- GRAVITY VALUES -------------------------------------//
+    private float _ground_gravity_scale;
+    private float _slope_gravity_scale;
+    #endregion
     
     #region SPEED_VALUES
     //------------------------------------- SPEED VALUES -------------------------------------//
@@ -202,6 +208,10 @@ public class StickmanController : MonoBehaviour,ISingleton
         EventManager.TriggerEvent("SpawnSound");
         EventManager.TriggerEvent("StickmanSpawned");
         EventManager.StartListening("WinAnimation", WinAnimation);
+        
+        // Default gravity values
+        _ground_gravity_scale = _rigidbody2D.gravityScale;
+        _slope_gravity_scale = 1.6f * _ground_gravity_scale;
     }
 
     private void OnDisable()
@@ -419,8 +429,15 @@ public class StickmanController : MonoBehaviour,ISingleton
         _isSlidingOblique = true;
         _animator.SetBool(IsSlidingOblique, true);
 
+        // Flip the player when it is looking to the opposite side of the sliding platform.
+        if ((isRight && _facingDirection == -1) || (!isRight && _facingDirection == 1))
+        {
+            Flip();
+        }
+        
         // Push the player against the floor.
-        _rigidbody2D.AddForce(Vector2.down * slidingObliqueForce);
+        //_rigidbody2D.AddForce(Vector2.down * slidingObliqueForce);
+        _rigidbody2D.gravityScale = _slope_gravity_scale;
         
         // Avoid double jump.
         _isJumping = true;
@@ -430,12 +447,7 @@ public class StickmanController : MonoBehaviour,ISingleton
         _isDoubleJumping = false;
         _isCrouched = false;
         _justFlipped = false;
-
-        // Flip the player when it is looking to the opposite side of the sliding platform.
-        if ((isRight && _facingDirection == -1) || (!isRight && _facingDirection == 1))
-        {
-            Flip();
-        }
+        
         
         // Now block the player flip until it exits the sliding oblique.
         _canFlip = false;
@@ -445,7 +457,7 @@ public class StickmanController : MonoBehaviour,ISingleton
     {
         Debug.Log("sliding oblique out");
         _isSlidingOblique = false;
-        StartCoroutine("DisableSlidingObliqueCoroutine");
+        StartCoroutine(nameof(DisableSlidingObliqueCoroutine));
     }
     
     IEnumerator DisableSlidingObliqueCoroutine()
@@ -595,6 +607,7 @@ public class StickmanController : MonoBehaviour,ISingleton
                 {
                     // Apply a 45' force in same direction of the sliding oblique.
                     dir = Vector2.up + Vector2.right * _facingDirection;
+                    _rigidbody2D.gravityScale = _ground_gravity_scale;
                     _rigidbody2D.AddForce(dir * _jumpForceWhenIsSlidingWall, ForceMode2D.Impulse);
                 }
                 else
@@ -798,7 +811,8 @@ public class StickmanController : MonoBehaviour,ISingleton
             EventManager.StartListening("InAir",InAir);
             _inAirEvent = true;
         }
-        
+
+        _rigidbody2D.gravityScale = _ground_gravity_scale;
         _isJumping = false;
         _isDoubleJumping = false;
         _isCrouched = false;

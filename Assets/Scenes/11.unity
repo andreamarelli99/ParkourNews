@@ -1402,9 +1402,10 @@ GameObject:
   m_Component:
   - component: {fileID: 566183679}
   - component: {fileID: 566183680}
+  - component: {fileID: 566183681}
   m_Layer: 12
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1454,6 +1455,21 @@ PolygonCollider2D:
       - {x: -0.49766117, y: -0.5013852}
       - {x: 0.49773863, y: -0.49974886}
       - {x: 0.4956258, y: 0.5001246}
+--- !u!114 &566183681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 566183678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 142f6467c17447b2996672a501aae77b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onGround: 0
+  _onWall: 0
+  _canJump: 1
 --- !u!1 &581707141
 GameObject:
   m_ObjectHideFlags: 0
@@ -2256,6 +2272,84 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 2898206902133695559, guid: e9997e1902aebba408696c415541bbc3, type: 3}
   m_PrefabInstance: {fileID: 837452755}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &838991645
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2066065239}
+    m_Modifications:
+    - target: {fileID: 467025149345699744, guid: c3c7601cfae4d9e4daa7020a42785b97, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    - target: {fileID: 467025149345699744, guid: c3c7601cfae4d9e4daa7020a42785b97, type: 3}
+      propertyPath: m_SortingLayer
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 467025149345699744, guid: c3c7601cfae4d9e4daa7020a42785b97, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1028529241
+      objectReference: {fileID: 0}
+    - target: {fileID: 3460495820448160789, guid: c3c7601cfae4d9e4daa7020a42785b97, type: 3}
+      propertyPath: m_Name
+      value: ALetter
+      objectReference: {fileID: 0}
+    - target: {fileID: 3460495820448160789, guid: c3c7601cfae4d9e4daa7020a42785b97, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844150877881294044, guid: c3c7601cfae4d9e4daa7020a42785b97, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844150877881294044, guid: c3c7601cfae4d9e4daa7020a42785b97, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.548651
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844150877881294044, guid: c3c7601cfae4d9e4daa7020a42785b97, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.567429
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844150877881294044, guid: c3c7601cfae4d9e4daa7020a42785b97, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.2630049
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844150877881294044, guid: c3c7601cfae4d9e4daa7020a42785b97, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844150877881294044, guid: c3c7601cfae4d9e4daa7020a42785b97, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844150877881294044, guid: c3c7601cfae4d9e4daa7020a42785b97, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844150877881294044, guid: c3c7601cfae4d9e4daa7020a42785b97, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844150877881294044, guid: c3c7601cfae4d9e4daa7020a42785b97, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844150877881294044, guid: c3c7601cfae4d9e4daa7020a42785b97, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844150877881294044, guid: c3c7601cfae4d9e4daa7020a42785b97, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c3c7601cfae4d9e4daa7020a42785b97, type: 3}
+--- !u!4 &838991646 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3844150877881294044, guid: c3c7601cfae4d9e4daa7020a42785b97, type: 3}
+  m_PrefabInstance: {fileID: 838991645}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &851791388
 PrefabInstance:
@@ -3802,7 +3896,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1351941969}
   m_LocalRotation: {x: -0, y: -0, z: 0.16354038, w: 0.9865367}
-  m_LocalPosition: {x: -1.5486507, y: -2.5674286, z: 0.26300493}
+  m_LocalPosition: {x: -1.5486507, y: -2.5674286, z: 0}
   m_LocalScale: {x: 9.6992235, y: 20, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3938,7 +4032,7 @@ GameObject:
   - component: {fileID: 1385322791}
   m_Layer: 12
   m_Name: Slip
-  m_TagString: SlideObliqueLeft
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3995,7 +4089,7 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.4911481, y: 0.49741185}
+    - - {x: -0.4990964, y: 0.5013192}
       - {x: 0.02059904, y: 0.3011702}
       - {x: 0.4991589, y: 0.5018011}
 --- !u!1 &1417805135
@@ -5213,12 +5307,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2066065238}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 22.44, y: -13.32, z: -0.012317985}
+  m_LocalPosition: {x: 22.44, y: -13.32, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1351941970}
   - {fileID: 1310503118}
+  - {fileID: 838991646}
   m_Father: {fileID: 1617804106}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
