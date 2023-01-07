@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5765975785705796559}
   - component: {fileID: 188890209635548813}
   - component: {fileID: -8008486134785541422}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: I1Letter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,6 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c7aee769e5efda4d91a69b59d1f8a0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fadeDuration: 2
 --- !u!114 &-8008486134785541422
 MonoBehaviour:
   m_ObjectHideFlags: 0

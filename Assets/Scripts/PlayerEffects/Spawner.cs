@@ -39,6 +39,7 @@ public class Spawner : MonoBehaviour, ISingleton
 
     private StickmanActions _stickmanActions;
     [SerializeField] float _timeLeft;
+    [SerializeField] private float _timeToRespawn = 2;
 
     private Vector3 _position;
     // public AudioClip soundEffect;
@@ -67,6 +68,7 @@ public class Spawner : MonoBehaviour, ISingleton
         EventManager.StartListening("OpenMenu",OnOpenMenu);
         EventManager.StartListening("EndMenu",OnEndMenu);
         EventManager.StartListening("SpawnStickman",OnSpawnStickman);
+        EventManager.StartListening("Reload",OnReload);
     }
 
     private void OnEndMenu()
@@ -170,11 +172,20 @@ public class Spawner : MonoBehaviour, ISingleton
     public void Redo()
     {
         Time.timeScale = 1f;
+        _currentLevel = _levelManager.GetCurrentLevel();
         SceneManager.LoadScene(_currentLevel.ToString());
     }
-    
-    
-    
+
+    public void OnReload()
+    {
+        Debug.Log("Reload action, reloading lv:" +_currentLevel);
+        
+        EventManager.StopListening("Reload",OnReload);
+        Redo();
+        EventManager.StartListening("Reload",OnReload);
+    }
+
+
     public void Quit()
     {
         Application.Quit();
@@ -194,7 +205,7 @@ public class Spawner : MonoBehaviour, ISingleton
     private IEnumerator RespawnCoroutine()
     {
         EventManager.TriggerEvent("OnRespawn"); 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(_timeToRespawn);
         if (!_stickmanCreated)
         {
             SetPosition(_initialPosition);
@@ -204,7 +215,7 @@ public class Spawner : MonoBehaviour, ISingleton
     
     public void SetInitialPosition(Vector3 position)
     {
-        _initialPosition = new Vector3(position.x, position.y-5f);
+        _initialPosition = new Vector3(position.x, position.y);
     }
 
 

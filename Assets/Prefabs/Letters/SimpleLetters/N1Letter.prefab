@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8757573177573187631}
   - component: {fileID: 1806972979669671549}
   - component: {fileID: -751605556598681762}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: N1Letter
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -162,6 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c7aee769e5efda4d91a69b59d1f8a0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fadeDuration: 2
 --- !u!114 &-751605556598681762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,7 +185,7 @@ GameObject:
   m_Component:
   - component: {fileID: 632256586640893281}
   - component: {fileID: 750647538851058349}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}

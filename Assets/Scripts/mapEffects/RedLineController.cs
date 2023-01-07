@@ -38,6 +38,7 @@ public class RedLineController : MonoBehaviour
     {
         EventManager.StartListening("OnDeath",OnDeath);
         EventManager.StartListening("ReachedEndRedLineCheckPoint",OnDeath);
+        EventManager.StartListening("WinAnimation",OnDeath);
     }
 
     private void Start()

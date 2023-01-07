@@ -17,6 +17,7 @@ public class CoinControllerCheckPoint : MonoBehaviour
 
     private void Start()
     {
+        
         EventManager.StartListening("OnRespawn",OnRespawn);
         EventManager.StartListening("CheckPointReached", CheckPointReached);
     }

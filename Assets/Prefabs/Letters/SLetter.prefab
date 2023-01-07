@@ -14,8 +14,7 @@ GameObject:
   - component: {fileID: -3931625543546462173}
   - component: {fileID: 7207285524973906333}
   - component: {fileID: -116599598888757747}
-  - component: {fileID: -5346946455143685735}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SLetter
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -587,24 +586,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d959af26330bc84f9f84fd6584210e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!50 &-5346946455143685735
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7760067805432406634}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
