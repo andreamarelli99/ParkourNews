@@ -166,6 +166,8 @@ public class StickmanController : MonoBehaviour,ISingleton
         _spriteRenderer = _rigidbody2D.GetComponent<SpriteRenderer>();
     }
 
+    
+    
     private void OnEnable()
     { 
         _animator.Play("PlayerIdle");
@@ -177,6 +179,8 @@ public class StickmanController : MonoBehaviour,ISingleton
         _stickmanActions.Player.Roll.performed += OnSomersault;
         _stickmanActions.Player.Menu.performed += OnMenu;
         _stickmanActions.Player.Reload.performed += OnReload;
+        _stickmanActions.Player.ZoomMap.started += OnZoomOutMap;
+        _stickmanActions.Player.ZoomMap.canceled += OnZoomInMap;
         
         // Default values for checks on stickman's actions
         _isCrouched = false;
@@ -401,7 +405,16 @@ public class StickmanController : MonoBehaviour,ISingleton
         }
     }
     
-    
+    private void OnZoomOutMap(InputAction.CallbackContext context)
+    {
+        EventManager.TriggerEvent("ZoomOut");
+    }
+
+    private void OnZoomInMap(InputAction.CallbackContext context)
+    {
+        EventManager.TriggerEvent("ZoomIn");
+    }
+
     private void OnMenu(InputAction.CallbackContext context)
     {
         EventManager.TriggerEvent("OpenMenu");

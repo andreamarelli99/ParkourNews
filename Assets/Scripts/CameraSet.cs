@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -10,8 +11,7 @@ public class CameraSet : MonoBehaviour
     private Spawner _spawner;
     private GameObject _mapCenter;
     private CinemachineVirtualCamera _cam;
-    private StickmanActions _stickmanActions;
-
+    
     [SerializeField] private float _zoomSpeed = 3f;
     [SerializeField] private float _zoomInMax = 11.36f;
     [SerializeField] private float _zoomOutMax = 30f;
@@ -32,10 +32,9 @@ public class CameraSet : MonoBehaviour
     // Start is called before the first frame update
     void OnEnable()
     {
-        _stickmanActions = new StickmanActions();
-        _stickmanActions.Enable();
-        _stickmanActions.Player.ZoomMap.started += OnZoomOutMap;
-        _stickmanActions.Player.ZoomMap.canceled += OnZoomInMap;
+        
+        EventManager.StartListening("ZoomIn",OnZoomInMap);
+        EventManager.StartListening("ZoomOut",OnZoomOutMap);
         _cam = GetComponent<CinemachineVirtualCamera>();
         _cam.m_Lens.OrthographicSize = _zoomOutMax;
         _spawner = GameObject.FindObjectOfType<Spawner>();
@@ -49,27 +48,27 @@ public class CameraSet : MonoBehaviour
         StartCoroutine(ZoomInCoroutine());
     }
 
-    private void OnDisable()
-    {
-        _stickmanActions.Disable();
-    }
+    
 
-    private void OnZoomOutMap(InputAction.CallbackContext context)
+    private void OnZoomOutMap()
     {
+        EventManager.StopListening("ZoomOut",OnZoomOutMap);
         if (_zoomed)
         {
             EventManager.TriggerEvent("ZoomCamera");
             StartCoroutine(ZoomOutCoroutine());
         }
-        
+        EventManager.StartListening("ZoomOut",OnZoomOutMap);
     }
     
-    private void OnZoomInMap(InputAction.CallbackContext context)
+    private void OnZoomInMap()
     { 
+        EventManager.StopListening("ZoomIn",OnZoomInMap);
         if(!_zoomed){
         EventManager.TriggerEvent("ZoomCamera");
        StartCoroutine(ZoomInCoroutine());
        }
+        EventManager.StartListening("ZoomIn",OnZoomInMap);
     }
 
     IEnumerator ZoomInCoroutine()
