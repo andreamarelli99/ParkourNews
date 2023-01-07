@@ -7,15 +7,12 @@ public class DashCooldownController: MonoBehaviour
     private Slider _slider;
     private GameController _gameController;
 
-    [SerializeField] private GameObject fullImage;
-
     private void Start()
     {
         _gameController = FindObjectOfType<GameController>();
         _slider = GetComponent<Slider>();
         _slider.maxValue = _gameController.GetSecondsBetweenDash();
         _slider.value = _slider.maxValue;
-        fullImage.SetActive(true);
         EventManager.StartListening("OnDash", OnDash);
         EventManager.StartListening("CanDash", CanDash);
         EventManager.StartListening("OnRespawn", OnRespawn);
@@ -25,7 +22,6 @@ public class DashCooldownController: MonoBehaviour
     {
         EventManager.StopListening("OnDash", OnDash);
         _slider.value = 0;
-        fullImage.SetActive(false);
         StartCoroutine("IncreaseSlider");
         EventManager.StartListening("OnDash", OnDash);
     }
@@ -43,7 +39,6 @@ public class DashCooldownController: MonoBehaviour
     {
         EventManager.StopListening("CanDash", CanDash);
         _slider.value = _slider.maxValue;
-        fullImage.SetActive(true);
         EventManager.StartListening("CanDash", CanDash);
     }
     
@@ -51,7 +46,6 @@ public class DashCooldownController: MonoBehaviour
     {
         EventManager.StopListening("OnRespawn", OnRespawn);
         _slider.value = _slider.maxValue;
-        fullImage.SetActive(true);
         EventManager.StartListening("OnRespawn", OnRespawn);
     }
 }
