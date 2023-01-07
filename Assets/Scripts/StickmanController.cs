@@ -270,12 +270,7 @@ public class StickmanController : MonoBehaviour,ISingleton
             _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x / _xArtificialDragOnFloor, _rigidbody2D.velocity.y);
         }
         
-        if (_isSlidingOblique &&  _rigidbody2D.velocity.magnitude < slidingObliqueForce)
-        {
-            // Apply a force bottom right or bottom left based on the direction of the sliding oblique.
-            // In this way, the player is pushed by gravity against the floor and in the direction of it.
-            _rigidbody2D.AddForce((Vector2.down + Vector2.right * _facingDirection) * slidingObliqueForce);
-        }
+       
     }
 
 
@@ -299,6 +294,13 @@ public class StickmanController : MonoBehaviour,ISingleton
 
     private void FixedUpdate()
     {
+        if (_isSlidingOblique &&  _rigidbody2D.velocity.magnitude < slidingObliqueForce)
+        {
+            // Apply a force bottom right or bottom left based on the direction of the sliding oblique.
+            // In this way, the player is pushed by gravity against the floor and in the direction of it.
+            _rigidbody2D.AddForce((Vector2.down + Vector2.right * _facingDirection) * slidingObliqueForce);
+            return;
+        }
         if (_jumpBufferTimerOn)
         {
             if (_isDoubleJumping)

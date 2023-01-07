@@ -29,6 +29,7 @@ namespace ParkourNews.Scripts
             if (_gameIsOn&&collision.gameObject.CompareTag("Player")){
                 //EventManager.TriggerEvent("EndLevel");
                 EventManager.TriggerEvent("WinAnimation");
+                EventManager.TriggerEvent("ZoomIn");
                 EventManager.TriggerEvent("FinishSound");
                 gameObject.GetComponent<SpriteRenderer>().color = new Color(
                      gameObject.GetComponent<SpriteRenderer>().color.r,

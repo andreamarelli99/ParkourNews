@@ -65,9 +65,9 @@ public class CameraSet : MonoBehaviour
     { 
         EventManager.StopListening("ZoomIn",OnZoomInMap);
         if(!_zoomed){
-        EventManager.TriggerEvent("ZoomCamera");
-       StartCoroutine(ZoomInCoroutine());
-       }
+            EventManager.TriggerEvent("ZoomCamera");
+            StartCoroutine(ZoomInCoroutine());
+        }
         EventManager.StartListening("ZoomIn",OnZoomInMap);
     }
 
