@@ -4,16 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a21cc26-fe96-4869-9603-03d818d6f1ed" name="Changes" comment="useless scenes deleted">
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/15.unity" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/15.unity.meta" afterDir="false" />
+    <list default="true" id="2a21cc26-fe96-4869-9603-03d818d6f1ed" name="Changes" comment="[PROVA] aggiunta livello">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ParkourNews/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ParkourNews/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/0.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/0.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/13.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/13.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/13.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/13.unity.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/14.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/14.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GrapplingScene.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GrapplingScene.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/LevelManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/LevelManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,6 +26,7 @@
     <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Prefabs/MapEffects/CanvasInkers.prefab" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Prefabs/Menu/EndMenu.prefab" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Prefabs/Menu/PauseMenu.prefab" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Scenes/0.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Scenes/0.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Scenes/1.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Scenes/12.unity" root0="SKIP_HIGHLIGHTING" />
@@ -207,13 +203,6 @@
       <workItem from="1673044391707" duration="795000" />
       <workItem from="1673046862630" duration="3038000" />
       <workItem from="1673082116501" duration="1236000" />
-    </task>
-    <task id="LOCAL-00029" summary="check on save done">
-      <created>1669106719564</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1669106719564</updated>
     </task>
     <task id="LOCAL-00030" summary="fix save when first playing">
       <created>1669480930630</created>
@@ -551,7 +540,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673110002365</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="[PROVA] aggiunta livello">
+      <created>1673111944844</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1673111944844</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -627,7 +623,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="more speed = less acceleration" />
     <MESSAGE value="stop pressing stops the stickman" />
     <MESSAGE value="workspace" />
     <MESSAGE value="deceleration only in-air or during actions" />
@@ -652,6 +647,7 @@
     <MESSAGE value="Menu selector revamp" />
     <MESSAGE value="l1 inkers info" />
     <MESSAGE value="useless scenes deleted" />
-    <option name="LAST_COMMIT_MESSAGE" value="useless scenes deleted" />
+    <MESSAGE value="[PROVA] aggiunta livello" />
+    <option name="LAST_COMMIT_MESSAGE" value="[PROVA] aggiunta livello" />
   </component>
 </project>
