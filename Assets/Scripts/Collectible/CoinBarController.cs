@@ -35,14 +35,8 @@ public class CoinBarController : MonoBehaviour
     void OnCoin()
     {
         EventManager.StopListening("OnCoin", OnCoin);
-       
         _slider.value += 1;
-        var newImage = noStars;
-        if (_slider.value >= _slider.maxValue) newImage = threeStars;
-        else if(_slider.value >= _slider.maxValue * 0.66) newImage = twoStars;
-        else if(_slider.value >= _slider.maxValue * 0.33) newImage = oneStars;
-        starsImage.sprite = newImage;
-        
+        SetStars();
         EventManager.StartListening("OnCoin", OnCoin);
     }
     
@@ -50,10 +44,16 @@ public class CoinBarController : MonoBehaviour
     {
         EventManager.StopListening("OnRespawn", OnRespawn);
         _slider.value = _inkersInLastCheckPoint;
-        if (_inkersInLastCheckPoint >= _slider.maxValue) starsImage.sprite = threeStars;
-        else if(_inkersInLastCheckPoint >= _slider.maxValue * 0.66) starsImage.sprite  = twoStars;
-        else if(_inkersInLastCheckPoint >= _slider.maxValue * 0.33) starsImage.sprite = oneStars;
-   //     starsImage.sprite = noStars;
+        SetStars();
         EventManager.StartListening("OnRespawn", OnRespawn);
+    }
+
+    void SetStars()
+    {
+        var newImage = noStars;
+        if (_slider.value >= _slider.maxValue) newImage = threeStars;
+        else if(_slider.value >= _slider.maxValue * 0.66) newImage = twoStars;
+        else if(_slider.value >= _slider.maxValue * 0.33) newImage = oneStars;
+        starsImage.sprite = newImage;
     }
 }
