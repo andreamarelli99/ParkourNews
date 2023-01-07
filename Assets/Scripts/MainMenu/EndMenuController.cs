@@ -12,7 +12,7 @@ public class EndMenuController : MonoBehaviour
 {
     [SerializeField] private GameObject playMenu;
     [SerializeField] private GameObject quitButton;
-    
+    [SerializeField] private GameObject redoButton;
 
     private float _imageSegmentDim;
     
@@ -53,6 +53,8 @@ public class EndMenuController : MonoBehaviour
         _playButton = GameObject.FindWithTag("QuitButton").GetComponent<Button>();
         _playButton.onClick.AddListener(OnClickQuitButton);
         
+    
+        
         
     }
 
@@ -66,8 +68,9 @@ public class EndMenuController : MonoBehaviour
     {
         Application.Quit();
     }
-
+    
    
+    
     void Update()
     {
         if (EventSystem.current.currentSelectedGameObject == null)

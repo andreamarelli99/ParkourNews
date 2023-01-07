@@ -11,7 +11,7 @@ namespace ParkourNews.Scripts
         [SerializeField] private float _coinValue = 1;
         
         private int _currentLevel;
-        [SerializeField] private int _maxLevel =3;
+        [SerializeField] private int _maxLevel =15;
 
         [SerializeField] private List<int> coinsPerLevel;
         

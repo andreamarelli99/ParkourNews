@@ -78,8 +78,7 @@ public class Spawner : MonoBehaviour, ISingleton
         _maxLevel = _levelManager.numberOfLevels();
         
         Debug.Log(_currentLevel);
-        if (_currentLevel <_maxLevel)
-        {
+        
 
             Debug.Log("EndMenu");
             EventManager.StopListening("EndMenu", OnEndMenu);
@@ -111,12 +110,8 @@ public class Spawner : MonoBehaviour, ISingleton
                     image.sprite = starsSprite0;
                     break;
             }
-        }
-        else
-        {
-            SceneManager.LoadScene("EndGame");
-        }
-
+        
+    
     }
     
     private void OnEnable()
