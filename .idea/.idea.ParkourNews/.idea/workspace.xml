@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a21cc26-fe96-4869-9603-03d818d6f1ed" name="Changes" comment="try">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ParkourNews/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ParkourNews/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="2a21cc26-fe96-4869-9603-03d818d6f1ed" name="Changes" comment="no pause on end menu" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -193,7 +191,21 @@
       <workItem from="1673040671831" duration="2441000" />
       <workItem from="1673044391707" duration="795000" />
       <workItem from="1673046862630" duration="3038000" />
-      <workItem from="1673082116501" duration="5150000" />
+      <workItem from="1673082116501" duration="1236000" />
+    </task>
+    <task id="LOCAL-00028" summary="fix on points type">
+      <created>1669105604561</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1669105604561</updated>
+    </task>
+    <task id="LOCAL-00029" summary="check on save done">
+      <created>1669106719564</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1669106719564</updated>
     </task>
     <task id="LOCAL-00030" summary="fix save when first playing">
       <created>1669480930630</created>
@@ -524,21 +536,7 @@
       <option name="project" value="LOCAL" />
       <updated>1672952555367</updated>
     </task>
-    <task id="LOCAL-00077" summary="lv 13 revamp + menus">
-      <created>1673083918991</created>
-      <option name="number" value="00077" />
-      <option name="presentableId" value="LOCAL-00077" />
-      <option name="project" value="LOCAL" />
-      <updated>1673083918992</updated>
-    </task>
-    <task id="LOCAL-00078" summary="menu graphic revamp">
-      <created>1673091069668</created>
-      <option name="number" value="00078" />
-      <option name="presentableId" value="LOCAL-00078" />
-      <option name="project" value="LOCAL" />
-      <updated>1673091069668</updated>
-    </task>
-    <option name="localTasksCounter" value="79" />
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -558,7 +556,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="gamecontroller" />
+                        <option value="origin/master" />
                       </list>
                     </value>
                   </entry>
@@ -592,12 +590,12 @@
             <list>
               <RecentGroup>
                 <option name="FILTER_VALUES">
-                  <option value="gamecontroller" />
+                  <option value="origin/master" />
                 </option>
               </RecentGroup>
               <RecentGroup>
                 <option name="FILTER_VALUES">
-                  <option value="origin/master" />
+                  <option value="gamecontroller" />
                 </option>
               </RecentGroup>
               <RecentGroup>
@@ -614,6 +612,8 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="Now on key horizontal move =0 the character stays still on its horizontal coord" />
+    <MESSAGE value="more speed = less acceleration" />
     <MESSAGE value="stop pressing stops the stickman" />
     <MESSAGE value="workspace" />
     <MESSAGE value="deceleration only in-air or during actions" />
@@ -637,8 +637,6 @@
     <MESSAGE value="fix on lv 10" />
     <MESSAGE value="Menu selector revamp" />
     <MESSAGE value="l1 inkers info" />
-    <MESSAGE value="lv 13 revamp + menus" />
-    <MESSAGE value="menu graphic revamp" />
-    <option name="LAST_COMMIT_MESSAGE" value="menu graphic revamp" />
+    <option name="LAST_COMMIT_MESSAGE" value="l1 inkers info" />
   </component>
 </project>
