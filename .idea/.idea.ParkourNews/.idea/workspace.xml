@@ -18,6 +18,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/CanvasManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BouncingLettersGroundController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CameraSet.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Akaviri/Desktop/PARKOURNEWS_project/ParkourNews/Assets/Scripts/CameraSet.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Collectible/PlayerCoinsCounter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MainMenu/MenuController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerEffects/DeathEffectExplosion.cs" root0="FORCE_HIGHLIGHTING" />
@@ -182,13 +183,7 @@
       <workItem from="1673082116501" duration="1236000" />
       <workItem from="1673125486111" duration="52000" />
       <workItem from="1673166227883" duration="1525000" />
-    </task>
-    <task id="LOCAL-00034" summary="fix camera">
-      <created>1669572823702</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1669572823702</updated>
+      <workItem from="1673176976819" duration="168000" />
     </task>
     <task id="LOCAL-00035" summary="pause implemented (press m)">
       <created>1669739022767</created>
@@ -526,7 +521,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673176460886</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="fix on camera/pause menu">
+      <created>1673177118246</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1673177118247</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -602,7 +604,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="endLevelMenu draft" />
     <MESSAGE value="win menu w/o stars (for now)" />
     <MESSAGE value="merge fix" />
     <MESSAGE value="end menu with stars" />
@@ -627,6 +628,7 @@
     <MESSAGE value="fix endMenu lv15" />
     <MESSAGE value="fix spike lv 13" />
     <MESSAGE value="fixed pause/zoom" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed pause/zoom" />
+    <MESSAGE value="fix on camera/pause menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix on camera/pause menu" />
   </component>
 </project>

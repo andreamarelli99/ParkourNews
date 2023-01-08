@@ -53,10 +53,14 @@ public class CameraSet : MonoBehaviour
     private void ZoomOpenMenu()
     {   
         Debug.Log("openZoom");
+        EventManager.StopListening("ZoomIn",OnZoomInMap);
+        EventManager.StopListening("ZoomOut",OnZoomOutMap);
         EventManager.StopListening("OpenMenuZoom",ZoomOpenMenu);
         _openPauseMenu = true;
         OnZoomInMap();
         EventManager.StartListening("OpenMenuZoom",ZoomOpenMenu);
+        EventManager.StartListening("ZoomIn",OnZoomInMap);
+        EventManager.StartListening("ZoomOut",OnZoomOutMap);
     }
 
     private void OnZoomOutMap()
