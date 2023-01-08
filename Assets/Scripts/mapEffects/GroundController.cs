@@ -44,7 +44,7 @@ namespace ParkourNews.Scripts
             //check if ground is touched by the stickman
             if (col.gameObject.CompareTag("Stickman")){
                 if(col.GetContact(0).collider.CompareTag("StickmanFoot")){
-                    EventManager.TriggerEvent("WalkingSound");
+              //      EventManager.TriggerEvent("WalkingSound");
                 }
             }
         }
