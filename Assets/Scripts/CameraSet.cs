@@ -22,6 +22,7 @@ public class CameraSet : MonoBehaviour
     [SerializeField] private float _percentageFollowing = 10f;
     [SerializeField] private float _deltaZoomIncrement = 0.01f;
     [SerializeField] private float _dumping = 3f;
+    private bool _openPauseMenu = false;
 
 
     private void Start()
@@ -35,6 +36,7 @@ public class CameraSet : MonoBehaviour
         
         EventManager.StartListening("ZoomIn",OnZoomInMap);
         EventManager.StartListening("ZoomOut",OnZoomOutMap);
+        EventManager.StartListening("ZoomOpenMenu",ZoomOpenMenu);
         _cam = GetComponent<CinemachineVirtualCamera>();
         _cam.m_Lens.OrthographicSize = _zoomOutMax;
         _spawner = GameObject.FindObjectOfType<Spawner>();
@@ -48,7 +50,14 @@ public class CameraSet : MonoBehaviour
         StartCoroutine(ZoomInCoroutine());
     }
 
-    
+    private void ZoomOpenMenu()
+    {   
+        Debug.Log("openZoom");
+        EventManager.StopListening("OpenMenuZoom",ZoomOpenMenu);
+        _openPauseMenu = true;
+        OnZoomInMap();
+        EventManager.StartListening("OpenMenuZoom",ZoomOpenMenu);
+    }
 
     private void OnZoomOutMap()
     {
@@ -86,6 +95,11 @@ public class CameraSet : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
 
+        if (_openPauseMenu)
+        {
+            EventManager.TriggerEvent("OpenMenu");
+            _openPauseMenu = false;
+        }
         _zoomed = true;
         _cam.GetCinemachineComponent<CinemachineFramingTransposer>().m_XDamping = 1f;
         _cam.GetCinemachineComponent<CinemachineFramingTransposer>().m_YDamping = 1f;

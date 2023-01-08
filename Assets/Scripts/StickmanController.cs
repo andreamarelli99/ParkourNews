@@ -444,7 +444,7 @@ public class StickmanController : MonoBehaviour,ISingleton
 
     private void OnMenu(InputAction.CallbackContext context)
     {
-        EventManager.TriggerEvent("OpenMenu");
+        EventManager.TriggerEvent("ZoomOpenMenu");
     }
 
     private void OnReload(InputAction.CallbackContext context)
