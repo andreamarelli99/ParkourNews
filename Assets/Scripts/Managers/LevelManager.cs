@@ -8,6 +8,7 @@ namespace ParkourNews.Scripts
     { //todo move coin after finishing levels impl
         
         private float _playerPoints;
+        private float _playerPointAtCheckpoint;
         [SerializeField] private float _coinValue = 1;
         
         private int _currentLevel;
@@ -44,11 +45,13 @@ namespace ParkourNews.Scripts
 
         public void Start()
         {
+            _playerPointAtCheckpoint = 0;
             _currentLevel = 1;
-           
             EventManager.StartListening("OnRespawn",OnRespawn);
             EventManager.StartListening("OnCoin",OnCoin);
             EventManager.StartListening("EndLevel",OnEndLevel);
+            EventManager.StartListening("OnReload",OnReload);
+            EventManager.StartListening("CheckPointReached", CheckPointReached);
         }
 
         
@@ -62,8 +65,22 @@ namespace ParkourNews.Scripts
             EventManager.TriggerEvent("Save");
             EventManager.TriggerEvent("EndMenu");
             EventManager.StartListening("EndLevel",OnEndLevel);
+            _playerPointAtCheckpoint = 0;
         }
 
+        private void OnReload()
+        {
+            EventManager.StopListening("OnReload",OnReload);
+            _playerPointAtCheckpoint = 0;
+            EventManager.StartListening("OnReload",OnReload);
+        }
+
+        private void CheckPointReached()
+        {
+            EventManager.StopListening("CheckPointReached", CheckPointReached);
+            _playerPointAtCheckpoint = _playerPoints;
+            EventManager.StartListening("CheckPointReached", CheckPointReached);
+        }
         
         public void setCurrentLevel(int level)
         {
@@ -73,8 +90,8 @@ namespace ParkourNews.Scripts
         public void OnRespawn()
         {
             EventManager.StopListening("OnRespawn",OnRespawn);
-            _playerPoints = 0;
             EventManager.TriggerEvent("onResetCoinsBar");
+            _playerPoints = _playerPointAtCheckpoint;
             EventManager.StartListening("OnRespawn",OnRespawn);
         }
         
@@ -85,6 +102,7 @@ namespace ParkourNews.Scripts
         
         public int GetNextLevel()
         {
+            
             return _nextLevel;
         }
         
