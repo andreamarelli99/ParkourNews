@@ -397,6 +397,7 @@ public class StickmanController : MonoBehaviour,ISingleton
             _isJumping = false;
             _isGrappling = true;
             _canRoll = false;
+            _canDash = false;
             _animator.SetBool(IsJumping, true);
             _animator.SetBool(IsGrappling, true);
             _rigidbody2D.isKinematic = true;
@@ -487,6 +488,7 @@ public class StickmanController : MonoBehaviour,ISingleton
         _isDoubleJumping = false;
         _isCrouched = false;
         _justFlipped = false;
+        _canRoll = false;
         
         
         // Now block the player flip until it exits the sliding oblique.
@@ -509,6 +511,7 @@ public class StickmanController : MonoBehaviour,ISingleton
             Debug.Log("disable sliding oblique");
             _canMove = true;
             _canFlip = true;
+            _canRoll = true;
             _animator.SetBool(IsSlidingOblique, false);
         }
     }
@@ -536,6 +539,7 @@ public class StickmanController : MonoBehaviour,ISingleton
         //EventManager.StopListening("InAir",InAir);
         _canRoll = true;
         _canMove = true;
+        _canDash = true;
         if (Time.timeScale != 0)
         {
             if (_isGrappling)
@@ -557,6 +561,7 @@ public class StickmanController : MonoBehaviour,ISingleton
                 _isJumpWall = false;
                 Debug.Log("Jumping from wall");
                 _animator.SetBool(IsJumping, true);
+                _canDash = true;
 
                 int oppositeDirection = 1;
                 float incForce = 1;
@@ -601,7 +606,7 @@ public class StickmanController : MonoBehaviour,ISingleton
             else if (!_isJumping)
             {
                 
-                if (_isCrouched) _walkSpeed *= 2;
+                if (_isCrouched) _walkSpeed = 500;
                 _isJumpWall = false;
                 _isJumping = true;
                 _isCrouched = false;
@@ -728,16 +733,16 @@ public class StickmanController : MonoBehaviour,ISingleton
             Debug.Log("Crouch!");
                 _isCrouched = true;
                 _animator.SetBool("IsCrouched", true);
-                _walkSpeed /= 2;
+                _walkSpeed = 150;
 
         }
-        else if(!_isJumping && !_isSlidingOblique&& Time.timeScale!=0)//if the stickman is in a crouch position -> getUp
+        else if(_isCrouched && !_isJumping && !_isSlidingOblique&& Time.timeScale!=0)//if the stickman is in a crouch position -> getUp
         {
             //todo check for collisions
             Debug.Log("Get Up!");
             _isCrouched = false;
             _animator.SetBool("IsCrouched", false);
-            _walkSpeed *= 2;
+            _walkSpeed = 500;
 
         }
     }
@@ -776,6 +781,7 @@ public class StickmanController : MonoBehaviour,ISingleton
         _isJumpWall = true;
         _animator.SetBool(IsJumping,false);
         _animator.SetBool(IsSlidingWall,true);
+        _canDash = false;
         Debug.Log("Attached to wall");
     }
     
@@ -867,6 +873,7 @@ public class StickmanController : MonoBehaviour,ISingleton
             _inAirEvent = true;
         }
 
+        _walkSpeed = 500;
         _rigidbody2D.gravityScale = _ground_gravity_scale;
         _isJumping = false;
         _isDoubleJumping = false;

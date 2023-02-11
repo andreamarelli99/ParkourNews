@@ -2495,7 +2495,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2844989628324125228, guid: 876df64abd66f7b4cabeaf246c44b9a6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -17.62
+      value: -18.12
       objectReference: {fileID: 0}
     - target: {fileID: 2844989628324125228, guid: 876df64abd66f7b4cabeaf246c44b9a6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4160,7 +4160,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2844989628324125228, guid: 876df64abd66f7b4cabeaf246c44b9a6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 20.13
+      value: 19.63
       objectReference: {fileID: 0}
     - target: {fileID: 2844989628324125228, guid: 876df64abd66f7b4cabeaf246c44b9a6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5304,6 +5304,7 @@ GameObject:
   - component: {fileID: 823893370}
   - component: {fileID: 823893372}
   - component: {fileID: 823893371}
+  - component: {fileID: 823893373}
   m_Layer: 12
   m_Name: Square
   m_TagString: Untagged
@@ -5409,6 +5410,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &823893373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 823893369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 142f6467c17447b2996672a501aae77b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onGround: 0
+  _onWall: 0
+  _canJump: 1
 --- !u!1001 &858592469
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10550,7 +10566,13 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.47265625, y: 0.15234375}
+    - - {x: 0.33118284, y: 0.38096648}
+      - {x: 0.27019683, y: 0.4292366}
+      - {x: 0.2065355, y: 0.44579855}
+      - {x: -0.23218516, y: 0.44262895}
+      - {x: -0.28839004, y: 0.41574594}
+      - {x: -0.35289744, y: 0.35247326}
+      - {x: -0.45806438, y: 0.18300512}
       - {x: -0.5, y: 0}
       - {x: -0.47265625, y: -0.15234375}
       - {x: -0.40234375, y: -0.29296875}
@@ -10562,7 +10584,7 @@ PolygonCollider2D:
       - {x: 0.40234375, y: -0.29296875}
       - {x: 0.47265625, y: -0.15234375}
       - {x: 0.5, y: 0}
-      - {x: 0.47265625, y: 0.15234375}
+      - {x: 0.4470537, y: 0.20407951}
 --- !u!212 &1922914094
 SpriteRenderer:
   m_ObjectHideFlags: 0
