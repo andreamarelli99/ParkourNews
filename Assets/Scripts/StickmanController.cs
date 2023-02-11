@@ -397,7 +397,6 @@ public class StickmanController : MonoBehaviour,ISingleton
             _isJumping = false;
             _isGrappling = true;
             _canRoll = false;
-            _canDash = false;
             _animator.SetBool(IsJumping, true);
             _animator.SetBool(IsGrappling, true);
             _rigidbody2D.isKinematic = true;
@@ -539,7 +538,6 @@ public class StickmanController : MonoBehaviour,ISingleton
         //EventManager.StopListening("InAir",InAir);
         _canRoll = true;
         _canMove = true;
-        _canDash = true;
         if (Time.timeScale != 0)
         {
             if (_isGrappling)
@@ -561,7 +559,6 @@ public class StickmanController : MonoBehaviour,ISingleton
                 _isJumpWall = false;
                 Debug.Log("Jumping from wall");
                 _animator.SetBool(IsJumping, true);
-                _canDash = true;
 
                 int oppositeDirection = 1;
                 float incForce = 1;
@@ -690,9 +687,10 @@ public class StickmanController : MonoBehaviour,ISingleton
 
     private void OnDash(InputAction.CallbackContext context)
     {
-        if (_canDash&&!_isCrouched && !_isSlidingOblique&& Time.timeScale!=0)
+        if (_canDash&&!_isCrouched && !_isSlidingOblique && !_isGrappling && !_isJumpWall && Time.timeScale!=0)
         {
             EventManager.TriggerEvent("DashSound");
+            _animator.SetTrigger("IsDashing");
             if (_facingDirection == 1)
             {
                 Instantiate(_dashRightEffect, transform.position + new Vector3(0,0.5f,-0.1f), Quaternion.identity);
@@ -781,7 +779,6 @@ public class StickmanController : MonoBehaviour,ISingleton
         _isJumpWall = true;
         _animator.SetBool(IsJumping,false);
         _animator.SetBool(IsSlidingWall,true);
-        _canDash = false;
         Debug.Log("Attached to wall");
     }
     
